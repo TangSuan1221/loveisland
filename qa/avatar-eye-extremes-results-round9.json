@@ -1,0 +1,106 @@
+{
+  "result": "PASS",
+  "runLabel": "round9",
+  "capturedAt": "2026-11-13T11:32:09.445Z",
+  "backend": "WebGPUBackend",
+  "records": [
+    {
+      "iteration": 0,
+      "elapsedMs": 199.10000002384186,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 1,
+      "elapsedMs": 161.10000002384186,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 2,
+      "elapsedMs": 189.5,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 3,
+      "elapsedMs": 166.80000001192093,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 4,
+      "elapsedMs": 198.5,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 5,
+      "elapsedMs": 155.10000002384186,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 6,
+      "elapsedMs": 192.4000000357628,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 7,
+      "elapsedMs": 160.19999998807907,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 8,
+      "elapsedMs": 206.20000004768372,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 9,
+      "elapsedMs": 176.20000004768372,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 10,
+      "elapsedMs": 284.5,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 11,
+      "elapsedMs": 215.5,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 12,
+      "elapsedMs": 265.0999999642372,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 13,
+      "elapsedMs": 227.80000001192093,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 14,
+      "elapsedMs": 270.7999999523163,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 15,
+      "elapsedMs": 199,
+      "geometries": 56,
+      "textures": 2
+    }
+  ],
+  "invalidNumbers": 0,
+  "errors": []
+}

@@ -1,0 +1,2 @@
+from pathlib import Path
+p=Path('src/avatar-model.js');s=p.read_text(encoding='utf-8');s=s.replace("  position.setXYZ(i,...faceSurfacePoint(appearance.faceShape,x,y,z,appearance));", "  const point=faceSurfacePoint(appearance.faceShape,x,y,z,appearance);\n  // Explicit lift survives the flattened anime surface and clears graphic eyelids.\n  // Fade it at the perimeter so a painted edge cannot become a floating rim.\n  point[2]+=.012*Math.min(1,Math.max(0,1-x*x-y*y)*8);\n  position.setXYZ(i,...point);");p.write_text(s,encoding='utf-8')

@@ -1,0 +1,15 @@
+{
+  "result": "PASS",
+  "checks": [
+    "local reference loads without changing appearance",
+    "uniform scale, translation, rotation and opacity; no stretch and no blocked model controls",
+    "grayscale affects both actual WebGPU model and reference",
+    "collapse adjustment panel without losing overlay",
+    "reference alignment is excluded from appearance and undo history",
+    "invalid replacement preserves valid reference",
+    "mobile calibration panel remains in viewport with save accessible",
+    "removal clears images, overlay and grayscale",
+    "invalid, removed and session images all release their object URLs"
+  ],
+  "errors": []
+}

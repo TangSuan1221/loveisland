@@ -1,0 +1,323 @@
+{
+  "review": "round5",
+  "date": "2026-11-13",
+  "overall": "FAILED",
+  "scope": "Frozen round5 screenshots only; no production code or tests inspected.",
+  "source_files": [
+    {
+      "path": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\codex-clipboard-bb1f579c-afaf-4996-8112-de27960fd757.png",
+      "sha256": "7755d7de98acd2b6755bd6c232efff525cc84c1cae23d854c3aa02ee9aed055b",
+      "bytes": 1101766,
+      "dimensions": [
+        877,
+        1299
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round5.png",
+      "sha256": "006261983d42021c76f3b7434e8017c500a6361093224daf4cf24165e824dbd0",
+      "bytes": 148430,
+      "dimensions": [
+        1262,
+        1702
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round5-detail.png",
+      "sha256": "e8d699b8479a6093bb75eb09e82b46c410444c60efbdc06d3f2b6f6cf1d77408",
+      "bytes": 55189,
+      "dimensions": [
+        1000,
+        1137
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round5-portrait.png",
+      "sha256": "d58404c18dd6216dfcdd5d5c69caef1265ecd0b4fd33723347732f4041983705",
+      "bytes": 35378,
+      "dimensions": [
+        840,
+        980
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round5.json",
+      "sha256": "a341f9b773cd72c7b8ac57d961548eceba1330431946bccfd04d91f30fa0fb93",
+      "bytes": 32434
+    }
+  ],
+  "historical_report_bytes": 46964,
+  "historical_report_sha256": "7bc3fcfdad2023ba6ad7e2dc4923164897bf7d11f569c04036af2e914e19c6ea",
+  "capture_provenance": {
+    "attribution": "主执行代理说明／JSON记录，不是实现审计",
+    "metadata": {
+      "backend": "WebGPUBackend",
+      "portrait": {
+        "width": 840,
+        "height": 980,
+        "distance": 1.92,
+        "centerOffsetY": 0.02,
+        "source": "native WebGPU render"
+      },
+      "detail": {
+        "width": 1000,
+        "height": 1100,
+        "distance": 1.42,
+        "centerOffsetY": -0.06,
+        "source": "native WebGPU render"
+      }
+    },
+    "outputs_count": 9
+  },
+  "normalization": {
+    "D_definition": "image-space pupil-center distance",
+    "target_D_px": 240,
+    "target_pupils": [
+      [
+        200,
+        515
+      ],
+      [
+        440,
+        515
+      ]
+    ],
+    "panel_dimensions": [
+      620,
+      925
+    ],
+    "transforms": {
+      "reference": {
+        "source_pupil_centers_estimated": [
+          [
+            482,
+            808
+          ],
+          [
+            724,
+            785
+          ]
+        ],
+        "source_D_approx_px": 243.09051812030842,
+        "output_to_source_affine": [
+          1.0083333333333333,
+          0.09583333333333334,
+          230.97916666666669,
+          -0.09583333333333334,
+          1.0083333333333333,
+          307.875
+        ]
+      },
+      "detail": {
+        "source_pupil_centers_estimated": [
+          [
+            306.5,
+            442
+          ],
+          [
+            692.5,
+            442
+          ]
+        ],
+        "source_D_approx_px": 386.0,
+        "output_to_source_affine": [
+          1.6083333333333334,
+          -0.0,
+          -15.166666666666686,
+          0.0,
+          1.6083333333333334,
+          -386.29166666666674
+        ]
+      },
+      "portrait": {
+        "source_pupil_centers_estimated": [
+          [
+            297.1,
+            482.3
+          ],
+          [
+            542,
+            482.3
+          ]
+        ],
+        "source_D_approx_px": 244.89999999999998,
+        "output_to_source_affine": [
+          1.0204166666666665,
+          -0.0,
+          93.01666666666671,
+          0.0,
+          1.0204166666666665,
+          -43.21458333333322
+        ]
+      }
+    },
+    "allowed": "uniform scale, translation, in-plane rotation only",
+    "resampling": "bicubic; no new image detail",
+    "gray_mask_both_panels": [
+      [
+        0,
+        817
+      ],
+      [
+        285,
+        817
+      ],
+      [
+        320,
+        825
+      ],
+      [
+        355,
+        817
+      ],
+      [
+        620,
+        817
+      ],
+      [
+        620,
+        925
+      ],
+      [
+        0,
+        925
+      ]
+    ],
+    "gray_mask_fill": 220,
+    "final_combined_gray_crop": [
+      0,
+      65,
+      1256,
+      835
+    ],
+    "gray_scope": "full crown and face; garment below chin masked to remove name; not for neck measurements",
+    "gray_not_blinded": "reviewer knows provenance; no recognition-rate experiment"
+  },
+  "auxiliary_images": [
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round5\\01-uniform-D-full-head.png",
+      "sha256": "b04fb855a93c4ca238bfa89dac08fb8ce7a823d4df63260eae4da25e01fc2e49",
+      "bytes": 711927,
+      "dimensions": [
+        1256,
+        925
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round5\\02-no-name-gray-full-head.png",
+      "sha256": "02238597da40400ad9072ce8833bc942db3155813fe9791b0ecda9d2e4dbbc94",
+      "bytes": 320238,
+      "dimensions": [
+        1256,
+        770
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round5\\03-fringe-and-eyes.png",
+      "sha256": "73a66d9dc6024d7698d9f285c37e97df32a8363f7ba1383ef73f37e476498103",
+      "bytes": 236542,
+      "dimensions": [
+        1036,
+        300
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round5\\04-cheeks-chin-neck.png",
+      "sha256": "987821b5e0c5b49b528dadf3757907935627a0ce3d94d35c4fdf858790678c24",
+      "bytes": 197755,
+      "dimensions": [
+        1036,
+        310
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round5\\05-native-eye-crop.png",
+      "sha256": "074e085d324d68b4af3ad0f8886c8c215aa44a4529c01f0e2d3053203c7f2234",
+      "bytes": 131853,
+      "dimensions": [
+        1110,
+        323
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round5\\06-side-hair-face-boundary.png",
+      "sha256": "35cf4e2a3e0dcd0fd40492fb84b881d84a618256ab40817338f4efeb3ea05947",
+      "bytes": 46360,
+      "dimensions": [
+        340,
+        980
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round5\\07-native-fringe-crop.png",
+      "sha256": "c083e2f043fb8dfd1b4d0efe3e76382a6a06401f811b9f2d0aa43c0487244c3c",
+      "bytes": 41621,
+      "dimensions": [
+        1110,
+        310
+      ]
+    }
+  ],
+  "auxiliary_construction": {
+    "01": "reference versus portrait, two normalized panels",
+    "02": "same reference/portrait normalization, grayscale, same garment mask in both panels, then combined crop",
+    "03": "reference versus detail; normalized crop [65,330,575,630] per panel",
+    "04": "reference versus detail; normalized crop [65,555,575,865] per panel",
+    "05": "native detail crop [125,295,865,510], enlarged 1.5x, not a new native render",
+    "06": "native detail crop [110,290,280,780], enlarged 2x",
+    "07": "native detail crop [245,210,800,365], enlarged 2x"
+  },
+  "measurement_estimates": {
+    "upper_visible_face_width_at_pupil_plus_0_20D": [
+      1.62,
+      1.66
+    ],
+    "mouth_height_face_width": [
+      1.54,
+      1.6
+    ],
+    "pupil_to_chin": [
+      1.22,
+      1.25
+    ],
+    "crown_above_pupil": [
+      1.73,
+      1.81
+    ],
+    "iris_diameter": [
+      0.3,
+      0.33
+    ],
+    "white_eye_opening_width": [
+      0.58,
+      0.61
+    ],
+    "neck_center_height": [
+      0.11,
+      0.14
+    ],
+    "neck_contact_width": [
+      0.47,
+      0.49
+    ]
+  },
+  "limitations": [
+    "Ranges are image-reading estimates, not statistical confidence intervals or exact 3D calibration.",
+    "Photographed tilted blurred reference has uncertain shaded/hair-occluded boundaries and incomplete crown perimeter.",
+    "29/90-degree views only check displayed static internal consistency; no accurate side reference.",
+    "Old-parameter column uses current shared renderer, not frozen historical A/B.",
+    "Eye white-body scale does not measure total black-liner endpoint footprint."
+  ],
+  "decisions": {
+    "upper_cheek_width_and_front_ear_slivers": "LOCAL_PASS",
+    "fringe_and_side_hair_shape": "FAIL",
+    "eye_endings_and_upper_lash_readability": "FAIL",
+    "accurate_side_reconstruction": "INSUFFICIENT"
+  },
+  "verification": {
+    "history_sections_1_to_10_preserved": true,
+    "sources_unchanged_after_report_write": true,
+    "section11_present_once": true,
+    "report_sha256_after_section11": "c1f9ec114b9b9fc295bed7d2feb8c4635f42a158660629929e43805f460015b4"
+  }
+}

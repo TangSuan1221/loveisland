@@ -1,0 +1,35 @@
+import {chromium} from 'playwright';
+import assert from 'node:assert/strict';
+import {readFileSync,writeFileSync} from 'node:fs';
+const browser=await chromium.launch({channel:'msedge',headless:true});
+const context=await browser.newContext({viewport:{width:1440,height:1000},acceptDownloads:true});
+const page=await context.newPage(),errors=[],checks=[];page.on('pageerror',e=>errors.push(e.message));
+const av=s=>page.locator(`.avatar-studio ${s}`),cat=async id=>av(`[data-category=${id}]`).click();
+const choose=async(k,v)=>av(`[data-field="${k}"][data-value="${v}"]`).click();
+const action=async id=>av(`[data-action=${id}]`).first().click();
+const diag=()=>page.evaluate(()=>window.__avatarDiagnostics());
+const saved=async()=> (await diag()).production.candidates.find(c=>c.name==='组件组合验收');
+const check=name=>{checks.push(name);console.log('PASS',name);};
+try{
+ await page.goto(process.env.AVATAR_QA_URL||'http://127.0.0.1:5190/?qa');
+ await page.locator('[data-action=editAppearance]').first().click();await av('.av-preview-loading').waitFor({state:'hidden'});
+ assert.equal((await diag()).preview.backend,'webgpu');await action('new');await av('.av-name').fill('组件组合验收');
+ await cat('hair');await av('[data-part-search=hairFront]').fill('中分');
+ assert(await av('[data-catalog=hairFront] .av-part:visible').count()>0);assert(await av('[data-catalog=hairFront] .av-part:visible').count()<10);
+ await choose('hairFront','curtain_2');await choose('hairBack','twinbraids_3');await av('[data-toggle=hairTwoTone]').check();await av('[data-toggle=hairMirror]').check();
+ await cat('eyes');await av('[data-part-search=eyeStyle]').fill('小瞳');await choose('eyeStyle','eye_round_smallIris');await choose('eyeHighlight','star');await choose('eyeLashes','fan');
+ await cat('face');await choose('faceShape','tapered');await choose('earStyle','pointed');
+ await cat('details');await choose('upperWrinkles','double');await choose('lowerWrinkles','dimples');await choose('freckles','cheeks');
+ await cat('accessory');await choose('mustacheStyle','mustache_stache_fine');await choose('glasses','glasses_hex');
+ await action('save');let c=await saved();assert(c);const original=c.appearance;
+ for(const[k,v]of Object.entries({hairFront:'curtain_2',hairBack:'twinbraids_3',hairTwoTone:true,hairMirror:true,eyeStyle:'eye_round_smallIris',eyeHighlight:'star',eyeLashes:'fan',faceShape:'tapered',earStyle:'pointed',upperWrinkles:'double',lowerWrinkles:'dimples',freckles:'cheeks',glasses:'glasses_hex'}))assert.equal(original[k],v,k);
+ check('search, independent layers and new features persist in actual production state');
+ const download=page.waitForEvent('download');await action('export');const data=JSON.parse(readFileSync(await(await download).path(),'utf8'));assert.deepEqual(data.appearance,original);check('export retains every new component and toggle');
+ await cat('hair');await choose('hairStyle','side');await action('save');c=await saved();assert.equal(c.appearance.hairFront,'auto');assert.equal(c.appearance.hairBack,'auto');await action('undo');await action('save');assert.deepEqual((await saved()).appearance,original);check('legacy hairstyle selection resets split layers atomically and undo restores both');
+ await cat('hair');await av('[data-part-search=hairFront]').fill('不存在的造型');assert.equal(await av('[data-catalog=hairFront] .av-part:visible').count(),0);assert(await av('[data-catalog=hairFront] .av-catalog-empty').isVisible());await av('[data-part-search=hairFront]').fill('');
+ await page.screenshot({path:'qa/catalog-editor-desktop.png'});
+ await page.setViewportSize({width:390,height:844});await cat('eyes');await av('[data-part-search=eyeStyle]').fill('圆润');assert(await av('[data-catalog=eyeStyle] .av-part:visible').count()>0);
+ assert(await page.evaluate(()=>document.querySelector('.avatar-studio').scrollWidth<=innerWidth+1));await page.screenshot({path:'qa/catalog-editor-mobile.png'});check('mobile search and controls remain inside viewport');
+ await action('close');await page.reload();await page.locator('[data-action=editAppearance]').first().waitFor();assert.deepEqual((await saved()).appearance,original);check('reload restores independent layers and facial details');
+ assert.deepEqual(errors,[]);writeFileSync('qa/avatar-catalog-browser-results.json',JSON.stringify({result:'PASS',checks,errors},null,2));
+}catch(error){await page.screenshot({path:'qa/catalog-editor-failure.png'}).catch(()=>{});throw error;}finally{await browser.close();}

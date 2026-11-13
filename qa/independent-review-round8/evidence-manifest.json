@@ -1,0 +1,599 @@
+{
+  "status": "COMPLETE",
+  "round": "round8",
+  "scope": "Only section 14.4 central two fringe locks lower-half convergence; regression checks on accepted parts.",
+  "reference_order": {
+    "A": "original bb1f reference",
+    "B": "frozen round7 portrait",
+    "C": "frozen round8 portrait"
+  },
+  "inputs": [
+    {
+      "path": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\codex-clipboard-bb1f579c-afaf-4996-8112-de27960fd757.png",
+      "sha256": "7755d7de98acd2b6755bd6c232efff525cc84c1cae23d854c3aa02ee9aed055b",
+      "bytes": 1101766,
+      "size": [
+        877,
+        1299
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round7.png",
+      "sha256": "d29e0b092655da5b3e166702d1b9b56028fcfc935fbd69abfb0c0baa2cec97f3",
+      "bytes": 148126,
+      "size": [
+        1262,
+        1702
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round7-detail.png",
+      "sha256": "327f3e2c1686716b582eb8843cf78b015acba1646819ea7628c5d62e71fded1c",
+      "bytes": 56282,
+      "size": [
+        1000,
+        1137
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round7-portrait.png",
+      "sha256": "04d67bfd540402cc55fa3e7eb3dfa80feb819f91350da26b8cbaf1348172beb8",
+      "bytes": 36223,
+      "size": [
+        840,
+        980
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round7.json",
+      "sha256": "483e3a1662ea9fd37d4c7630b0490487543411105c44db538e03744a1219999d",
+      "bytes": 37053
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round8.png",
+      "sha256": "8e678f3970c1e87b64cf4dcfaa43a14d1984f148c53f7dfb87b7e4d8bbbfcf93",
+      "bytes": 148142,
+      "size": [
+        1262,
+        1702
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round8-detail.png",
+      "sha256": "ae54d3f4cfe2cb17fae8e9dbac308c1765d07b7c3c55df06a0ff9688a4b78fbc",
+      "bytes": 56235,
+      "size": [
+        1000,
+        1137
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round8-portrait.png",
+      "sha256": "f6441aac1f67957bf8fdd889bd90a6d669161c939d8559f77a2cff4d8c17ad8c",
+      "bytes": 36097,
+      "size": [
+        840,
+        980
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round8.json",
+      "sha256": "537d58afa8785dabc35539d32a0fea8f471b4fb71ac1074f0b7dd6eaf8c8df67",
+      "bytes": 37053
+    }
+  ],
+  "capture_record": {
+    "backend": "WebGPUBackend",
+    "round": "round8",
+    "capturedAt": "2026-11-13T11:03:48.941Z",
+    "sourceFingerprint": "9bd6bceb2f76e7a6dce3e313c75bc216b9d02f6e84bc9a63148135cdd64f65d6",
+    "sourceFileCount": 40,
+    "note": "Native capture and before/after stability are producer/JSON claims, not independently witnessed by reviewer. Hashes verify identity, not likeness."
+  },
+  "image_hash_checks": [
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round8.png",
+      "expected": "8e678f3970c1e87b64cf4dcfaa43a14d1984f148c53f7dfb87b7e4d8bbbfcf93",
+      "actual": "8e678f3970c1e87b64cf4dcfaa43a14d1984f148c53f7dfb87b7e4d8bbbfcf93",
+      "match": true
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round8-detail.png",
+      "expected": "ae54d3f4cfe2cb17fae8e9dbac308c1765d07b7c3c55df06a0ff9688a4b78fbc",
+      "actual": "ae54d3f4cfe2cb17fae8e9dbac308c1765d07b7c3c55df06a0ff9688a4b78fbc",
+      "match": true
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round8-portrait.png",
+      "expected": "f6441aac1f67957bf8fdd889bd90a6d669161c939d8559f77a2cff4d8c17ad8c",
+      "actual": "f6441aac1f67957bf8fdd889bd90a6d669161c939d8559f77a2cff4d8c17ad8c",
+      "match": true
+    }
+  ],
+  "current_source_hash_checks": [
+    {
+      "path": "qa/avatar-reference-review.html",
+      "expected": "0e50578ee683432a19f5e41171251d7f871adb1a2f6426d5327a264f763090e7",
+      "actual": "0e50578ee683432a19f5e41171251d7f871adb1a2f6426d5327a264f763090e7",
+      "match": true
+    },
+    {
+      "path": "src/avatar-anime-hair.js",
+      "expected": "4ac5e702098fd2ff8e7fdb426e223109317063999e7f7234acd19e8eb1dbecef",
+      "actual": "4ac5e702098fd2ff8e7fdb426e223109317063999e7f7234acd19e8eb1dbecef",
+      "match": true
+    },
+    {
+      "path": "src/avatar-anime.js",
+      "expected": "2041cbb8726f7349ccf0eb971703ab0be19c45d2d4957dbde5a6a02ca3f41a0d",
+      "actual": "2041cbb8726f7349ccf0eb971703ab0be19c45d2d4957dbde5a6a02ca3f41a0d",
+      "match": true
+    },
+    {
+      "path": "src/avatar-detail-catalog.js",
+      "expected": "fb5d41b7ff5eb975af06d6f84b5f705ca975756f7d2d51e9c87ade78a1b52e7b",
+      "actual": "fb5d41b7ff5eb975af06d6f84b5f705ca975756f7d2d51e9c87ade78a1b52e7b",
+      "match": true
+    },
+    {
+      "path": "src/avatar-editor.css",
+      "expected": "f1ca5310a9f83a6de716dd5a39209ea801940659276b14ec1138b58264c33b93",
+      "actual": "f1ca5310a9f83a6de716dd5a39209ea801940659276b14ec1138b58264c33b93",
+      "match": true
+    },
+    {
+      "path": "src/avatar-editor.js",
+      "expected": "ea02bb93cd2f37ae784012db2c71d89da97b3e10334b120f548b4ed1c148d05c",
+      "actual": "ea02bb93cd2f37ae784012db2c71d89da97b3e10334b120f548b4ed1c148d05c",
+      "match": true
+    },
+    {
+      "path": "src/avatar-eye-curve.js",
+      "expected": "9714e453372f2465fedb6247cb09c6eb7a79ca8fc3577e0ffa531a8a6be73dfb",
+      "actual": "9714e453372f2465fedb6247cb09c6eb7a79ca8fc3577e0ffa531a8a6be73dfb",
+      "match": true
+    },
+    {
+      "path": "src/avatar-eye-shape-editor.js",
+      "expected": "dd642308aca1323f0caf895cf99e4bda8c33c3a767e31f4647a1b6c56082a186",
+      "actual": "dd642308aca1323f0caf895cf99e4bda8c33c3a767e31f4647a1b6c56082a186",
+      "match": true
+    },
+    {
+      "path": "src/avatar-face-art-editor.js",
+      "expected": "b01749dba5a8defb4b8e4f98316961fe4c71b15bd46af939cd3b9e82af266b04",
+      "actual": "b01749dba5a8defb4b8e4f98316961fe4c71b15bd46af939cd3b9e82af266b04",
+      "match": true
+    },
+    {
+      "path": "src/avatar-face-art.js",
+      "expected": "cf792062add9400272f6dbaa850da99aded9e9ad9a49eff58c927d5c34d54097",
+      "actual": "cf792062add9400272f6dbaa850da99aded9e9ad9a49eff58c927d5c34d54097",
+      "match": true
+    },
+    {
+      "path": "src/avatar-feature-catalog.js",
+      "expected": "0814dcf829e6989dce4e1998b4fdad98529703113d312d514df20c58f3eff7ce",
+      "actual": "0814dcf829e6989dce4e1998b4fdad98529703113d312d514df20c58f3eff7ce",
+      "match": true
+    },
+    {
+      "path": "src/avatar-hair-catalog.js",
+      "expected": "b6158e57dd9bd542bd00a954f8073f564633c0bf9e327bb16fdad6f04e536176",
+      "actual": "b6158e57dd9bd542bd00a954f8073f564633c0bf9e327bb16fdad6f04e536176",
+      "match": true
+    },
+    {
+      "path": "src/avatar-material.js",
+      "expected": "a0efa1e1e2e54337ea285fbf19ea021754c1076bef4d0d7bd178cc63da6b2178",
+      "actual": "a0efa1e1e2e54337ea285fbf19ea021754c1076bef4d0d7bd178cc63da6b2178",
+      "match": true
+    },
+    {
+      "path": "src/avatar-model.js",
+      "expected": "d970174d6bf6ca8d6abb879807189d1c5f2cf07edb1e086a2bfee994a325cf07",
+      "actual": "d970174d6bf6ca8d6abb879807189d1c5f2cf07edb1e086a2bfee994a325cf07",
+      "match": true
+    },
+    {
+      "path": "src/avatar-photo-attributes.js",
+      "expected": "9ded25b512fd02cef1e93d9e549a14e149bbc57cdbcc8d76a2d15e794eb81c2d",
+      "actual": "9ded25b512fd02cef1e93d9e549a14e149bbc57cdbcc8d76a2d15e794eb81c2d",
+      "match": true
+    },
+    {
+      "path": "src/avatar-photo-fit.js",
+      "expected": "b620de70603e002275f069bbbad28ae0bb5cb9b59a6858f3f6ee22dabc7f2c8f",
+      "actual": "b620de70603e002275f069bbbad28ae0bb5cb9b59a6858f3f6ee22dabc7f2c8f",
+      "match": true
+    },
+    {
+      "path": "src/avatar-photo-hair-atlas.js",
+      "expected": "e93ceed6f5d86bc9341266192ea53f8f97a95a6fadef2d11510c6cb9f84a95b8",
+      "actual": "e93ceed6f5d86bc9341266192ea53f8f97a95a6fadef2d11510c6cb9f84a95b8",
+      "match": true
+    },
+    {
+      "path": "src/avatar-photo-hair-matching.js",
+      "expected": "0c8769f5f058a85e26f597354d5ec7fd25ca9540cf97ab726e6e1c0683806d56",
+      "actual": "0c8769f5f058a85e26f597354d5ec7fd25ca9540cf97ab726e6e1c0683806d56",
+      "match": true
+    },
+    {
+      "path": "src/avatar-photo-mapping.js",
+      "expected": "23afab9e264aa69b58ae9c4ae18c2277139f543ffdbfb674b28d82700fe2ebdb",
+      "actual": "23afab9e264aa69b58ae9c4ae18c2277139f543ffdbfb674b28d82700fe2ebdb",
+      "match": true
+    },
+    {
+      "path": "src/avatar-photo.js",
+      "expected": "a3e6a5d22334bbe05c9097a8537cc4a6df50ff32a0430719b61b60ab238e2ca3",
+      "actual": "a3e6a5d22334bbe05c9097a8537cc4a6df50ff32a0430719b61b60ab238e2ca3",
+      "match": true
+    },
+    {
+      "path": "src/avatar-reference-comparison.js",
+      "expected": "009868ba32838ce7bf8779542815677a860ecac1087a87af8d9bc349ea02d224",
+      "actual": "009868ba32838ce7bf8779542815677a860ecac1087a87af8d9bc349ea02d224",
+      "match": true
+    },
+    {
+      "path": "src/avatar-schema.js",
+      "expected": "fcf908dac5f1fc9eeb24035b05fceb00f3d4d2b46cda0b766e39949dc295ef7c",
+      "actual": "fcf908dac5f1fc9eeb24035b05fceb00f3d4d2b46cda0b766e39949dc295ef7c",
+      "match": true
+    },
+    {
+      "path": "src/characters.js",
+      "expected": "5d3f44cf9f3fefa411f34e877039d9a78b0fc1dbbcf285728d4d5d12effd2078",
+      "actual": "5d3f44cf9f3fefa411f34e877039d9a78b0fc1dbbcf285728d4d5d12effd2078",
+      "match": true
+    },
+    {
+      "path": "src/game.css",
+      "expected": "fc9c7a6fd192e729bda7daae4249b85180d102be7e55f28338b98dd56a526b0f",
+      "actual": "fc9c7a6fd192e729bda7daae4249b85180d102be7e55f28338b98dd56a526b0f",
+      "match": true
+    },
+    {
+      "path": "src/game.js",
+      "expected": "573310df76165add83d949f1a038a20377eabe88992460005b44b7c3139a4418",
+      "actual": "573310df76165add83d949f1a038a20377eabe88992460005b44b7c3139a4418",
+      "match": true
+    },
+    {
+      "path": "src/gpu-renderer.js",
+      "expected": "70141523fb0c4657884c61a2721a32a0d841a1d671a86b9d69a90ebddef6d7ca",
+      "actual": "70141523fb0c4657884c61a2721a32a0d841a1d671a86b9d69a90ebddef6d7ca",
+      "match": true
+    },
+    {
+      "path": "src/island.js",
+      "expected": "ad252f43ba9a0cdbcc677e3e86d5ff4cb8a1299bada31f563cd32a9666148d31",
+      "actual": "ad252f43ba9a0cdbcc677e3e86d5ff4cb8a1299bada31f563cd32a9666148d31",
+      "match": true
+    },
+    {
+      "path": "src/main.js",
+      "expected": "8841776ccc24a309c1c4e5bd8c47e1926204959526565702f5d20e802d938625",
+      "actual": "8841776ccc24a309c1c4e5bd8c47e1926204959526565702f5d20e802d938625",
+      "match": true
+    },
+    {
+      "path": "src/npc-interface.css",
+      "expected": "425a096b9e6d14fd4900c914636771d415e4cdc574f8db6ab0a656b1d3d31744",
+      "actual": "425a096b9e6d14fd4900c914636771d415e4cdc574f8db6ab0a656b1d3d31744",
+      "match": true
+    },
+    {
+      "path": "src/npc-interface.js",
+      "expected": "b0fd85a3c84f34e9906526fe111b88815d0c84b27ff3e23197611e26ab581c75",
+      "actual": "b0fd85a3c84f34e9906526fe111b88815d0c84b27ff3e23197611e26ab581c75",
+      "match": true
+    },
+    {
+      "path": "src/npc-simulation.js",
+      "expected": "8cf6824f8ef30067ca3797afef4504f605173480bf859315750b1c771beb5e4c",
+      "actual": "8cf6824f8ef30067ca3797afef4504f605173480bf859315750b1c771beb5e4c",
+      "match": true
+    },
+    {
+      "path": "src/production-engine.js",
+      "expected": "0bd9d2a26d04f52f8f65bdbe2e5d95f6f235f296a3c1cbb4acafa99931f00093",
+      "actual": "0bd9d2a26d04f52f8f65bdbe2e5d95f6f235f296a3c1cbb4acafa99931f00093",
+      "match": true
+    },
+    {
+      "path": "src/production-environment.js",
+      "expected": "5270bd4318104e651b657152af7af53134b9343a892e046e23f6393062f22b26",
+      "actual": "5270bd4318104e651b657152af7af53134b9343a892e046e23f6393062f22b26",
+      "match": true
+    },
+    {
+      "path": "src/production-interface.css",
+      "expected": "3abe8f53cb00430739b21d6be32b09514345d627023e76576c2c9e72fc3bfbd9",
+      "actual": "3abe8f53cb00430739b21d6be32b09514345d627023e76576c2c9e72fc3bfbd9",
+      "match": true
+    },
+    {
+      "path": "src/production-interface.js",
+      "expected": "5b3180a631c1a57eca37044c0e58b7a2979a0dc4b7442e6d077a50c8aa5ae2b4",
+      "actual": "5b3180a631c1a57eca37044c0e58b7a2979a0dc4b7442e6d077a50c8aa5ae2b4",
+      "match": true
+    },
+    {
+      "path": "src/production-media.js",
+      "expected": "ee78167f1bd8103f15d03c154edd8e9dc166a76cdb216039318116f37e49f388",
+      "actual": "ee78167f1bd8103f15d03c154edd8e9dc166a76cdb216039318116f37e49f388",
+      "match": true
+    },
+    {
+      "path": "src/production-navigation.js",
+      "expected": "f1f3b3cdd2bb11d5bcbbe92f376bb2604b0af6f3bba968013e927a1fdc2c57fb",
+      "actual": "f1f3b3cdd2bb11d5bcbbe92f376bb2604b0af6f3bba968013e927a1fdc2c57fb",
+      "match": true
+    },
+    {
+      "path": "src/production-premiere.js",
+      "expected": "fe1772f37360d5025e622aef6f1d090f2f476311e618be982997aadd9b646487",
+      "actual": "fe1772f37360d5025e622aef6f1d090f2f476311e618be982997aadd9b646487",
+      "match": true
+    },
+    {
+      "path": "src/production-scene.js",
+      "expected": "0e526c5346c54224111d3a325026021469a7644d74b1813ed473e0d0588d1ed1",
+      "actual": "0e526c5346c54224111d3a325026021469a7644d74b1813ed473e0d0588d1ed1",
+      "match": true
+    },
+    {
+      "path": "src/style.css",
+      "expected": "7371c8265a766c6b9775c51620269d29805d37d08eb43ed8cdb48f0148292381",
+      "actual": "7371c8265a766c6b9775c51620269d29805d37d08eb43ed8cdb48f0148292381",
+      "match": true
+    }
+  ],
+  "transform": {
+    "target_D": 240,
+    "target_pupils": [
+      [
+        200,
+        515
+      ],
+      [
+        440,
+        515
+      ]
+    ],
+    "aligned_panel_size": [
+      620,
+      925
+    ],
+    "methods": [
+      "uniform scale",
+      "translation",
+      "in-plane rotation",
+      "bicubic resampling",
+      "grayscale",
+      "garment-only identical name mask"
+    ],
+    "forbidden_and_not_used": [
+      "anisotropic warp",
+      "perspective rectification",
+      "generative redraw"
+    ],
+    "full_head_crop": [
+      0,
+      40,
+      620,
+      925
+    ],
+    "fringe_crop": [
+      85,
+      330,
+      555,
+      500
+    ],
+    "name_mask": [
+      [
+        175,
+        864
+      ],
+      [
+        300,
+        856
+      ],
+      [
+        340,
+        856
+      ],
+      [
+        470,
+        864
+      ],
+      [
+        500,
+        925
+      ],
+      [
+        150,
+        925
+      ]
+    ],
+    "panels": [
+      {
+        "label": "A",
+        "path": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\codex-clipboard-bb1f579c-afaf-4996-8112-de27960fd757.png",
+        "size": [
+          877,
+          1299
+        ],
+        "manual_pupil_centers": [
+          [
+            482,
+            808
+          ],
+          [
+            724,
+            785
+          ]
+        ],
+        "estimated_D_pixels": 243.09051812030842,
+        "output_to_source_affine": [
+          1.0083333333333333,
+          0.09583333333333334,
+          230.97916666666669,
+          -0.09583333333333334,
+          1.0083333333333333,
+          307.875
+        ]
+      },
+      {
+        "label": "B",
+        "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round7-portrait.png",
+        "size": [
+          840,
+          980
+        ],
+        "manual_pupil_centers": [
+          [
+            297.1,
+            482.3
+          ],
+          [
+            542,
+            482.3
+          ]
+        ],
+        "estimated_D_pixels": 244.89999999999998,
+        "output_to_source_affine": [
+          1.0204166666666665,
+          -0.0,
+          93.01666666666671,
+          0.0,
+          1.0204166666666665,
+          -43.21458333333322
+        ]
+      },
+      {
+        "label": "C",
+        "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round8-portrait.png",
+        "size": [
+          840,
+          980
+        ],
+        "manual_pupil_centers": [
+          [
+            297.1,
+            482.3
+          ],
+          [
+            542,
+            482.3
+          ]
+        ],
+        "estimated_D_pixels": 244.89999999999998,
+        "output_to_source_affine": [
+          1.0204166666666665,
+          -0.0,
+          93.01666666666671,
+          0.0,
+          1.0204166666666665,
+          -43.21458333333322
+        ]
+      }
+    ],
+    "limitations": "D/anchors are 2D manual estimates, not precise 3D calibration. Reference crop/occlusion remains. Known-provenance comparison, not blind test."
+  },
+  "front_saved_pixel_retention": {
+    "pupil_neighborhood_boxes": [
+      [
+        288,
+        473,
+        307,
+        492
+      ],
+      [
+        533,
+        473,
+        552,
+        492
+      ]
+    ],
+    "pupil_neighborhoods_identical": [
+      true,
+      true
+    ],
+    "round7_round8_difference_bbox": [
+      311,
+      48,
+      474,
+      439
+    ],
+    "different_pixels": 976,
+    "note": "Pixel identity applies to saved frontal portraits only, not a claim about underlying geometry or all views.",
+    "regions": [
+      {
+        "name": "eyes_and_brows_below_fringe",
+        "box": [
+          190,
+          440,
+          640,
+          533
+        ],
+        "identical": true
+      },
+      {
+        "name": "face_mouth_jaw_neck_collar",
+        "box": [
+          190,
+          533,
+          640,
+          840
+        ],
+        "identical": true
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round8\\01-same-D-gray-head-color-fringe.png",
+      "sha256": "29f4950e9e1803cd36b3f1a474b79b666480e1d718e9dffa947bdf47cd0e6fb4",
+      "size": [
+        1892,
+        1139
+      ],
+      "actually_viewed": true
+    }
+  ],
+  "history_before_append": {
+    "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\ANIME_INDEPENDENT_VISUAL_REVIEW.md",
+    "bytes": 92264,
+    "sha256": "aeef474c21491382c04a6fb269835cce75a58598d3e90cb0603a19acae96f033"
+  },
+  "actually_viewed_inputs": [
+    "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\codex-clipboard-bb1f579c-afaf-4996-8112-de27960fd757.png",
+    "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round7-portrait.png",
+    "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round8-portrait.png",
+    "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round8-detail.png",
+    "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round8.png"
+  ],
+  "decisions": {
+    "section_14_4_blocker": "PASS / resolved",
+    "visible_frontal_reference_scope": "PASS",
+    "preserved_parts": "PASS / no observed regression",
+    "mandatory_next_changes": [],
+    "precise_side_likeness": "INSUFFICIENT_EVIDENCE",
+    "all_characters_precise_reconstruction": "INSUFFICIENT_EVIDENCE",
+    "reason": "Native portrait and same-D fringe/full-head show asymmetric curved lower convergence, no longer repeated straight double-V dominance. No visible regression of accepted proportions. Missing side evidence does not extend the scoped frontal iteration."
+  },
+  "history_after_append": {
+    "bytes": 98312,
+    "sha256": "1758adc1ef281a4f52de762d4f7d84faaa13e7f5a28a8035a196b794eeae83c7",
+    "prefix_bytes": 92264,
+    "prefix_sha256": "aeef474c21491382c04a6fb269835cce75a58598d3e90cb0603a19acae96f033",
+    "prefix_unchanged": true,
+    "section15_count": 1
+  },
+  "input_files_unchanged_after_append": true,
+  "source_files_still_match_after_append": true
+}

@@ -1,0 +1,5 @@
+import * as THREE from 'three';
+import {portraitActor} from '../src/characters.js';
+import {CANDIDATES} from '../src/production-engine.js';
+const renderer=new THREE.WebGLRenderer({alpha:true,antialias:true});renderer.setSize(240,240);renderer.outputColorSpace=THREE.SRGBColorSpace;
+for(const c of CANDIDATES){const a=portraitActor(c.id),scene=new THREE.Scene();scene.add(a.mesh,new THREE.HemisphereLight('#fff9e8','#aabf9a',2));const light=new THREE.DirectionalLight('#fff1d8',2);light.position.set(-3,5,4);scene.add(light);const camera=new THREE.PerspectiveCamera(28,1,.1,20);camera.position.set(0,1.34,2.25);camera.lookAt(0,1.16,0);renderer.render(scene,camera);const card=document.createElement('article'),img=document.createElement('img'),name=document.createElement('strong'),role=document.createElement('small');img.src=renderer.domElement.toDataURL();img.alt=c.name+'实际头像';name.textContent=c.name;role.textContent=c.role;card.append(img,name,role);document.querySelector('main').append(card);}renderer.dispose();

@@ -1,0 +1,30 @@
+{
+  "scope": "real NPC/engine integration and explicit multi-beat boundary fixtures; not browser or visual QA",
+  "results": [
+    {
+      "name": "auto edit preserves result from six-beat conversations",
+      "pass": true
+    },
+    {
+      "name": "same-scene omitted result can correct separate source facts",
+      "pass": true
+    },
+    {
+      "name": "real NPC navigation and service create separately observed cards",
+      "pass": true,
+      "detail": {
+        "delivered": 4,
+        "facts": 39,
+        "clips": 26,
+        "activities": {
+          "sing": 3,
+          "argue": 1,
+          "eat": 4,
+          "chat": 2,
+          "share": 1,
+          "watch": 1
+        }
+      }
+    }
+  ]
+}

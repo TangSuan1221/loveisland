@@ -1,0 +1,10 @@
+{
+  "iteration-01-vs-tomodachi": {
+    "A": "references/tomodachi-official-03.png",
+    "B": "iteration-01-overview.jpg"
+  },
+  "iteration-01-vs-acnh": {
+    "A": "iteration-01-overview.jpg",
+    "B": "references/acnh-official-friends-01.jpg"
+  }
+}

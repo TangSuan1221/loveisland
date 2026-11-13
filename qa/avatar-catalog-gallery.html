@@ -1,0 +1,27 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>组件目录独立视觉验收</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#ece8dc;color:#303637;font:13px system-ui}header{padding:18px 24px}h1{font-size:22px;margin:0 0 6px}.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:#c8c8bc}.card{background:#eeeade;min-width:0}.card canvas{display:block;width:100%}.card p{margin:8px 10px 12px;text-align:center;overflow-wrap:anywhere}</style>
+<header><h1></h1><div>共享人物模型 · 原生 WebGPU · 真实组件渲染（非菜单图标）</div></header><main class="grid"></main>
+<script type="module">
+import * as THREE from 'three';
+import {createGPURenderer} from '../src/gpu-renderer.js';
+import {portraitActor,disposeActor} from '../src/characters.js';
+import {APPEARANCE_OPTIONS} from '../src/avatar-schema.js';
+const params=new URLSearchParams(location.search),field=params.get('field')||'eyeStyle',start=+(params.get('start')||0),limit=+(params.get('limit')||24),angle=+(params.get('angle')||0);
+const list=(APPEARANCE_OPTIONS[field]||[]).slice(start,start+limit);
+document.querySelector('h1').textContent=`${field} · ${start+1}–${start+list.length} / ${APPEARANCE_OPTIONS[field]?.length||0} · 旋转 ${angle}`;
+const renderer=await createGPURenderer({alpha:false});renderer.setSize(240,275);renderer.outputColorSpace=THREE.SRGBColorSpace;
+const scene=new THREE.Scene();scene.background=new THREE.Color('#eeeade');scene.add(new THREE.HemisphereLight('#ffffff','#b2b4a8',1.5));const light=new THREE.DirectionalLight('#ffffff',2);light.position.set(-3,5,4);scene.add(light);
+for(const option of list){
+ const values={hairStyle:'bald',eyeStyle:'almond',eyeHighlight:'none',mouthStyle:'neutral',...JSON.parse(params.get('base')||'{}'),[field]:option.value};
+ if(field==='hairFront')values.hairBack='none';
+ if(field==='hairBack')values.hairFront='none';
+ if(params.get('style'))values.artStyle=params.get('style');
+ const actor=portraitActor('catalog-view',{appearance:values});scene.add(actor.mesh);actor.mesh.rotation.y=angle;actor.mesh.updateMatrixWorld(true);
+ const box=new THREE.Box3().setFromObject(actor._head),center=box.getCenter(new THREE.Vector3()),size=box.getSize(new THREE.Vector3());
+ const camera=new THREE.PerspectiveCamera(30,240/275,.01,30),d=Math.max(size.y/(2*Math.tan(Math.PI/12)),size.x/(2*Math.tan(Math.PI/12)*(240/275)))*1.12+size.z/2;
+ camera.position.copy(center).add(new THREE.Vector3(0,0,d));camera.lookAt(center);renderer.render(scene,camera);
+ const card=document.createElement('section');card.className='card';const canvas=document.createElement('canvas');canvas.width=240;canvas.height=275;canvas.getContext('2d').drawImage(renderer.domElement,0,0);const label=document.createElement('p');label.textContent=`${option.label} · ${option.value}`;card.append(canvas,label);document.querySelector('.grid').append(card);disposeActor(actor);
+}
+window.catalogResult={backend:renderer.backend.constructor.name,field,count:list.length};window.done=true;renderer.dispose();
+</script></html>
+

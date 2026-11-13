@@ -1,0 +1,80 @@
+{
+  "recordedAt": "2026-11-13T09:23:31.975Z",
+  "engineSha256": "0bd9d2a26d04f52f8f65bdbe2e5d95f6f235f296a3c1cbb4acafa99931f00093",
+  "scope": "independent API tests using explicit observed-event fixtures; not browser gameplay or blind test",
+  "passed": 15,
+  "failed": 0,
+  "outcomes": [
+    {
+      "name": "three-day complete loop with full recording segments",
+      "pass": true,
+      "detail": {
+        "cash": 95861,
+        "profit": -4139,
+        "episodes": 3
+      }
+    },
+    {
+      "name": "seven-day complete loop with full recording segments",
+      "pass": true,
+      "detail": {
+        "cash": 121411,
+        "profit": 21411,
+        "episodes": 7
+      }
+    },
+    {
+      "name": "zero-film skip advances date and pays daily cost",
+      "pass": true,
+      "detail": 60150
+    },
+    {
+      "name": "observed event deduplication and uncovered footage",
+      "pass": true
+    },
+    {
+      "name": "preview and alternate edits do not mutate facts",
+      "pass": true
+    },
+    {
+      "name": "publish save/reload cannot pay duplicate revenue",
+      "pass": true
+    },
+    {
+      "name": "new cliffhanger cannot be resolved by same episode",
+      "pass": true
+    },
+    {
+      "name": "omitted raw result remains available for correction",
+      "pass": true
+    },
+    {
+      "name": "paid liability still permits a later factual correction",
+      "pass": true
+    },
+    {
+      "name": "bankruptcy screen has a functioning new-game action",
+      "pass": true
+    },
+    {
+      "name": "victory screen supports advertised free operation",
+      "pass": true
+    },
+    {
+      "name": "commerce-assigned MCN cannot simultaneously join cast",
+      "pass": true
+    },
+    {
+      "name": "skipped unpublished episode cannot discharge a cliffhanger",
+      "pass": true
+    },
+    {
+      "name": "medical removal preserves evidence and offers early wrap",
+      "pass": true
+    },
+    {
+      "name": "underfunded next season never traps player in casting",
+      "pass": true
+    }
+  ]
+}

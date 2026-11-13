@@ -1,0 +1,4 @@
+Reference pupils (manual estimate): ((482, 808), (724, 785))
+Round 11 native UI pupils (dark center estimate): [(114.27586206896552, 229.58620689655172), (223.72413793103448, 229.58620689655172)]
+Output-to-source affine: (2.2110901071203535, 0.21014492753623193, 181.07939508506607, -0.21014492753623193, 2.2110901071203535, 324.3787019533711)
+UI crop: [558,197,898,677), no resize. Reference: rotation, uniform scale, translation only; no perspective or anisotropic warp.

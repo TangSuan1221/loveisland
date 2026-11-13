@@ -1,0 +1,13 @@
+{
+  "result": "PASS",
+  "checks": [
+    "real local model detects a face; suggestions do not modify saved character",
+    "apply, save, undo and redo preserve unobserved styling; mobile button stays usable",
+    "saved parameters reload without persisting the photo or landmarks",
+    "actual model rejects blank and multi-person photos without mutating characters",
+    "invalid file, switching person and closing cancel safely",
+    "no external HTTP requests, no page errors; rendering remains WebGPU"
+  ],
+  "errors": [],
+  "external": []
+}

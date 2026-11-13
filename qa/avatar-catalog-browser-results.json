@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "checks": [
+    "search, independent layers and new features persist in actual production state",
+    "export retains every new component and toggle",
+    "legacy hairstyle selection resets split layers atomically and undo restores both",
+    "mobile search and controls remain inside viewport",
+    "reload restores independent layers and facial details"
+  ],
+  "errors": []
+}

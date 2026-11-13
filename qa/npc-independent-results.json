@@ -1,0 +1,97 @@
+{
+  "recordedAt": "2026-11-12T06:27:20.300Z",
+  "sourceSha256": "7a90a5e119e6151f81feb119a699a8eaa9f2b37bf0cedaa01bcef0f661825405",
+  "scope": "independent logic review; 1800 simulated seconds, not real-time browser play",
+  "seed": 20261112,
+  "stats": {
+    "completed": 30,
+    "rejected": 18,
+    "invitations": 48,
+    "activities": {
+      "sing": 36,
+      "eat": 38,
+      "drink": 37,
+      "chat": 22,
+      "read": 28,
+      "rest": 36,
+      "watch": 27,
+      "exercise": 22,
+      "play": 4,
+      "argue": 1,
+      "share": 2,
+      "apologize": 1
+    }
+  },
+  "closest": {
+    "distance": 0.6200174047159287,
+    "time": 1764.5999999994906,
+    "ids": [
+      "qiao",
+      "chen"
+    ],
+    "activities": [
+      "walk",
+      "walk"
+    ]
+  },
+  "closestConversation": {
+    "distance": 1.4990589770195806,
+    "time": 1776.8999999994794,
+    "phase": "greeting",
+    "ids": [
+      "lu",
+      "qiao"
+    ]
+  },
+  "conversationSamples": 5430,
+  "regions": {
+    "northernReadingSamples": 4692,
+    "southernWatchingSamples": 4313,
+    "minX": -5.239989395992083,
+    "maxX": 8.536836646886956,
+    "minZ": -10.538024982808665,
+    "maxZ": 13.474998925998582,
+    "minPostDistance": 0.45999999999999974,
+    "minFireDistance": 2.7679756660137373,
+    "minSouthPlanterDistance": 1.126911496193711
+  },
+  "migration": {
+    "booksZ": -10.3,
+    "rerouted": true,
+    "affinityPreserved": true,
+    "memoryPreserved": true,
+    "rngPreserved": true,
+    "subsequentSixtySecondsCompleted": true
+  },
+  "closeSceneMigration": {
+    "phaseOnLoad": "approach",
+    "sceneIdPreserved": true,
+    "relationsPreserved": true,
+    "completedCountUnchangedOnLoad": true,
+    "phaseAfterTenSeconds": "response",
+    "distanceAfterTenSeconds": 1.55194
+  },
+  "overlapPairSamplesBelowQuarterUnit": 0,
+  "nonFinitePositionSamples": 0,
+  "saveResumeIdentical": true,
+  "corruption": [
+    {
+      "key": "relationships",
+      "result": "rejected",
+      "phase": "construction",
+      "error": "Incompatible NPC save"
+    },
+    {
+      "key": "personality",
+      "result": "rejected",
+      "phase": "construction",
+      "error": "Incompatible NPC save"
+    },
+    {
+      "key": "route",
+      "result": "rejected",
+      "phase": "construction",
+      "error": "Incompatible NPC save"
+    }
+  ]
+}

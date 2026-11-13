@@ -1,0 +1,106 @@
+{
+  "result": "PASS",
+  "runLabel": "round11",
+  "capturedAt": "2026-11-13T12:07:57.030Z",
+  "backend": "WebGPUBackend",
+  "records": [
+    {
+      "iteration": 0,
+      "elapsedMs": 200.5,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 1,
+      "elapsedMs": 162.10000002384186,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 2,
+      "elapsedMs": 195.80000001192093,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 3,
+      "elapsedMs": 157.30000001192093,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 4,
+      "elapsedMs": 194.80000001192093,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 5,
+      "elapsedMs": 154.30000001192093,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 6,
+      "elapsedMs": 194.4000000357628,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 7,
+      "elapsedMs": 172.39999997615814,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 8,
+      "elapsedMs": 193.80000001192093,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 9,
+      "elapsedMs": 192.69999998807907,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 10,
+      "elapsedMs": 263.19999998807907,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 11,
+      "elapsedMs": 204.69999998807907,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 12,
+      "elapsedMs": 265.39999997615814,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 13,
+      "elapsedMs": 220.80000001192093,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 14,
+      "elapsedMs": 258.7000000476837,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 15,
+      "elapsedMs": 218.80000001192093,
+      "geometries": 56,
+      "textures": 2
+    }
+  ],
+  "invalidNumbers": 0,
+  "errors": []
+}

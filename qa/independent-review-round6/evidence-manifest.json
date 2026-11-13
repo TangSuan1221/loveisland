@@ -1,0 +1,507 @@
+{
+  "review": "round6 formal independent review",
+  "date": "2026-11-13",
+  "status": "COMPLETE",
+  "source_files": {
+    "reference": {
+      "path": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\codex-clipboard-bb1f579c-afaf-4996-8112-de27960fd757.png",
+      "sha256": "7755d7de98acd2b6755bd6c232efff525cc84c1cae23d854c3aa02ee9aed055b",
+      "bytes": 1101766,
+      "dimensions": [
+        877,
+        1299
+      ]
+    },
+    "panel": {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round6.png",
+      "sha256": "b916e6ef2a1274b8c4a2df1c5f1e04f1b4fe01b611f382c7b61a3ea3e163cb00",
+      "bytes": 149472,
+      "dimensions": [
+        1262,
+        1702
+      ]
+    },
+    "detail": {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round6-detail.png",
+      "sha256": "6ef77a44c04cea9526fe3ae96346fb662cbde258ba75e1812dcc6ecfb96a4019",
+      "bytes": 56569,
+      "dimensions": [
+        1000,
+        1137
+      ]
+    },
+    "portrait": {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round6-portrait.png",
+      "sha256": "6f83267b5e9f3314ad393d051362605aebab46577b88e005063e866bf52721d2",
+      "bytes": 36355,
+      "dimensions": [
+        840,
+        980
+      ]
+    },
+    "json": {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round6.json",
+      "sha256": "32d28f359ba280fe27ffb131b9e099a5736a70c1056beaf4c634cd97a9f15f1e",
+      "bytes": 37053
+    },
+    "round5_detail": {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round5-detail.png",
+      "sha256": "e8d699b8479a6093bb75eb09e82b46c410444c60efbdc06d3f2b6f6cf1d77408",
+      "bytes": 55189,
+      "dimensions": [
+        1000,
+        1137
+      ]
+    },
+    "round5_portrait": {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round5-portrait.png",
+      "sha256": "d58404c18dd6216dfcdd5d5c69caef1265ecd0b4fd33723347732f4041983705",
+      "bytes": 35378,
+      "dimensions": [
+        840,
+        980
+      ]
+    },
+    "ribbon_detail": {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round6-eye-ribbon-detail.png",
+      "sha256": "f6644dc004ea0ce8ff09e77768306dbec3b21faf373d7b3ac505a7659d091bb6",
+      "bytes": 57007,
+      "dimensions": [
+        1000,
+        1137
+      ]
+    },
+    "shallow_json": {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round6-eye-shallow.json",
+      "sha256": "41e90969099d0bbd0fdcca17df8c5290042f81de1723186b5534aae53b21ad63",
+      "bytes": 37101
+    }
+  },
+  "image_hash_checks": {
+    "qa/anime-independent-round6.png": true,
+    "qa/anime-independent-round6-detail.png": true,
+    "qa/anime-independent-round6-portrait.png": true
+  },
+  "recorded_capture": {
+    "backend": "WebGPUBackend",
+    "portrait": {
+      "width": 840,
+      "height": 980,
+      "distance": 1.92,
+      "centerOffsetY": 0.02,
+      "source": "native WebGPU render"
+    },
+    "detail": {
+      "width": 1000,
+      "height": 1100,
+      "distance": 1.42,
+      "centerOffsetY": -0.06,
+      "source": "native WebGPU render"
+    },
+    "round": "round6",
+    "capturedAt": "2026-11-13T10:14:47.013Z",
+    "sourceFingerprint": "3659e6a37dd20220abc57c24d9dc520a59d08e267cd6140c7135154a0b9af4b7",
+    "sourceFiles": {
+      "qa/avatar-reference-review.html": "0e50578ee683432a19f5e41171251d7f871adb1a2f6426d5327a264f763090e7",
+      "src/avatar-anime-hair.js": "a683f40ac06c5c13fd2439b052849eef18a5c3d22a15d398bd4a87802759e1b0",
+      "src/avatar-anime.js": "2041cbb8726f7349ccf0eb971703ab0be19c45d2d4957dbde5a6a02ca3f41a0d",
+      "src/avatar-detail-catalog.js": "fb5d41b7ff5eb975af06d6f84b5f705ca975756f7d2d51e9c87ade78a1b52e7b",
+      "src/avatar-editor.css": "f1ca5310a9f83a6de716dd5a39209ea801940659276b14ec1138b58264c33b93",
+      "src/avatar-editor.js": "ea02bb93cd2f37ae784012db2c71d89da97b3e10334b120f548b4ed1c148d05c",
+      "src/avatar-eye-curve.js": "9714e453372f2465fedb6247cb09c6eb7a79ca8fc3577e0ffa531a8a6be73dfb",
+      "src/avatar-eye-shape-editor.js": "dd642308aca1323f0caf895cf99e4bda8c33c3a767e31f4647a1b6c56082a186",
+      "src/avatar-face-art-editor.js": "b01749dba5a8defb4b8e4f98316961fe4c71b15bd46af939cd3b9e82af266b04",
+      "src/avatar-face-art.js": "cf792062add9400272f6dbaa850da99aded9e9ad9a49eff58c927d5c34d54097",
+      "src/avatar-feature-catalog.js": "0814dcf829e6989dce4e1998b4fdad98529703113d312d514df20c58f3eff7ce",
+      "src/avatar-hair-catalog.js": "b6158e57dd9bd542bd00a954f8073f564633c0bf9e327bb16fdad6f04e536176",
+      "src/avatar-material.js": "8ee01e64c8c5c325464cc67b9ad84c850474d63cca87625b99508076615e436f",
+      "src/avatar-model.js": "9b324d9c04491fc23875f1e98971db7d44a06f2b15170d15da9d199d073fcdc1",
+      "src/avatar-photo-attributes.js": "9ded25b512fd02cef1e93d9e549a14e149bbc57cdbcc8d76a2d15e794eb81c2d",
+      "src/avatar-photo-fit.js": "b620de70603e002275f069bbbad28ae0bb5cb9b59a6858f3f6ee22dabc7f2c8f",
+      "src/avatar-photo-hair-atlas.js": "e93ceed6f5d86bc9341266192ea53f8f97a95a6fadef2d11510c6cb9f84a95b8",
+      "src/avatar-photo-hair-matching.js": "0c8769f5f058a85e26f597354d5ec7fd25ca9540cf97ab726e6e1c0683806d56",
+      "src/avatar-photo-mapping.js": "23afab9e264aa69b58ae9c4ae18c2277139f543ffdbfb674b28d82700fe2ebdb",
+      "src/avatar-photo.js": "a3e6a5d22334bbe05c9097a8537cc4a6df50ff32a0430719b61b60ab238e2ca3",
+      "src/avatar-reference-comparison.js": "009868ba32838ce7bf8779542815677a860ecac1087a87af8d9bc349ea02d224",
+      "src/avatar-schema.js": "fcf908dac5f1fc9eeb24035b05fceb00f3d4d2b46cda0b766e39949dc295ef7c",
+      "src/characters.js": "5d3f44cf9f3fefa411f34e877039d9a78b0fc1dbbcf285728d4d5d12effd2078",
+      "src/game.css": "fc9c7a6fd192e729bda7daae4249b85180d102be7e55f28338b98dd56a526b0f",
+      "src/game.js": "573310df76165add83d949f1a038a20377eabe88992460005b44b7c3139a4418",
+      "src/gpu-renderer.js": "70141523fb0c4657884c61a2721a32a0d841a1d671a86b9d69a90ebddef6d7ca",
+      "src/island.js": "ad252f43ba9a0cdbcc677e3e86d5ff4cb8a1299bada31f563cd32a9666148d31",
+      "src/main.js": "8841776ccc24a309c1c4e5bd8c47e1926204959526565702f5d20e802d938625",
+      "src/npc-interface.css": "425a096b9e6d14fd4900c914636771d415e4cdc574f8db6ab0a656b1d3d31744",
+      "src/npc-interface.js": "b0fd85a3c84f34e9906526fe111b88815d0c84b27ff3e23197611e26ab581c75",
+      "src/npc-simulation.js": "8cf6824f8ef30067ca3797afef4504f605173480bf859315750b1c771beb5e4c",
+      "src/production-engine.js": "0bd9d2a26d04f52f8f65bdbe2e5d95f6f235f296a3c1cbb4acafa99931f00093",
+      "src/production-environment.js": "5270bd4318104e651b657152af7af53134b9343a892e046e23f6393062f22b26",
+      "src/production-interface.css": "3abe8f53cb00430739b21d6be32b09514345d627023e76576c2c9e72fc3bfbd9",
+      "src/production-interface.js": "5b3180a631c1a57eca37044c0e58b7a2979a0dc4b7442e6d077a50c8aa5ae2b4",
+      "src/production-media.js": "ee78167f1bd8103f15d03c154edd8e9dc166a76cdb216039318116f37e49f388",
+      "src/production-navigation.js": "f1f3b3cdd2bb11d5bcbbe92f376bb2604b0af6f3bba968013e927a1fdc2c57fb",
+      "src/production-premiere.js": "fe1772f37360d5025e622aef6f1d090f2f476311e618be982997aadd9b646487",
+      "src/production-scene.js": "0e526c5346c54224111d3a325026021469a7644d74b1813ed473e0d0588d1ed1",
+      "src/style.css": "7371c8265a766c6b9775c51620269d29805d37d08eb43ed8cdb48f0148292381"
+    }
+  },
+  "shallow_evidence": {
+    "sourceFingerprint": "3659e6a37dd20220abc57c24d9dc520a59d08e267cd6140c7135154a0b9af4b7",
+    "fingerprint_matches_round6": true,
+    "image_equality": {
+      "": true,
+      "-detail": true,
+      "-portrait": true
+    }
+  },
+  "normalization": {
+    "D_definition": "image-space pupil-center distance",
+    "target_D_px": 240,
+    "target_pupils": [
+      [
+        200,
+        515
+      ],
+      [
+        440,
+        515
+      ]
+    ],
+    "panel_dimensions": [
+      620,
+      925
+    ],
+    "transforms": {
+      "reference": {
+        "source_pupil_centers_estimated": [
+          [
+            482,
+            808
+          ],
+          [
+            724,
+            785
+          ]
+        ],
+        "source_D_approx_px": 243.09051812030842,
+        "output_to_source_affine": [
+          1.0083333333333333,
+          0.09583333333333334,
+          230.97916666666669,
+          -0.09583333333333334,
+          1.0083333333333333,
+          307.875
+        ]
+      },
+      "detail": {
+        "source_pupil_centers_estimated": [
+          [
+            306.5,
+            442
+          ],
+          [
+            692.5,
+            442
+          ]
+        ],
+        "source_D_approx_px": 386.0,
+        "output_to_source_affine": [
+          1.6083333333333334,
+          -0.0,
+          -15.166666666666686,
+          0.0,
+          1.6083333333333334,
+          -386.29166666666674
+        ]
+      },
+      "portrait": {
+        "source_pupil_centers_estimated": [
+          [
+            297.1,
+            482.3
+          ],
+          [
+            542,
+            482.3
+          ]
+        ],
+        "source_D_approx_px": 244.89999999999998,
+        "output_to_source_affine": [
+          1.0204166666666665,
+          -0.0,
+          93.01666666666671,
+          0.0,
+          1.0204166666666665,
+          -43.21458333333322
+        ]
+      }
+    },
+    "allowed": "uniform scale, translation, in-plane rotation only",
+    "resampling": "bicubic; no new image detail",
+    "gray_mask_both_panels": [
+      [
+        0,
+        817
+      ],
+      [
+        285,
+        817
+      ],
+      [
+        320,
+        825
+      ],
+      [
+        355,
+        817
+      ],
+      [
+        620,
+        817
+      ],
+      [
+        620,
+        925
+      ],
+      [
+        0,
+        925
+      ]
+    ],
+    "gray_mask_fill": 220,
+    "final_combined_gray_crop": [
+      0,
+      65,
+      1256,
+      835
+    ],
+    "gray_scope": "full crown and face; garment below chin masked to remove name; not for neck measurements",
+    "gray_not_blinded": "reviewer knows provenance; no recognition-rate experiment"
+  },
+  "auxiliary_images": {
+    "01-uniform-D-full-head.png": {
+      "construction": "Reference left, round6 native portrait right. D=240. No geometric edits beyond recorded uniform similarity transform.",
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round6\\01-uniform-D-full-head.png",
+      "sha256": "f2dcb8d2b34c13ecfc61b176e2ac745b8c2ddc680597b95a9823d7cda482c22d",
+      "bytes": 713780,
+      "dimensions": [
+        1256,
+        925
+      ]
+    },
+    "02-no-name-gray-full-head.png": {
+      "construction": "Same normalization, grayscale; identical garment masks below chin, then same crop as round5. Not for neck measurement; not a blind study.",
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round6\\02-no-name-gray-full-head.png",
+      "sha256": "64e9accc6136b7d4e0a54a3727f2d72714012f38cc983d379d7ac56372ec0235",
+      "bytes": 321429,
+      "dimensions": [
+        1256,
+        770
+      ]
+    },
+    "03-fringe-and-eyes.png": {
+      "construction": "Reference / round6 detail same-D crop [65,330,575,630].",
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round6\\03-fringe-and-eyes.png",
+      "sha256": "e44f77b76c0d7c267cf434d72de128b70711ef8de83c78cbe1515245c9e31480",
+      "bytes": 237999,
+      "dimensions": [
+        1036,
+        300
+      ]
+    },
+    "04-cheeks-chin-neck.png": {
+      "construction": "Reference / round6 detail same-D crop [65,555,575,865].",
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round6\\04-cheeks-chin-neck.png",
+      "sha256": "3f60130c1c00e4a8271515fe6ca125788fe87141bb89b0ae4ca2d542ecb02bd4",
+      "bytes": 197735,
+      "dimensions": [
+        1036,
+        310
+      ]
+    },
+    "05-eye-evolution.png": {
+      "construction": "Same-D eye strips. Reference, frozen round5, intermediate ribbon, full round6. Comparing saved evidence, not the old-parameter column.",
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round6\\05-eye-evolution.png",
+      "sha256": "302c725dc6753a5837cac67d2711d49e23057c9b231b2779f5c707222451a2d9",
+      "bytes": 183092,
+      "dimensions": [
+        1796,
+        194
+      ]
+    },
+    "06-fringe-evolution.png": {
+      "construction": "Same-D complete fringe strip from reference and saved native portraits.",
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round6\\06-fringe-evolution.png",
+      "sha256": "30333a08b2de7fa5d0d3e421a139d8cb8adc53719794fbcd8a4ce555a3a43f7b",
+      "bytes": 196246,
+      "dimensions": [
+        1554,
+        219
+      ]
+    },
+    "07-native-eye-and-fringe-crop.png": {
+      "construction": "Unscaled native detail crop [120,210,880,515]. Crop is not a new native render.",
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round6\\07-native-eye-and-fringe-crop.png",
+      "sha256": "b2cf23e1a3e1ec8a49ca4ff99a3bad5866c50923170690cd8dd28f2b622523a1",
+      "bytes": 20641,
+      "dimensions": [
+        760,
+        305
+      ]
+    },
+    "08-fringe-estimate-grid.png": {
+      "construction": "Reference / round6 detail normalized D240; crop [90,365,550,480], nearest-neighbor 2x and manual reading grid. No new render or new detail; no reference semantic segmentation asserted.",
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round6\\08-fringe-estimate-grid.png",
+      "sha256": "a634371c64456f86750583986722ed8cef60cff660b23c680f2f4d1df597e212",
+      "bytes": 160264,
+      "dimensions": [
+        920,
+        492
+      ]
+    }
+  },
+  "historical_report_bytes": 67538,
+  "historical_report_sha256": "73ff34af4834398a6c27e623b47c606e61b948cae6e7f8ac8994a03983b78ee4",
+  "limitations": [
+    "Hash agreement establishes file identity only, not resemblance or independently audited before/after capture stability.",
+    "Ranges are 2D image-reading estimates, not statistical intervals or exact 3D calibration.",
+    "No reliable side-view reference. Only displayed static consistency can be judged.",
+    "Left column is old parameters with shared current renderer, not frozen historical A/B.",
+    "Grayscale removes garment name but is not blinded; known origin and photographed-reference limitations remain."
+  ],
+  "formal_verdict": "FAILED",
+  "completed_at": "2026-11-13T10:29:58.527297+00:00",
+  "decisions": {
+    "whole_reference_similarity": "FAILED: complete fringe gaps and central wedge relationships remain visibly different.",
+    "primary_required_revision": "Narrow visibly broad skin valleys and soften/tilt central lower lock contours; preserve crown height and lowest tip height.",
+    "secondary_appearance_difference": "Lower-face shading differs. Consider contour-following narrow edge organization, but geometry-versus-lighting cause is uncertain; not an exact 3D target.",
+    "eyes": "Limited local pass for short ends, continuous visible lashes and shallow upward direction. No further mandatory eye revision justified by current reference resolution.",
+    "retained_proportions": [
+      "upper continuous face width",
+      "upper cheek slope",
+      "mouth-height face width",
+      "pupil-to-chin",
+      "crown main height",
+      "lowest fringe tip height",
+      "iris and sclera scale",
+      "upper liner body weight",
+      "brow gap",
+      "mouth width",
+      "neck skin height and width"
+    ],
+    "side_views": "Shown static attachment only; exact side likeness and complete rotational continuity are not certified.",
+    "tests": "Reported functional checks are not visual acceptance evidence; no production tests were rerun."
+  },
+  "manual_estimates": {
+    "D_definition": "2D pupil-center image distance; ranges are visual reading intervals, not statistical confidence or 3D measurements.",
+    "fringe_skin_gaps_at_about_0_40D_above_pupils": {
+      "reference_D_range": [
+        0.05,
+        0.14
+      ],
+      "round6_D_range": [
+        0.25,
+        0.31
+      ],
+      "round6_normalized_y": 419,
+      "round6_two_prominent_x_spans": [
+        [
+          171,
+          235
+        ],
+        [
+          368,
+          439
+        ]
+      ],
+      "limits": "Only broad-versus-narrow visible relationship is supported; exact lock count/correspondence and each gap target are not established."
+    },
+    "upper_face_width_D": [
+      1.62,
+      1.66
+    ],
+    "mouth_height_face_width_D": [
+      1.54,
+      1.6
+    ],
+    "pupil_to_chin_D": [
+      1.22,
+      1.25
+    ],
+    "crown_above_pupils_D": [
+      1.73,
+      1.81
+    ],
+    "lowest_fringe_above_pupils_D": [
+      0.19,
+      0.22
+    ],
+    "main_valley_height_D": [
+      0.44,
+      0.56
+    ],
+    "iris_diameter_D": [
+      0.3,
+      0.33
+    ],
+    "sclera_body_width_D": [
+      0.58,
+      0.61
+    ],
+    "upper_liner_body_D": [
+      0.05,
+      0.07
+    ],
+    "brow_gap_D": [
+      0.03,
+      0.06
+    ],
+    "mouth_width_D": [
+      0.46,
+      0.49
+    ],
+    "neck_skin_height_D": [
+      0.11,
+      0.14
+    ],
+    "neck_skin_width_D": [
+      0.47,
+      0.49
+    ],
+    "right_face_shadow_horizontal_span_near_mouth_D": [
+      0.18,
+      0.22
+    ],
+    "shadow_limit": "Horizontal patch span is not the normal thickness of reference jaw border; no quantitative cross-measure equivalence or 3D cause asserted."
+  },
+  "completion_verification": {
+    "input_files_unchanged_during_review": {
+      "reference": true,
+      "panel": true,
+      "detail": true,
+      "portrait": true,
+      "json": true,
+      "round5_detail": true,
+      "round5_portrait": true,
+      "ribbon_detail": true,
+      "shallow_json": true
+    },
+    "auxiliary_image_hashes_match": {
+      "01-uniform-D-full-head.png": true,
+      "02-no-name-gray-full-head.png": true,
+      "03-fringe-and-eyes.png": true,
+      "04-cheeks-chin-neck.png": true,
+      "05-eye-evolution.png": true,
+      "06-fringe-evolution.png": true,
+      "07-native-eye-and-fringe-crop.png": true,
+      "08-fringe-estimate-grid.png": true
+    },
+    "historical_report_prefix_unchanged": true,
+    "historical_report_prefix_sha256": "73ff34af4834398a6c27e623b47c606e61b948cae6e7f8ac8994a03983b78ee4",
+    "section_13_count": 1,
+    "report_path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\ANIME_INDEPENDENT_VISUAL_REVIEW.md",
+    "report_bytes": 83753,
+    "report_sha256": "7edab6064a999c2307ce9dc6dfd11658593fb35c5aece5a134c75dbb751475d5",
+    "production_source_contents_not_audited": true,
+    "scope": "Only independent report and independent evidence files written; no production code or tests changed."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "checks": [
+    "layer creation, mirror, scale, rotation, opacity and color persist",
+    "mirrored drag inverse and one-step undo/redo",
+    "copy, layer ordering, visibility, deletion and undo",
+    "Escape and pointer cancellation rollback without closing studio",
+    "unfinished property input is safely committed before undo",
+    "category reset clears layers and is undoable",
+    "freehand curve uses an editable layer",
+    "export/import roundtrip preserves complete vector layers",
+    "close/reopen and local storage reload",
+    "narrow viewport editing and save remain accessible",
+    "shared texture replay: legacy eraser, compositing and clipping verified by pixels"
+  ],
+  "errors": []
+}

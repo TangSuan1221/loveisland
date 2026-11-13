@@ -1,0 +1,166 @@
+[
+  {
+    "adapter": "candidate metadata + actual production day + browser overnight recovery; pre-fix shallow-only result INVALID as gameplay evidence",
+    "mode": "tutorial",
+    "days": [
+      {
+        "day": 1,
+        "facts": 58,
+        "mode": "normal",
+        "revenue": 13520,
+        "cash": 71830
+      },
+      {
+        "day": 2,
+        "facts": 71,
+        "mode": "normal",
+        "revenue": 13880,
+        "cash": 80100
+      },
+      {
+        "day": 3,
+        "facts": 69,
+        "mode": "normal",
+        "revenue": 13340,
+        "cash": 87830
+      }
+    ],
+    "types": {
+      "invitation": 14,
+      "routine-start": 52,
+      "routine": 49,
+      "cancelled": 2,
+      "dialogue": 48,
+      "disagreed": 2,
+      "queue-enter": 13,
+      "declined": 7,
+      "interrupted": 2,
+      "continuation-declined": 1,
+      "mediation-offered": 1,
+      "connected": 4,
+      "belief-unresolved": 1,
+      "belief-corrected": 1,
+      "reconciled": 1
+    },
+    "phase": "season",
+    "cash": 94961,
+    "npcStats": {
+      "completed": 10,
+      "rejected": 7,
+      "invitations": 21,
+      "activities": {
+        "sing": 14,
+        "eat": 17,
+        "watch": 2,
+        "argue": 2,
+        "drink": 12,
+        "rest": 7,
+        "mediate": 1,
+        "share": 1,
+        "clarify-belief": 2,
+        "chat": 3,
+        "apologize": 1
+      }
+    }
+  },
+  {
+    "adapter": "candidate metadata + actual production day + browser overnight recovery; pre-fix shallow-only result INVALID as gameplay evidence",
+    "mode": "standard",
+    "days": [
+      {
+        "day": 1,
+        "facts": 124,
+        "mode": "normal",
+        "revenue": 13520,
+        "cash": 66610
+      },
+      {
+        "day": 2,
+        "facts": 123,
+        "mode": "normal",
+        "revenue": 13340,
+        "cash": 74070
+      },
+      {
+        "day": 3,
+        "facts": 126,
+        "mode": "normal",
+        "revenue": 13340,
+        "cash": 81255
+      },
+      {
+        "day": 4,
+        "facts": 119,
+        "mode": "normal",
+        "revenue": 13160,
+        "cash": 88065
+      },
+      {
+        "day": 5,
+        "facts": 137,
+        "mode": "normal",
+        "revenue": 13520,
+        "cash": 95305
+      },
+      {
+        "day": 6,
+        "facts": 127,
+        "mode": "normal",
+        "revenue": 13340,
+        "cash": 102245
+      },
+      {
+        "day": 7,
+        "facts": 120,
+        "mode": "normal",
+        "revenue": 13160,
+        "cash": 108995
+      }
+    ],
+    "types": {
+      "invitation": 52,
+      "routine-start": 260,
+      "dialogue": 160,
+      "routine": 247,
+      "connected": 17,
+      "declined": 39,
+      "disagreed": 3,
+      "queue-enter": 64,
+      "enjoyed": 4,
+      "cancelled": 7,
+      "interrupted": 6,
+      "continuation-declined": 1,
+      "clarified": 2,
+      "item-borrowed": 1,
+      "created-together": 3,
+      "mediation-offered": 2,
+      "milestone-celebrated": 3,
+      "belief-corrected": 4,
+      "continuation-abandoned": 1
+    },
+    "phase": "season",
+    "cash": 115076,
+    "npcStats": {
+      "completed": 39,
+      "rejected": 39,
+      "invitations": 91,
+      "activities": {
+        "eat": 82,
+        "sing": 65,
+        "chat": 15,
+        "argue": 3,
+        "watch": 13,
+        "rest": 38,
+        "drink": 62,
+        "play": 4,
+        "question": 2,
+        "borrow": 1,
+        "collaborate": 3,
+        "mediate": 2,
+        "celebrate": 3,
+        "share": 2,
+        "clarify-belief": 4
+      }
+    }
+  }
+]

@@ -1,0 +1,171 @@
+{
+  "result": "PASS",
+  "adapter": "Full candidate definitions, production calendar and browser overnight recovery; old simplified social-distribution evidence superseded",
+  "scope": "Growth: external observed-event fixtures with legal public economy APIs, no cash/xp injection. Each map season: actual NPC events, facilities, services, environment feedback and health. Not browser or real player completion.",
+  "hashes": {
+    "src/production-engine.js": "0bd9d2a26d04f52f8f65bdbe2e5d95f6f235f296a3c1cbb4acafa99931f00093",
+    "src/npc-simulation.js": "8cf6824f8ef30067ca3797afef4504f605173480bf859315750b1c771beb5e4c"
+  },
+  "growthSeasons": [
+    {
+      "season": 1,
+      "cash": 107991,
+      "experience": 25,
+      "reputation": 59
+    },
+    {
+      "season": 2,
+      "cash": 112128,
+      "experience": 49,
+      "reputation": 63
+    },
+    {
+      "season": 3,
+      "cash": 116841,
+      "experience": 73,
+      "reputation": 67
+    },
+    {
+      "season": 4,
+      "cash": 123990,
+      "experience": 97,
+      "reputation": 71
+    },
+    {
+      "season": 5,
+      "cash": 133575,
+      "experience": 121,
+      "reputation": 75
+    },
+    {
+      "season": 6,
+      "cash": 145596,
+      "experience": 145,
+      "reputation": 79
+    },
+    {
+      "season": 7,
+      "cash": 160053,
+      "experience": 169,
+      "reputation": 83
+    },
+    {
+      "season": 8,
+      "cash": 176946,
+      "experience": 193,
+      "reputation": 87
+    },
+    {
+      "season": 9,
+      "cash": 196275,
+      "experience": 217,
+      "reputation": 91
+    }
+  ],
+  "reports": [
+    {
+      "map": "snow",
+      "phase": "season",
+      "cash": 93927,
+      "days": [
+        {
+          "day": 1,
+          "exit": "normal",
+          "revenue": 15338
+        },
+        {
+          "day": 2,
+          "exit": "normal",
+          "revenue": 15806
+        },
+        {
+          "day": 3,
+          "exit": "normal",
+          "revenue": 14636
+        },
+        {
+          "day": 4,
+          "exit": "maintenance",
+          "reason": "可录制嘉宾少于3人，请补救或提前收季。"
+        },
+        {
+          "day": 5,
+          "exit": "normal",
+          "revenue": 15806
+        },
+        {
+          "day": 6,
+          "exit": "maintenance",
+          "reason": "可录制嘉宾少于3人，请补救或提前收季。"
+        },
+        {
+          "day": 7,
+          "exit": "normal",
+          "revenue": 14636
+        }
+      ],
+      "warmFrames": 5965,
+      "coldFrames": 3377,
+      "medicalEntries": 35,
+      "powerConsumed": 77,
+      "privateFrames": 0,
+      "privateMinimum": 100,
+      "privateEvents": 0,
+      "privateLeaks": 0,
+      "privacyCameraEvidence": "No event occurred within 2m camera exclusion; geometry policy not empirically exercised by this seed.",
+      "medicalExitEvidence": "actual medical entries plus seven-day delivery/maintenance exits"
+    },
+    {
+      "map": "villa",
+      "phase": "season",
+      "cash": 154327,
+      "days": [
+        {
+          "day": 1,
+          "exit": "normal",
+          "revenue": 14636
+        },
+        {
+          "day": 2,
+          "exit": "normal",
+          "revenue": 15338
+        },
+        {
+          "day": 3,
+          "exit": "normal",
+          "revenue": 14636
+        },
+        {
+          "day": 4,
+          "exit": "normal",
+          "revenue": 15338
+        },
+        {
+          "day": 5,
+          "exit": "normal",
+          "revenue": 14636
+        },
+        {
+          "day": 6,
+          "exit": "normal",
+          "revenue": 15806
+        },
+        {
+          "day": 7,
+          "exit": "normal",
+          "revenue": 14636
+        }
+      ],
+      "warmFrames": 0,
+      "coldFrames": 0,
+      "medicalEntries": 0,
+      "powerConsumed": 42,
+      "privateFrames": 6464,
+      "privateMinimum": 10,
+      "privateEvents": 23,
+      "privateLeaks": 0,
+      "privacyCameraEvidence": "real private-area events had no film",
+      "medicalExitEvidence": "no medical transition this seed; pressure exercised only"
+    }
+  ]
+}

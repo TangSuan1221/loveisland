@@ -1,0 +1,114 @@
+[
+  {
+    "observedAt": "2026-11-12T04:41:15.797Z",
+    "phase": "final-start",
+    "metrics": "{\n  \"startedAt\": \"2026-11-12T04:41:11.344Z\",\n  \"elapsedSeconds\": 4,\n  \"activeSeconds\": 4,\n  \"frames\": 233,\n  \"meanFrameMs\": 17.18,\n  \"maxFrameMs\": 517,\n  \"drawCalls\": 466,\n  \"triangles\": 858892,\n  \"geometries\": 226,\n  \"textures\": 4,\n  \"actors\": 6,\n  \"landmarks\": 5,\n  \"paused\": false,\n  \"light\": \"day\",\n  \"photoMode\": false,\n  \"selected\": null,\n  \"runtimeErrors\": [],\n  \"runtimeErrorCount\": 0,\n  \"scope\": \"visual-preview-only\"\n}",
+    "console": []
+  },
+  {
+    "observedAt": "2026-11-12T04:44:31.243Z",
+    "phase": "camera-orbit-zoom",
+    "actions": [
+      "全岛俯瞰",
+      "drag 810,380→1000,410",
+      "scroll up 2"
+    ],
+    "metrics": "{\n  \"startedAt\": \"2026-11-12T04:41:11.344Z\",\n  \"elapsedSeconds\": 199,\n  \"activeSeconds\": 199,\n  \"frames\": 11932,\n  \"meanFrameMs\": 16.68,\n  \"maxFrameMs\": 517,\n  \"drawCalls\": 507,\n  \"triangles\": 862855,\n  \"geometries\": 236,\n  \"textures\": 4,\n  \"actors\": 6,\n  \"landmarks\": 5,\n  \"paused\": false,\n  \"light\": \"day\",\n  \"photoMode\": false,\n  \"selected\": null,\n  \"runtimeErrors\": [],\n  \"runtimeErrorCount\": 0,\n  \"scope\": \"visual-preview-only\"\n}",
+    "console": []
+  },
+  {
+    "observedAt": "2026-11-12T04:46:24.472Z",
+    "phase": "05min-pause-resume",
+    "actions": [
+      "暂停场景动画",
+      "等待约30秒",
+      "继续场景动画"
+    ],
+    "metrics": "{\n  \"startedAt\": \"2026-11-12T04:41:11.344Z\",\n  \"elapsedSeconds\": 313,\n  \"activeSeconds\": 313,\n  \"frames\": 18771,\n  \"meanFrameMs\": 16.67,\n  \"maxFrameMs\": 517,\n  \"drawCalls\": 466,\n  \"triangles\": 858892,\n  \"geometries\": 236,\n  \"textures\": 4,\n  \"actors\": 6,\n  \"landmarks\": 5,\n  \"paused\": false,\n  \"light\": \"day\",\n  \"photoMode\": false,\n  \"selected\": null,\n  \"runtimeErrors\": [],\n  \"runtimeErrorCount\": 0,\n  \"scope\": \"visual-preview-only\"\n}",
+    "console": []
+  },
+  {
+    "observedAt": "2026-11-12T04:46:55.184Z",
+    "phase": "paused-character",
+    "metrics": "{\n  \"startedAt\": \"2026-11-12T04:41:11.344Z\",\n  \"elapsedSeconds\": 343,\n  \"activeSeconds\": 343,\n  \"frames\": 20571,\n  \"meanFrameMs\": 16.67,\n  \"maxFrameMs\": 517,\n  \"drawCalls\": 444,\n  \"triangles\": 856772,\n  \"geometries\": 237,\n  \"textures\": 4,\n  \"actors\": 6,\n  \"landmarks\": 5,\n  \"paused\": true,\n  \"light\": \"day\",\n  \"photoMode\": false,\n  \"selected\": \"lu\",\n  \"runtimeErrors\": [],\n  \"runtimeErrorCount\": 0,\n  \"scope\": \"visual-preview-only\"\n}",
+    "console": []
+  },
+  {
+    "observedAt": "2026-11-12T04:47:04.750Z",
+    "phase": "dialog-escape-preserves-selection",
+    "assertions": {
+      "inspectorVisible": true
+    },
+    "metrics": "{\n  \"startedAt\": \"2026-11-12T04:41:11.344Z\",\n  \"elapsedSeconds\": 353,\n  \"activeSeconds\": 353,\n  \"frames\": 21170,\n  \"meanFrameMs\": 16.67,\n  \"maxFrameMs\": 517,\n  \"drawCalls\": 444,\n  \"triangles\": 856772,\n  \"geometries\": 237,\n  \"textures\": 4,\n  \"actors\": 6,\n  \"landmarks\": 5,\n  \"paused\": true,\n  \"light\": \"day\",\n  \"photoMode\": false,\n  \"selected\": \"lu\",\n  \"runtimeErrors\": [],\n  \"runtimeErrorCount\": 0,\n  \"scope\": \"visual-preview-only\"\n}"
+  },
+  {
+    "observedAt": "2026-11-12T04:48:14.768Z",
+    "phase": "golden-light",
+    "metrics": "{\n  \"startedAt\": \"2026-11-12T04:41:11.344Z\",\n  \"elapsedSeconds\": 423,\n  \"activeSeconds\": 423,\n  \"frames\": 25370,\n  \"meanFrameMs\": 16.67,\n  \"maxFrameMs\": 517,\n  \"drawCalls\": 466,\n  \"triangles\": 858892,\n  \"geometries\": 237,\n  \"textures\": 4,\n  \"actors\": 6,\n  \"landmarks\": 5,\n  \"paused\": false,\n  \"light\": \"golden\",\n  \"photoMode\": false,\n  \"selected\": null,\n  \"runtimeErrors\": [],\n  \"runtimeErrorCount\": 0,\n  \"scope\": \"visual-preview-only\"\n}",
+    "console": []
+  },
+  {
+    "observedAt": "2026-11-12T04:50:14.007Z",
+    "phase": "blue-light",
+    "metrics": "{\n  \"startedAt\": \"2026-11-12T04:41:11.344Z\",\n  \"elapsedSeconds\": 542,\n  \"activeSeconds\": 542,\n  \"frames\": 32510,\n  \"meanFrameMs\": 16.67,\n  \"maxFrameMs\": 517,\n  \"drawCalls\": 466,\n  \"triangles\": 858892,\n  \"geometries\": 237,\n  \"textures\": 4,\n  \"actors\": 6,\n  \"landmarks\": 5,\n  \"paused\": false,\n  \"light\": \"blue\",\n  \"photoMode\": false,\n  \"selected\": null,\n  \"runtimeErrors\": [],\n  \"runtimeErrorCount\": 0,\n  \"scope\": \"visual-preview-only\"\n}",
+    "console": []
+  },
+  {
+    "observedAt": "2026-11-12T04:51:28.461Z",
+    "phase": "10min-light-cycle",
+    "metrics": "{\n  \"startedAt\": \"2026-11-12T04:41:11.344Z\",\n  \"elapsedSeconds\": 617,\n  \"activeSeconds\": 617,\n  \"frames\": 37010,\n  \"meanFrameMs\": 16.67,\n  \"maxFrameMs\": 517,\n  \"drawCalls\": 466,\n  \"triangles\": 858892,\n  \"geometries\": 237,\n  \"textures\": 4,\n  \"actors\": 6,\n  \"landmarks\": 5,\n  \"paused\": false,\n  \"light\": \"day\",\n  \"photoMode\": false,\n  \"selected\": null,\n  \"runtimeErrors\": [],\n  \"runtimeErrorCount\": 0,\n  \"scope\": \"visual-preview-only\"\n}",
+    "console": []
+  },
+  {
+    "phase": "recovered-after-tool-timeout",
+    "observedAt": "2026-11-12T06:08:33.043Z",
+    "metrics": {
+      "startedAt": "2026-11-12T04:41:11.344Z",
+      "elapsedSeconds": 5241,
+      "activeSeconds": 5241,
+      "frames": 314422,
+      "meanFrameMs": 16.67,
+      "maxFrameMs": 517,
+      "drawCalls": 466,
+      "triangles": 858892,
+      "geometries": 237,
+      "textures": 4,
+      "actors": 6,
+      "landmarks": 5,
+      "paused": false,
+      "light": "day",
+      "photoMode": true,
+      "selected": null,
+      "runtimeErrors": [],
+      "runtimeErrorCount": 0,
+      "scope": "visual-preview-only"
+    },
+    "note": "Download tool blocked; no intermediate samples. End-point stability only; not continuous gameplay."
+  },
+  {
+    "phase": "returned-from-photo-mode",
+    "observedAt": "2026-11-12T06:09:04.100Z",
+    "metrics": {
+      "startedAt": "2026-11-12T04:41:11.344Z",
+      "elapsedSeconds": 5272,
+      "activeSeconds": 5272,
+      "frames": 316281,
+      "meanFrameMs": 16.67,
+      "maxFrameMs": 517,
+      "drawCalls": 466,
+      "triangles": 858892,
+      "geometries": 237,
+      "textures": 4,
+      "actors": 6,
+      "landmarks": 5,
+      "paused": false,
+      "light": "day",
+      "photoMode": false,
+      "selected": null,
+      "runtimeErrors": [],
+      "runtimeErrorCount": 0,
+      "scope": "visual-preview-only"
+    },
+    "console": []
+  }
+]

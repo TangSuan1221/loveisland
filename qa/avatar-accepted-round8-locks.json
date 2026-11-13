@@ -1,0 +1,5736 @@
+{
+  "scope": "All production preset properties, node transforms, materials, and all geometry/materials except the two lower rear-jaw nape meshes. Visual likeness is not asserted.",
+  "baseline": "full round8",
+  "capturedAt": "2026-11-13T11:16:56.302Z",
+  "current": {
+    "appearance": {
+      "version": 1,
+      "artStyle": "anime",
+      "jawWidth": 1,
+      "chinLength": 1.08,
+      "noseBridge": 1,
+      "eyeLid": 0,
+      "shoulderWidth": 1,
+      "bodyRatio": 1,
+      "facialHair": "none",
+      "facialHairColor": "#3e3536",
+      "faceWidth": 1,
+      "faceHeight": 1.03,
+      "eyeWidth": 0.94,
+      "eyeHeight": 1.02,
+      "browSpacing": 0.024,
+      "noseX": 0,
+      "mouthX": 0,
+      "mouthWidth": 1.32,
+      "mouthHeight": 1,
+      "mouthRotation": 0,
+      "faceShape": "anime_pentagon",
+      "skinColor": "#f0d8bc",
+      "hairStyle": "bob",
+      "hairColor": "#cc5025",
+      "eyeStyle": "anime_designed",
+      "eyeColor": "#f4d353",
+      "rightEyeColor": "#5f93b9",
+      "heterochromia": false,
+      "eyeSize": 1.18,
+      "eyeSpacing": 0.025,
+      "eyeY": -0.019,
+      "eyeRotation": 0,
+      "browStyle": "anime_arc",
+      "browColor": "#322822",
+      "browSize": 1.1,
+      "browY": -0.008,
+      "browRotation": 0,
+      "noseStyle": "anime_dot",
+      "noseSize": 0.73,
+      "noseY": -0.04,
+      "mouthStyle": "anime_smile",
+      "mouthColor": "#33251e",
+      "mouthSize": 1.5,
+      "mouthY": -0.006,
+      "headScale": 1.16,
+      "height": 1,
+      "build": 1,
+      "outfit": "tee",
+      "topColor": "#647ade",
+      "bottomColor": "#30313b",
+      "shoeColor": "#faf1dc",
+      "glasses": "none",
+      "glassesColor": "#443b49",
+      "accessory": "none",
+      "accessoryColor": "#30313b",
+      "blush": 0,
+      "strokes": [],
+      "muzzleDepth": 0,
+      "muzzleWidth": 1,
+      "muzzleTint": false,
+      "muzzleColor": "#c3a075",
+      "hairFrontLength": 1,
+      "hairBackLength": 1,
+      "hairVolume": 1,
+      "browWidth": 1.1,
+      "browHeight": 1,
+      "glassesSize": 1,
+      "glassesY": 0,
+      "glassesThickness": 1,
+      "glassesLens": "auto",
+      "moleStyle": "none",
+      "moleX": 0.075,
+      "moleY": -0.145,
+      "moleSize": 1,
+      "hairFront": "anime_arcfringe",
+      "hairBack": "anime_frame",
+      "hairSecondaryColor": "#a87e61",
+      "hairTwoTone": false,
+      "hairMirror": false,
+      "earStyle": "natural",
+      "earSize": 1,
+      "freckles": "none",
+      "wrinkles": "none",
+      "makeup": "none",
+      "detailColor": "#916756",
+      "makeupColor": "#9b6a78",
+      "eyeLashes": "fan",
+      "lowerLashes": "three",
+      "upperEyeFold": "none",
+      "lowerEyeFold": "none",
+      "eyeHighlight": "none",
+      "upperWrinkles": "none",
+      "lowerWrinkles": "none",
+      "mustacheStyle": "none",
+      "beardStyle": "none",
+      "stubbleStyle": "none",
+      "eyeInnerY": 0,
+      "eyeOuterY": 0.05,
+      "eyeUpperInnerX": -0.65,
+      "eyeUpperInnerY": 1.25,
+      "eyeUpperOuterX": 0.45,
+      "eyeUpperOuterY": 1.2,
+      "eyeLowerInnerX": -0.65,
+      "eyeLowerInnerY": -0.48,
+      "eyeLowerOuterX": 0.5,
+      "eyeLowerOuterY": -0.6,
+      "irisSize": 0.64,
+      "irisAspect": 1.095744680851064,
+      "pupilSize": 0.19,
+      "eyeInk": 1.75,
+      "eyeLowerInk": 0.4,
+      "irisRingInk": 1.1,
+      "irisX": 0,
+      "irisY": 0.008,
+      "irisPattern": "rings",
+      "eyeInkColor": "#28201d",
+      "animeLashLength": 1.28,
+      "mouthCurve": 0.001,
+      "mouthInk": 1.6,
+      "noseInkColor": "#392b22",
+      "faceArt": []
+    },
+    "nodes": [
+      {
+        "path": "root",
+        "name": "cast-accepted-review-locks",
+        "type": "Group",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0
+      },
+      {
+        "path": "root/0",
+        "name": "",
+        "type": "Group",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0
+      },
+      {
+        "path": "root/0/0",
+        "name": "",
+        "type": "Group",
+        "position": [
+          0,
+          1.7607276845824,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1.0208,
+          1.051424,
+          1.0208
+        ],
+        "visible": true,
+        "renderOrder": 0
+      },
+      {
+        "path": "root/0/0/0",
+        "name": "face",
+        "type": "Group",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0
+      },
+      {
+        "path": "root/0/0/0/0",
+        "name": "face-skin",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "f029fdd16ddae32fdca840fb741833118c736627feb3cd7dd8b10b897ceb6e16",
+          "attributes": {
+            "faceSourceDepth": {
+              "itemSize": 1,
+              "count": 3185,
+              "arrayType": "Float32Array",
+              "sha256": "4677c7688d2e9b4094598844df5dce0e1cc8102b57df501a8da76c5276a4fc3f"
+            },
+            "normal": {
+              "itemSize": 3,
+              "count": 3185,
+              "arrayType": "Float32Array",
+              "sha256": "8b475aadfe5de4088c0aad804a7c5ee1b802ae8b5ddbdd64569f618bbfed8b24"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 3185,
+              "arrayType": "Float32Array",
+              "sha256": "d597d039bfc36d24fee5159a1cc7d5f65ce304ddf3820fd7ec3a688b1609bf13"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 3185,
+              "arrayType": "Float32Array",
+              "sha256": "c1d4322b17dbacc82dd3459fcdb45e8319023b5b2e8f1b91c17bc0f0accf7702"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "f0d8bc",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonSurface": "face",
+              "faceFrontLitDepth": 0.32,
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/0/0/0",
+        "name": "ink-contour",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "f029fdd16ddae32fdca840fb741833118c736627feb3cd7dd8b10b897ceb6e16",
+          "attributes": {
+            "faceSourceDepth": {
+              "itemSize": 1,
+              "count": 3185,
+              "arrayType": "Float32Array",
+              "sha256": "4677c7688d2e9b4094598844df5dce0e1cc8102b57df501a8da76c5276a4fc3f"
+            },
+            "normal": {
+              "itemSize": 3,
+              "count": 3185,
+              "arrayType": "Float32Array",
+              "sha256": "8b475aadfe5de4088c0aad804a7c5ee1b802ae8b5ddbdd64569f618bbfed8b24"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 3185,
+              "arrayType": "Float32Array",
+              "sha256": "d597d039bfc36d24fee5159a1cc7d5f65ce304ddf3820fd7ec3a688b1609bf13"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 3185,
+              "arrayType": "Float32Array",
+              "sha256": "c1d4322b17dbacc82dd3459fcdb45e8319023b5b2e8f1b91c17bc0f0accf7702"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "2a2930",
+            "opacity": 1,
+            "transparent": false,
+            "side": 1,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/1",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          -0.248,
+          -0.018,
+          -0.015
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          0.035,
+          0.064,
+          0.025
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "b36684809512429ff0e49697a09b483372a3af710938e3820a60c219bd3fba98",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "28492c7287d5c2ea4aff64660a0437c890ee4d760078e2e74b7e0b3021884a56"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "f0d8bc",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/1/0",
+        "name": "ink-contour",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "b36684809512429ff0e49697a09b483372a3af710938e3820a60c219bd3fba98",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "28492c7287d5c2ea4aff64660a0437c890ee4d760078e2e74b7e0b3021884a56"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "2a2930",
+            "opacity": 1,
+            "transparent": false,
+            "side": 1,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/2",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "19265821d94c81081f41dac33921b9c367e699c9cf76702e775932006407b769",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "ad66e65bdaed7d1f4346c637be052a40334b5f42719375f475a6ac9eff4382df"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "2499e91dc6f9cbeebde227a16d7c9f948ce9fe5a7f6de2509f6c0256f45e4036"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "385463475d6fbad6d6af529f7d68a13e3062943da924dfefdec0d809020e905e"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "303038",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/3",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0.248,
+          -0.018,
+          -0.015
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          0.035,
+          0.064,
+          0.025
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "b36684809512429ff0e49697a09b483372a3af710938e3820a60c219bd3fba98",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "28492c7287d5c2ea4aff64660a0437c890ee4d760078e2e74b7e0b3021884a56"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "f0d8bc",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/3/0",
+        "name": "ink-contour",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "b36684809512429ff0e49697a09b483372a3af710938e3820a60c219bd3fba98",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "28492c7287d5c2ea4aff64660a0437c890ee4d760078e2e74b7e0b3021884a56"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "2a2930",
+            "opacity": 1,
+            "transparent": false,
+            "side": 1,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/4",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "19265821d94c81081f41dac33921b9c367e699c9cf76702e775932006407b769",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "b0a535f6dcae377a0ee45bb456e6b348803ad6f9f541a8eeda6edd3488f570cb"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "06451fee1e49f1284e394f24152aafe35a742923bf737f3cdde88142d4593c81"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "385463475d6fbad6d6af529f7d68a13e3062943da924dfefdec0d809020e905e"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "303038",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/5",
+        "name": "eye",
+        "type": "Group",
+        "position": [
+          -0.11399999999999999,
+          0.016000000000000004,
+          0.1776261548101342
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1.1092,
+          1.2036,
+          1.18
+        ],
+        "visible": true,
+        "renderOrder": 0
+      },
+      {
+        "path": "root/0/0/5/0",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 639,
+              "arrayType": "Float32Array",
+              "sha256": "891729dd4af970aaa5a99ce3ba813de635781f7c11e8f3c05fc6d516a3a4ed4a"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 639,
+              "arrayType": "Float32Array",
+              "sha256": "a46bb508a012d514891241851657b0935320ea8273541d0b5edec7e50216b8f3"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "fffaf1",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/5/1",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 456,
+              "arrayType": "Float32Array",
+              "sha256": "de1229df130229d2155baf4249119b31c42d3654866c3b48ba2a2ce960d3429c"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 456,
+              "arrayType": "Float32Array",
+              "sha256": "644acc007c8b6ba1f65de619e14df826dec96586122d358678a5c88d0816ea46"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/5/2",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 348,
+              "arrayType": "Float32Array",
+              "sha256": "a2300e9b1a970ed517cd01413b0d3f3e68e6f014dac075c60f6806c29361a264"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 348,
+              "arrayType": "Float32Array",
+              "sha256": "e297b39bcda540f993d3c35d742864c4b2e99c3f873e169dd8092d2d92e30057"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "f4d353",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/5/3",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 312,
+              "arrayType": "Float32Array",
+              "sha256": "d1516561257770297d0054b5ff0e104ace0c5c477c3fb2cf48018eefabfb83e5"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 312,
+              "arrayType": "Float32Array",
+              "sha256": "e517880d670e0537e8f450b16263a604eb46fec0a77758b98ea6c1f2523898ad"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/5/4",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 312,
+              "arrayType": "Float32Array",
+              "sha256": "75f3c07b96f43d8f1851782e11d8a0776112c3139b4a13b60851ee10a0c890d3"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 312,
+              "arrayType": "Float32Array",
+              "sha256": "3381df039ec1a26e92ae10fb18f64f3029f68ab16cb10cf147ea6004c344db57"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "f4d353",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/5/5",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 204,
+              "arrayType": "Float32Array",
+              "sha256": "e8a727f777e8ee4c671f31e5d2e9d2d44b8ce6deac4fd00e37dfc41bcda8bbe2"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 204,
+              "arrayType": "Float32Array",
+              "sha256": "e06f21c8d0d866ad23775f94c04e0ede357e09507d224e894caccf72a3f41fdb"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/5/6",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 204,
+              "arrayType": "Float32Array",
+              "sha256": "a05cc7c666aa108ff2e844d39e63ef4a3c7a807f01cd2acd0db3f0a793fcfe11"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 204,
+              "arrayType": "Float32Array",
+              "sha256": "7143cd4261aaad6582c0c1dd4e58b5bec90e13d71d51ec009ce1cc7bed58f97e"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "f4d353",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/5/7",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 114,
+              "arrayType": "Float32Array",
+              "sha256": "8cd87ae6a5ed43c53caf9d3565d3c437fe9f64684d66f2f2da59061b9c74307f"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 114,
+              "arrayType": "Float32Array",
+              "sha256": "233c6e88ad831c1d402850ff52d3714d24d6eb0f247fc919d1c194b998daaa1d"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/5/8",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 870,
+              "arrayType": "Float32Array",
+              "sha256": "671b7c59ddec02e052f77fc2e468340de9dce04612a4f4b6b0f58ece8e0ba40d"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 870,
+              "arrayType": "Float32Array",
+              "sha256": "0a8bdd4b0eed927fe30d5d752971606e7fd2b7fc67c848de68f8afec14f75b64"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/5/9",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 69,
+              "arrayType": "Float32Array",
+              "sha256": "cd64c1c705c9585e33da4f77850985c391ead16527506279827b18b4246f9464"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 69,
+              "arrayType": "Float32Array",
+              "sha256": "9713191a1acff5503af91d8a608a51831319fea77f436ba938bdad4f2d1f386b"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/5/10",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 69,
+              "arrayType": "Float32Array",
+              "sha256": "07b8b6fc936a6534d7321735350178f675d7b588ac8bf77162a14fb3ae8f7c29"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 69,
+              "arrayType": "Float32Array",
+              "sha256": "6a86ed07102179bfde6f38d97841e61759ec7723d9f28b86bebe2e5c905a2f32"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/5/11",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 69,
+              "arrayType": "Float32Array",
+              "sha256": "414f6656611140196f227fe06964367276b86f304650d9f298537956aa11d5aa"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 69,
+              "arrayType": "Float32Array",
+              "sha256": "1545b73ec910c5f7caa89a62ace5d203cfc5bc74991b51b989d41b8b15cd40f4"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/5/12",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "19265821d94c81081f41dac33921b9c367e699c9cf76702e775932006407b769",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "d106f47397a471d1fa02141b783a755997c8feedccb283d1f105e46b23187a7b"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "3f81aa689030137f7b22ff3819eb7939639b69991077089ef6e9707ecf7bc456"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "385463475d6fbad6d6af529f7d68a13e3062943da924dfefdec0d809020e905e"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/5/13",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 3,
+              "arrayType": "Float32Array",
+              "sha256": "a739dd9a809e972ce15a549113e3e761a37c40c1cd1900233d1a6454a236485d"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 3,
+              "arrayType": "Float32Array",
+              "sha256": "bd2750152f48adbad7365ed858136c6d3c6f35bb69c2502a35c023a462b7c5b9"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/5/14",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 3,
+              "arrayType": "Float32Array",
+              "sha256": "60e68b4b15d15237a15c1c0a45613baf7ce5d86c16d9c9d8d1496236b8436660"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 3,
+              "arrayType": "Float32Array",
+              "sha256": "6779d2a9774a06d1b565ca026948929c5a519deb7a4554c80c5e1fdae721c2f5"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/5/15",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 3,
+              "arrayType": "Float32Array",
+              "sha256": "5093653c04ef516dc362523d7862f29625f5f1525bc9d0e1db25fa63b7b576c5"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 3,
+              "arrayType": "Float32Array",
+              "sha256": "af3f46795da455e70839e9f9e32f7a8da44b01b26aab5daf0d61c44f71eae444"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/6",
+        "name": "brow",
+        "type": "Group",
+        "position": [
+          -0.11599999999999999,
+          0.08099999999999999,
+          0.17557256090406123
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1.2100000000000002,
+          1.1,
+          1.1
+        ],
+        "visible": true,
+        "renderOrder": 0
+      },
+      {
+        "path": "root/0/0/6/0",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 570,
+              "arrayType": "Float32Array",
+              "sha256": "00fb94c81953b47092c7870fd538e558a13935e754a3c92a4d35ae1950d6ab1e"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 570,
+              "arrayType": "Float32Array",
+              "sha256": "b89c0f96c908753089ac8ee3d18928c6f8abd64b69f884dd8a716395e05c6d77"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "322822",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/7",
+        "name": "eye",
+        "type": "Group",
+        "position": [
+          0.11399999999999999,
+          0.016000000000000004,
+          0.1776261548101342
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1.1092,
+          1.2036,
+          1.18
+        ],
+        "visible": true,
+        "renderOrder": 0
+      },
+      {
+        "path": "root/0/0/7/0",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 639,
+              "arrayType": "Float32Array",
+              "sha256": "7de5fee90b11880cdcd3f9c35d2abe0a675fe8025d083dbcb5ddaeb4786b1979"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 639,
+              "arrayType": "Float32Array",
+              "sha256": "01a40728eb306a13005cd1df2667ddf66254117ddeb90a28c93ef6d8dcbcf1f5"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "fffaf1",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/7/1",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 456,
+              "arrayType": "Float32Array",
+              "sha256": "f14750f1454e49413eba737b000dd48cd54c0e800062933d45cc05b9cf569155"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 456,
+              "arrayType": "Float32Array",
+              "sha256": "6f2778cbf83746be59f28e8e095137e50ba2574c12658addfcdf663a9d1a0469"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/7/2",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 348,
+              "arrayType": "Float32Array",
+              "sha256": "260f37a5273e40c5930e8ccbaeb3db6fea29f13efdce7bc85a1af662dc7e1bbb"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 348,
+              "arrayType": "Float32Array",
+              "sha256": "f7dadb521ff8dd1fee4f8a6ad6d2191d2c0aa8041236755cb6c8f054d85b66d2"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "f4d353",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/7/3",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 312,
+              "arrayType": "Float32Array",
+              "sha256": "a2526c77e39c9fd498d868810ba983c47955e30917bc42b719d47114d7dbfcb5"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 312,
+              "arrayType": "Float32Array",
+              "sha256": "b0e3181a16a074832e1d6eb3dc4f538fe421f4c55a3876774c2a8a94a4739830"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/7/4",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 312,
+              "arrayType": "Float32Array",
+              "sha256": "4b8cf7f7d2f22a4215c1bb49677ab07114858203ccc3a1084814ce12434aaa42"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 312,
+              "arrayType": "Float32Array",
+              "sha256": "88d2382d8f8a30dca4dd664c9328afcd3381dd3046cad32a553f29133f49489f"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "f4d353",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/7/5",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 204,
+              "arrayType": "Float32Array",
+              "sha256": "c73f930efa15f95dc283874b91480b53977ec5cb66d8183b9a7eda03d739412f"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 204,
+              "arrayType": "Float32Array",
+              "sha256": "99d9ae7d3e42f1888837e8131d5c22b139f6dcd524b427a22e9f176ea21902b4"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/7/6",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 204,
+              "arrayType": "Float32Array",
+              "sha256": "426b3a221382b3ccc4f45fb664017906515fde10511a17b5d9bbd529ecc26008"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 204,
+              "arrayType": "Float32Array",
+              "sha256": "07f121121bda455498835f2b34a3b527fa6dbbb9a4851f58728fd899875935f8"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "f4d353",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/7/7",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 114,
+              "arrayType": "Float32Array",
+              "sha256": "d8f1b3e53adddfdaecd78a46d0ef5d268ca54c0518c8feb953cad59b6f4a6f27"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 114,
+              "arrayType": "Float32Array",
+              "sha256": "cbf5188064af7b38a2c9688c6aeda4f71c068a857f3f7a46dc27dfcccaffa59f"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/7/8",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 861,
+              "arrayType": "Float32Array",
+              "sha256": "bb39e961b0c077362f0d2aed9c22ecbe699f310b701c3a41474971a82699eef5"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 861,
+              "arrayType": "Float32Array",
+              "sha256": "5ece079aff882f97031a156f402ee0751733391010fc8fba2ed20fdccbda81c1"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/7/9",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 69,
+              "arrayType": "Float32Array",
+              "sha256": "30b67b39ee9ecd235161354005a4626e37d0ea2e220e1191bfc69d2a329539c3"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 69,
+              "arrayType": "Float32Array",
+              "sha256": "3ec4558af4a058a55ca52edfaf77192faaf3eb730a2fceb99054d23ececbbfba"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/7/10",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 69,
+              "arrayType": "Float32Array",
+              "sha256": "78e7f3ceffda07e438ed388d4c471a271e7453da24505d152bb96a1fa88f5411"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 69,
+              "arrayType": "Float32Array",
+              "sha256": "0fed26f9bf35029ebd9f5ead30453f510d6112a7fa4aa4954fe6ce4b1b2ee48f"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/7/11",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 69,
+              "arrayType": "Float32Array",
+              "sha256": "f3ea9b2446078fc00f940bd3a2399cffade97968ed19a4e54d8d092dc33f0799"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 69,
+              "arrayType": "Float32Array",
+              "sha256": "a80fd378809b74a74f3a222027621d2a81c56e9a5466f6bc51db7def34959d00"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/7/12",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "19265821d94c81081f41dac33921b9c367e699c9cf76702e775932006407b769",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "6efb1e9cf46667553b145177bd37cf6727e1ef959d5cef824c2d80a6cec212e9"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "9f69177b8eea3d0a3ee4180c62a7c93b2ecbb1e1621975ff07ad122fb79e08bc"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "385463475d6fbad6d6af529f7d68a13e3062943da924dfefdec0d809020e905e"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/7/13",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 3,
+              "arrayType": "Float32Array",
+              "sha256": "1f4d71a43265154898b512ecd0d31fdbb4a83e0fcfb2184ec6532ecdff98682e"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 3,
+              "arrayType": "Float32Array",
+              "sha256": "b742372b52661887cbcbd8d69ffc6b7aab9a5437a95edcdfe72da9acc5b9335e"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/7/14",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 3,
+              "arrayType": "Float32Array",
+              "sha256": "bc48e5d5fe41b686f198ab9b92e7d07e4632a267470cf5284e78f32e25851a21"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 3,
+              "arrayType": "Float32Array",
+              "sha256": "874e11660475a6f30e0018725f80a4ae3749ed94d6791f030c6400c3b6e2af77"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/7/15",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 3,
+              "arrayType": "Float32Array",
+              "sha256": "069fe195480ea175a4a7ed4e4cf23e8bd46c3510e53b6ba9e4d10f0d2f4b5f2e"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 3,
+              "arrayType": "Float32Array",
+              "sha256": "09039c2a62f1d48d7ba2c53c6e53c477f887cb5b676c5643915a96307de01cdc"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "28201d",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/8",
+        "name": "brow",
+        "type": "Group",
+        "position": [
+          0.11599999999999999,
+          0.08099999999999999,
+          0.17557256090406123
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1.2100000000000002,
+          1.1,
+          1.1
+        ],
+        "visible": true,
+        "renderOrder": 0
+      },
+      {
+        "path": "root/0/0/8/0",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 561,
+              "arrayType": "Float32Array",
+              "sha256": "363dbeccecbf7d99593f97a50936f89309cd71f9cea6a6567a97fe4ee80dc466"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 561,
+              "arrayType": "Float32Array",
+              "sha256": "8cd8439101a75736450b028ceb5291becc2c35af55a5af9067452c41c7afb937"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "322822",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/9",
+        "name": "nose",
+        "type": "Group",
+        "position": [
+          0,
+          -0.065,
+          0.17870020261970057
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          0.73,
+          0.73,
+          0.73
+        ],
+        "visible": true,
+        "renderOrder": 0
+      },
+      {
+        "path": "root/0/0/9/0",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": null,
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 90,
+              "arrayType": "Float32Array",
+              "sha256": "0cb10c2a9b92d88a44ed1c8e32b64e867e1a8866b81a9c3fe0c77fadccc0e24a"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 90,
+              "arrayType": "Float32Array",
+              "sha256": "8aa6639c9e3bc0917699a630e2283a1efa6d01d59d3bb94da9743a549fd93e2e"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "392b22",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/10",
+        "name": "mouth",
+        "type": "Group",
+        "position": [
+          0,
+          -0.138,
+          0.17411081740393078
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1.98,
+          1.5,
+          1.5
+        ],
+        "visible": true,
+        "renderOrder": 0
+      },
+      {
+        "path": "root/0/0/10/0",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "19265821d94c81081f41dac33921b9c367e699c9cf76702e775932006407b769",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "9bc5eab562c8bcff0ccf5e003363f239ed8138c22d78e5b75d6a10371b07e673"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "8679df557571398d6a8c76b564dc284937bcf48a4300c83147ac45921a1eb183"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "385463475d6fbad6d6af529f7d68a13e3062943da924dfefdec0d809020e905e"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "33251e",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/11",
+        "name": "hair",
+        "type": "Group",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0
+      },
+      {
+        "path": "root/0/0/11/0",
+        "name": "hair-crown",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "bc61a64da1e12ff8e718f29560e148bec7ade921db385428df7ede9fd577e296",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 1025,
+              "arrayType": "Float32Array",
+              "sha256": "571e088313930e83f501487c75d41adec68bf279255b695261892c7e2dfaa8fb"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 1025,
+              "arrayType": "Float32Array",
+              "sha256": "0f615f20a5c71846e7ce75f2c58aa1fc9049d158e96791f0389b55b81cd22a03"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 1025,
+              "arrayType": "Float32Array",
+              "sha256": "db5488ae85a6a330bd443fe96fcdd67451defe0676cfbda1e8f222836ca5db09"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "cc5025",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/11/0/0",
+        "name": "ink-contour",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "bc61a64da1e12ff8e718f29560e148bec7ade921db385428df7ede9fd577e296",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 1025,
+              "arrayType": "Float32Array",
+              "sha256": "571e088313930e83f501487c75d41adec68bf279255b695261892c7e2dfaa8fb"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 1025,
+              "arrayType": "Float32Array",
+              "sha256": "0f615f20a5c71846e7ce75f2c58aa1fc9049d158e96791f0389b55b81cd22a03"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 1025,
+              "arrayType": "Float32Array",
+              "sha256": "db5488ae85a6a330bd443fe96fcdd67451defe0676cfbda1e8f222836ca5db09"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "2a2930",
+            "opacity": 1,
+            "transparent": false,
+            "side": 1,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/11/1",
+        "name": "front-anime_arcfringe-crown",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "c385b68bbfaa91800143b7bd1cf4e148a175de49a091324882f9a5f5d8fc3b8c",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 65970,
+              "arrayType": "Float32Array",
+              "sha256": "0cef10d751e9fe39876439c424e0a9e6ae13159f875f69355f72204821f065e8"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 65970,
+              "arrayType": "Float32Array",
+              "sha256": "3c3fac9c866dd086484d6d1b6a6ad7ca9cf5d049b9860a2b7876aa42f51966e4"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "ffffff",
+            "opacity": 1,
+            "transparent": false,
+            "side": 2,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/11/2",
+        "name": "front-anime_arcfringe-part",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "25f98cdc78032454714b56deac093073cd65c2d67d6e5b7a84a4141036a0c8ec",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 198,
+              "arrayType": "Float32Array",
+              "sha256": "b612c841e4666c78fba822bc6792dcf3dc3feb28096ab3a0ecb77bf54a87468e"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 198,
+              "arrayType": "Float32Array",
+              "sha256": "033d9790384e25fbf6b4fe8317e3c57feefe8120bc2f50081d2c472c5e1ce8dd"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "ffffff",
+            "opacity": 1,
+            "transparent": false,
+            "side": 2,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/11/3",
+        "name": "front-anime_arcfringe-flow-left",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "3179659f868ef5495bbcc878f3f30f807d1497d2f464e76aa00241fc7cb939f7",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 294,
+              "arrayType": "Float32Array",
+              "sha256": "7702f7910ffc3e6fc2db3ca9a6825b1ed54e7d2c0b87b3e6ea61b03fc56dcc7a"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 294,
+              "arrayType": "Float32Array",
+              "sha256": "e97c4162c8b3e2855879afb596ee22d317674e58010b267fb50036dd2f98e16b"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "ffffff",
+            "opacity": 1,
+            "transparent": false,
+            "side": 2,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/11/4",
+        "name": "front-anime_arcfringe-flow-right",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "3179659f868ef5495bbcc878f3f30f807d1497d2f464e76aa00241fc7cb939f7",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 294,
+              "arrayType": "Float32Array",
+              "sha256": "4fe08641d2273f51c15b31fdce1627c6c9e8d0bb8a648625a453a987e4872974"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 294,
+              "arrayType": "Float32Array",
+              "sha256": "4909b6fbaa306181d589fcc9bf0daab0798baa8fb54eba2c590a1c07fa9a0df3"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "ffffff",
+            "opacity": 1,
+            "transparent": false,
+            "side": 2,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/11/5",
+        "name": "back-anime_frame-mantle",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "fa6f117890a20d423c443130ca05d2ed6ee8c098a58c64bd10f78c2d27fb6ed2",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 6370,
+              "arrayType": "Float32Array",
+              "sha256": "4ab23e77bf4a8bba21db5ef2e1054ca7a1332e00dcd0f9cf455d59bc70974f97"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 6370,
+              "arrayType": "Float32Array",
+              "sha256": "72bcf1470bb67b0163f64dc496f90b4f032e297b42f1931a01a574d66d5a2d4e"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "ffffff",
+            "opacity": 1,
+            "transparent": false,
+            "side": 2,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/11/6",
+        "name": "back-anime_frame-curtain--1",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "c70ded8464156e37522cc0d15ef02babdaad6db3e26deacf07f5805292129e52",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 2730,
+              "arrayType": "Float32Array",
+              "sha256": "8710996fc57823a53935728acf58479082ab49349cbcd80d1f698458b02b7152"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 2730,
+              "arrayType": "Float32Array",
+              "sha256": "3813a3e7456a39f151f08b8171edcf7303c59ee9879bbcab3c549fbea82137fa"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "ffffff",
+            "opacity": 1,
+            "transparent": false,
+            "side": 2,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/11/7",
+        "name": "back-anime_frame-nape--1",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": "allowed-rear-jaw-nape-geometry-only",
+        "materials": "allowed-rear-jaw-nape-material-only"
+      },
+      {
+        "path": "root/0/0/11/8",
+        "name": "back-anime_frame-curtain-1",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "c0be681c78ba81169442fa34e7d18d6044cce7059fa0c41d52d72fb0e1286e66",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 2730,
+              "arrayType": "Float32Array",
+              "sha256": "3363a76025a1c3aa1e73f9688c5a9956fbbbd13763abe7e4da1f4f2dc88a1c36"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 2730,
+              "arrayType": "Float32Array",
+              "sha256": "6007be7ddbadab1cb7f78c30c4e5a0605d75ef09edbf57f039602662bdc8dc97"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "ffffff",
+            "opacity": 1,
+            "transparent": false,
+            "side": 2,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/0/11/9",
+        "name": "back-anime_frame-nape-1",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": "allowed-rear-jaw-nape-geometry-only",
+        "materials": "allowed-rear-jaw-nape-material-only"
+      },
+      {
+        "path": "root/0/1",
+        "name": "outfit",
+        "type": "Group",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0
+      },
+      {
+        "path": "root/0/1/0",
+        "name": "tailored-torso",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "5a62bc03ca6f953668dca8e6e27f73d19135d43229f9d29c50e3b173ffee9da7",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 149,
+              "arrayType": "Float32Array",
+              "sha256": "3f8815acfe5ae3c4e83b28209bf882240e08a029e2fd5ee729b0c66976e0f1ab"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 149,
+              "arrayType": "Float32Array",
+              "sha256": "95252d42f09313eff424d0efee39d2e302afee36b40759e64ddc54e70f6c9c98"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "647ade",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/1/0/0",
+        "name": "ink-contour",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "5a62bc03ca6f953668dca8e6e27f73d19135d43229f9d29c50e3b173ffee9da7",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 149,
+              "arrayType": "Float32Array",
+              "sha256": "3f8815acfe5ae3c4e83b28209bf882240e08a029e2fd5ee729b0c66976e0f1ab"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 149,
+              "arrayType": "Float32Array",
+              "sha256": "95252d42f09313eff424d0efee39d2e302afee36b40759e64ddc54e70f6c9c98"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "2a2930",
+            "opacity": 1,
+            "transparent": false,
+            "side": 1,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/1/1",
+        "name": "neck",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "f56e10fbfcf39547c3c3c97ee710fcc55dfb78c6eacc9a40f3ecf44de5b06e2c",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 65,
+              "arrayType": "Float32Array",
+              "sha256": "8910b01472379173a7fa092dd7d2abfbc7c34f7db7cffdfaf1d90577d55ee1c4"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 65,
+              "arrayType": "Float32Array",
+              "sha256": "a3de951f3c6ec50c036482902d0679a86fc7767dfac8dc1fea70c3aee190857f"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "f0d8bc",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/1/1/0",
+        "name": "ink-contour",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "f56e10fbfcf39547c3c3c97ee710fcc55dfb78c6eacc9a40f3ecf44de5b06e2c",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 65,
+              "arrayType": "Float32Array",
+              "sha256": "8910b01472379173a7fa092dd7d2abfbc7c34f7db7cffdfaf1d90577d55ee1c4"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 65,
+              "arrayType": "Float32Array",
+              "sha256": "a3de951f3c6ec50c036482902d0679a86fc7767dfac8dc1fea70c3aee190857f"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "2a2930",
+            "opacity": 1,
+            "transparent": false,
+            "side": 1,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/1/2",
+        "name": "trousers-hip",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "3c79ec83a45919605f7786f8108bb5e5d5ded6dfd15ed6122b7132db91e6c93f",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 44,
+              "arrayType": "Float32Array",
+              "sha256": "d9dee1ca17f140b6dd18062e3be321ecb16c6be0afebd02b92a6a79facab12a4"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 44,
+              "arrayType": "Float32Array",
+              "sha256": "4d87ce9d7d9701b9f3468fe84b1134380899d59468e3cf7b42c3a5e79dc1c27b"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "30313b",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/1/2/0",
+        "name": "ink-contour",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "3c79ec83a45919605f7786f8108bb5e5d5ded6dfd15ed6122b7132db91e6c93f",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 44,
+              "arrayType": "Float32Array",
+              "sha256": "d9dee1ca17f140b6dd18062e3be321ecb16c6be0afebd02b92a6a79facab12a4"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 44,
+              "arrayType": "Float32Array",
+              "sha256": "4d87ce9d7d9701b9f3468fe84b1134380899d59468e3cf7b42c3a5e79dc1c27b"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "2a2930",
+            "opacity": 1,
+            "transparent": false,
+            "side": 1,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/1/3",
+        "name": "anime-crew-collar",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "a79dbdf705bb2176aa8fcf0d8ed3bd8cc54144e0bc8521204085dbf456d6ac39",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 585,
+              "arrayType": "Float32Array",
+              "sha256": "cc664fdb8d64af51d9b4331101d99909953846d71dd56bfc46368af5d38215b2"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 585,
+              "arrayType": "Float32Array",
+              "sha256": "1db16393940cd7c940a7a08e7c9d96780cc8c41df65767d21275e52c3d6e47ee"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 585,
+              "arrayType": "Float32Array",
+              "sha256": "b4c63937f9addce7747544a5672e30e2b8002428c6325b732a3e10943d806a1e"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "5467bd",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/1/4",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "19265821d94c81081f41dac33921b9c367e699c9cf76702e775932006407b769",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "43c3011e1a9ace9b06e0ec36a9be32aa323f35619923645737655680bdf67851"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "1a0558b1a2059daa583618e7d45acb17fcc2c9b3cd60277be4cf11b1f172f635"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "385463475d6fbad6d6af529f7d68a13e3062943da924dfefdec0d809020e905e"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "5163b6",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/1/5",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "19265821d94c81081f41dac33921b9c367e699c9cf76702e775932006407b769",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "8392ddd69f570f1936ef07895e18099c14e3f49efb588bd7866dfa09d1e4b1f6"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "a388cb16fa8148d2e55267cc2bf73b6afa079b43febeaab0e123e4aa408db7f8"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "385463475d6fbad6d6af529f7d68a13e3062943da924dfefdec0d809020e905e"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "5163b6",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/2",
+        "name": "leg",
+        "type": "Group",
+        "position": [
+          -0.095,
+          0.86,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0
+      },
+      {
+        "path": "root/0/2/0",
+        "name": "leg-contour",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "7483ad243b78c66427d55e0847bc2de6dd8ecda6e2c4225e93281beea96e462c",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 86,
+              "arrayType": "Float32Array",
+              "sha256": "5b0e1b254fb49e7a03b61cfc4f53ba08c273bc314327591f2027a5e81deac799"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 86,
+              "arrayType": "Float32Array",
+              "sha256": "8f85ee154a222aee5ea8804e098e0bc790dbf7cbf64d9493bafcb6fa56353392"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "30313b",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/2/0/0",
+        "name": "ink-contour",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "7483ad243b78c66427d55e0847bc2de6dd8ecda6e2c4225e93281beea96e462c",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 86,
+              "arrayType": "Float32Array",
+              "sha256": "5b0e1b254fb49e7a03b61cfc4f53ba08c273bc314327591f2027a5e81deac799"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 86,
+              "arrayType": "Float32Array",
+              "sha256": "8f85ee154a222aee5ea8804e098e0bc790dbf7cbf64d9493bafcb6fa56353392"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "2a2930",
+            "opacity": 1,
+            "transparent": false,
+            "side": 1,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/2/1",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          -0.79,
+          0.04
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          0.065,
+          0.065,
+          0.13
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "b36684809512429ff0e49697a09b483372a3af710938e3820a60c219bd3fba98",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "28492c7287d5c2ea4aff64660a0437c890ee4d760078e2e74b7e0b3021884a56"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "faf1dc",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/2/1/0",
+        "name": "ink-contour",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "b36684809512429ff0e49697a09b483372a3af710938e3820a60c219bd3fba98",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "28492c7287d5c2ea4aff64660a0437c890ee4d760078e2e74b7e0b3021884a56"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "2a2930",
+            "opacity": 1,
+            "transparent": false,
+            "side": 1,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/2/2",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "19265821d94c81081f41dac33921b9c367e699c9cf76702e775932006407b769",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "b7cbac740cef8dce0bad8ea655b37abb01ebe584e978ed923a3a7621cceeb6c9"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "3da6a2717043187636e74b23861f3896121fc80721d157fa2ef7814185c18ef7"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "385463475d6fbad6d6af529f7d68a13e3062943da924dfefdec0d809020e905e"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "303038",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/3",
+        "name": "arm",
+        "type": "Group",
+        "position": [
+          -0.22,
+          1.37,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          -0.037491211555460265,
+          0.9992969573935987
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0
+      },
+      {
+        "path": "root/0/3/0",
+        "name": "sleeve",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "a12d7954735cee0503ef5062223a9affe4e4a36c2a11fc94d725adf83b2e6822",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 107,
+              "arrayType": "Float32Array",
+              "sha256": "ba05d65ffa79994cda230a545c0304729728fc3962e64073b14a90649be7a1ce"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 107,
+              "arrayType": "Float32Array",
+              "sha256": "9599e7354960212407954a5e62275e1f79cbda6c61b9a3fe89fae2c6edeae863"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "647ade",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/3/0/0",
+        "name": "ink-contour",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "a12d7954735cee0503ef5062223a9affe4e4a36c2a11fc94d725adf83b2e6822",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 107,
+              "arrayType": "Float32Array",
+              "sha256": "ba05d65ffa79994cda230a545c0304729728fc3962e64073b14a90649be7a1ce"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 107,
+              "arrayType": "Float32Array",
+              "sha256": "9599e7354960212407954a5e62275e1f79cbda6c61b9a3fe89fae2c6edeae863"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "2a2930",
+            "opacity": 1,
+            "transparent": false,
+            "side": 1,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/3/1",
+        "name": "forearm",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "f56e10fbfcf39547c3c3c97ee710fcc55dfb78c6eacc9a40f3ecf44de5b06e2c",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 65,
+              "arrayType": "Float32Array",
+              "sha256": "d848d54014c93f96600fe515350c1d661f4522fe398677fc5ceb151d7b1281d6"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 65,
+              "arrayType": "Float32Array",
+              "sha256": "6122db86a27ae2786802245354390acc799266029bfe4a543ce2720c9e40c1c5"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "f0d8bc",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/3/1/0",
+        "name": "ink-contour",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "f56e10fbfcf39547c3c3c97ee710fcc55dfb78c6eacc9a40f3ecf44de5b06e2c",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 65,
+              "arrayType": "Float32Array",
+              "sha256": "d848d54014c93f96600fe515350c1d661f4522fe398677fc5ceb151d7b1281d6"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 65,
+              "arrayType": "Float32Array",
+              "sha256": "6122db86a27ae2786802245354390acc799266029bfe4a543ce2720c9e40c1c5"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "2a2930",
+            "opacity": 1,
+            "transparent": false,
+            "side": 1,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/3/2",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          -0.012,
+          -0.53,
+          0.013
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          0.045,
+          0.083,
+          0.028
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "b36684809512429ff0e49697a09b483372a3af710938e3820a60c219bd3fba98",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "28492c7287d5c2ea4aff64660a0437c890ee4d760078e2e74b7e0b3021884a56"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "f0d8bc",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/3/2/0",
+        "name": "ink-contour",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "b36684809512429ff0e49697a09b483372a3af710938e3820a60c219bd3fba98",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "28492c7287d5c2ea4aff64660a0437c890ee4d760078e2e74b7e0b3021884a56"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "2a2930",
+            "opacity": 1,
+            "transparent": false,
+            "side": 1,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/3/3",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "19265821d94c81081f41dac33921b9c367e699c9cf76702e775932006407b769",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "73469ef8bd95ddb1168241ed4cb139e3dc579381c6f1bb621fc6004557c2c3a1"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "dd7bd229d67cd881d820aea1345fa15eeec335e2964e38020641e43c6851ecd6"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "385463475d6fbad6d6af529f7d68a13e3062943da924dfefdec0d809020e905e"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "303038",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/4",
+        "name": "leg",
+        "type": "Group",
+        "position": [
+          0.095,
+          0.86,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0
+      },
+      {
+        "path": "root/0/4/0",
+        "name": "leg-contour",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "7483ad243b78c66427d55e0847bc2de6dd8ecda6e2c4225e93281beea96e462c",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 86,
+              "arrayType": "Float32Array",
+              "sha256": "5b0e1b254fb49e7a03b61cfc4f53ba08c273bc314327591f2027a5e81deac799"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 86,
+              "arrayType": "Float32Array",
+              "sha256": "8f85ee154a222aee5ea8804e098e0bc790dbf7cbf64d9493bafcb6fa56353392"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "30313b",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/4/0/0",
+        "name": "ink-contour",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "7483ad243b78c66427d55e0847bc2de6dd8ecda6e2c4225e93281beea96e462c",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 86,
+              "arrayType": "Float32Array",
+              "sha256": "5b0e1b254fb49e7a03b61cfc4f53ba08c273bc314327591f2027a5e81deac799"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 86,
+              "arrayType": "Float32Array",
+              "sha256": "8f85ee154a222aee5ea8804e098e0bc790dbf7cbf64d9493bafcb6fa56353392"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "2a2930",
+            "opacity": 1,
+            "transparent": false,
+            "side": 1,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/4/1",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          -0.79,
+          0.04
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          0.065,
+          0.065,
+          0.13
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "b36684809512429ff0e49697a09b483372a3af710938e3820a60c219bd3fba98",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "28492c7287d5c2ea4aff64660a0437c890ee4d760078e2e74b7e0b3021884a56"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "faf1dc",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/4/1/0",
+        "name": "ink-contour",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "b36684809512429ff0e49697a09b483372a3af710938e3820a60c219bd3fba98",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "28492c7287d5c2ea4aff64660a0437c890ee4d760078e2e74b7e0b3021884a56"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "2a2930",
+            "opacity": 1,
+            "transparent": false,
+            "side": 1,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/4/2",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "19265821d94c81081f41dac33921b9c367e699c9cf76702e775932006407b769",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "b7cbac740cef8dce0bad8ea655b37abb01ebe584e978ed923a3a7621cceeb6c9"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "3da6a2717043187636e74b23861f3896121fc80721d157fa2ef7814185c18ef7"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "385463475d6fbad6d6af529f7d68a13e3062943da924dfefdec0d809020e905e"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "303038",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/5",
+        "name": "arm",
+        "type": "Group",
+        "position": [
+          0.22,
+          1.37,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0.037491211555460265,
+          0.9992969573935987
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0
+      },
+      {
+        "path": "root/0/5/0",
+        "name": "sleeve",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "a12d7954735cee0503ef5062223a9affe4e4a36c2a11fc94d725adf83b2e6822",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 107,
+              "arrayType": "Float32Array",
+              "sha256": "ba05d65ffa79994cda230a545c0304729728fc3962e64073b14a90649be7a1ce"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 107,
+              "arrayType": "Float32Array",
+              "sha256": "9599e7354960212407954a5e62275e1f79cbda6c61b9a3fe89fae2c6edeae863"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "647ade",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/5/0/0",
+        "name": "ink-contour",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "a12d7954735cee0503ef5062223a9affe4e4a36c2a11fc94d725adf83b2e6822",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 107,
+              "arrayType": "Float32Array",
+              "sha256": "ba05d65ffa79994cda230a545c0304729728fc3962e64073b14a90649be7a1ce"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 107,
+              "arrayType": "Float32Array",
+              "sha256": "9599e7354960212407954a5e62275e1f79cbda6c61b9a3fe89fae2c6edeae863"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "2a2930",
+            "opacity": 1,
+            "transparent": false,
+            "side": 1,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/5/1",
+        "name": "forearm",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "f56e10fbfcf39547c3c3c97ee710fcc55dfb78c6eacc9a40f3ecf44de5b06e2c",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 65,
+              "arrayType": "Float32Array",
+              "sha256": "d848d54014c93f96600fe515350c1d661f4522fe398677fc5ceb151d7b1281d6"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 65,
+              "arrayType": "Float32Array",
+              "sha256": "6122db86a27ae2786802245354390acc799266029bfe4a543ce2720c9e40c1c5"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "f0d8bc",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/5/1/0",
+        "name": "ink-contour",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "f56e10fbfcf39547c3c3c97ee710fcc55dfb78c6eacc9a40f3ecf44de5b06e2c",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 65,
+              "arrayType": "Float32Array",
+              "sha256": "d848d54014c93f96600fe515350c1d661f4522fe398677fc5ceb151d7b1281d6"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 65,
+              "arrayType": "Float32Array",
+              "sha256": "6122db86a27ae2786802245354390acc799266029bfe4a543ce2720c9e40c1c5"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "2a2930",
+            "opacity": 1,
+            "transparent": false,
+            "side": 1,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/5/2",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0.012,
+          -0.53,
+          0.013
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          0.045,
+          0.083,
+          0.028
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "b36684809512429ff0e49697a09b483372a3af710938e3820a60c219bd3fba98",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "28492c7287d5c2ea4aff64660a0437c890ee4d760078e2e74b7e0b3021884a56"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "f0d8bc",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/5/2/0",
+        "name": "ink-contour",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "b36684809512429ff0e49697a09b483372a3af710938e3820a60c219bd3fba98",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "28492c7287d5c2ea4aff64660a0437c890ee4d760078e2e74b7e0b3021884a56"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "2a2930",
+            "opacity": 1,
+            "transparent": false,
+            "side": 1,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {}
+          }
+        ]
+      },
+      {
+        "path": "root/0/5/3",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "19265821d94c81081f41dac33921b9c367e699c9cf76702e775932006407b769",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "73469ef8bd95ddb1168241ed4cb139e3dc579381c6f1bb621fc6004557c2c3a1"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "ef48aafb850ca29d3554a931f638f7ae99c4764b02009a6f214a3c2b6bdfd88b"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 189,
+              "arrayType": "Float32Array",
+              "sha256": "385463475d6fbad6d6af529f7d68a13e3062943da924dfefdec0d809020e905e"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "303038",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/5/4",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0.04,
+          -0.35,
+          0.035
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          0.075,
+          0.045,
+          0.065
+        ],
+        "visible": false,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "b36684809512429ff0e49697a09b483372a3af710938e3820a60c219bd3fba98",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "28492c7287d5c2ea4aff64660a0437c890ee4d760078e2e74b7e0b3021884a56"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "d3a362",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/6",
+        "name": "book",
+        "type": "Group",
+        "position": [
+          0,
+          0.65,
+          0.3
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": false,
+        "renderOrder": 0
+      },
+      {
+        "path": "root/0/6/0",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          0.3,
+          0.025,
+          0.18
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "7d2c65fffb490f18b89d5d949a36ac6fe37f052789bdc3ad49759abb3ecd0898",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 24,
+              "arrayType": "Float32Array",
+              "sha256": "cf38d80691f04d52b9686807b830aec77584c7ecdc0ceed56144923548dd5593"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 24,
+              "arrayType": "Float32Array",
+              "sha256": "684624d0687cbb7ce0a1119f1588586e3d1d758cf5bee26b78af640572a1e1bd"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 24,
+              "arrayType": "Float32Array",
+              "sha256": "9acbda3fe508de1f96b8f061ef5888cfba15a3e6ae752467e73665e4dfe3182a"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "5d8a78",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/6/1",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0.02,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          0.28,
+          0.013,
+          0.16
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "7d2c65fffb490f18b89d5d949a36ac6fe37f052789bdc3ad49759abb3ecd0898",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 24,
+              "arrayType": "Float32Array",
+              "sha256": "cf38d80691f04d52b9686807b830aec77584c7ecdc0ceed56144923548dd5593"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 24,
+              "arrayType": "Float32Array",
+              "sha256": "684624d0687cbb7ce0a1119f1588586e3d1d758cf5bee26b78af640572a1e1bd"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 24,
+              "arrayType": "Float32Array",
+              "sha256": "9acbda3fe508de1f96b8f061ef5888cfba15a3e6ae752467e73665e4dfe3182a"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "fff1d8",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/7",
+        "name": "music-notes",
+        "type": "Group",
+        "position": [
+          0.4,
+          1.64,
+          0.05
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "visible": false,
+        "renderOrder": 0
+      },
+      {
+        "path": "root/0/7/0",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          0.055,
+          0.035,
+          0.025
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "b36684809512429ff0e49697a09b483372a3af710938e3820a60c219bd3fba98",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "28492c7287d5c2ea4aff64660a0437c890ee4d760078e2e74b7e0b3021884a56"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "c18a46",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/7/1",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0.04,
+          0.09,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          0.015,
+          0.2,
+          0.025
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "7d2c65fffb490f18b89d5d949a36ac6fe37f052789bdc3ad49759abb3ecd0898",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 24,
+              "arrayType": "Float32Array",
+              "sha256": "cf38d80691f04d52b9686807b830aec77584c7ecdc0ceed56144923548dd5593"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 24,
+              "arrayType": "Float32Array",
+              "sha256": "684624d0687cbb7ce0a1119f1588586e3d1d758cf5bee26b78af640572a1e1bd"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 24,
+              "arrayType": "Float32Array",
+              "sha256": "9acbda3fe508de1f96b8f061ef5888cfba15a3e6ae752467e73665e4dfe3182a"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "c18a46",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/7/2",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0.18,
+          0.14,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          0.055,
+          0.035,
+          0.025
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "b36684809512429ff0e49697a09b483372a3af710938e3820a60c219bd3fba98",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "cfbacddc31b8c650f740743960efdf1500643fe0f821a46ab25bdc896071c383"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 609,
+              "arrayType": "Float32Array",
+              "sha256": "28492c7287d5c2ea4aff64660a0437c890ee4d760078e2e74b7e0b3021884a56"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "c18a46",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      },
+      {
+        "path": "root/0/7/3",
+        "name": "",
+        "type": "Mesh",
+        "position": [
+          0.22,
+          0.23,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          0.015,
+          0.2,
+          0.025
+        ],
+        "visible": true,
+        "renderOrder": 0,
+        "geometry": {
+          "index": "7d2c65fffb490f18b89d5d949a36ac6fe37f052789bdc3ad49759abb3ecd0898",
+          "attributes": {
+            "normal": {
+              "itemSize": 3,
+              "count": 24,
+              "arrayType": "Float32Array",
+              "sha256": "cf38d80691f04d52b9686807b830aec77584c7ecdc0ceed56144923548dd5593"
+            },
+            "position": {
+              "itemSize": 3,
+              "count": 24,
+              "arrayType": "Float32Array",
+              "sha256": "684624d0687cbb7ce0a1119f1588586e3d1d758cf5bee26b78af640572a1e1bd"
+            },
+            "uv": {
+              "itemSize": 2,
+              "count": 24,
+              "arrayType": "Float32Array",
+              "sha256": "9acbda3fe508de1f96b8f061ef5888cfba15a3e6ae752467e73665e4dfe3182a"
+            }
+          }
+        },
+        "materials": [
+          {
+            "type": "MeshBasicNodeMaterial",
+            "color": "c18a46",
+            "opacity": 1,
+            "transparent": false,
+            "side": 0,
+            "depthWrite": true,
+            "depthTest": true,
+            "userData": {
+              "cartoonStyle": "anime"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

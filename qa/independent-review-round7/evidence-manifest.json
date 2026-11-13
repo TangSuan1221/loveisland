@@ -1,0 +1,346 @@
+{
+  "status": "COMPLETE",
+  "inputs": {
+    "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\codex-clipboard-bb1f579c-afaf-4996-8112-de27960fd757.png": {
+      "sha256": "7755d7de98acd2b6755bd6c232efff525cc84c1cae23d854c3aa02ee9aed055b",
+      "size": [
+        877,
+        1299
+      ]
+    },
+    "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round6-portrait.png": {
+      "sha256": "6f83267b5e9f3314ad393d051362605aebab46577b88e005063e866bf52721d2",
+      "size": [
+        840,
+        980
+      ]
+    },
+    "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round7-portrait.png": {
+      "sha256": "04d67bfd540402cc55fa3e7eb3dfa80feb819f91350da26b8cbaf1348172beb8",
+      "size": [
+        840,
+        980
+      ]
+    },
+    "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round6.png": {
+      "sha256": "b916e6ef2a1274b8c4a2df1c5f1e04f1b4fe01b611f382c7b61a3ea3e163cb00",
+      "size": [
+        1262,
+        1702
+      ]
+    },
+    "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round6-detail.png": {
+      "sha256": "6ef77a44c04cea9526fe3ae96346fb662cbde258ba75e1812dcc6ecfb96a4019",
+      "size": [
+        1000,
+        1137
+      ]
+    },
+    "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round7.png": {
+      "sha256": "d29e0b092655da5b3e166702d1b9b56028fcfc935fbd69abfb0c0baa2cec97f3",
+      "size": [
+        1262,
+        1702
+      ]
+    },
+    "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round7-detail.png": {
+      "sha256": "327f3e2c1686716b582eb8843cf78b015acba1646819ea7628c5d62e71fded1c",
+      "size": [
+        1000,
+        1137
+      ]
+    }
+  },
+  "json_records": {
+    "round6": {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round6.json",
+      "sha256": "32d28f359ba280fe27ffb131b9e099a5736a70c1056beaf4c634cd97a9f15f1e",
+      "backend": "WebGPUBackend",
+      "portrait": {
+        "width": 840,
+        "height": 980,
+        "distance": 1.92,
+        "centerOffsetY": 0.02,
+        "source": "native WebGPU render"
+      },
+      "detail": {
+        "width": 1000,
+        "height": 1100,
+        "distance": 1.42,
+        "centerOffsetY": -0.06,
+        "source": "native WebGPU render"
+      },
+      "capturedAt": "2026-11-13T10:14:47.013Z",
+      "sourceFingerprint_recorded": "3659e6a37dd20220abc57c24d9dc520a59d08e267cd6140c7135154a0b9af4b7",
+      "sourceFileCount": 40,
+      "image_matches": {
+        "qa/anime-independent-round6.png": true,
+        "qa/anime-independent-round6-detail.png": true,
+        "qa/anime-independent-round6-portrait.png": true
+      }
+    },
+    "round7": {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round7.json",
+      "sha256": "483e3a1662ea9fd37d4c7630b0490487543411105c44db538e03744a1219999d",
+      "backend": "WebGPUBackend",
+      "portrait": {
+        "width": 840,
+        "height": 980,
+        "distance": 1.92,
+        "centerOffsetY": 0.02,
+        "source": "native WebGPU render"
+      },
+      "detail": {
+        "width": 1000,
+        "height": 1100,
+        "distance": 1.42,
+        "centerOffsetY": -0.06,
+        "source": "native WebGPU render"
+      },
+      "capturedAt": "2026-11-13T10:43:58.512Z",
+      "sourceFingerprint_recorded": "67a90c8742554d87a9997d6e0fb094495ac60134372e27505a4643dbbddba24a",
+      "sourceFileCount": 40,
+      "image_matches": {
+        "qa/anime-independent-round7.png": true,
+        "qa/anime-independent-round7-detail.png": true,
+        "qa/anime-independent-round7-portrait.png": true
+      },
+      "current_source_hash_mismatches": []
+    }
+  },
+  "alignment": {
+    "D_definition": "2D pupil center distance, manually estimated",
+    "target_D": 240,
+    "target_pupils": [
+      [
+        200,
+        515
+      ],
+      [
+        440,
+        515
+      ]
+    ],
+    "transforms": {
+      "reference": {
+        "estimated_pupils": [
+          [
+            482,
+            808
+          ],
+          [
+            724,
+            785
+          ]
+        ],
+        "D_px": 243.09051812030842,
+        "output_to_source_affine": [
+          1.0083333333333333,
+          0.09583333333333334,
+          230.97916666666669,
+          -0.09583333333333334,
+          1.0083333333333333,
+          307.875
+        ]
+      },
+      "round6": {
+        "estimated_pupils": [
+          [
+            297.1,
+            482.3
+          ],
+          [
+            542,
+            482.3
+          ]
+        ],
+        "D_px": 244.89999999999998,
+        "output_to_source_affine": [
+          1.0204166666666665,
+          -0.0,
+          93.01666666666671,
+          0.0,
+          1.0204166666666665,
+          -43.21458333333322
+        ]
+      },
+      "round7": {
+        "estimated_pupils": [
+          [
+            297.1,
+            482.3
+          ],
+          [
+            542,
+            482.3
+          ]
+        ],
+        "D_px": 244.89999999999998,
+        "output_to_source_affine": [
+          1.0204166666666665,
+          -0.0,
+          93.01666666666671,
+          0.0,
+          1.0204166666666665,
+          -43.21458333333322
+        ]
+      }
+    },
+    "pupil_patch_identity_round6_round7": {
+      "(288, 473, 307, 492)": true,
+      "(533, 473, 552, 492)": true
+    },
+    "allowed": "uniform scale / translation / in-plane rotation only",
+    "resampling": "bicubic, does not create evidence detail",
+    "gray_mask": [
+      [
+        175,
+        864
+      ],
+      [
+        300,
+        856
+      ],
+      [
+        340,
+        856
+      ],
+      [
+        470,
+        864
+      ],
+      [
+        500,
+        925
+      ],
+      [
+        150,
+        925
+      ]
+    ],
+    "gray_scope": "Full available crown, face and side-lock tips; identical central garment-only mask, no name/color cues; not blind; original reference omissions remain omitted.",
+    "gray_panel_crop": [
+      0,
+      40,
+      620,
+      925
+    ]
+  },
+  "report_history": {
+    "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\ANIME_INDEPENDENT_VISUAL_REVIEW.md",
+    "before_byte_count": 83753,
+    "before_sha256": "7edab6064a999c2307ce9dc6dfd11658593fb35c5aece5a134c75dbb751475d5"
+  },
+  "provenance_limit": "Current source hashes and image identity checked; reviewer did not independently witness capture-time before/after or native-render process. Hashes are not resemblance measures.",
+  "outputs": {
+    "01-uniform-D-full-head.png": {
+      "sha256": "00e523d2a24a73e0d17379b381586fc200ba93ce0694ae07af628ab6ca234148",
+      "size": [
+        1892,
+        957
+      ]
+    },
+    "02-no-name-gray-full-head.png": {
+      "sha256": "933d49f3c2051d0a2e3f6611fc2c1809ce3c10f9cd4e69aeab0c79fd55084a7c",
+      "size": [
+        1892,
+        917
+      ]
+    },
+    "03-fringe-and-jaw.png": {
+      "sha256": "3641a893257d07dc10698ccdabd0fcda8e6a04c06463d5c1cde5a1700b3f2460",
+      "size": [
+        1442,
+        511
+      ]
+    }
+  },
+  "retention_check": {
+    "eye_region_portrait_xyxy": [
+      210,
+      393,
+      632,
+      540
+    ],
+    "dark_ink_mask_threshold_luma": 75,
+    "round6_round7_mask_identical": false,
+    "not_exact_likeness_certificate": true,
+    "different_mask_pixels": 12,
+    "interpretation": "Not byte-identical under this threshold; visual comparison retains eye local acceptance. This is not a regression test or a similarity metric."
+  },
+  "focused_estimates": {
+    "manual_pixel_reading_limit": "Intervals are image-reading estimates, not confidence intervals, per-lock exact goals or 3D calibration. Segmented row spans on clean render merely assist location.",
+    "pupils_reference": [
+      [
+        482,
+        808
+      ],
+      [
+        724,
+        785
+      ]
+    ],
+    "D_reference_approx": 243.09,
+    "D_round6_round7_portrait_approx": 244.9,
+    "common_normalized_y": 419,
+    "height_above_pupils_D": 0.4,
+    "round6_portrait_two_side_valley_width_D_ranges": [
+      [
+        0.14,
+        0.18
+      ],
+      [
+        0.22,
+        0.26
+      ]
+    ],
+    "round7_portrait_two_side_valley_width_D_ranges": [
+      [
+        0.08,
+        0.12
+      ],
+      [
+        0.11,
+        0.15
+      ]
+    ],
+    "reference_visible_narrow_gaps_D_range": [
+      0.05,
+      0.14
+    ],
+    "round7_at_normalized_y431_approx_ranges": [
+      [
+        0.22,
+        0.26
+      ],
+      [
+        0.25,
+        0.29
+      ]
+    ],
+    "interpretation": "Upper valley narrowing is effective. Remaining failure is the downstream straight-wedge rhythm, not demanding every gap be narrower. Prior round6 section13 width estimate is retained historically but superseded for common-portrait slice comparisons by this reread."
+  },
+  "formal_verdict": "FAILED",
+  "completed_at": "2026-11-13T10:53:53.398800+00:00",
+  "decisions": {
+    "valley_upper_narrowing": "LOCAL_PASS",
+    "central_double_wedge_rhythm": "FAILED_ONLY_MANDATORY_REWORK",
+    "broad_lower_face_shadow_reduction": "LOCAL_PASS",
+    "exact_reference_jaw_border_thickness_and_cause": "INSUFFICIENT_EVIDENCE_NO_NEW_TARGET",
+    "previously_accepted_proportions_and_eyes": "LOCAL_PASS_RETAINED",
+    "sameD_gray_whole_head": "FAILED",
+    "exact_side_likeness_and_3D": "INSUFFICIENT_EVIDENCE"
+  },
+  "single_highest_priority_action": "Change lower-half curve/width distribution of central two locks to biased, softly turning convergence rather than repeated straight V wedges; preserve upper valley narrowing, valley and tip heights, crown, eyes, face and neck. Do not revert to round lobes or needle rows.",
+  "completion_verification": {
+    "all_input_png_hashes_unchanged": true,
+    "all_input_json_hashes_unchanged": true,
+    "round7_current_source_hashes_all_match_record": true,
+    "source_file_count": 40,
+    "historical_report_prefix_unchanged": true,
+    "historical_prefix_sha256": "7edab6064a999c2307ce9dc6dfd11658593fb35c5aece5a134c75dbb751475d5",
+    "section14_count": 1,
+    "report_final_byte_count": 92264,
+    "report_final_sha256": "aeef474c21491382c04a6fb269835cce75a58598d3e90cb0603a19acae96f033"
+  }
+}

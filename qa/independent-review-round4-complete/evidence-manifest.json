@@ -1,0 +1,174 @@
+{
+  "review": "round4-complete",
+  "date": "2026-11-13",
+  "overall": "FAILED",
+  "source_files": [
+    {
+      "path": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\codex-clipboard-bb1f579c-afaf-4996-8112-de27960fd757.png",
+      "sha256": "7755d7de98acd2b6755bd6c232efff525cc84c1cae23d854c3aa02ee9aed055b",
+      "dimensions": [
+        877,
+        1299
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round4-complete.png",
+      "sha256": "d29a80e6ac85abae69ed579b4325fd9b5a1d79978e6c062c86b4ae1992f5765b",
+      "dimensions": [
+        1262,
+        1702
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round4-complete-detail.png",
+      "sha256": "5fd6f495d68ec8c4f8f3ce24a294708205e3a6f36f4659f434b1d0b6ef81c868",
+      "dimensions": [
+        1000,
+        1137
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round4-complete.json",
+      "sha256": "c0398a854bff9ebb97c769f8620b70997e3c0af11a6574c70eb30e079b575fc2"
+    }
+  ],
+  "historical_report_bytes": 32957,
+  "historical_report_sha256": "2a8e56cc0699aa63dcb062512a8fcc3b20194884df674048c619a5e967487e2f",
+  "normalization": {
+    "definition": "D = 2D pupil-center distance; uniform scaling, translation, in-plane rotation only",
+    "reference_pupils": [
+      [
+        482,
+        808
+      ],
+      [
+        724,
+        785
+      ]
+    ],
+    "current_detail_pupils": [
+      [
+        306.5,
+        442
+      ],
+      [
+        692.5,
+        442
+      ]
+    ],
+    "current_full_pupils": [
+      [
+        569,
+        369
+      ],
+      [
+        692,
+        369
+      ]
+    ],
+    "target_D": 240,
+    "target_left_pupil": [
+      200,
+      515
+    ],
+    "target_right_pupil": [
+      440,
+      515
+    ],
+    "panel_size": [
+      620,
+      925
+    ],
+    "sampling": "bicubic; adds no source detail",
+    "gray_crop": [
+      60,
+      325,
+      560,
+      830
+    ],
+    "gray_mask_polygon": [
+      [
+        0,
+        817
+      ],
+      [
+        285,
+        817
+      ],
+      [
+        320,
+        825
+      ],
+      [
+        355,
+        817
+      ],
+      [
+        620,
+        817
+      ],
+      [
+        620,
+        925
+      ],
+      [
+        0,
+        925
+      ]
+    ],
+    "gray_mask_note": "identical below-chin garment masks before cropping; not facial geometry edits",
+    "gray_order": "reference left, current right; reviewer knows order, not statistical blind test"
+  },
+  "limitations": [
+    "manual image-estimate ranges, not statistical confidence intervals",
+    "photographed screen reference, blur, perspective and partly cropped crown perimeter",
+    "no reliable side reference; static side views only establish limited internal consistency",
+    "old parameters rendered by current shared renderer, not historical A/B",
+    "native source and camera metadata attributed to main execution agent; implementation not audited"
+  ],
+  "auxiliary_images": [
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round4-complete\\01-uniform-D-full-head.png",
+      "sha256": "77d45fedd9c53892b266bafffd0b5f35d979c010de4cef6af9e084a7591a755c"
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round4-complete\\02-no-name-gray-full-face.png",
+      "sha256": "b6f3668f2d518dcd783cba14bfc6bb3f547aaf599909ee9df898eb50922bd899"
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round4-complete\\03-fringe-and-eyes.png",
+      "sha256": "d26f92794f6b701ed4b471ea06bee9f995b35dc7bc1cef56af21d82f3735b1ee"
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round4-complete\\04-cheeks-chin-neck.png",
+      "sha256": "b3d658801d9365e2502b0b5b2bb70af4557847b8f658ccc440473a84a26c7f6f"
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round4-complete\\05-measurement-grid.png",
+      "sha256": "e7d017bc5e7ee828b5544c2ba94dd6c14622c65d4b97f9fc0d1a4e5c9a72b733"
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round4-complete\\06-native-eye-crop.png",
+      "sha256": "df030948410e79ee00d453792769cf8e75a358cf587c5b503521a09f7c343a8e"
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round4-complete\\07-left-cheek-boundary.png",
+      "sha256": "cec4ba19f879559fad329b469fea2f3d3041ffb0b957231131c106e84f9292d1"
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round4-complete\\08-neck-boundary.png",
+      "sha256": "92477b1be5aac35384523c0fa362e2c93a1e6d3782107562aba4805f3a092b75"
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round4-complete\\09-reference-fringe-eye-crop.png",
+      "sha256": "393a6c49377b1d821d1febbe59ece5209716a7435e393cd89dcb4aa508651edf"
+    }
+  ],
+  "verification": {
+    "historical_sections_1_to_9_byte_identical": true,
+    "source_files_unchanged": true,
+    "report_sha256_at_completion": "3f1093056de4d21ca94309557336bb7b66383a798ed99dfa8c1c03975010140e",
+    "report_path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\ANIME_INDEPENDENT_VISUAL_REVIEW.md",
+    "round5_reviewed": false
+  }
+}

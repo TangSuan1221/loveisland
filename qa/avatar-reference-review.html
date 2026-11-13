@@ -1,0 +1,27 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>同视角实际模型复审</title><style>body{margin:0;background:#e7e2d7;font:16px system-ui;color:#35362f}h1{font-size:23px;margin:18px}p{margin:10px 18px;color:#666}main{display:grid;grid-template-columns:repeat(3,420px);gap:1px}.card{background:#f2eee4}h2{font-size:18px;margin:14px}canvas{display:block;width:420px;height:490px}</style><div id="review-board"><h1>真实模型 · 同一固定镜头 · 不作像素重绘</h1><p>左：旧参数（使用当前绘制器） / 中：本轮 / 右：本轮去发检查。正面、斜侧与侧面不更换几何。</p><main></main></div><section id="native-detail" class="card"><h2>本轮原生正面五官细节（1000 × 1100）</h2></section><section id="native-portrait" class="card"></section>
+<script type="module">
+import * as THREE from 'three';import{createGPURenderer}from'../src/gpu-renderer.js';import{portraitActor,disposeActor}from'../src/characters.js';import{normalizeAppearance}from'../src/avatar-schema.js';import{ANIME_PRESETS}from'../src/avatar-anime.js';
+const old=await(await fetch('./anime-reference-baseline.json')).json(),current=ANIME_PRESETS.find(x=>x.name==='金环赤发').values;
+const scene=new THREE.Scene();scene.background=new THREE.Color('#e7e2d7');const renderer=await createGPURenderer({alpha:false});renderer.setSize(420,490);renderer.outputColorSpace=THREE.SRGBColorSpace;
+const outputs=[];
+for(const angle of [0,.50,Math.PI/2])for(const [label,raw]of [['旧参数',old],['本轮',current],['去发结构',{...current,hairFront:'none',hairBack:'none',hairStyle:'bald'}]]){
+ const appearance=normalizeAppearance(raw),actor=portraitActor('shape-review',{appearance});scene.add(actor.mesh);actor.mesh.rotation.y=angle;actor.mesh.updateMatrixWorld(true);if(label==='去发结构')actor._head.traverse(o=>{if(o.name==='hair')o.visible=false;});
+ const center=actor._head.getWorldPosition(new THREE.Vector3());center.y+=.020;
+ const camera=new THREE.PerspectiveCamera(30,420/490,.01,20);camera.position.copy(center).add(new THREE.Vector3(0,0,1.92));camera.lookAt(center);renderer.render(scene,camera);
+ const card=document.createElement('section');card.className='card';const h=document.createElement('h2');h.textContent=`${label} / ${Math.round(angle*180/Math.PI)}°`;const canvas=document.createElement('canvas');canvas.width=420;canvas.height=490;canvas.getContext('2d').drawImage(renderer.domElement,0,0);card.append(h,canvas);document.querySelector('main').append(card);outputs.push({label,angle,appearance});disposeActor(actor);
+}
+// A new native render, not an enlarged crop. Close framing is intentional here.
+const detail=portraitActor('shape-detail',{appearance:normalizeAppearance(current)});scene.add(detail.mesh);detail.mesh.updateMatrixWorld(true);
+const detailCenter=detail._head.getWorldPosition(new THREE.Vector3());detailCenter.y-=.06;
+const detailCamera=new THREE.PerspectiveCamera(30,1000/1100,.01,20);detailCamera.position.copy(detailCenter).add(new THREE.Vector3(0,0,1.42));detailCamera.lookAt(detailCenter);
+renderer.setSize(1000,1100);renderer.render(scene,detailCamera);
+const detailCanvas=document.createElement('canvas');detailCanvas.width=1000;detailCanvas.height=1100;detailCanvas.style.width='1000px';detailCanvas.style.height='1100px';detailCanvas.getContext('2d').drawImage(renderer.domElement,0,0);
+document.querySelector('#native-detail').style.width='1000px';document.querySelector('#native-detail').append(detailCanvas);
+// A full-crown native portrait for user-visible review; same geometry, no paint-over.
+const fullCenter=detail._head.getWorldPosition(new THREE.Vector3());fullCenter.y+=.020;
+const fullCamera=new THREE.PerspectiveCamera(30,840/980,.01,20);fullCamera.position.copy(fullCenter).add(new THREE.Vector3(0,0,1.92));fullCamera.lookAt(fullCenter);
+renderer.setSize(840,980);renderer.render(scene,fullCamera);
+const fullCanvas=document.createElement('canvas');fullCanvas.width=840;fullCanvas.height=980;fullCanvas.style.width='840px';fullCanvas.style.height='980px';fullCanvas.getContext('2d').drawImage(renderer.domElement,0,0);
+document.querySelector('#native-portrait').style.width='840px';document.querySelector('#native-portrait').append(fullCanvas);
+window.result={backend:renderer.backend.constructor.name,outputs,portrait:{width:840,height:980,distance:1.92,centerOffsetY:.020,source:'native WebGPU render'},detail:{width:1000,height:1100,distance:1.42,centerOffsetY:-.06,source:'native WebGPU render'}};disposeActor(detail);renderer.dispose();window.done=true;
+</script></html>

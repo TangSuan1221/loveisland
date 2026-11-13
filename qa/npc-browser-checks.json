@@ -1,0 +1,350 @@
+[
+  {
+    "test": "paused-first-settled",
+    "at": "2026-11-12T06:23:40.252Z",
+    "snapshot": {
+      "startedAt": "2026-11-12T06:23:21.037Z",
+      "elapsedSeconds": 19,
+      "activeSeconds": 19,
+      "frames": 1132,
+      "meanFrameMs": 16.78,
+      "maxFrameMs": 550,
+      "drawCalls": 466,
+      "triangles": 858892,
+      "geometries": 226,
+      "textures": 4,
+      "actors": 6,
+      "landmarks": 5,
+      "paused": true,
+      "light": "day",
+      "photoMode": false,
+      "selected": null,
+      "runtimeErrors": [],
+      "runtimeErrorCount": 0,
+      "scope": "npc-life-simulation",
+      "npc": {
+        "time": 234.49999999999096,
+        "stats": {
+          "completed": 5,
+          "rejected": 3,
+          "invitations": 9,
+          "activities": {
+            "sing": 5,
+            "eat": 5,
+            "read": 4,
+            "drink": 6,
+            "chat": 3,
+            "rest": 5,
+            "watch": 4,
+            "exercise": 3,
+            "share": 2
+          }
+        },
+        "scene": {
+          "id": 19,
+          "participants": [
+            "tang",
+            "chen"
+          ],
+          "speakerId": "tang",
+          "phase": "resolution",
+          "kind": "chat",
+          "topic": "甜点",
+          "elapsed": 15.499999999999961,
+          "beat": 3,
+          "source": "autonomous",
+          "outcome": null
+        },
+        "actors": [
+          {
+            "id": "lin",
+            "activity": "rest",
+            "x": -3.7251139218467864,
+            "z": -2.4050416969952653,
+            "topics": [
+              "会唱歌的椰子"
+            ],
+            "needs": {
+              "hunger": 8.081999999999937,
+              "energy": 2.698500000000123,
+              "social": 29.175000000001333,
+              "fun": 1.624999999999996
+            }
+          },
+          {
+            "id": "zhou",
+            "activity": "walk",
+            "x": 3.248980729163277,
+            "z": 0.998781060519283,
+            "topics": [],
+            "needs": {
+              "hunger": 12.204000000000093,
+              "energy": 12.757500000000316,
+              "social": 32.17500000000133,
+              "fun": 1.6639999999999957
+            }
+          },
+          {
+            "id": "qiao",
+            "activity": "walk",
+            "x": -3.8496732655181445,
+            "z": -1.5698043369427466,
+            "topics": [],
+            "needs": {
+              "hunger": 0.16199999999999998,
+              "energy": 3.9374999999999853,
+              "social": 67.17500000000133,
+              "fun": 9.255999999999938
+            }
+          },
+          {
+            "id": "lu",
+            "activity": "walk",
+            "x": 3.711352607748717,
+            "z": 1.8161870438624927,
+            "topics": [],
+            "needs": {
+              "hunger": 31.890000000001386,
+              "energy": 0.9134999999999984,
+              "social": 38.17500000000133,
+              "fun": 5.303999999999968
+            }
+          },
+          {
+            "id": "tang",
+            "activity": "chat",
+            "x": -0.4469867643993231,
+            "z": 1.0788813673980235,
+            "topics": [],
+            "needs": {
+              "hunger": 9.954000000000008,
+              "energy": 15.862500000000841,
+              "social": 41.17500000000133,
+              "fun": 3.6789999999999803
+            }
+          },
+          {
+            "id": "chen",
+            "activity": "chat",
+            "x": 0.2112445861202663,
+            "z": 0.47802026214764454,
+            "topics": [],
+            "needs": {
+              "hunger": 16.974000000000274,
+              "energy": 2.4989999999999917,
+              "social": 76.17500000000133,
+              "fun": 7.565999999999951
+            }
+          }
+        ],
+        "events": [
+          {
+            "id": 17,
+            "time": 170.5,
+            "type": "invitation",
+            "participants": [
+              "lu",
+              "zhou"
+            ],
+            "text": "陆知与周屿决定碰面。"
+          },
+          {
+            "id": 18,
+            "time": 193.7,
+            "type": "connected",
+            "participants": [
+              "lu",
+              "zhou"
+            ],
+            "text": "陆知与周屿更熟悉了一点。"
+          },
+          {
+            "id": 20,
+            "time": 213.4,
+            "type": "invitation",
+            "participants": [
+              "tang",
+              "chen"
+            ],
+            "text": "唐米与陈野决定碰面。"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "test": "pause-freezes-simulation",
+    "at": "2026-11-12T06:23:51.944Z",
+    "pass": true,
+    "time": 234.49999999999096,
+    "framesAdvanced": 660
+  },
+  {
+    "test": "resume-and-learn",
+    "at": "2026-11-12T06:24:06.197Z",
+    "pass": true,
+    "time": 248.49999999999017
+  },
+  {
+    "test": "browser-local-save-restores-topic-and-progress",
+    "at": "2026-11-12T06:24:17.736Z",
+    "pass": true,
+    "snapshot": {
+      "startedAt": "2026-11-12T06:24:06.651Z",
+      "elapsedSeconds": 11,
+      "activeSeconds": 11,
+      "frames": 653,
+      "meanFrameMs": 16.85,
+      "maxFrameMs": 517,
+      "drawCalls": 405,
+      "triangles": 835883,
+      "geometries": 208,
+      "textures": 4,
+      "actors": 6,
+      "landmarks": 5,
+      "paused": false,
+      "light": "day",
+      "photoMode": false,
+      "selected": null,
+      "runtimeErrors": [],
+      "runtimeErrorCount": 0,
+      "scope": "npc-life-simulation",
+      "npc": {
+        "time": 259.59999999999053,
+        "stats": {
+          "completed": 6,
+          "rejected": 3,
+          "invitations": 9,
+          "activities": {
+            "sing": 6,
+            "eat": 6,
+            "read": 4,
+            "drink": 7,
+            "chat": 4,
+            "rest": 5,
+            "watch": 5,
+            "exercise": 4,
+            "share": 2
+          }
+        },
+        "scene": null,
+        "actors": [
+          {
+            "id": "lin",
+            "activity": "walk",
+            "x": -2.1585979166676164,
+            "z": -2.252572634231223,
+            "topics": [
+              "会唱歌的椰子",
+              "海风里的纸飞机"
+            ],
+            "needs": {
+              "hunger": 12.600000000000108,
+              "energy": 1.1339999999999975,
+              "social": 32.940000000001476,
+              "fun": 4.8879999999999715
+            }
+          },
+          {
+            "id": "zhou",
+            "activity": "watch",
+            "x": 7.455800962383801,
+            "z": 12.996633566815657,
+            "topics": [],
+            "needs": {
+              "hunger": 16.722000000000264,
+              "energy": 0,
+              "social": 35.940000000001476,
+              "fun": 4.926999999999971
+            }
+          },
+          {
+            "id": "qiao",
+            "activity": "sing",
+            "x": 1.4637130525005744,
+            "z": 4.042774012870643,
+            "topics": [],
+            "needs": {
+              "hunger": 4.679999999999971,
+              "energy": 6.573000000000083,
+              "social": 70.94000000000148,
+              "fun": 0
+            }
+          },
+          {
+            "id": "lu",
+            "activity": "idle",
+            "x": 3.500689666160474,
+            "z": 1.1560231435650987,
+            "topics": [],
+            "needs": {
+              "hunger": 0.9540000000000005,
+              "energy": 3.548999999999987,
+              "social": 41.940000000001476,
+              "fun": 8.566999999999943
+            }
+          },
+          {
+            "id": "tang",
+            "activity": "drink",
+            "x": -4.625462601388465,
+            "z": -1.1257597954351959,
+            "topics": [],
+            "needs": {
+              "hunger": 0,
+              "energy": 18.49800000000094,
+              "social": 12.940000000001476,
+              "fun": 2.924999999999986
+            }
+          },
+          {
+            "id": "chen",
+            "activity": "exercise",
+            "x": -1.5905006189317745,
+            "z": 2.8726322312050607,
+            "topics": [],
+            "needs": {
+              "hunger": 21.492000000000445,
+              "energy": 5.1345000000000285,
+              "social": 47.940000000001476,
+              "fun": 0
+            }
+          }
+        ],
+        "events": [
+          {
+            "id": 18,
+            "time": 193.7,
+            "type": "connected",
+            "participants": [
+              "lu",
+              "zhou"
+            ],
+            "text": "陆知与周屿更熟悉了一点。"
+          },
+          {
+            "id": 20,
+            "time": 213.4,
+            "type": "invitation",
+            "participants": [
+              "tang",
+              "chen"
+            ],
+            "text": "唐米与陈野决定碰面。"
+          },
+          {
+            "id": 21,
+            "time": 237.1,
+            "type": "connected",
+            "participants": [
+              "tang",
+              "chen"
+            ],
+            "text": "唐米与陈野更熟悉了一点。"
+          }
+        ]
+      }
+    },
+    "console": []
+  }
+]

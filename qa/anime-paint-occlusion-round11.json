@@ -1,0 +1,213 @@
+{
+  "backend": "WebGPUBackend",
+  "samples": [
+    {
+      "visible": false,
+      "side": 0,
+      "feature": "瞳孔",
+      "px": 155,
+      "py": 183,
+      "rgb": [
+        37,
+        35,
+        49,
+        255
+      ]
+    },
+    {
+      "visible": false,
+      "side": 0,
+      "feature": "上眼线",
+      "px": 155,
+      "py": 164,
+      "rgb": [
+        140,
+        137,
+        135,
+        255
+      ]
+    },
+    {
+      "visible": false,
+      "side": 0,
+      "feature": "内侧眼白",
+      "px": 132,
+      "py": 183,
+      "rgb": [
+        255,
+        250,
+        241,
+        255
+      ]
+    },
+    {
+      "visible": false,
+      "side": 0,
+      "feature": "外侧眼白",
+      "px": 179,
+      "py": 183,
+      "rgb": [
+        255,
+        250,
+        241,
+        255
+      ]
+    },
+    {
+      "visible": false,
+      "side": 1,
+      "feature": "瞳孔",
+      "px": 245,
+      "py": 183,
+      "rgb": [
+        37,
+        35,
+        49,
+        255
+      ]
+    },
+    {
+      "visible": false,
+      "side": 1,
+      "feature": "上眼线",
+      "px": 245,
+      "py": 164,
+      "rgb": [
+        140,
+        137,
+        135,
+        255
+      ]
+    },
+    {
+      "visible": false,
+      "side": 1,
+      "feature": "内侧眼白",
+      "px": 221,
+      "py": 183,
+      "rgb": [
+        255,
+        250,
+        241,
+        255
+      ]
+    },
+    {
+      "visible": false,
+      "side": 1,
+      "feature": "外侧眼白",
+      "px": 268,
+      "py": 183,
+      "rgb": [
+        255,
+        250,
+        241,
+        255
+      ]
+    },
+    {
+      "visible": true,
+      "side": 0,
+      "feature": "瞳孔",
+      "px": 155,
+      "py": 183,
+      "rgb": [
+        255,
+        0,
+        255,
+        255
+      ]
+    },
+    {
+      "visible": true,
+      "side": 0,
+      "feature": "上眼线",
+      "px": 155,
+      "py": 164,
+      "rgb": [
+        255,
+        0,
+        255,
+        255
+      ]
+    },
+    {
+      "visible": true,
+      "side": 0,
+      "feature": "内侧眼白",
+      "px": 132,
+      "py": 183,
+      "rgb": [
+        255,
+        0,
+        255,
+        255
+      ]
+    },
+    {
+      "visible": true,
+      "side": 0,
+      "feature": "外侧眼白",
+      "px": 179,
+      "py": 183,
+      "rgb": [
+        255,
+        0,
+        255,
+        255
+      ]
+    },
+    {
+      "visible": true,
+      "side": 1,
+      "feature": "瞳孔",
+      "px": 245,
+      "py": 183,
+      "rgb": [
+        255,
+        0,
+        255,
+        255
+      ]
+    },
+    {
+      "visible": true,
+      "side": 1,
+      "feature": "上眼线",
+      "px": 245,
+      "py": 164,
+      "rgb": [
+        255,
+        0,
+        255,
+        255
+      ]
+    },
+    {
+      "visible": true,
+      "side": 1,
+      "feature": "内侧眼白",
+      "px": 221,
+      "py": 183,
+      "rgb": [
+        255,
+        0,
+        255,
+        255
+      ]
+    },
+    {
+      "visible": true,
+      "side": 1,
+      "feature": "外侧眼白",
+      "px": 268,
+      "py": 183,
+      "rgb": [
+        255,
+        0,
+        255,
+        255
+      ]
+    }
+  ]
+}

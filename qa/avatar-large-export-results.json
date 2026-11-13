@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "points": 29999,
+  "exportBytes": 1199896,
+  "checks": [
+    "mirrored stroke rejected before truncation at capacity",
+    "maximal compact JSON export fits import limit and round trips"
+  ]
+}

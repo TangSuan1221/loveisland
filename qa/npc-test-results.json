@@ -1,0 +1,152 @@
+{
+  "result": "PASS",
+  "checks": [
+    "6 seeds x 30 simulated minutes",
+    "every-step body separation",
+    "navigation/needs/relations/resource invariants",
+    "completed autonomous interactions",
+    "rejection releases resources",
+    "deterministic mid-session save/load",
+    "bounded topic learning and dialogue recall",
+    "gift preference discovery",
+    "fixed timestep equivalence"
+  ],
+  "runs": [
+    {
+      "seed": 1,
+      "seconds": 1800,
+      "minimumDistance": 0.62,
+      "minimumConversationDistance": 1.481,
+      "completed": 29,
+      "rejected": 23,
+      "invitations": 52,
+      "activities": {
+        "eat": 35,
+        "sing": 40,
+        "drink": 37,
+        "read": 27,
+        "exercise": 27,
+        "watch": 28,
+        "chat": 11,
+        "play": 9,
+        "rest": 31,
+        "share": 5,
+        "argue": 3,
+        "apologize": 1
+      }
+    },
+    {
+      "seed": 7,
+      "seconds": 1800,
+      "minimumDistance": 0.62,
+      "minimumConversationDistance": 1.508,
+      "completed": 30,
+      "rejected": 21,
+      "invitations": 51,
+      "activities": {
+        "exercise": 24,
+        "sing": 35,
+        "drink": 41,
+        "chat": 15,
+        "read": 27,
+        "eat": 38,
+        "rest": 36,
+        "watch": 26,
+        "play": 7,
+        "share": 7,
+        "argue": 1
+      }
+    },
+    {
+      "seed": 19,
+      "seconds": 1800,
+      "minimumDistance": 0.62,
+      "minimumConversationDistance": 1.49,
+      "completed": 32,
+      "rejected": 35,
+      "invitations": 67,
+      "activities": {
+        "exercise": 23,
+        "read": 23,
+        "sing": 40,
+        "eat": 34,
+        "drink": 35,
+        "rest": 34,
+        "watch": 26,
+        "chat": 17,
+        "argue": 5,
+        "play": 4,
+        "share": 5,
+        "apologize": 1
+      }
+    },
+    {
+      "seed": 1937,
+      "seconds": 1800,
+      "minimumDistance": 0.62,
+      "minimumConversationDistance": 1.509,
+      "completed": 32,
+      "rejected": 22,
+      "invitations": 55,
+      "activities": {
+        "sing": 36,
+        "drink": 39,
+        "exercise": 26,
+        "share": 8,
+        "read": 23,
+        "eat": 34,
+        "rest": 36,
+        "watch": 28,
+        "chat": 16,
+        "play": 5,
+        "argue": 3
+      }
+    },
+    {
+      "seed": 99999,
+      "seconds": 1800,
+      "minimumDistance": 0.62,
+      "minimumConversationDistance": 1.499,
+      "completed": 29,
+      "rejected": 17,
+      "invitations": 46,
+      "activities": {
+        "sing": 39,
+        "exercise": 26,
+        "eat": 39,
+        "chat": 20,
+        "read": 27,
+        "drink": 34,
+        "watch": 26,
+        "rest": 39,
+        "argue": 1,
+        "play": 5,
+        "share": 2,
+        "apologize": 1
+      }
+    },
+    {
+      "seed": 20261112,
+      "seconds": 1800,
+      "minimumDistance": 0.62,
+      "minimumConversationDistance": 1.499,
+      "completed": 30,
+      "rejected": 18,
+      "invitations": 48,
+      "activities": {
+        "sing": 36,
+        "eat": 38,
+        "drink": 37,
+        "chat": 22,
+        "read": 28,
+        "rest": 36,
+        "watch": 27,
+        "exercise": 22,
+        "play": 4,
+        "argue": 1,
+        "share": 2,
+        "apologize": 1
+      }
+    }
+  ]
+}

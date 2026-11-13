@@ -1,0 +1,13 @@
+{
+  "result": "PASS",
+  "checks": [
+    "quota failure rolls back authoritative data and retains editable draft",
+    "delete confirmation cancels safely and removes unused custom identity",
+    "extreme proportions and four camera directions render at desktop and mobile sizes",
+    "reference image is local-only and removable",
+    "confirmation traps focus and Escape leaves saved state untouched",
+    "30 open/close cycles initialize and release independent WebGPU previews",
+    "unsupported WebGPU shows actionable error without claiming fallback success"
+  ],
+  "errors": []
+}

@@ -1,0 +1,31 @@
+import assert from 'node:assert/strict';
+import {createProduction} from '../src/production-engine.js';
+import {createSimulation} from '../src/npc-simulation.js';
+import {createNavigation} from '../src/production-navigation.js';
+const setup=()=>{const p=createProduction({seed:514});p.dispatch('start');for(const c of p.getState().candidates.slice(0,4))p.dispatch('toggleCast',{id:c.id});assert(p.dispatch('confirmCast').ok);assert(p.dispatch('autoBuild').ok);assert(p.dispatch('startRecording').ok);p.drainEffects();return p;};
+function simFor(p,seed=1){const s=p.getState(),sim=createSimulation({seed,actors:s.cast.map((id,i)=>({id,name:id,anchor:[i,3]}))});sim.setLayout(s.facilities,createNavigation(s.facilities));for(const id of s.cast){const a=sim.getActor(id);Object.assign(a.needs,{hunger:0,energy:0,social:100,fun:0,thirst:0});a.personality.sociability=1;a.timer=100;a.cooldown=0;}return sim;}
+let completed,completedEvent;
+for(let seed=1;seed<30&&!completed;seed++){
+ const p=setup(),[a,b]=p.getState().cast;assert(p.dispatch('intervene',{kind:'contest',a,b}).ok);const e=p.drainEffects().find(e=>e.type==='contest-request');assert(e);const sim=simFor(p,seed),before=p.getState().inventory.food;
+ if(!sim.requestDirectorTask({...e,kind:'contest'}).ok)continue;
+ const saved=sim.serialize(),cancel=createSimulation({actors:p.getState().cast.map((id,i)=>({id,name:id,anchor:[i,3]})),saved});cancel.setLayout(p.getState().facilities,createNavigation(p.getState().facilities),{resume:true});cancel.update(2);cancel.endSegment();assert(!cancel.getEvents().some(e=>e.type==='contest-completed'));assert.equal(p.getState().inventory.food,before);
+ let last=0;for(let tick=0;tick<700;tick++){sim.update(.1);for(const event of sim.getEvents())if(event.id>last){last=event.id;p.dispatch('observe',{event});if(event.type==='contest-completed')completedEvent=event;}if(completedEvent)break;}
+ assert(completedEvent,'real approach and four challenge stages finish');assert.equal(p.getState().inventory.food,before-1);const reward=p.drainEffects().find(e=>e.type==='contest-reward');assert(reward);const hunger=sim.getActor(reward.actorId).needs.hunger;sim.onContestReward(reward);sim.onContestReward(reward);assert.equal(sim.getActor(reward.actorId).needs.hunger,Math.max(0,hunger-8));for(const event of sim.getEvents())p.dispatch('observe',{event});assert(!p.drainEffects().some(e=>e.type==='contest-reward'),'reward fact fed back cannot issue another prize');p.dispatch('observe',{event:completedEvent});assert.equal(p.getState().inventory.food,before-1);assert(p.getState().facts.some(f=>f.type==='contest-completed'&&f.instructionId===e.instructionId));completed=true;
+}
+assert(completed);
+{
+const p=setup(),[a,b]=p.getState().cast;assert(p.dispatch('intervene',{kind:'contest',a,b}).ok);const effect=p.drainEffects().find(e=>e.type==='contest-request');let accepted;for(let seed=1;seed<20&&!accepted;seed++){const sim=simFor(p,seed);if(sim.requestDirectorTask({...effect,kind:'contest'}).ok)accepted=sim;}assert(accepted);accepted.update(3);const snapshot=accepted.serialize();const restored=createSimulation({actors:p.getState().cast.map((id,i)=>({id,name:id,anchor:[i,3]})),saved:snapshot});restored.setLayout(p.getState().facilities,createNavigation(p.getState().facilities),{resume:true});for(let t=0;t<60;t++){accepted.update(1);restored.update(1);}assert.deepEqual(restored.serialize(),accepted.serialize(),'mid-challenge save keeps seeded scoring and action sequence');
+const empty=p.serialize();empty.inventory.food=0;const q=createProduction({saved:empty});const event=accepted.getEvents().find(e=>e.type==='contest-completed');assert(event);q.dispatch('observe',{event});assert.equal(q.getState().inventory.food,0);assert(q.drainEffects().some(e=>e.type==='contest-reward-unavailable'));
+}
+
+let executed=false,refused=false;for(let seed=1;seed<40;seed++){const p=setup(),sim=simFor(p,seed),[a,b]=p.getState().cast;const r=sim.requestDirectorTask({kind:'mole-task',a,b,instructionId:`order-${seed}`,topic:'你认为今天的资源分配公平吗？'});assert.equal(sim.serialize().directorOrders.length,1);if(!r.ok){refused=true;continue;}for(let t=0;t<70;t++)sim.update(1);const events=sim.getEvents();if(events.some(e=>e.type.startsWith('mole-question-'))){executed=true;assert(events.some(e=>e.type==='dialogue'&&e.text.includes('资源分配公平')));assert(sim.getActor(a).memories.some(m=>m.kind==='director-task-completed'));}if(executed&&refused)break;}assert(executed&&refused);
+{
+const p=setup();p.dispatch('finishRecording');const save=p.serialize();save.dailyCommission={id:'observation',protagonistId:'lin',day:1,season:1};const q=createProduction({saved:save});assert.equal(q.dispatch('autoEdit').ok,false);assert.equal(q.getState().timeline.length,0);
+}
+{
+const p=setup();for(let i=0;i<3;i++)for(const part of ['action','result'])p.dispatch('observe',{event:{id:`commission-${i}-${part}`,sceneId:`commission-${i}`,sourcePart:part,type:'routine',participants:['zhou'],text:'其他嘉宾素材',x:0,z:1}});p.dispatch('finishRecording');const save=p.serialize();save.dailyCommission={id:'observation',protagonistId:'lin',day:1,season:1};const q=createProduction({saved:save});assert.equal(q.dispatch('autoEdit').ok,false);assert.equal(q.getState().timeline.length,0,'cannot silently select plentiful alternate protagonist');
+}
+console.log('PASS: real staged contest, interruption, exact-once inventory prize, capture, mole execution/refusal and director evidence, commission no silent substitution');
+
+// Planning while paused does not advance the recording clock or resolve the task.
+{const p=setup();assert(p.dispatch('pause').ok);const before=p.getState();assert(before.paused);assert(p.dispatch('intervene',{kind:'contest',a:before.cast[0],b:before.cast[1]}).ok);p.update(30);const after=p.getState();assert.equal(after.segmentElapsed,before.segmentElapsed);assert.equal(after.cash,before.cash-1100);assert.equal(after.directorPoints,1);assert(!p.dispatch('intervene',{kind:'contest',a:before.cast[0],b:before.cast[1]}).ok);assert.equal(p.getState().cash,after.cash);assert(p.dispatch('pause').ok);p.update(1);assert(p.getState().segmentElapsed>before.segmentElapsed);console.log('paused planning retains time and unique costs: PASS');}

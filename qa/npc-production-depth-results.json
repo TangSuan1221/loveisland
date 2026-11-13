@@ -1,0 +1,176 @@
+{
+  "result": "PASS",
+  "templateCount": 24,
+  "checks": [
+    "queue-yield: separate slots, correct queue restoration, no phantom service, reload",
+    "queue-argue: separate slots, correct queue restoration, no phantom service, reload",
+    "queue-apology: separate slots, correct queue restoration, no phantom service, reload",
+    "queue-avoid: separate slots, correct queue restoration, no phantom service, reload",
+    "medical interruption restores queue, no partial apology reward",
+    "segment end releases every queue and service reservation",
+    "romance and complaint evidence gates, explicit past relationship",
+    "alliance: prerequisites, staged dialogue, result and persistent consequences",
+    "confess: prerequisites, staged dialogue, result and persistent consequences",
+    "question: prerequisites, staged dialogue, result and persistent consequences",
+    "help: prerequisites, staged dialogue, result and persistent consequences",
+    "boundary: prerequisites, staged dialogue, result and persistent consequences",
+    "collaborate: prerequisites, staged dialogue, result and persistent consequences",
+    "complain: prerequisites, staged dialogue, result and persistent consequences",
+    "natural six-person water congestion triggers disputes and still delivers service, no traffic deadlock",
+    "consumable services debit and restore only on completion, including mid-service reload",
+    "resource-share: gated staged execution, completion-only consequence, interruption safety, daily pair limit",
+    "borrow: gated staged execution, completion-only consequence, interruption safety, daily pair limit",
+    "return-item: gated staged execution, completion-only consequence, interruption safety, daily pair limit",
+    "comfort: gated staged execution, completion-only consequence, interruption safety, daily pair limit",
+    "clarify-belief: gated staged execution, completion-only consequence, interruption safety, daily pair limit",
+    "missed-promise: gated staged execution, completion-only consequence, interruption safety, daily pair limit",
+    "celebrate: gated staged execution, completion-only consequence, interruption safety, daily pair limit",
+    "mediate: gated staged execution, completion-only consequence, interruption safety, daily pair limit",
+    "incremental replacement preserves RNG/time/event sequence/other actors and reloads departed item history",
+    "all production templates retain bidirectional daily cooldown across segments",
+    "22 dialogue templates: role-specific self statements and preserved reciprocal turn order before results"
+  ],
+  "runs": [
+    {
+      "seed": 1,
+      "services": 111,
+      "completed": 34,
+      "activities": {
+        "sing": 39,
+        "eat": 57,
+        "share": 6,
+        "chat": 11,
+        "drink": 55,
+        "rest": 34,
+        "argue": 2,
+        "apologize": 1,
+        "boundary": 5,
+        "mediate": 3,
+        "collaborate": 1,
+        "celebrate": 3,
+        "borrow": 1,
+        "clarify-belief": 1
+      }
+    },
+    {
+      "seed": 7,
+      "services": 116,
+      "completed": 31,
+      "activities": {
+        "sing": 42,
+        "eat": 61,
+        "share": 8,
+        "chat": 7,
+        "drink": 55,
+        "rest": 33,
+        "apologize": 1,
+        "help": 1,
+        "play": 2,
+        "question": 1,
+        "boundary": 6,
+        "celebrate": 4,
+        "borrow": 1
+      }
+    },
+    {
+      "seed": 19,
+      "services": 112,
+      "completed": 28,
+      "activities": {
+        "eat": 58,
+        "sing": 42,
+        "chat": 7,
+        "argue": 2,
+        "rest": 31,
+        "help": 1,
+        "drink": 55,
+        "clarify-belief": 3,
+        "mediate": 2,
+        "play": 1,
+        "share": 2,
+        "boundary": 6,
+        "celebrate": 4
+      }
+    },
+    {
+      "seed": 1937,
+      "services": 115,
+      "completed": 30,
+      "activities": {
+        "sing": 47,
+        "eat": 60,
+        "chat": 10,
+        "drink": 57,
+        "rest": 36,
+        "resource-share": 1,
+        "collaborate": 1,
+        "share": 2,
+        "borrow": 1,
+        "boundary": 6,
+        "argue": 1,
+        "celebrate": 5,
+        "clarify-belief": 1,
+        "mediate": 1,
+        "return-item": 1
+      }
+    },
+    {
+      "seed": 99999,
+      "services": 113,
+      "completed": 32,
+      "activities": {
+        "eat": 59,
+        "sing": 44,
+        "chat": 8,
+        "argue": 2,
+        "drink": 57,
+        "rest": 35,
+        "mediate": 5,
+        "play": 2,
+        "clarify-belief": 3,
+        "share": 2,
+        "comfort": 1,
+        "boundary": 6,
+        "celebrate": 3
+      }
+    }
+  ],
+  "naturalExpandedReachability": {
+    "resource-share": {
+      "seedsTriggered": 1,
+      "total": 1
+    },
+    "borrow": {
+      "seedsTriggered": 3,
+      "total": 3
+    },
+    "return-item": {
+      "seedsTriggered": 1,
+      "total": 1
+    },
+    "comfort": {
+      "seedsTriggered": 1,
+      "total": 1
+    },
+    "clarify-belief": {
+      "seedsTriggered": 4,
+      "total": 8
+    },
+    "missed-promise": {
+      "seedsTriggered": 0,
+      "total": 0
+    },
+    "celebrate": {
+      "seedsTriggered": 5,
+      "total": 19
+    },
+    "mediate": {
+      "seedsTriggered": 4,
+      "total": 11
+    }
+  },
+  "naturalUntriggered": [
+    "missed-promise"
+  ],
+  "note": "Controlled prerequisite fixtures prove all 8 mechanisms complete; natural runs do not guarantee every rare event occurs."
+}

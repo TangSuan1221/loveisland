@@ -1,0 +1,29 @@
+# Installed dependencies and generated build output
+node_modules/
+dist/
+.vite/
+*.log
+
+# Local deployment metadata and credentials
+.openai/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local reference material and generated review images (all subdirectories)
+qa/references/
+qa/reference-tomodachi-recomp/
+qa/**/*.jpg
+qa/**/*.jpeg
+qa/**/*.png
+qa/**/*.webp
+qa/**/*.zip
+# Public upstream test fixture, not a user-uploaded photo
+!qa/fixtures/face-portrait.jpg
+
+# Local photo-derived results and exported appearances
+qa/photo-*.json

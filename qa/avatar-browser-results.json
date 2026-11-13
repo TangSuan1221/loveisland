@@ -1,0 +1,49 @@
+{
+  "result": "PASS",
+  "browser": "Microsoft Edge headless, isolated profile",
+  "backend": "webgpu",
+  "checks": [
+    "main and editor use native WebGPU",
+    "create, precision controls, heterochromia and drawing persist",
+    "undo and redo affect actual saved appearance",
+    "copy has independent identity and appearance",
+    "JSON export/import round trip and invalid-file protection",
+    "discard does not mutate saved character",
+    "real localStorage reload restores customized characters",
+    "in-world edit updates model and portrait without resetting NPCs or cash",
+    "30 preview replacements have bounded geometry counts",
+    "actual recording captures multiple distinct WebGPU event stills"
+  ],
+  "memorySamples": [
+    {
+      "geometries": 40,
+      "textures": 2
+    },
+    {
+      "geometries": 36,
+      "textures": 2
+    },
+    {
+      "geometries": 36,
+      "textures": 2
+    },
+    {
+      "geometries": 46,
+      "textures": 3
+    },
+    {
+      "geometries": 40,
+      "textures": 2
+    },
+    {
+      "geometries": 36,
+      "textures": 2
+    }
+  ],
+  "footage": {
+    "count": 17,
+    "unique": 17,
+    "valid": true
+  },
+  "errors": []
+}

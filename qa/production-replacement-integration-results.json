@@ -1,0 +1,29 @@
+{
+  "result": "PASS",
+  "scope": "Real production and NPC simulation through public APIs, no fabricated events or mutated cash/health. Not browser play.",
+  "hashes": {
+    "src/production-engine.js": "0bd9d2a26d04f52f8f65bdbe2e5d95f6f235f296a3c1cbb4acafa99931f00093",
+    "src/npc-simulation.js": "8cf6824f8ef30067ca3797afef4504f605173480bf859315750b1c771beb5e4c"
+  },
+  "originalFacts": 9,
+  "totalFacts": 14,
+  "cast": [
+    "tang",
+    "zhou",
+    "qiao",
+    "lu"
+  ],
+  "alumni": [
+    "lin"
+  ],
+  "checks": [
+    "release stops old actor",
+    "next-day paid replacement",
+    "remaining memories relationships positions needs unchanged at replacement",
+    "simulation time and event IDs preserved",
+    "old actor archived",
+    "production facts unchanged by replacement",
+    "replacement simulation save/reload",
+    "new actor resumes actual simulation"
+  ]
+}

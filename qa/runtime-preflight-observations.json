@@ -1,0 +1,8 @@
+[
+  {
+    "observedAt": "2026-11-12T04:37:19.929Z",
+    "phase": "start",
+    "metrics": "{\n  \"startedAt\": \"2026-11-12T04:37:14.739Z\",\n  \"elapsedSeconds\": 5,\n  \"activeSeconds\": 5,\n  \"frames\": 287,\n  \"meanFrameMs\": 17.39,\n  \"maxFrameMs\": 683,\n  \"drawCalls\": 466,\n  \"triangles\": 858892,\n  \"geometries\": 226,\n  \"textures\": 4,\n  \"actors\": 6,\n  \"landmarks\": 5,\n  \"paused\": false,\n  \"light\": \"day\",\n  \"photoMode\": false,\n  \"selected\": null,\n  \"runtimeErrors\": [],\n  \"scope\": \"visual-preview-only\"\n}",
+    "console": []
+  }
+]

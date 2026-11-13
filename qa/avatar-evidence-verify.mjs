@@ -1,0 +1,21 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+const round=process.argv[2];
+assert.match(round||'',/^[a-z0-9-]+$/,'Supply the immutable review label, e.g. round9.');
+const digest=file=>createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+const review=JSON.parse(fs.readFileSync(`qa/anime-independent-${round}.json`,'utf8'));
+const studio=JSON.parse(fs.readFileSync(`qa/avatar-studio-${round}.json`,'utf8'));
+assert.equal(review.evidence.round,round);assert.equal(studio.round,round);
+assert.equal(review.backend,'WebGPUBackend');
+assert.equal(review.evidence.sourceFingerprint,createHash('sha256').update(JSON.stringify(review.evidence.sourceFiles)).digest('hex'));
+assert.equal(studio.sourceFingerprint,createHash('sha256').update(JSON.stringify(studio.sourceFiles)).digest('hex'));
+for(const sources of [review.evidence.sourceFiles,studio.sourceFiles])for(const [path,sha]of Object.entries(sources))assert.equal(digest(path),sha,`Current source is not the frozen evidence: ${path}`);
+let shared=0;
+for(const [path,sha]of Object.entries(studio.sourceFiles))if(review.evidence.sourceFiles[path]){assert.equal(sha,review.evidence.sourceFiles[path],`Review/studio version mismatch: ${path}`);shared++;}
+assert.ok(shared>0,'No shared source provenance');
+assert.equal(Object.keys(review.evidence.images).length,3);
+for(const [path,sha]of Object.entries(review.evidence.images))assert.equal(digest(path),sha,`Frozen image changed: ${path}`);
+assert.equal(digest(`qa/avatar-studio-${round}.png`),studio.screenshotSha256,'Frozen studio image changed');
+assert.deepEqual(studio.errors,[]);assert.deepEqual(studio.updates,[]);
+console.log(`PASS ${round}: ${Object.keys(review.evidence.sourceFiles).length} review sources, ${Object.keys(studio.sourceFiles).length} studio sources, ${shared} common sources and 4 image digests; no recorded UI errors/reloads. Identity check only, not visual acceptance.`);

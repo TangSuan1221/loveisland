@@ -1,0 +1,101 @@
+{
+  "review": "round6-eye",
+  "date": "2026-11-13",
+  "scope": "eye-only intermediate evidence; no full round6 acceptance",
+  "eye_similarity": "FAILED",
+  "local_pass": [
+    "visible upper lash extension",
+    "visible front-view root continuity"
+  ],
+  "latest_overall_acceptance": "round5 FAILED",
+  "source_files": [
+    {
+      "path": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\codex-clipboard-bb1f579c-afaf-4996-8112-de27960fd757.png",
+      "sha256": "7755d7de98acd2b6755bd6c232efff525cc84c1cae23d854c3aa02ee9aed055b",
+      "bytes": 1101766,
+      "dimensions": [
+        877,
+        1299
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round6-eye.png",
+      "sha256": "7c730c99a58ab2da88cbd4a6a147afd7dadf0810e1bfebf0870cb08bf95a76e1",
+      "bytes": 149069,
+      "dimensions": [
+        1262,
+        1702
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round6-eye-detail.png",
+      "sha256": "e36c19eeed174ca823f7bd6545543637d57a0881ce8b0daf63b83aed7735f8ce",
+      "bytes": 55952,
+      "dimensions": [
+        1000,
+        1137
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round6-eye-portrait.png",
+      "sha256": "71a2ebbe649fddd00361e4bc26457a636eb10a99b81bd8be4f6845a114dcd647",
+      "bytes": 35692,
+      "dimensions": [
+        840,
+        980
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round6-eye.json",
+      "sha256": "a341f9b773cd72c7b8ac57d961548eceba1330431946bccfd04d91f30fa0fb93",
+      "bytes": 32434
+    }
+  ],
+  "auxiliary_files": [
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round6-eye\\01-same-D-eye-triptych.png",
+      "sha256": "e7358094232a4934e6b094d178a42cddce5e7834019b2df0475f2980770512f7",
+      "bytes": 164567,
+      "dimensions": [
+        1344,
+        195
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round6-eye\\02-same-D-gray-eye-triptych.png",
+      "sha256": "9711b691c1186d41352fc32466c8d38f4f4ba900df862132d6e5802c8d1fc42c",
+      "bytes": 62611,
+      "dimensions": [
+        1344,
+        195
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round6-eye\\03-native-eye-crop.png",
+      "sha256": "4aaa7e74932fc99fb865fc42b078e080288794b86c5873d22a13304117c43139",
+      "bytes": 134517,
+      "dimensions": [
+        1110,
+        323
+      ]
+    },
+    {
+      "path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\independent-review-round6-eye\\alignment.json",
+      "sha256": "5b1bdda13b3c9af8e0f9803208ce44ca39258ac3ef97c71bc6ba96beaac31bd8",
+      "bytes": 2087
+    }
+  ],
+  "previous_report_bytes": 62378,
+  "previous_report_sha256": "c1f9ec114b9b9fc295bed7d2feb8c4635f42a158660629929e43805f460015b4",
+  "verification": {
+    "previous_report_including_section11_byte_preserved": true,
+    "source_hashes_unchanged": true,
+    "section12_present_once": true
+  },
+  "limitations": [
+    "No implementation or tests inspected.",
+    "Manual image-space D alignment only.",
+    "No reliable side reference or precise 3D calibration.",
+    "Source metadata is not a unique code-version fingerprint."
+  ]
+}

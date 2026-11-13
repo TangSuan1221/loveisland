@@ -1,0 +1,104 @@
+{
+  "result": "PASS",
+  "backend": "WebGPUBackend",
+  "records": [
+    {
+      "iteration": 0,
+      "elapsedMs": 198.19999998807907,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 1,
+      "elapsedMs": 164.5,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 2,
+      "elapsedMs": 192.79999995231628,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 3,
+      "elapsedMs": 168.39999997615814,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 4,
+      "elapsedMs": 191.69999998807907,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 5,
+      "elapsedMs": 167.69999998807907,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 6,
+      "elapsedMs": 256.5999999642372,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 7,
+      "elapsedMs": 218.29999995231628,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 8,
+      "elapsedMs": 273.69999998807907,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 9,
+      "elapsedMs": 199.30000001192093,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 10,
+      "elapsedMs": 259.4000000357628,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 11,
+      "elapsedMs": 217.30000001192093,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 12,
+      "elapsedMs": 294.2000000476837,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 13,
+      "elapsedMs": 233.5,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 14,
+      "elapsedMs": 265.19999998807907,
+      "geometries": 56,
+      "textures": 2
+    },
+    {
+      "iteration": 15,
+      "elapsedMs": 212.69999998807907,
+      "geometries": 56,
+      "textures": 2
+    }
+  ],
+  "invalidNumbers": 0,
+  "errors": []
+}

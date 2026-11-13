@@ -1,0 +1,6 @@
+<!doctype html><meta charset="utf-8"><title>后发轮廓三视图验收</title><style>body{margin:0}canvas{display:block}</style><script type="module">
+import * as THREE from 'three';import{createGPURenderer}from'../src/gpu-renderer.js';import{portraitActor}from'../src/characters.js';
+const r=await createGPURenderer();r.setSize(1600,1200);r.outputColorSpace=THREE.SRGBColorSpace;r.toneMapping=THREE.ACESFilmicToneMapping;document.body.append(r.domElement);const s=new THREE.Scene();s.background=new THREE.Color('#e8eeea');s.add(new THREE.HemisphereLight('#fff8f3','#9aabb2',2));const sun=new THREE.DirectionalLight('#fff4ea',2);sun.position.set(-5,8,10);s.add(sun);
+for(let row=0;row<3;row++)for(let col=0;col<4;col++){const a=portraitActor('lin',{appearance:{hairStyle:['bob','long','hime','waves'][col],headScale:1.2,faceWidth:1.2,faceHeight:1.2}});a.mesh.position.set((col-1.5)*2,(1-row)*2-1.2,0);a.mesh.rotation.y=[0,Math.PI/2,Math.PI][row];s.add(a.mesh);}
+const c=new THREE.OrthographicCamera(-4,4,3,-3,.1,100);c.position.set(0,0,12);c.lookAt(0,0,0);r.render(s,c);window.done=true;
+</script>

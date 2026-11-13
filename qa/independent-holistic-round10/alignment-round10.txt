@@ -1,0 +1,4 @@
+Source pupils (manual estimate): ((482, 808), (724, 785))
+Target pupils (native UI dark center estimates): [(114.27586206896552, 229.58620689655172), (223.72413793103448, 229.58620689655172)]
+Output-to-source similarity matrix: (2.2110901071203535, 0.21014492753623193, 181.07939508506607, -0.21014492753623193, 2.2110901071203535, 324.3787019533711)
+No anisotropic stretch, perspective warp, or redraw. UI is an unscaled crop [558,197,898,677).

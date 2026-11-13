@@ -1,0 +1,27 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>角色美术研究 · 实时模型验收</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#e4dfd4;color:#363938;font:14px system-ui}header{padding:24px 36px;border-bottom:1px solid #bfc0b5}h1{margin:0;font-size:23px;letter-spacing:3px}header p{margin:7px 0 0;color:#6b7269}.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#c3c5ba}.study{background:#eeeade}h2{padding:18px 25px 4px;margin:0;font-size:18px}small{display:block;padding:0 25px 12px;color:#667167}.views{display:grid;grid-template-columns:1fr 1fr}.frame{position:relative;border-top:1px solid #d7d6ca}.frame canvas{width:100%;height:auto;display:block}.frame span{position:absolute;bottom:12px;left:18px;font:10px system-ui;letter-spacing:2px;color:#626e66}</style>
+<header><h1>角色研究 / CHARACTER STUDIES</h1><p>同一套可编辑人物模型 · 原生 WebGPU · 正面 / 四分之三 / 侧面 / 全身</p></header><main class="gallery"></main>
+<script type="module">
+import * as THREE from 'three';
+import {createGPURenderer} from '../src/gpu-renderer.js';
+import {portraitActor,disposeActor} from '../src/characters.js';
+import {ART_PRESETS,normalizeAppearance} from '../src/avatar-schema.js';
+const renderer=await createGPURenderer({alpha:false});renderer.setSize(330,420);renderer.outputColorSpace=THREE.SRGBColorSpace;
+const scene=new THREE.Scene();scene.background=new THREE.Color('#eeeade');scene.add(new THREE.HemisphereLight('#ffffff','#b2b4a8',1.5));const light=new THREE.DirectionalLight('#ffffff',2);light.position.set(-3,5,4);scene.add(light);
+let presets=ART_PRESETS.slice(0,3);
+if(location.search.includes('styles'))presets=['drama','organic','satire'].map((artStyle,i)=>({name:['都市叙事','异星手绘','夸张喜剧'][i],note:'同一组参数 · 不同风格造型',values:{...ART_PRESETS[3].values,artStyle}}));
+if(location.search.includes('others'))presets=ART_PRESETS.slice(3);
+for(const preset of presets){
+ const card=document.createElement('section');card.className='study';const h=document.createElement('h2');h.textContent=preset.name;const note=document.createElement('small');note.textContent=preset.note;const views=document.createElement('div');views.className='views';card.append(h,note,views);document.querySelector('.gallery').append(card);
+ const actor=portraitActor('study',{appearance:normalizeAppearance(preset.values)});actor.mesh.position.set(0,0,0);scene.add(actor.mesh);
+ for(const [mode,label,rotation]of [['front','正面',0],['threequarter','四分之三',-.55],['side','侧面',Math.PI/2],['full','全身',-.25]]){
+  actor.mesh.rotation.y=rotation;actor.mesh.updateMatrixWorld(true);
+  const box=new THREE.Box3().setFromObject(mode==='full'?actor.mesh:actor._head),center=box.getCenter(new THREE.Vector3()),size=box.getSize(new THREE.Vector3());
+  const camera=new THREE.PerspectiveCamera(30,330/420,.01,30),d=Math.max(size.y/(2*Math.tan(Math.PI/12)),size.x/(2*Math.tan(Math.PI/12)*(330/420)))*1.18+size.z/2;
+  camera.position.copy(center).add(new THREE.Vector3(0,0,d));camera.lookAt(center);renderer.render(scene,camera);
+  const frame=document.createElement('div');frame.className='frame';const canvas=document.createElement('canvas');canvas.width=330;canvas.height=420;canvas.getContext('2d').drawImage(renderer.domElement,0,0);const text=document.createElement('span');text.textContent=label;frame.append(canvas,text);views.append(frame);
+ }
+ disposeActor(actor);
+}
+window.done=true;renderer.dispose();
+</script></html>

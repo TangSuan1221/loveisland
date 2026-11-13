@@ -1,0 +1,15 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>人物造型验收</title><style>body{margin:0;background:#edf3f1}canvas{display:block}</style><script type="module">
+import * as THREE from 'three';
+import {createGPURenderer} from '../src/gpu-renderer.js';
+import {portraitActor} from '../src/characters.js';
+import {normalizeAppearance,APPEARANCE_OPTIONS} from '../src/avatar-schema.js';
+const renderer=await createGPURenderer({alpha:false});renderer.setSize(1500,1100);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;document.body.append(renderer.domElement);
+const scene=new THREE.Scene();scene.background=new THREE.Color('#edf3f1');scene.add(new THREE.HemisphereLight('#fffaff','#90a1aa',2));const sun=new THREE.DirectionalLight('#fff1e2',2.5);sun.position.set(-5,8,10);scene.add(sun);
+const colors=['#ea869d','#6fc6ce','#e6b45c','#b9a0df','#587ca7','#b77b57'];
+for(const [i,hair] of APPEARANCE_OPTIONS.hairStyle.entries()){
+ const a=portraitActor('lin',{appearance:normalizeAppearance({hairStyle:hair.value,hairColor:colors[i%6],topColor:colors[(i+2)%6],outfit:APPEARANCE_OPTIONS.outfit[i%6].value,faceShape:APPEARANCE_OPTIONS.faceShape[i%6].value,eyeStyle:APPEARANCE_OPTIONS.eyeStyle[i%8].value,glasses:i===3?'round':'none',accessory:i===11?'catEars':'none'})});
+ a.mesh.position.set((i%6-2.5)*1.35,(1-Math.floor(i/6))*2.05-.8,0);scene.add(a.mesh);
+ const c=document.createElement('canvas');c.width=256;c.height=64;const ctx=c.getContext('2d');ctx.fillStyle='#435963';ctx.textAlign='center';ctx.font='24px sans-serif';ctx.fillText(hair.label,128,40);const m=new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),transparent:true});const label=new THREE.Sprite(m);label.position.copy(a.mesh.position).add(new THREE.Vector3(0,-.2,0));label.scale.set(1.1,.275,1);scene.add(label);
+}
+const camera=new THREE.OrthographicCamera(-4.5,4.5,3.3,-3.3,.1,100);camera.position.set(0,.1,12);camera.lookAt(0,.1,0);renderer.render(scene,camera);window.done=true;
+</script></html>

@@ -1,0 +1,96 @@
+{
+  "scope": "eye-only",
+  "target_D": 240,
+  "normalized_dimensions": [
+    620,
+    925
+  ],
+  "target_pupils": [
+    [
+      200,
+      515
+    ],
+    [
+      440,
+      515
+    ]
+  ],
+  "normalized_eye_crop": [
+    100,
+    410,
+    540,
+    580
+  ],
+  "transformations": [
+    {
+      "label": "Reference",
+      "source_path": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\codex-clipboard-bb1f579c-afaf-4996-8112-de27960fd757.png",
+      "centers_approx": [
+        [
+          482,
+          808
+        ],
+        [
+          724,
+          785
+        ]
+      ],
+      "D_approx": 243.09051812030842,
+      "output_to_source_affine": [
+        1.0083333333333333,
+        0.09583333333333334,
+        230.97916666666669,
+        -0.09583333333333334,
+        1.0083333333333333,
+        307.875
+      ]
+    },
+    {
+      "label": "round5",
+      "source_path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round5-detail.png",
+      "centers_approx": [
+        [
+          306.5,
+          442
+        ],
+        [
+          692.5,
+          442
+        ]
+      ],
+      "D_approx": 386.0,
+      "output_to_source_affine": [
+        1.6083333333333334,
+        -0.0,
+        -15.166666666666686,
+        0.0,
+        1.6083333333333334,
+        -386.29166666666674
+      ]
+    },
+    {
+      "label": "round6-eye",
+      "source_path": "C:\\Users\\Lenovo\\Desktop\\同事聚会美好生活\\ratings-tyrant\\qa\\anime-independent-round6-eye-detail.png",
+      "centers_approx": [
+        [
+          306.5,
+          442
+        ],
+        [
+          692.5,
+          442
+        ]
+      ],
+      "D_approx": 386.0,
+      "output_to_source_affine": [
+        1.6083333333333334,
+        -0.0,
+        -15.166666666666686,
+        0.0,
+        1.6083333333333334,
+        -386.29166666666674
+      ]
+    }
+  ],
+  "limitations": "manual anchors; uniform scale and in-plane rotation; not 3D calibration; no native pixel precision implied"
+}
