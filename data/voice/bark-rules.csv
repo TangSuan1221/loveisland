@@ -1,0 +1,6 @@
+id,line_id,min_bond,mood,memory_kind,weight,cooldown_min
+idle,breeze,,,,1,2
+happy,fruit,,happy,,4,2
+sad,quiet,,sad,,6,2
+close,friend,35,,,4,3
+gift,gift,,,gift,6,4

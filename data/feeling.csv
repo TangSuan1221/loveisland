@@ -1,0 +1,11 @@
+id,feeling,label_zh,trigger,effect_work,effect_social,exclusive_group
+F00,Normal,平常,default,1.0,1.0,mood
+F01,Good,开心,satiety>60 & strain<30 & health>70,1.1,1.15,mood
+F02,Careless,心不在焉,rest<40,0.85,0.9,mood
+F03,Worry,担心,warmth<45 or food_days<1,0.9,0.95,mood
+F04,Irritate,烦躁,strain>=40,0.85,0.8,mood
+F05,Angry,生气,strain>=70,0.75,0.6,mood
+F06,Deject,沮丧,strain>=55 & bond_avg<110,0.8,0.85,mood
+F07,Depress,消沉,grief_active or strain>=80,0.7,0.7,mood
+F08,Desperate,绝望,strain>=90 or satiety_zero_days>=2,0.5,0.4,mood
+F09,Starving,濒饿,satiety<20,0.5,0.7,mood

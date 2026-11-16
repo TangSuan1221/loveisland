@@ -20,6 +20,14 @@ npm run preview
 
 默认只监听本机。安装依赖需要网络；安装后游戏不依赖在线AI、远程模型或外部字体。当前主入口为 `src/game.js`，旧 `src/main.js` 是保留的生活展示版本，不代表首页当前玩法。
 
+## 演出舞台与放映室
+
+双击项目根目录的 `演出放映室.html`，点「定妆预览」可直接观看花见、炉边与占星室的动态定妆。返回后继续原剧情。放映室内也可在「背景 · 随剧情」「花见」「炉边」「占星室」之间切换。主游戏根据演出主题选择舞台，涉及岛上具体地点的镜头保留实景。
+
+启动开发服务后，访问 `/?perf=hanami&t=2&still=1&seed=7` 可查看花见的可复现定帧，将 `hanami` 换成 `cabin` 或 `orb` 可查看另外两幕。去掉 `still=1` 可观察粒子和视差。三套环境画板为本次生成的原创素材，角色、表情、动作、脚影、灯光及后期由 Three.js 实时合成。
+
+舞台配方校验命令为 `node tools/gen-data.mjs --stage --check`。盲评工具为 `qa/stage-blind-review.mjs`，拼板随机排列左右，映射单独保存，评审应先记录偏好再揭晓。
+
 ## 人物工作室
 
 标题页点「捏出你的人物」，选角卡片点「编辑形象」，或在顶部打开「人物工作室」。支持编辑默认人物及创建最多60位独立角色，并复制、删除尚未参演或签约的自建人物。
@@ -118,3 +126,20 @@ npm run build
 新增12种发型结构、72款变体，前发126款、后发156款（不含沿用/无）。包括贴头侧分、退际后梳、侧扇尖发、姬切、波纹侧分、渐短鬓发、放射尖簇、短弹卷、高筒密卷、侧蓬乱发、肩前编辫和上升焰状发。支持结构筛选、刘海/后发长度与蓬松度；增加4组原创起点。新增可选口鼻区前突、独立配色与2种圆突鼻，默认关闭保持旧角色。
 
 12个动漫、经典IP及名人基准仅用公开编辑参数，原始配置可从 `qa/recognition-avatars/` 导入，48个真实WebGPU视图和逐项不足见 `qa/AVATAR_RECOGNITION_REVIEW.md`。严格视觉评审为11个部分达到、Homer整体轮廓未达到，不代表任意角色1:1还原。与Nintendo官方设计说明的区别见 `qa/AVATAR_CORE_GAP_REVIEW.md`。
+## 生存岛 NPC 验证
+
+运行开发服务后打开 `/survival.html`。岛民面板显示当前行为，60 天样例使用固定种子，可直接比较同一对角色在抢食前后的关系。
+
+```sh
+node tools/gen-data.mjs
+node validate-data.mjs
+node tools/check-tiers.mjs
+node test-survival.mjs
+node run-30d.mjs
+node validate.mjs
+node test-save.mjs
+node test-tags.mjs
+node tools/parity.mjs
+```
+
+参考实现和主实现共用纯生存仲裁逻辑，并分别执行世界推进和读写档。parity 比较完整状态；场景、岗位、存档和快照均保留在验证范围内。

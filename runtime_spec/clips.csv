@@ -1,0 +1,35 @@
+﻿id,category,duration_s,loop,layer,note
+Idle_A,idle,4.0,loop,base,呼吸+微重心
+Idle_B,idle,4.4,loop,base,换脚+看海
+Idle_C,idle,3.2,loop,base,抱臂/冷
+Idle_Talk,idle,2.0,loop,base,听人说话
+Walk_F,walk,1.0,loop,base,2 步/循环
+Walk_B,walk,1.1,loop,base,
+Walk_L,walk,1.05,loop,base,
+Walk_R,walk,1.05,loop,base,
+Run_F,run,0.6,loop,base,
+Turn_L,turn,0.45,once,base,
+Turn_R,turn,0.45,once,base,
+Sit_Down,sit,0.8,once,base,接触事件 @0.55s
+Sit_Idle,sit,5.0,loop,base,坐姿呼吸
+Stand_Up,sit,0.9,once,base,
+Sleep,sleep,6.0,loop,base,
+Wake,sleep,1.2,once,base,
+Talk_A,talk,2.4,loop,upper,手势 A
+Talk_B,talk,2.8,loop,upper,手势 B
+Talk_C,talk,2.2,loop,upper,手势 C
+Wave,emote,1.4,once,upper,
+Eat,interact,2.2,loop,upper,
+Drink,interact,2.0,loop,upper,
+PickUp,interact,1.0,once,upper,手部接触 @0.5
+PutDown,interact,1.0,once,upper,
+Carry_Idle,carry,3.0,loop,upper,
+Carry_Walk,carry,1.1,loop,base,
+Work_Chop,work,1.8,loop,upper,
+Work_Fish,work,2.4,loop,upper,
+Work_Cook,work,2.0,loop,upper,
+Fall,hit,0.8,once,base,
+GetUp,hit,1.3,once,base,
+Swim,swim,2.0,loop,base,
+Dance_A,dance,3.2,loop,base,
+Emote_18,emote,2.0,once,upper,表情驱动

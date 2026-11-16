@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {cloneActorView} from './clone-actor-view.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { createIsland } from './island.js';
 import { createCharacters } from './characters.js';
@@ -109,7 +110,7 @@ window.addEventListener('pagehide',saveLife);
 const landmarks=island.landmarks||[];
 const portraits=new Map();
 const portraitRenderer=new THREE.WebGLRenderer({antialias:true,alpha:true});portraitRenderer.setSize(160,160);portraitRenderer.setPixelRatio(1);portraitRenderer.outputColorSpace=THREE.SRGBColorSpace;portraitRenderer.toneMapping=THREE.ACESFilmicToneMapping;portraitRenderer.toneMappingExposure=1.0;
-for(const actor of actors){const portraitScene=new THREE.Scene();const avatar=actor.mesh.clone(true);avatar.position.set(0,0,0);avatar.rotation.set(0,0,0);portraitScene.add(avatar);portraitScene.add(new THREE.HemisphereLight('#fff7e7','#a4bda0',2));const key=new THREE.DirectionalLight('#fff1d8',2);key.position.set(-3,5,4);portraitScene.add(key);const portraitCamera=new THREE.PerspectiveCamera(28,1,.1,20);portraitCamera.position.set(0,1.34,2.25);portraitCamera.lookAt(0,1.16,0);portraitRenderer.render(portraitScene,portraitCamera);portraits.set(actor.id,portraitRenderer.domElement.toDataURL('image/png'));}
+for(const actor of actors){const portraitScene=new THREE.Scene();const {copy:avatar,dispose}=cloneActorView(actor.mesh);avatar.position.set(0,0,0);avatar.rotation.set(0,0,0);portraitScene.add(avatar);portraitScene.add(new THREE.HemisphereLight('#fff7e7','#a4bda0',2));const key=new THREE.DirectionalLight('#fff1d8',2);key.position.set(-3,5,4);portraitScene.add(key);const portraitCamera=new THREE.PerspectiveCamera(28,1,.1,20);portraitCamera.position.set(0,1.34,2.25);portraitCamera.lookAt(0,1.16,0);portraitRenderer.render(portraitScene,portraitCamera);portraits.set(actor.id,portraitRenderer.domElement.toDataURL('image/png'));dispose();}
 portraitRenderer.dispose();
 const portraitMarkup=(a)=>`<img src="${portraits.get(a.id)}" alt="${a.name}的头像"/>`;
 const selectionRing=new THREE.Mesh(new THREE.RingGeometry(.65,.72,64),new THREE.MeshBasicMaterial({color:'#fff5c8',transparent:true,opacity:.9,side:THREE.DoubleSide,depthWrite:false}));selectionRing.rotation.x=-Math.PI/2;selectionRing.position.y=.505;selectionRing.visible=false;scene.add(selectionRing);

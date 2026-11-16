@@ -1,0 +1,17 @@
+.island-performance{position:absolute;z-index:18;bottom:20%;left:50%;transform:translateX(-50%);max-width:min(42rem,85vw);text-align:center;pointer-events:none;color:white}
+.island-performance div:not(:empty){background:#142526f2;border-radius:.55rem;padding:.65rem 1.1rem;font-size:1.1rem;line-height:1.55;text-shadow:0 1px 2px #000}
+.island-performance [data-channel=callout]{color:#ffdd97;font-weight:700}
+.island-performance button,.game-scene-tools select{pointer-events:auto;background:#203334;color:white;border:1px solid #a5b7ab;border-radius:.4rem;padding:.35rem .6rem}
+.island-performance button{margin-top:.4rem}
+
+.camp-letterbox::before,.camp-letterbox::after{content:"";position:absolute;left:0;right:0;height:7vh;background:#131811;pointer-events:none;z-index:15}.camp-letterbox::before{top:0}.camp-letterbox::after{bottom:0}
+.cinema-playing>.production-ui,.cinema-playing>.game-scene-tools{visibility:hidden}
+.cinema-playing .island-performance{z-index:42;bottom:max(6vh,1.3rem);width:min(42rem,86vw)}
+.cinema-playing .island-performance [data-channel=callout]{display:inline-block;font-size:clamp(.95rem,1.5vw,1.25rem);letter-spacing:.08em}
+.cinema-playing .island-performance button{opacity:.85}
+.cinema-playing .island-performance{position:absolute;inset:0;width:auto;max-width:none;transform:none;text-align:center}
+.cinema-playing .island-performance>div:first-child:not(:empty){position:absolute;left:50%;bottom:4%;transform:translateX(-50%);width:max-content;max-width:min(68vw,46rem)}
+.cinema-playing .island-performance>[data-channel=callout]:first-child:not(:empty){left:3vw;top:12vh;bottom:auto;transform:none;font-size:.92rem}
+.cinema-playing .island-performance>button{position:absolute;bottom:3%;right:max(2%,env(safe-area-inset-right));font-size:.78rem}
+.cinema-playing .island-performance>div:last-child:not(:empty){position:absolute;bottom:15%;left:50%;transform:translateX(-50%)}
+.cinema-playing>#scene::after{content:"";position:absolute;inset:0;background:#11130f;opacity:var(--cinema-cut,0);pointer-events:none}

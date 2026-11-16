@@ -1,6 +1,24 @@
+import {DATA} from '../packages/sim-core/src/data.generated.ts';
+import {arbitrate} from '../packages/sim-core/src/arbiter.ts';
+import {levelOf,passes} from '../packages/sim-core/src/needs.ts';
+import {canHear} from '../packages/sim-core/src/space.ts';
+import {stocks} from './character-attributes.js';
+const activityNeeds={eat:'Satiety',drink:'Hydration',rest:'Rest',warm:'Warmth'};
+const ladder=new Map(DATA.needLadder.map(row=>[row.need,row]));
+const priorities=new Map(DATA.aiPriority.map(row=>[row.id,{act:+row.act,run:+row.run}]));
+function recordingIntent(id,score,values){
+ const need=activityNeeds[id],row=ladder.get(need);
+ const level=row&&levelOf(values[need.toLowerCase()],+row.warn,+row.mid,+row.crit);
+ const tierId=level?row[level==='L4'?'zero_tier':level.toLowerCase()+'_tier']:'M10';
+ return {id,score,tierId,...priorities.get(tierId)};
+}
+import {previewProps} from './catalog-props.js';
+import {dramaticScenes} from './dramatic-scenes.js';
+import {performances} from './action-catalog.js';
 // Original, deterministic behavioural approximation; not Nintendo source or algorithms.
 // Inspected flat-ground routes connect the clearing, northern benches and
 // south-east lookout. The raised deck, hill, stream and dock are excluded.
+import {initialize,derive,capabilities,worldFor,crisisEncounter,socialEvent,advanceVitals,practice,recover,skills,labels,level} from './character-attributes.js';
 export const NPC_SAVE_VERSION = 1;
 export const NPC_EVENT_TEMPLATES = [
  ['chat','闲谈','社交需要'],['share','共同兴趣','共享兴趣'],['play','一起活动','可用精力'],['argue','意见分歧','直接程度差异'],['apologize','关系修复','双方已有分歧'],
@@ -43,8 +61,8 @@ function defaultRoute(from,to) {
  const ids=[];for(let n=end;n!==null;n=prev.get(n))ids.unshift(n);
  return [...ids.map(i=>({x:NODES[i][0],z:NODES[i][1]})),{x:to.x,z:to.z}];
 }
-export function createSimulation({actors:definitions,seed=1937,saved=null}={}) {
- let layout=null,serviceHandler=null;const route=(a,b)=>layout?layout.navigation.path(a,b):defaultRoute(a,b);
+export function createSimulation({actors:definitions,seed=1937,saved=null,campClimate=null,language=null}={}) {
+ let layout=null,serviceHandler=null,waterStock=()=>Infinity;const route=(a,b)=>layout?layout.navigation.path(a,b):defaultRoute(a,b);
  if(!Array.isArray(definitions)||definitions.length<2||new Set(definitions.map(a=>a.id)).size!==definitions.length)throw new Error('At least two uniquely identified actors are required');
  let state={version:NPC_SAVE_VERSION,time:0,accumulator:0,rng:seed>>>0||1,eventId:0,scene:null,events:[],stats:{completed:0,rejected:0,invitations:0,activities:{}},facilities:SPOTS.map(s=>({...s,owner:null})),actors:definitions.map((a,i)=>({id:a.id,name:a.name,x:a.anchor?.[0]??0,z:a.anchor?.[1]??0,facing:0,moving:false,activity:'idle',label:LABELS.idle,mood:'calm',gesture:'rest',speech:'',needs:{hunger:30+i*6,energy:22+i*5,social:58+i*3,fun:35+i*4},personality:personalityFor(Math.max(0,['lin','zhou','qiao','lu','tang','chen'].indexOf(a.avatarId||a.id))),relationships:Object.fromEntries(definitions.filter(b=>a.id!==b.id).map(b=>[b.id,{affinity:0,trust:0,familiarity:0,lastInteraction:-999,cooldown:0}])),memories:[],topics:[],preferences:{},route:[],destination:null,timer:2+i*1.2,cooldown:0,lastActivity:null}))};
  if(saved){
@@ -80,15 +98,45 @@ export function createSimulation({actors:definitions,seed=1937,saved=null}={}) {
  // Additive migration preserves legacy NPC saves and private history.
  state.pendingConversations??=[];state.alumni??={};state.items??=definitions.map(a=>({id:`keepsake-${a.id}`,name:'随身纪念物',ownerId:a.id,holderId:a.id,borrowedAt:0}));state.commitments??=[];state.queues??={};state.resourceScene??=null;state.queuePairs??={};state.productionRules??={day:1,rule:null};
  for(const a of state.actors){const d=definitions.find(d=>d.id===a.id)||{};a.goal??={text:d.goal||'建立自己的岛上生活',progress:0,kind:/保护|边界|隐私/.test(d.goal||'')?'privacy':/作品|单曲|摄影|小店/.test(d.goal||'')?'creative':'social'};a.romanceAllowed??=d.romanceAllowed!==false;a.knownBond??=d.knownRelation||null;a.knowledge??=[];a.templateCooldowns??={};a.templateDays??={};a.beliefs??=[];a.celebratedProgress??=0;a.emotionUntil??=0;for(const [id,r]of Object.entries(a.relationships)){r.met??=r.familiarity>=5||r.lastInteraction>-999;r.attraction??=0;r.resentment??=Math.max(0,-r.affinity);r.alliance??=false;r.romance??=false;if(!saved&&d.knownRelation?.id===id){r.familiarity=Math.max(r.familiarity,55);r.resentment=12;r.attraction=16;r.bond=d.knownRelation.label||d.knownRelation.type||'前任';}}}
+ state.world??=worldFor();for(const actor of state.actors)initialize(actor);
  const byId=id=>state.actors.find(a=>a.id===id);
  const random=()=>{state.rng=(Math.imul(1664525,state.rng)+1013904223)>>>0;return state.rng/4294967296;};
  const remember=(a,kind,text,otherId=null,topic=null)=>{const memory={time:state.time,kind,text,otherId,topic};a.memories.push(memory);if(a.memories.length>16)a.memories.shift();if(!['activity','gift','learned'].includes(kind)){a.knowledge.push({...memory,source:'experienced'});if(a.knowledge.length>64)a.knowledge.shift();}};
- const emit=(type,participants,text,extra={})=>{const person=byId(participants[0]),dominant=person&&Object.entries(person.needs).sort((a,b)=>b[1]-a[1])[0],needNames={hunger:'饥饿',thirst:'口渴',energy:'疲劳',privacy:'独处需要',environment:'环境不适',social:'交流需要',fun:'无聊'};const event={id:++state.eventId,time:+state.time.toFixed(1),type,participants:[...participants],text,x:person?.x??0,z:person?.z??0,activity:person?.activity,reason:dominant?`现场状态：${person.name}的${needNames[dominant[0]]||dominant[0]}为${Math.round(dominant[1])}；正在${person.label||'观察现场'}。`:'现场记录',...(layout?{sourcePart:({declined:'reaction','interview-declined':'reaction'}[type]||'action')}:{}),...extra};state.events.push(event);if(state.events.length>60)state.events.shift();if(layout&&['disagreed','queue-argue'].includes(type)){for(const witness of state.actors.filter(a=>!participants.includes(a.id)&&!a.unavailable&&Math.hypot(a.x-event.x,a.z-event.z)<4)){witness.knowledge.push({time:state.time,kind:type,text,participants:[...participants],source:'witnessed',eventId:event.id});if(witness.knowledge.length>64)witness.knowledge.shift();}}return event;};
+ const emit=(type,participants,text,extra={})=>{const person=byId(participants[0]),dominant=person&&Object.entries(person.needs).sort((a,b)=>b[1]-a[1])[0],needNames={hunger:'饥饿',thirst:'口渴',energy:'疲劳',privacy:'独处需要',environment:'环境不适',social:'交流需要',fun:'无聊'};const event={id:++state.eventId,time:+state.time.toFixed(1),type,participants:[...participants],text,x:person?.x??0,z:person?.z??0,activity:person?.activity,reason:dominant?`现场状态：${person.name}的${needNames[dominant[0]]||dominant[0]}为${Math.round(dominant[1])}；正在${person.label||'观察现场'}。`:'现场记录',...(layout?{sourcePart:({declined:'reaction','interview-declined':'reaction'}[type]||'action')}:{}),...extra};
+  if(event.sourcePart==='result')event.resultFeelings=participants.map(id=>{
+    const actor=byId(id);
+    if(!actor?.attributes)return [];
+    const values=derive(actor).feelings;
+    return actor.mood==='sad' && values.every(v=>v==='平常')?['沮丧']:values;
+  });
+  state.events.push(event);if(state.events.length>60)state.events.shift();if(layout&&['disagreed','queue-argue','last-water-given','last-water-split','last-water-kept','abandoned','ration-taken'].includes(type)){for(const witness of state.actors.filter(a=>!participants.includes(a.id)&&!a.unavailable&&Math.hypot(a.x-event.x,a.z-event.z)<4*capabilities(a,state.world).perception)){witness.knowledge.push({time:state.time,kind:type,text,participants:[...participants],source:'witnessed',eventId:event.id});if(witness.knowledge.length>64)witness.knowledge.shift();}}return event;};
  function release(a){for(const q of Object.values(state.queues))q.entries=q.entries.filter(e=>e.id!==a.id);for(const f of state.facilities)if(f.owner===a.id)f.owner=null;a.route=[];a.destination=null;a.moving=false;}
- function idle(a,delay=3){release(a);a.activity='idle';a.label=LABELS.idle;a.gesture='rest';a.speech='';a.timer=delay;}
+ function idle(a,delay=3){delete a.actionResult;if(a.attributes)delete a.attributes.task;release(a);a.activity='idle';a.label=LABELS.idle;a.gesture='rest';a.speech='';a.timer=delay;}
  function leaveFacility(a){for(const f of state.facilities)if(f.owner===a.id)f.owner=null;if(layout){const safe=layout.navigation.nearest({x:a.x+1.5,z:a.z+1.5});walk(a,safe||{x:0,z:2},{kind:'exit'});a.label='离开设施，让出位置';return;}const node=NODES[nearest(a)],index=state.actors.indexOf(a);walk(a,{x:clamp(node[0]+(index%2?.55:-.55),-5.25,8.8),z:clamp(node[1]+(index%3-1)*.55,-10.8,13.5)},{kind:'exit'});a.label='离开设施，让出位置';}
- function walk(a,target,destination){a.route=route(a,target);a.destination=destination;a.moving=true;a.activity='walk';a.label='前往'+(destination.kind==='social'?'碰面地点':destination.kind==='queue'?'水站队列':target.place||LABELS[destination.activity]);a.gesture='walk';a.speech='';}
+ function walk(a,target,destination){a.route=route(a,target);a.destination={...destination,mark:{x:target.x,z:target.z}};delete a.walkProgress;a.moving=true;a.activity='walk';a.label='前往'+(destination.kind==='social'?'碰面地点':destination.kind==='queue'?'水站队列':target.place||LABELS[destination.activity]);a.gesture='walk';a.speech='';}
  function available(a){return a&&!a.unavailable&&a.activity==='idle'&&a.cooldown<=state.time&&!a.moving;}
+ function reserved(p,except){
+  return state.actors.some(a=>!a.unavailable&&!except.includes(a)&&[a,a.destination?.mark||a.route.at(-1)].some(q=>q&&Math.hypot(q.x-p.x,q.z-p.z)<.85));
+ }
+ function conversationMarks(a,b,meet){
+  if(!layout)return [{x:meet.x-.85,z:meet.z},{x:meet.x+.85,z:meet.z}];
+  const keepClear=[...state.facilities,...layout.facilities.map(f=>layout.navigation.servicePoint(f)).filter(Boolean)];
+  for(const radius of [2.25,3,3.75,4.5,6])for(let i=0;i<8;i++){
+   const angle=i*Math.PI/4,dx=Math.cos(angle),dz=Math.sin(angle);
+   const center={x:meet.x+radius*dx,z:meet.z+radius*dz};
+   const marks=[-.85,.85].map(k=>({x:center.x-k*dz,z:center.z+k*dx}));
+   if([center,...marks].every(p=>layout.navigation.clear(p.x,p.z)&&!reserved(p,[a,b])&&keepClear.every(q=>Math.hypot(p.x-q.x,p.z-q.z)>=1.2))&&marks.every((p,j)=>route(j?b:a,p).length))return marks;
+  }
+  return null;
+ }
+ function abandonWalk(a){
+  if(state.scene?.participants.includes(a.id)){
+   const scene=state.scene;
+   for(const id of scene.participants)idle(byId(id),3);
+   state.scene=null;emit('cancelled',scene.participants,'附近暂时无法通行',{sceneId:String(scene.id)});
+  }else if(state.performance?.participants.includes(a.id))cancelPerformance('站位暂时无法抵达');
+  else idle(a,3);
+ }
  function invite(a,b,source='autonomous',requestedKind=null,continuation=null){
   if(!a||!b||a===b)return {ok:false,reason:'请选择两位不同的岛民'};
   if(state.scene||!available(a)||!available(b))return {ok:false,reason:'有人正在忙，等他们空下来再介绍'};
@@ -97,7 +145,7 @@ export function createSimulation({actors:definitions,seed=1937,saved=null}={}) {
   if(!continuation&&relation.cooldown>state.time)return {ok:false,reason:'刚刚聊过，给他们一点自己的时间'};
   const shared=a.personality.interests.filter(t=>b.personality.interests.includes(t)),kind=requestedKind||chooseSocialKind(a,b,shared);if(!kind||(layout&&!eligible(a,b,kind,!!continuation)))return{ok:false,reason:'今天这两位已聊过可用话题，先各自活动'};if(layout||EXPANDED_KINDS.includes(kind)){a.templateDays[`${b.id}:${kind}`]=state.productionRules.day;b.templateDays[`${a.id}:${kind}`]=state.productionRules.day;}
   state.stats.invitations++;
-  const chance=clamp(.22+b.personality.sociability*.43+b.needs.social*.004+relation.affinity*.002+relation.trust*.0015-b.needs.energy*.003-b.needs.hunger*.002,.12,.94);
+  const chance=clamp(.22+b.personality.sociability*.43+b.needs.social*.004+relation.affinity*.002+relation.trust*.0015-b.needs.energy*.003-b.needs.hunger*.002-b.attributes.despair*.003-b.attributes.pain*.001-(a.attributes.hygiene<40?.10:0)-(relation.fear||0)*.001+level(b,'social')*.01,.12,.94);
   if(b.needs.hunger>85||b.needs.energy>88||random()>chance){
    state.stats.rejected++;a.cooldown=state.time+14;b.cooldown=state.time+8;relation.cooldown=state.time+30;a.relationships[b.id].cooldown=state.time+30;
    a.speech='好，那下次再聊。';b.speech=b.needs.energy>65?'我想先歇一会儿。':'我现在想自己待一会儿。';a.label='给对方一点空间';b.label='想独处一会儿';a.gesture='wave';b.gesture='rest';a.timer=4;b.timer=4;
@@ -111,13 +159,16 @@ export function createSimulation({actors:definitions,seed=1937,saved=null}={}) {
   const id=++state.eventId;
   state.scene={id,participants:[a.id,b.id],speakerId:a.id,phase:'approach',kind,topic,elapsed:0,beat:-1,source,outcome:null,reason:socialReason(a,b,kind),...(continuation?{resolvesSceneId:continuation.originalSceneId,continuationCreatedDay:continuation.createdDay}: {})};
   if(kind==='resource-share'){const slot=state.facilities.find(f=>f.activity==='drink'&&!f.owner);if(!slot){idle(a,2);idle(b,2);state.scene=null;return{ok:false,reason:'水站正在忙，无法预留分享服务'};}slot.owner=a.id;state.scene.resourceSlot=slot.id;}if(kind==='borrow')state.scene.itemId=state.items.find(i=>i.ownerId===b.id&&i.holderId===b.id)?.id;if(kind==='return-item')state.scene.itemId=state.items.find(i=>i.ownerId===b.id&&i.holderId===a.id)?.id;if(kind==='mediate')state.scene.mediationTarget=mediationTarget(a,b);if(continuation?.itemId)state.scene.itemId=continuation.itemId;
-  let meet={x:0,z:.6};if(layout){const places=layout.facilities.filter(f=>['fire','table','privacy'].includes(f.type));if(places.length){const place=places.reduce((best,f)=>Math.hypot(f.x-a.x,f.z-a.z)<Math.hypot(best.x-a.x,best.z-a.z)?f:best);meet=layout.navigation.servicePoint(place)||meet;}}if(state.scene.resourceSlot){const f=state.facilities.find(f=>f.id===state.scene.resourceSlot);meet={x:f.x,z:f.z};}const targetA={x:meet.x-.85,z:meet.z},targetB={x:meet.x+.85,z:meet.z};walk(a,layout&&!layout.navigation.clear(targetA.x,targetA.z)?layout.navigation.nearest(targetA):targetA,{kind:'social'});walk(b,layout&&!layout.navigation.clear(targetB.x,targetB.z)?layout.navigation.nearest(targetB):targetB,{kind:'social'});
+  let meet={x:0,z:.6};if(layout){const places=layout.facilities.filter(f=>['fire','table','privacy'].includes(f.type));if(places.length){const place=places.reduce((best,f)=>Math.hypot(f.x-a.x,f.z-a.z)<Math.hypot(best.x-a.x,best.z-a.z)?f:best);meet=layout.navigation.servicePoint(place)||meet;}}if(state.scene.resourceSlot){const f=state.facilities.find(f=>f.id===state.scene.resourceSlot);meet={x:f.x,z:f.z};}const marks=conversationMarks(a,b,meet);
+  if(!marks){abandonWalk(a);return {ok:false,reason:'附近没有可用的双人站位'};}
+  walk(a,marks[0],{kind:'social'});walk(b,marks[1],{kind:'social'});
   emit('invitation',[a.id,b.id],`${a.name}与${b.name}决定碰面。`,{sourcePart:'context',sceneId:String(id),reason:state.scene.reason});return {ok:true,reason:'他们愿意试着聊聊，结果由双方决定'};
  }
  function eligible(a,b,kind,ignoreAttemptCooldown=false){
+  if(kind==='confess'&&!passes(DATA,'romance',{bothSatiety:100-Math.max(a.needs.hunger,b.needs.hunger),bothWarmth:Math.min(a.attributes.warmth,b.attributes.warmth)}))return false;
   const r=a.relationships[b.id];if(!ignoreAttemptCooldown&&(layout||EXPANDED_KINDS.includes(kind))&&(a.templateDays[`${b.id}:${kind}`]===state.productionRules.day||b.templateDays[`${a.id}:${kind}`]===state.productionRules.day))return false;if(!ignoreAttemptCooldown&&(a.templateCooldowns[`${b.id}:${kind}`]||0)>state.time)return false;
   if(kind==='contest'||kind==='mole-task')return a.needs.energy<80&&b.needs.energy<80;
-  if(kind==='resource-share')return !!layout&&b.needs.thirst>60&&(a.needs.thirst||0)<55&&a.personality.kindness>.6&&state.facilities.some(f=>f.activity==='drink'&&!f.owner);
+  if(kind==='resource-share')return !!layout&&b.needs.thirst>60&&(waterStock()===1||((a.needs.thirst||0)<55&&a.personality.kindness>.6))&&state.facilities.some(f=>f.activity==='drink'&&!f.owner);
   if(kind==='borrow')return (a.needs.fun>35||a.goal.kind==='creative')&&!state.items.some(i=>i.holderId===a.id&&i.ownerId!==a.id)&&r.trust>=3&&state.items.some(i=>i.ownerId===b.id&&i.holderId===b.id);
   if(kind==='return-item')return state.items.some(i=>i.ownerId===b.id&&i.holderId===a.id&&state.time-i.borrowedAt>45);
   if(kind==='comfort')return ['sad','angry'].includes(b.mood)&&a.personality.kindness>.6&&r.familiarity>=5;
@@ -160,7 +211,7 @@ export function createSimulation({actors:definitions,seed=1937,saved=null}={}) {
   const fid=slot.facilityId||slot.id;if(state.queues[fid]?.entries.some(e=>e.id===a.id))return;release(a);
   const q=state.queues[fid]??={entries:[]};a.queueCompliant=true;
   const f=layout.facilities.find(f=>f.id===fid),base=layout.navigation.servicePoint(f);
-  const marks=Array.from({length:12},(_,i)=>layout.navigation.nearest({x:base.x+2+(i%4)*1.2,z:base.z+2+Math.floor(i/4)*1.2}));const point=marks.find(p=>q.entries.every(e=>!e.point||Math.hypot(p.x-e.point.x,p.z-e.point.z)>.9))||marks[0];q.entries.push({id:a.id,since:state.time,point});walk(a,point,{kind:'queue',facilityId:fid});a.label='前往饮水队列';
+  const marks=Array.from({length:12},(_,i)=>layout.navigation.nearest({x:base.x+2+(i%4)*1.2,z:base.z+2+Math.floor(i/4)*1.2}));const point=marks.find(p=>p&&!reserved(p,[a])&&q.entries.every(e=>!e.point||Math.hypot(p.x-e.point.x,p.z-e.point.z)>.9));if(!point){idle(a,2);return;}q.entries.push({id:a.id,since:state.time,point});walk(a,point,{kind:'queue',facilityId:fid});a.label='前往饮水队列';
   emit('queue-enter',[a.id],`${a.name}口渴，进入${f.name||'水站'}的等候队列。`,{sourcePart:'context',sceneId:`queue-${fid}-${a.id}-${state.time.toFixed(1)}`});
  }
  function interruptQueueScene(reason){const rs=state.resourceScene;if(!rs)return;emit('interrupted',rs.participants,reason,{sceneId:String(rs.id)});state.resourceScene=null;for(const id of rs.participants){const a=byId(id);if(!a)continue;a.activity='queue';a.label='恢复原有队列';a.gesture='rest';a.speech='';a.moving=false;}}
@@ -180,7 +231,7 @@ export function createSimulation({actors:definitions,seed=1937,saved=null}={}) {
     'queue-yield':['你是不是急着用水？','我现在确实更口渴，谢谢你愿意听。','那这次你先，我保留下一位。'],
     'queue-argue':['我已经在这里等了一会儿。','我也很着急，不想再等了。','先按原队列取水，等冷静下来再说。'],
     'queue-apology':['请先看看排队的顺序。','对不起，我不该直接往前挤。','我们按顺序来，你回到原来的位置。'],
-    'queue-avoid':['我不想在镜头前争论。','你要离开这里吗？','我先离开，稍后再找水站。']};speaker.speech=lines[rs.branch][beat];speaker.gesture=rs.branch==='queue-apology'&&speaker===b?'apologize':rs.branch==='queue-argue'?'argue':'talk';emit('dialogue',rs.participants,`${speaker.name}：“${speaker.speech}”`,{sourcePart:'reaction',sceneId:String(rs.id),sourceType:rs.branch==='queue-argue'?'argue':rs.branch==='queue-apology'?'apologize':'chat'});}
+    'queue-avoid':['我不想在镜头前争论。','你要离开这里吗？','我先离开，稍后再找水站。']};speaker.voicePhrase=language?.queue(rs,speaker,beat,state.actors);speaker.speech=speaker.voicePhrase?.display??lines[rs.branch][beat];speaker.gesture=rs.branch==='queue-apology'&&speaker===b?'apologize':rs.branch==='queue-argue'?'argue':'talk';emit('dialogue',rs.participants,`${speaker.name}：“${speaker.speech}”`,{sourcePart:'reaction',sceneId:String(rs.id),sourceType:rs.branch==='queue-argue'?'argue':rs.branch==='queue-apology'?'apologize':'chat'});}
    if(rs.elapsed>=9){const q=state.queues[rs.facilityId];const ar=a.relationships[b.id],br=b.relationships[a.id];if(rs.branch==='queue-yield'){const ai=q.entries.findIndex(e=>e.id===a.id),bi=q.entries.findIndex(e=>e.id===b.id);if(ai>=0&&bi>=0)[q.entries[ai],q.entries[bi]]=[q.entries[bi],q.entries[ai]];ar.trust=clamp(ar.trust+2,-100,100);br.trust=clamp(br.trust+5,-100,100);b.queueCompliant=true;}else if(rs.branch==='queue-apology'){ar.resentment=clamp(ar.resentment-3);ar.trust=clamp(ar.trust+2,-100,100);b.queueCompliant=true;}else if(rs.branch==='queue-argue'){ar.resentment=clamp(ar.resentment+7);br.resentment=clamp(br.resentment+6);ar.trust=clamp(ar.trust-3,-100,100);br.trust=clamp(br.trust-3,-100,100);}
     for(const [self,other]of [[a,b],[b,a]]){remember(self,rs.branch,`与${other.name}的饮水顺序：${({'queue-yield':'让位','queue-argue':'各自坚持后恢复原顺序','queue-apology':'道歉后恢复原顺序','queue-avoid':'离开等候'})[rs.branch]}`,other.id,'饮水顺序');self.activity='queue';self.label='继续等待饮水';self.gesture='rest';self.speech='';}
     emit(rs.branch,rs.participants,`${a.name}与${b.name}的饮水顺序事件结束：${({'queue-yield':'先到者让位，后到者先服务','queue-argue':'仍有分歧，保留原队列','queue-apology':'后到者道歉并回到原位','queue-avoid':'先到者暂时离开'})[rs.branch]}。`,{sourcePart:'result',sceneId:String(rs.id),sourceType:rs.branch==='queue-argue'?'argue':rs.branch==='queue-apology'?'apologize':'chat'});state.stats.activities[rs.branch]=(state.stats.activities[rs.branch]||0)+1;state.resourceScene=null;if(rs.branch==='queue-avoid'){idle(a,12);a.cooldown=state.time+12;}}
@@ -201,45 +252,170 @@ export function createSimulation({actors:definitions,seed=1937,saved=null}={}) {
  }
  function retainConversation(scene){if(['contest','mole-task'].includes(scene.kind)||scene.participants.some(id=>!byId(id)||byId(id).unavailable))return;const createdDay=scene.continuationCreatedDay??state.productionRules.day;if(state.productionRules.day>createdDay+1)return;state.pendingConversations=state.pendingConversations.filter(p=>!scene.participants.every(id=>p.participants.includes(id)));state.pendingConversations.push({originalSceneId:String(scene.resolvesSceneId??scene.id),participants:[...scene.participants],kind:scene.kind,topic:scene.topic,itemId:scene.itemId??null,createdDay});}
  function choose(a){
-  const candidates=state.facilities.filter(f=>!f.owner||(layout&&f.activity==='drink'&&a.needs.thirst>50)).map(f=>({f,score:a.needs[f.need]+random()*18-(layout?Math.hypot(f.x-a.x,f.z-a.z)*.8:0)+(f.activity==='sing'&&a.personality.interests.includes('音乐')?22:0)+(f.activity==='read'&&a.personality.interests.includes('阅读')?22:0)-(a.lastActivity===f.activity?20:0)}));
+  const values=stocks(a);
+  if(values.health>0&&values.health<+ladder.get('Health').crit&&state.time>=(a.nextMedicalCall??0)){
+   const helper=state.actors.find(b=>b!==a&&available(b)&&canHear(a,b)&&b.attributes.health>=+ladder.get('Health').crit);
+   if(helper){
+    a.nextMedicalCall=state.time+60;
+    emit('medical-help',[a.id,helper.id],a.name+'向'+helper.name+'呼救',{sourcePart:'reaction'});
+    helper.attributes.worryTime=30;
+    a.attributes.task={kind:'med',remaining:12,id:'aid-'+a.id+'-'+state.time};
+    a.activity='practice';a.label='呼救后进行护理';a.gesture='rest';return;
+   }
+  }
+  if(layout){const nearby=state.actors.find(other=>other!==a&&!other.unavailable&&other.attributes.health<=15&&Math.hypot(a.x-other.x,a.z-other.z)<=4);if(nearby)a.attributes.worryTime=30;}
+  if(layout&&state.world.supply<.45){
+   for(const other of state.actors){
+    if(a===other||other.unavailable||Math.hypot(a.x-other.x,a.z-other.z)>3)continue;
+    const e=crisisEncounter(a,other,state.world,state.productionRules.day);
+    if(e){remember(a,e.kind,e.text,other.id);remember(other,e.kind,e.text,a.id);emit(e.kind,[a.id,other.id],e.text,{sourcePart:'result'});idle(a,8);return;}
+   }
+  }
+  if(a.attributes.rations>0&&a.needs.hunger>78){a.attributes.rations--;a.needs.hunger=clamp(a.needs.hunger-22);remember(a,'ration-eaten','吃下了留存的口粮');idle(a,3);return;}
+  if(a.attributes.worryTime>0&&a.attributes.despair>=70){idle(a,5);a.label='担心同伴，暂时停下工作';return;}
+  if(layout&&(a.attributes.infection>=30||a.attributes.hygiene<25||a.attributes.pain>=40)){
+   a.attributes.task={kind:'med',remaining:12,id:'care-'+a.id+'-'+state.time};a.activity='practice';a.label='清洗与护理';a.gesture='rest';return;
+  }
+  const availableSlots=state.facilities.filter(f=>(!layout||f.activity==='drink'||!reserved(f,[a]))&&(!f.bedResidents||f.bedResidents.includes(a.id))&&(!f.owner||(layout&&f.activity==='drink'&&a.needs.thirst>50)));
+  const closest=new Map(),costs=new Map();
+  if(layout?.navigation.travelCost)for(const f of availableSlots){
+    if(!f.facilityId?.startsWith('camp-'))continue;
+    const cost=layout.navigation.travelCost(a,f);costs.set(f.id,cost);
+    if(cost<(closest.get(f.activity)??Infinity))closest.set(f.activity,cost);
+  }
+  const candidates=availableSlots.filter(f=>!costs.has(f.id)||(Number.isFinite(costs.get(f.id))&&costs.get(f.id)===closest.get(f.activity))).map(f=>({f,score:a.needs[f.need]+(f.activity==='warm'&&a.attributes.warmth<20?80:0)+(f.activity==='drink'&&a.needs.thirst>=88?60:0)+random()*18-(layout?Math.hypot(f.x-a.x,f.z-a.z)*.8:0)+(f.activity==='sing'&&a.personality.interests.includes('音乐')?22:0)+(f.activity==='read'&&a.personality.interests.includes('阅读')?22:0)-(a.lastActivity===f.activity?20:0)}));
+  for(const c of candidates)c.intent=recordingIntent(c.f.activity,c.score,values);
+  const facilityIntent=arbitrate(candidates.map(c=>c.intent),null).chosen;
   if(!state.scene){
    const peers=state.actors.filter(b=>b!==a&&available(b)&&a.relationships[b.id].cooldown<=state.time).sort((b,c)=>(a.relationships[c.id].affinity-a.relationships[b.id].affinity));
    const pending=state.pendingConversations.find(p=>p.participants.includes(a.id)&&p.participants.every(id=>available(byId(id)))&&state.productionRules.day<=p.createdDay+1);const continuationPeer=pending&&byId(pending.participants.find(id=>id!==a.id));const urgentPeer=peers.find(b=>EXPANDED_KINDS.some(k=>eligible(a,b,k)));const socialValue=Math.max(a.needs.social+a.personality.sociability*25+random()*15,urgentPeer?82:0);
-   if(peers.length&&socialValue>Math.max(...candidates.map(c=>c.score),0)){
+   const socialIntent=recordingIntent('social',socialValue,values);
+   if(peers.length&&arbitrate([socialIntent],facilityIntent).chosen===socialIntent){
     const result=continuationPeer?continueConversation(a.id,continuationPeer.id):invite(a,urgentPeer||peers[Math.floor(random()*Math.min(peers.length,3))]);if(result.ok||a.cooldown>state.time)return;
    }
   }
-  candidates.sort((a,b)=>b.score-a.score);const f=candidates[0]?.f;
+  const f=candidates.find(c=>c.intent===facilityIntent)?.f;
   if(!f){if(layout&&a.needs.thirst>50){const water=state.facilities.find(f=>f.activity==='drink');if(water){enqueue(a,water);return;}}a.timer=3;return;}if(layout&&f.activity==='drink'){enqueue(a,f);return;}f.owner=a.id;walk(a,f,{kind:'facility',id:f.id,activity:f.activity});
  }
+ function cancelPerformance(reason){
+  const show=state.performance;
+  if(!show)return;
+  for(const id of show.participants){const actor=byId(id);if(actor)idle(actor,2);}
+  if(reason)emit('interrupted',show.participants,reason,{sceneId:show.id});
+  delete state.performance;
+ }
+ function startPerformance(key,equipment=[]){
+  const entry=performances.get(key);
+  if(!entry||state.performance)return {ok:false,message:'已有场景在走位或演出。'};
+  const cast=state.actors.filter(a=>!a.unavailable&&!a.attributes?.task&&!derive(a).critical&&!state.scene?.participants.includes(a.id)&&!state.resourceScene?.participants.includes(a.id)&&!['queue','social'].includes(a.destination?.kind)).slice(0,entry.tracks.length);
+  if(cast.length!==entry.tracks.length)return {ok:false,message:'可参加演出的嘉宾人数不足。'};
+  const center=layout?.navigation.nearest({x:cast[0].x,z:cast[0].z}) || cast[0];
+  const marks=cast.map((_,i)=>{
+    const mark=key==='S81_slap_mediation'?dramaticScenes[key].marks[i]:null;
+    const point={x:center.x+(mark?.[0]??(i-(cast.length-1)/2)*1.65),z:center.z+(mark?.[1]??(cast.length===3&&i===1?-.9:0))};
+    return layout?.navigation.nearest(point)||point;
+  });
+  if(marks.some((p,i)=>marks.slice(0,i).some(q=>Math.hypot(p.x-q.x,p.z-q.z)<.8)||!route(cast[i],p).length))return {ok:false,message:'周边缺少走位空间，请等嘉宾走到开阔处。'};
+  const participants=cast.map(a=>a.id);
+  const id='staged-'+(++state.eventId);
+  state.performance={key,id,participants,stageCenter:dramaticScenes[key]?[center.x,center.z]:undefined,equipment:participants.map((_,i)=>typeof equipment?.[i]==='string'?equipment[i]:previewProps[key]?.[i]?.[0]??''),phase:'approach',elapsed:0};
+  cast.forEach((a,i)=>{release(a);walk(a,marks[i],{kind:'performance'});a.label='前往排演位置';});
+  return {ok:true,message:'已安排实景排演：'+entry.label};
+ }
+ function advancePerformance(dt){
+  const show=state.performance;if(!show)return;
+  const cast=show.participants.map(byId);
+  if(cast.some(a=>!a||a.unavailable||a.destination?.kind!=='performance')){cancelPerformance('嘉宾离开，实景排演中断。');return;}
+  show.elapsed+=dt;
+  if(show.phase==='approach'){
+    if(show.elapsed>60){cancelPerformance('走位超时，排演取消。');return;}
+    if(cast.some(a=>a.moving))return;
+    show.phase='playing';show.elapsed=0;
+    cast.forEach((a,i)=>{const other=cast[(i+1)%cast.length];if(other!==a)a.facing=Math.atan2(other.x-a.x,other.z-a.z);a.activity='performance';a.label='排演：'+performances.get(show.key).label;});
+    emit('staged-performance',show.participants,cast[0].label,{sourcePart:'action',sourceType:'play',sceneId:show.id,performanceKey:show.key,equipment:[...show.equipment],reason:'制作人安排的实景表演。'});
+  }else if(show.elapsed<6){
+    const beat=Math.floor(show.elapsed/2);
+    if(beat>0 && beat!==(show.beat||0)){
+      show.beat=beat;
+      emit('staged-performance',show.participants,'排演现场：'+performances.get(show.key).label,{sourcePart:beat===1?'action':'reaction',sourceType:'play',sceneId:show.id,performanceKey:show.key,equipment:[...show.equipment],reason:'制作人安排的实景表演。'});
+    }
+  }else{
+    emit('staged-performance',show.participants,'排演完成：'+performances.get(show.key).label,{sourcePart:'result',sourceType:'play',sceneId:show.id,performanceKey:show.key,equipment:[...show.equipment],reason:'实景表演完成。'});
+    cancelPerformance();
+  }
+ }
  function advanceActor(a,dt){
+  if(a.actionResult && a.actionResult.until<=state.time)delete a.actionResult;
   if(a.unavailable)return;
+  const v=a.attributes;
+  const climate=campClimate?.(a.x,a.z,a.id);
+  for(const k of advanceVitals(a,dt,state.world,climate))emit('attribute-warning',[a.id],a.name+'的'+labels[k]+'进入危险区。',{sourcePart:'reaction'});
+  if((v.stamina<=0||a.needs.energy>=100)&&!v.task&&!state.scene?.participants.includes(a.id)&&!state.resourceScene?.participants.includes(a.id)&&a.activity!=='rest'){idle(a,3);a.label='坐下休息';a.needs.energy=clamp(a.needs.energy-dt*2);return;}
+  if(v.warmth<20)a.needs.hunger=clamp(a.needs.hunger+dt*.18*.35);
+  if(v.infection>=30)a.needs.thirst=clamp((a.needs.thirst||0)+dt*.11);
+  if(v.task){
+   for(const [need,rate] of Object.entries({hunger:.18,thirst:.22,energy:.105}))a.needs[need]=clamp((a.needs[need]||0)+dt*rate);
+   const ability=capabilities(a,state.world);v.task.remaining-=dt*ability.workSpeed*ability.workload*ability.moodFactor;
+   if(v.task.remaining<=0){
+    const kind=v.task.kind,injury=practice(a,kind,random);
+    const text=a.name+'完成'+skills[kind]+(injury?'，过程中受了伤。':'。');
+    remember(a,'camp-practice',text);emit('camp-practice',[a.id],text,{sourcePart:'result',sceneId:v.task.id});idle(a,3);
+   }
+   return;
+  }
   if(layout){for(const [key,rate]of Object.entries({thirst:.22,environment:.035,privacy:.045}))a.needs[key]=clamp((a.needs[key]||0)+dt*rate);}
   for(const [key,rate]of Object.entries({hunger:.18,energy:.105,social:.15,fun:.13}))a.needs[key]=clamp(a.needs[key]+dt*rate);
   if(state.resourceScene?.participants.includes(a.id)){a.moving=false;return;}
   if(a.moving){
-   const p=a.route[0];if(!p){a.moving=false;return;}
-   const dx=p.x-a.x,dz=p.z-a.z,dist=Math.hypot(dx,dz),step=dt*(.7+a.personality.energy*.42);
+   const p=a.route[0];if(!p){abandonWalk(a);return;}
+   const dx=p.x-a.x,dz=p.z-a.z,dist=Math.hypot(dx,dz),step=dt*(.7+a.personality.energy*.42)*derive(a).move;
+   if(layout){
+    const progress=a.walkProgress;
+    if(!progress||progress.x!==p.x||progress.z!==p.z||dist<progress.best-.08){
+     a.walkProgress={x:p.x,z:p.z,best:dist,since:state.time};
+    }else if(state.time-progress.since>3){
+     const end=a.route.at(-1), blockers=state.actors.filter(other=>other!==a&&!other.unavailable);
+     const detour=layout.navigation.detour?.(a,end,blockers);
+     if(detour?.length&&!a.destination.retried){
+      a.route=detour;a.destination.retried=true;delete a.walkProgress;
+     }else abandonWalk(a);
+     return;
+    }
+   }
    // Junctions use a body-sized tolerance to avoid traffic lockups. Final
    // staging marks need precision so conversation partners stay face-to-face
    // at a natural distance, instead of stopping nose-to-nose at the corridor.
-   const arrival=a.route.length===1?.12:.72;
+   const arrival=a.route.length===1?.12:layout?.navigation.canStep ? .025 :.72;
    if(dist<=arrival){a.route.shift();}else{const travel=Math.min(step,dist);let nx=a.x+dx/dist*travel,nz=a.z+dz/dist*travel;
     // Right-hand yielding prevents a stationary queue from becoming an impassable body wall.
-    if(layout&&dist>.35){const blocked=state.actors.some(other=>{if(other===a||other.unavailable)return false;const ox=other.x-a.x,oz=other.z-a.z;return Math.hypot(ox,oz)<1.05&&ox*dx/dist+oz*dz/dist>0&&Math.abs(ox*dz/dist-oz*dx/dist)<.55;});if(blocked){const side=dt*.8;const rx=nx+dz/dist*side,rz=nz-dx/dist*side;if(layout.navigation.clear(rx,rz,.22)){nx=rx;nz=rz;}}}
+    if(layout&&dist>.35){const blocked=state.actors.some(other=>{if(other===a||other.unavailable)return false;const ox=other.x-a.x,oz=other.z-a.z;return Math.hypot(ox,oz)<1.05&&ox*dx/dist+oz*dz/dist>0&&Math.abs(ox*dz/dist-oz*dx/dist)<.55;});if(blocked){const side=dt*.8;const rx=nx+dz/dist*side,rz=nz-dx/dist*side;if(layout.navigation.canStep ? layout.navigation.canStep(a,rx,rz) : layout.navigation.clear(rx,rz,.22)){nx=rx;nz=rz;}}}
+    if(layout?.navigation.canStep && !layout.navigation.canStep(a,nx,nz))return;
     a.x=nx;a.z=nz;a.facing=Math.atan2(dx,dz);}
-   if(!a.route.length){a.moving=false;if(a.destination?.kind==='facility'){const f=state.facilities.find(f=>f.id===a.destination.id);if(!f){idle(a,3);return;}a.activityEvent=`activity-${a.id}-${state.eventId+1}`;if(layout)emit('routine-start',[a.id],`${a.name}来到${f.place}，开始${LABELS[f.activity]}。`,{sourcePart:'action',sceneId:a.activityEvent});a.activity=f.activity;a.label=LABELS[f.activity];a.gesture=f.gesture;a.timer=12+random()*9;a.lastActivity=f.activity;state.stats.activities[f.activity]=(state.stats.activities[f.activity]||0)+1;}else if(a.destination?.kind==='queue'){a.activity='queue';a.label='排队等候饮水';a.gesture='rest';}else if(a.destination?.kind==='exit'){idle(a,4+random()*5);}else{a.activity='chat';a.label='等待对方';a.gesture='wave';}}
+   if(!a.route.length){a.moving=false;if(a.destination?.kind==='facility'){const f=state.facilities.find(f=>f.id===a.destination.id);if(!f){idle(a,3);return;}a.activityEvent=`activity-${a.id}-${state.eventId+1}`;if(layout)emit('routine-start',[a.id],`${a.name}来到${f.place}，开始${LABELS[f.activity]}。`,{sourcePart:'action',sceneId:a.activityEvent});a.activity=f.activity;a.label=LABELS[f.activity];a.gesture=f.gesture;a.timer=(12+random()*9)*(f.activity==='eat'&&v.habits.eating==='快'?.8:1);a.lastActivity=f.activity;state.stats.activities[f.activity]=(state.stats.activities[f.activity]||0)+1;}else if(a.destination?.kind==='queue'){a.activity='queue';a.label='排队等候饮水';a.gesture='rest';}else if(a.destination?.kind==='exit'){idle(a,4+random()*5);}else{a.activity='chat';a.label='等待对方';a.gesture='wave';}}
    return;
   }
-  if(state.scene?.participants.includes(a.id)||a.destination?.kind==='queue')return;
+  if(state.scene?.participants.includes(a.id)||a.destination?.kind==='queue'||a.destination?.kind==='performance')return;
   if(a.destination?.kind==='facility'){
-   const f=state.facilities.find(f=>f.id===a.destination.id);if(!f){idle(a,3);return;}const consumable=['eat','drink'].includes(f.activity);if(!consumable)a.needs[f.need]=clamp(a.needs[f.need]-dt*3.6);a.timer-=dt;
-   if(a.timer<=0){if(consumable){const response=serviceHandler?.({actorId:a.id,facilityId:f.facilityId||f.id,kind:f.activity==='eat'?'food':'water',ruleCompliant:!!a.queueCompliant})||{ok:true};if(!response.ok){remember(a,'service-unavailable',`${f.place}没有足够补给`);emit('service-unavailable',[a.id],`${a.name}等待服务完成，但${f.place}补给不足。`,{sourcePart:'result',sceneId:a.activityEvent});a.cooldown=state.time+12;leaveFacility(a);return;}a.needs[f.need]=clamp(a.needs[f.need]-55);a.queueCompliant=false;}remember(a,'activity',LABELS[a.activity]);if(layout)emit('routine',[a.id],`${a.name}${LABELS[a.activity]}，完成了一段日常活动。`,{sourcePart:'result',sceneId:a.activityEvent});if(state.time>=a.emotionUntil)a.mood='happy';leaveFacility(a);}return;
+   const f=state.facilities.find(f=>f.id===a.destination.id);if(!f){idle(a,3);return;}const consumable=['eat','drink'].includes(f.activity);if(!consumable){a.needs[f.need]=clamp(a.needs[f.need]-dt*(f.bedResidents?12/5*3.6:3.6));}a.timer-=dt;
+   if(a.timer<=0){if(consumable){if(f.activity==='eat'&&a.attributes.despair>=70&&a.attributes.stamina<20&&a.attributes.refusedMealDay!==state.productionRules.day){a.attributes.refusedMealDay=state.productionRules.day;remember(a,'meal-refused','疲惫而消沉，暂时放下了食物');emit('meal-refused',[a.id],a.name+'放下餐盘，暂时拒绝进餐。',{sourcePart:'result'});leaveFacility(a);return;}const response=serviceHandler?.({actorId:a.id,facilityId:f.facilityId||f.id,kind:f.activity==='eat'?'food':'water',ruleCompliant:!!a.queueCompliant})||{ok:true};if(!response.ok){remember(a,'service-unavailable',`${f.place}没有足够补给`);emit('service-unavailable',[a.id],`${a.name}等待服务完成，但${f.place}补给不足。`,{sourcePart:'result',sceneId:a.activityEvent});a.cooldown=state.time+12;leaveFacility(a);return;}const reserve=f.activity==='eat'&&state.world.supply<.45&&!a.attributes.rations&&a.needs.hunger<78;if(reserve)a.attributes.rations=1;a.needs[f.need]=clamp(a.needs[f.need]-(reserve?33:55)*(f.activity==='eat'&&v.infection>=30?.8:1));if(f.activity==='drink'&&state.world.toxin>30)a.attributes.infection=clamp(a.attributes.infection+8*(a.attributes.habits.stomach==='强'?.5:1));a.queueCompliant=false;}remember(a,'activity',LABELS[a.activity]);if(state.time>=a.emotionUntil)a.mood='happy';if(layout)emit('routine',[a.id],`${a.name}${LABELS[a.activity]}，完成了一段日常活动。`,{sourcePart:'result',sceneId:a.activityEvent});leaveFacility(a);}return;
+  }
+  if(language && a.activity==='idle' && !a.speech && !state.scene && !state.resourceScene && a.timer>1){
+   const phrase=language.bark(a,state.time,random,state.actors);
+   if(phrase){a.voicePhrase=phrase;a.speech=phrase.display;}
   }
   a.timer-=dt;if(a.timer<=0){a.speech='';a.gesture='rest';if(a.cooldown<=state.time)choose(a);else a.timer=1;}
  }
  function finishExpanded(scene,a,b){
-  if(scene.kind==='resource-share'){const slot=state.facilities.find(f=>f.id===scene.resourceSlot&&f.owner===a.id);if(!slot)return 'sharing-unavailable';const r=serviceHandler?.({actorId:b.id,facilityId:slot.facilityId||slot.id,kind:'water',ruleCompliant:false})||{ok:true};if(!r.ok)return 'sharing-unavailable';b.needs.thirst=clamp(b.needs.thirst-45);a.goal.progress=clamp(a.goal.progress+3);return 'water-shared';}
+  if(scene.kind==='resource-share'){const slot=state.facilities.find(f=>f.id===scene.resourceSlot&&f.owner===a.id);if(!slot)return 'sharing-unavailable';const r=serviceHandler?.({actorId:b.id,facilityId:slot.facilityId||slot.id,kind:'water',ruleCompliant:false})||{ok:true};if(!r.ok)return 'sharing-unavailable';
+   if(r.lastUnit){
+    const inclination=a.personality.kindness+(b.needs.thirst-a.needs.thirst)/100+(a.relationships[b.id].attraction||0)/150;
+    const share=inclination>=.9?1:inclination>=.45?.5:0;
+    a.needs.thirst=clamp(a.needs.thirst-45*(1-share));
+    b.needs.thirst=clamp(b.needs.thirst-45*share);
+    a.goal.progress=clamp(a.goal.progress+3*share);
+    return share===1?'last-water-given':share===0?'last-water-kept':'last-water-split';
+   }
+   b.needs.thirst=clamp(b.needs.thirst-45);a.goal.progress=clamp(a.goal.progress+3);return 'water-shared';}
   if(scene.kind==='borrow'){const item=state.items.find(i=>i.id===scene.itemId&&i.ownerId===b.id&&i.holderId===b.id);if(!item||b.personality.kindness<.5&&b.relationships[a.id].trust<10)return 'borrow-declined';item.holderId=a.id;item.borrowedAt=state.time;a.needs.fun=clamp(a.needs.fun-20);return 'item-borrowed';}
   if(scene.kind==='return-item'){const item=state.items.find(i=>i.id===scene.itemId&&i.ownerId===b.id&&i.holderId===a.id);if(!item)return 'borrow-declined';item.holderId=b.id;item.borrowedAt=0;b.relationships[a.id].trust=clamp(b.relationships[a.id].trust+3,-100,100);return 'item-returned';}
   if(scene.kind==='comfort'){b.needs.social=clamp(b.needs.social-20);b.needs.fun=clamp(b.needs.fun-10);a.goal.progress=clamp(a.goal.progress+3);return 'comforted';}
@@ -249,7 +425,7 @@ export function createSimulation({actors:definitions,seed=1937,saved=null}={}) {
   if(scene.kind==='mediate'){const third=scene.mediationTarget;if(third&&b.relationships[third]){b.relationships[third].resentment=clamp(b.relationships[third].resentment-3);remember(b,'mediation-plan',`愿意考虑与${byId(third)?.name||third}再谈一次`,third);a.goal.progress=clamp(a.goal.progress+2);}return 'mediation-offered';}
  }
  function expandedLines(scene,a,b){return {
-  'resource-share':['你看起来很渴。','这里有空余的饮水服务，我陪你取一份。','谢谢，我们按规则向水站领取。','等服务完成再把水交到你手里。'],
+  'resource-share':['你看起来很渴。',waterStock()===1?'我们看看最后一瓶怎么分。':'我陪你取一份。','谢谢，我们按规则向水站领取。','等拿到水再决定怎么分。'],
   borrow:['我想借用你的随身物品。','我会爱惜它，用完亲手还给你。','我想一下是否愿意借出。','决定好后我们再交接。'],
   'return-item':['我记得还欠你一样东西。','这是之前借来的物品，现在还给你。','谢谢你记得归还。','下次借东西也要说清楚。'],
   comfort:['你看起来不太开心。','我不一定知道发生了什么，但可以陪你一会儿。','谢谢你没有急着替我下结论。','慢慢来，先照顾自己的心情。'],
@@ -284,16 +460,19 @@ export function createSimulation({actors:definitions,seed=1937,saved=null}={}) {
   else if(kind==='apologize')outcome=random()<clamp(.35+b.personality.kindness*.5+b.relationships[a.id].trust*.002,.1,.9)?'reconciled':'unresolved';
   else if(kind==='argue')outcome='disagreed';
   else outcome=kind==='play'?'enjoyed':'connected';
-  const base={reconciled:10,unresolved:-1,disagreed:-10,enjoyed:7,connected:5,allied:8,'alliance-declined':0,'mutual-feeling':10,'feelings-declined':-2,supported:7,'boundary-respected':5,'boundary-disagreed':-5,clarified:6,'created-together':8,'concern-raised':1,'water-shared':7,'sharing-unavailable':0,'item-borrowed':4,'borrow-declined':0,'item-returned':7,'comforted':5,'belief-corrected':6,'belief-unresolved':0,'promise-discussed':-2,'milestone-celebrated':5,'mediation-offered':3}[outcome]??0;
+  const waterText={'last-water-given':a.name+'把最后一瓶水递给了'+b.name,'last-water-split':a.name+'和'+b.name+'平分了最后一瓶水','last-water-kept':a.name+'把最后一瓶水留给了自己'}[outcome];
+  const base={reconciled:10,unresolved:-1,disagreed:-10,enjoyed:7,connected:5,allied:8,'alliance-declined':0,'mutual-feeling':10,'feelings-declined':-2,supported:7,'boundary-respected':5,'boundary-disagreed':-5,clarified:6,'created-together':8,'concern-raised':1,'last-water-given':7,'last-water-split':4,'last-water-kept':-2,'water-shared':7,'sharing-unavailable':0,'item-borrowed':4,'borrow-declined':0,'item-returned':7,'comforted':5,'belief-corrected':6,'belief-unresolved':0,'promise-discussed':-2,'milestone-celebrated':5,'mediation-offered':3}[outcome]??0;
   if(outcome==='allied'&&!state.commitments.some(v=>v.status==='pending'&&v.participants.includes(a.id)&&v.participants.includes(b.id)))state.commitments.push({id:`promise-${scene.id}`,participants:[a.id,b.id],dueDay:state.productionRules.day+1,status:'pending'});if(['created-together','enjoyed'].includes(outcome))for(const v of state.commitments)if(v.status==='pending'&&v.participants.includes(a.id)&&v.participants.includes(b.id))v.status='fulfilled';
   for(const [self,other]of [[a,b],[b,a]]){
-   const r=self.relationships[other.id];r.affinity=clamp(r.affinity+base*(.8+self.personality.kindness*.4),-100,100);r.trust=clamp(r.trust+base*(self===b?.45:.3),-100,100);r.resentment=clamp(r.resentment+(base<0?Math.abs(base)*.65:-base*.3));if(base>0&&self.romanceAllowed&&other.romanceAllowed&&r.familiarity>=10)r.attraction=clamp(r.attraction+Math.min(3,base*.2)*(self.personality.quirkiness+.5));if(outcome==='allied')r.alliance=true;if(outcome==='mutual-feeling')r.romance=true;r.familiarity=clamp(r.familiarity+5);r.lastInteraction=state.time;r.cooldown=state.time+35;
+   self.attributes.xp.social+=5;self.attributes.despair=clamp(self.attributes.despair-base*.35);
+   const r=self.relationships[other.id];if(other.attributes.infection>=30||other.attributes.hygiene<15)r.fear=clamp((r.fear||0)+5);socialEvent(self,other,outcome,state.productionRules.day,self===a);
+   r.affinity=clamp(r.affinity+base*(.8+self.personality.kindness*.4),-100,100);r.trust=clamp(r.trust+base*(self===b?.45:.3),-100,100);r.resentment=clamp(r.resentment+(base<0?Math.abs(base)*.65:-base*.3));if(base>0&&self.romanceAllowed&&other.romanceAllowed&&r.familiarity>=10)r.attraction=clamp(r.attraction+Math.min(3,base*.2)*(self.personality.quirkiness+.5));if(outcome==='allied')r.alliance=true;if(outcome==='mutual-feeling')r.romance=true;r.familiarity=clamp(r.familiarity+5);r.lastInteraction=state.time;r.cooldown=state.time+35;
    self.needs.social=clamp(self.needs.social-(base>0?32:12));self.needs.fun=clamp(self.needs.fun-(base>0?12:0));self.mood=base>0?'happy':kind==='argue'?'angry':'sad';self.cooldown=state.time+7;if(base<0)self.emotionUntil=state.time+60;if(outcome==='comforted')self.emotionUntil=0;
    if(['created-together','allied','supported','boundary-respected','clarified'].includes(outcome))self.goal.progress=clamp(self.goal.progress+5);if(outcome==='boundary-respected')self.needs.privacy=clamp((self.needs.privacy||0)-20);if(outcome==='supported')self.needs.social=clamp(self.needs.social-12);
    if(outcome==='disagreed'){self.beliefs.push({otherId:other.id,issue:scene.topic,source:'direct-conversation',sourceSceneId:String(scene.id),resolved:false});if(self.beliefs.length>16)self.beliefs.shift();}
-   remember(self,outcome,`${other.name}：${scene.topic}（${base>0?'聊得不错':'仍有分歧'}）`,other.id,scene.topic);idle(self,6+random()*5);
+   remember(self,outcome,waterText||`${other.name}：${scene.topic}（${base>0?'聊得不错':'仍有分歧'}）`,other.id,scene.topic);idle(self,6+random()*5);self.actionResult={outcome,role:self===a?0:1,until:state.time+2.5};
   }
-  emit(outcome,[a.id,b.id],`${a.name}与${b.name}${({reconciled:'尝试和好了',unresolved:'暂时没有和好',disagreed:'产生了分歧',enjoyed:'一起玩得很开心',connected:'更熟悉了一点',allied:'同意结伴完成接下来的任务','alliance-declined':'没有就结伴达成一致','mutual-feeling':'确认了彼此的好感','feelings-declined':'表达了好感，但对方没有接受',supported:'关心了对方的状态','boundary-respected':'就个人边界达成理解','boundary-disagreed':'对个人边界仍有分歧',clarified:'说清了一件彼此亲历的旧事','created-together':'完成了共同创作的小目标','concern-raised':'交流了亲历的服务问题','water-shared':'完成了饮水分享','sharing-unavailable':'未能取得可分享的饮水','item-borrowed':'完成了一次借物交接','borrow-declined':'没有达成借物约定','item-returned':'归还了之前借出的物品','comforted':'通过陪伴缓和了情绪','belief-corrected':'澄清了一项有来源的误会','belief-unresolved':'讨论了误会但尚未认同','promise-discussed':'谈到了共同约定未能履行的原因','milestone-celebrated':'分享并庆祝了真实的目标进展','mediation-offered':'就亲眼见过的争执提出了调停建议'})[outcome]}。`,{sourcePart:'result',sceneId:String(scene.id),...(scene.resolvesSceneId?{resolvesSceneId:scene.resolvesSceneId}: {})});
+  emit(outcome,[a.id,b.id],waterText||`${a.name}与${b.name}${({reconciled:'尝试和好了',unresolved:'暂时没有和好',disagreed:'产生了分歧',enjoyed:'一起玩得很开心',connected:'更熟悉了一点',allied:'同意结伴完成接下来的任务','alliance-declined':'没有就结伴达成一致','mutual-feeling':'确认了彼此的好感','feelings-declined':'表达了好感，但对方没有接受',supported:'关心了对方的状态','boundary-respected':'就个人边界达成理解','boundary-disagreed':'对个人边界仍有分歧',clarified:'说清了一件彼此亲历的旧事','created-together':'完成了共同创作的小目标','concern-raised':'交流了亲历的服务问题','water-shared':'完成了饮水分享','sharing-unavailable':'未能取得可分享的饮水','item-borrowed':'完成了一次借物交接','borrow-declined':'没有达成借物约定','item-returned':'归还了之前借出的物品','comforted':'通过陪伴缓和了情绪','belief-corrected':'澄清了一项有来源的误会','belief-unresolved':'讨论了误会但尚未认同','promise-discussed':'谈到了共同约定未能履行的原因','milestone-celebrated':'分享并庆祝了真实的目标进展','mediation-offered':'就亲眼见过的争执提出了调停建议'})[outcome]}。`,{sourcePart:'result',sceneId:String(scene.id),...(scene.resolvesSceneId?{resolvesSceneId:scene.resolvesSceneId}: {})});
   state.stats.completed++;state.stats.activities[kind]=(state.stats.activities[kind]||0)+1;state.scene=null;
  }
  function advanceScene(dt){
@@ -328,9 +507,20 @@ export function createSimulation({actors:definitions,seed=1937,saved=null}={}) {
  // Local disc separation supplements the route graph. Deterministic ordering and
  // a tie direction avoid zero-distance lockups at shared junctions.
  function separateActors(){
+  const grid=layout?.navigation.canStep ? layout.navigation : null;
+  const obstacles=grid ? [] : layout ? layout.navigation.obstacles.map(o=>[o.x,o.z,o.r+.25]) : [[-3.1,-1.9,.46],[3.1,-1.9,.46],[-5,4,.65]];
+  function pushActor(actor,x,z){
+   if(grid){
+    if(!grid.canStep(actor,x,z))return;
+    actor.x=x;actor.z=z;
+   }else{
+    actor.x=clamp(x,layout?-8.5:-5.25,layout?11:8.8);
+    actor.z=clamp(z,-10.8,13.6);
+   }
+  }
   for(let pass=0;pass<6;pass++){
    // The bunting posts sit beside old plaza waypoints; preserve body clearance.
-   for(const a of state.actors)for(const [x,z,r]of (layout?layout.navigation.obstacles.map(o=>[o.x,o.z,o.r+.25]):[[-3.1,-1.9,.46],[3.1,-1.9,.46],[-5,4,.65]])){let dx=a.x-x,dz=a.z-z,d=Math.hypot(dx,dz);if(d>=r)continue;if(d<1e-8){dx=1;dz=0;d=1;}a.x=x+dx/d*r;a.z=z+dz/d*r;}
+   for(const a of state.actors)for(const [x,z,r]of obstacles){let dx=a.x-x,dz=a.z-z,d=Math.hypot(dx,dz);if(d>=r)continue;if(d<1e-8){dx=1;dz=0;d=1;}a.x=x+dx/d*r;a.z=z+dz/d*r;}
    for(let i=0;i<state.actors.length;i++)for(let j=i+1;j<state.actors.length;j++){
    const a=state.actors[i],b=state.actors[j];let dx=b.x-a.x,dz=b.z-a.z,d=Math.hypot(dx,dz);if(d>=.62)continue;
    if(d<1e-8){const angle=(i*7+j*11)*1.19;dx=Math.cos(angle);dz=Math.sin(angle);d=1;}else{dx/=d;dz/=d;}
@@ -339,23 +529,26 @@ export function createSimulation({actors:definitions,seed=1937,saved=null}={}) {
    // shoving two speakers progressively into each other's personal space.
    const heldA=a.destination?.kind==='social'&&!a.moving,heldB=b.destination?.kind==='social'&&!b.moving;
    const shareA=heldA&&!heldB?0:heldB&&!heldA?1:.5,shareB=1-shareA;
-   a.x=clamp(a.x-dx*push*shareA,layout?-8.5:-5.25,layout?11:8.8);a.z=clamp(a.z-dz*push*shareA,-10.8,13.6);b.x=clamp(b.x+dx*push*shareB,layout?-8.5:-5.25,layout?11:8.8);b.z=clamp(b.z+dz*push*shareB,-10.8,13.6);
+   pushActor(a,a.x-dx*push*shareA,a.z-dz*push*shareA);
+   pushActor(b,b.x+dx*push*shareB,b.z+dz*push*shareB);
    }
   }
  }
  return {
-  update(dt){if(!Number.isFinite(dt)||dt<0)return;state.accumulator+=Math.min(dt,60);while(state.accumulator+1e-9>=STEP){state.accumulator-=STEP;state.time+=STEP;for(const a of state.actors)advanceActor(a,STEP);advanceQueues(STEP);separateActors();advanceScene(STEP);}},
+  update(dt){if(!Number.isFinite(dt)||dt<0)return;state.accumulator+=Math.min(dt,60);while(state.accumulator+1e-9>=STEP){state.accumulator-=STEP;state.time+=STEP;for(const a of state.actors)advanceActor(a,STEP);advanceQueues(STEP);separateActors();advanceScene(STEP);advancePerformance(STEP);}},
+  startPerformance,getPerformance:()=>state.performance,
   getActor:id=>byId(id),getEvents:()=>clone(state.events),getActiveScene:()=>state.resourceScene?clone(state.resourceScene):state.scene?clone(state.scene):null,
   getSnapshot:()=>clone(state),serialize:()=>clone(state),
-  setLayout(facilities,navigation,{resume=false,keepScene=false}={}){layout={facilities,navigation};state.productionLayout=true;for(const a of state.actors){a.needs.thirst??=25;a.needs.environment??=10;a.needs.privacy??=15;}if(resume&&state.facilities.length)return;if(keepScene&&state.scene&&!state.scene.resourceSlot){interruptQueueScene('设施调整，排队暂停');state.queues={};for(const a of state.actors)if(!state.scene.participants.includes(a.id))idle(a,1+random()*3);}else{state.scene=null;state.resourceScene=null;state.queues={};for(const a of state.actors)idle(a,1+random()*3);}const actions={heater:['warm','environment','rest'],water:['drink','thirst','eat'],table:['eat','hunger','eat'],tent:['rest','energy','rest'],cabin:['rest','energy','rest'],fire:['sing','fun','dance'],privacy:['read','privacy','read'],interview:['watch','energy','rest']};state.facilities=facilities.filter(f=>actions[f.type]).flatMap(f=>{const slots={water:2,table:4,tent:6,cabin:2,fire:4,privacy:2,interview:1,heater:4}[f.type]||1;const[activity,need,gesture]=actions[f.type],base=navigation.servicePoint(f)||navigation.nearest({x:f.x,z:f.z}),radius=Math.hypot(base.x-f.x,base.z-f.z);const points=[];for(let i=0;i<slots;i++){const angle=i/slots*Math.PI*2;const point={x:f.x+Math.sin(angle)*radius,z:f.z+Math.cos(angle)*radius};if(navigation.clear(point.x,point.z)&&navigation.path({x:0,z:2},point).length)points.push(point);}if(!points.length)points.push(base);return points.map((point,i)=>({id:`${f.id}@${i}`,facilityId:f.id,...point,activity,need,gesture,owner:null,place:f.name||LABELS[activity]}));});for(const a of state.actors){if(!navigation.clear(a.x,a.z)){const p=navigation.nearest(a);a.x=p.x;a.z=p.z;}}},
+  setLayout(facilities,navigation,{resume=false,keepScene=false}={}){layout={facilities,navigation};state.productionLayout=true;for(const a of state.actors){a.needs.thirst??=25;a.needs.environment??=10;a.needs.privacy??=15;}if(resume&&state.facilities.length){for(const a of state.actors){if(!navigation.clear(a.x,a.z)){const p=navigation.nearest(a);if(p){a.x=p.x;a.z=p.z;}}if(a.moving&&a.route.length)a.route=navigation.path(a,a.route.at(-1));}return;}if(keepScene&&state.scene&&!state.scene.resourceSlot){interruptQueueScene('设施调整，排队暂停');state.queues={};for(const a of state.actors)if(!state.scene.participants.includes(a.id))idle(a,1+random()*3);}else{state.scene=null;state.resourceScene=null;state.queues={};for(const a of state.actors)idle(a,1+random()*3);}const actions={heater:['warm','environment','rest'],water:['drink','thirst','eat'],table:['eat','hunger','eat'],tent:['rest','energy','rest'],cabin:['rest','energy','rest'],fire:['sing','fun','dance'],privacy:['read','privacy','read'],interview:['watch','energy','rest']};state.facilities=facilities.filter(f=>actions[f.type]).flatMap(f=>{const slots={water:2,table:4,tent:6,cabin:2,fire:4,privacy:2,interview:1,heater:4}[f.type]||1;const[activity,need,gesture]=actions[f.type],base=navigation.servicePoint(f)||navigation.nearest({x:f.x,z:f.z}),radius=Math.hypot(base.x-f.x,base.z-f.z);const points=[];for(let i=0;i<slots;i++){const angle=i/slots*Math.PI*2;const point={x:f.x+Math.sin(angle)*radius,z:f.z+Math.cos(angle)*radius};if(navigation.detour&&Math.hypot(point.x-base.x,point.z-base.z)<.8)continue;if(navigation.clear(point.x,point.z)&&navigation.path({x:0,z:2},point).length)points.push(point);}if(!points.length){if(navigation.detour){for(const [dx,dz] of [[1,0],[-1,0],[0,1],[0,-1]]){const p={x:base.x+dx,z:base.z+dz};if(navigation.clear(p.x,p.z)&&navigation.path(base,p).length){points.push(p);break;}}}else points.push(base);}return points.map((point,i)=>({id:`${f.id}@${i}`,facilityId:f.id,bedResidents:f.bedResidents,beauty:f.beauty,...point,activity,need,gesture,owner:null,place:f.name||LABELS[activity]}));});for(const a of state.actors){if(!navigation.clear(a.x,a.z)){const p=navigation.nearest(a);a.x=p.x;a.z=p.z;}}},
   replaceActor(oldId,definition){
    const old=byId(oldId);if(!old||!definition?.id||!definition?.name||state.actors.some(a=>a.id===definition.id&&a.id!==oldId))return{ok:false,reason:'替补人物或被替换者无效'};
    if(state.resourceScene?.participants.includes(oldId))interruptQueueScene('嘉宾离场，排队争议中断');
    if(state.scene?.participants.includes(oldId)){const participants=state.scene.participants;for(const id of participants)idle(byId(id),2);emit('interrupted',participants,'嘉宾离场，交谈中断。');state.scene=null;}
+   for(const peer of state.actors){if(peer!==old&&(peer.relationships[oldId]?.romance||peer.relationships[oldId]?.trust>=40)){peer.attributes.lossUntil=360;peer.attributes.despair=clamp(peer.attributes.despair+10);remember(peer,'departure',old.name+'离开了录制营地',oldId);}}
    abandonPending(p=>p.participants.includes(oldId),'嘉宾离岛或替补入场，原待续话题放弃。');release(old);state.alumni[oldId]=clone(old);
    for(const item of state.items)if(item.holderId===oldId&&item.ownerId!==oldId)item.holderId=item.ownerId;
    const others=state.actors.filter(a=>a!==old),freshDefinitions=[definition,...others.map(a=>({id:a.id,name:a.name,anchor:[a.x,a.z]}))];
-   const fresh=state.alumni[definition.id]?clone(state.alumni[definition.id]):clone(createSimulation({actors:freshDefinitions,seed:state.rng}).getActor(definition.id));
+   const fresh=state.alumni[definition.id]?clone(state.alumni[definition.id]):clone(createSimulation({actors:freshDefinitions,seed:state.rng}).getActor(definition.id));initialize(fresh);
    Object.assign(fresh,{id:definition.id,name:definition.name,x:definition.anchor?.[0]??0,z:definition.anchor?.[1]??2,unavailable:false,activity:'idle',label:LABELS.idle,gesture:'rest',speech:'',route:[],destination:null,moving:false,timer:2,cooldown:0});
    const empty=()=>({affinity:0,trust:0,familiarity:0,attraction:0,resentment:0,alliance:false,romance:false,met:false,lastInteraction:-999,cooldown:0});
    for(const other of others){fresh.relationships[other.id]??=empty();other.relationships[fresh.id]??=empty();if(definition.knownRelation?.id===other.id){fresh.relationships[other.id].bond=definition.knownRelation.label||definition.knownRelation.type||'前任';fresh.relationships[other.id].familiarity=Math.max(fresh.relationships[other.id].familiarity,55);}}
@@ -375,13 +568,27 @@ export function createSimulation({actors:definitions,seed=1937,saved=null}={}) {
    if(kind==='mole-task'&&random()<actor.personality.kindness*.25){remember(actor,'director-order-refused','拒绝导演的质疑任务',b);return{ok:false,reason:'内应认为话题不合适，拒绝执行'};}const reply=invite(actor,other,'director',kind);if(reply.ok){state.scene.instructionId=instructionId;if(kind==='mole-task')state.scene.topic=state.directorOrders.at(-1).topic;state.scene.reason=kind==='contest'?'公开节拍挑战：双方同意参与，完成后核对一份食物奖品。':'内应收到可拒绝的导演指定话题，对方仍可拒绝回答。';}return reply;
   },
   onContestReward({actorId,units,instructionId}){const a=byId(actorId);if(!a||units!==1)return;state.contestRewards??=[];if(state.contestRewards.includes(instructionId))return;state.contestRewards.push(instructionId);a.needs.hunger=clamp(a.needs.hunger-8);remember(a,'contest-reward','实际领取比赛食物奖品');emit('contest-reward',[actorId],`${a.name}领取一份食物奖品。`,{sourcePart:'result',instructionId});},
-  setServiceHandler(handler){serviceHandler=handler;},
-  setAvailability(id,enabled){const a=byId(id);if(!a)return;if(!enabled)abandonPending(p=>p.participants.includes(id),'嘉宾医疗休整或离场，待续话题放弃。');if(!enabled&&state.resourceScene?.participants.includes(id))interruptQueueScene('医务或离场中断排队争议');if(!enabled&&state.scene?.participants.includes(id)){const participants=state.scene.participants;for(const pid of participants)idle(byId(pid),3);state.scene=null;emit('interrupted',participants,`${a.name}离开现场，交谈中止。`);}idle(a,2);a.unavailable=!enabled;if(!enabled)a.label='场外休整';},
-  endSegment(){interruptQueueScene('录制段结束，排队争议中断');state.queues={};if(state.scene){retainConversation(state.scene);const participants=state.scene.participants;emit('interrupted',participants,'录制段结束，未完成的交谈保留现场记录。',{sceneId:String(state.scene.id)});state.scene=null;}for(const a of state.actors)idle(a,1);},
+  setServiceHandler(handler,readStock=()=>Infinity){serviceHandler=handler;waterStock=readStock;},
+  setSupply(food,water){state.world.supply=clamp(Math.min(food,water)/Math.max(1,state.actors.length*2),0,1);},
+  setWorld(map,storm=false,supply=1){state.world=worldFor(map,storm,supply);},
+  requestPractice(id,kind){
+   const a=byId(id);if(!Object.hasOwn(skills,kind)||!available(a)||state.scene?.participants.includes(id))return {ok:false,message:'请等嘉宾空闲时再安排。'};
+   if(a.attributes.worryTime>0&&a.attributes.despair>=70&&kind!=='med')return {ok:false,message:'嘉宾正在担心同伴，暂时无法工作。'};
+   if(derive(a).critical||(kind!=='med'&&(a.attributes.pain>=70||a.attributes.stamina<15)))return {ok:false,message:'嘉宾目前需要休整。'};
+   if(kind==='social'){
+    const peer=state.actors.find(other=>other!==a&&available(other)&&a.relationships[other.id].cooldown<=state.time);
+    if(!peer)return {ok:false,message:'现场暂时没有可以交谈的嘉宾。'};
+    const result=invite(a,peer,'director','chat');return {ok:result.ok,message:result.reason};
+   }
+   const ev=emit('camp-practice-start',[id],a.name+'开始'+skills[kind],{sourcePart:'action'});
+   ev.sceneId='practice-'+ev.id;a.attributes.task={kind,remaining:12,id:ev.sceneId};a.activity='practice';a.label=skills[kind];a.gesture=kind==='social'?'talk':kind==='combat'?'dance':'share';
+   return {ok:true,message:a.name+'开始'+skills[kind]+'。'};
+  },
+  setAvailability(id,enabled,status){const a=byId(id);if(!a)return;if(status==='medical')a.attributes.medical=true;if(enabled&&a.unavailable&&a.attributes.medical)recover(a);if(enabled)delete a.attributes.medical;if(!enabled)abandonPending(p=>p.participants.includes(id),'嘉宾医疗休整或离场，待续话题放弃。');if(!enabled&&state.resourceScene?.participants.includes(id))interruptQueueScene('医务或离场中断排队争议');if(!enabled&&state.scene?.participants.includes(id)){const participants=state.scene.participants;for(const pid of participants)idle(byId(pid),3);state.scene=null;emit('interrupted',participants,`${a.name}离开现场，交谈中止。`);}idle(a,2);a.unavailable=!enabled;if(!enabled)a.label='场外休整';},
+  endSegment(){cancelPerformance('录制结束，实景排演中断。');interruptQueueScene('录制段结束，排队争议中断');state.queues={};if(state.scene){retainConversation(state.scene);const participants=state.scene.participants;emit('interrupted',participants,'录制段结束，未完成的交谈保留现场记录。',{sceneId:String(state.scene.id)});state.scene=null;}for(const a of state.actors)idle(a,1);},
   interview(id){const a=byId(id);if(!a)return{ok:false,reason:'嘉宾不在场'};if(a.unavailable||a.moving||state.scene?.participants.includes(id)||a.needs.energy>85||a.cooldown>state.time){emit('interview-declined',[id],`${a.name}暂时不愿接受采访。`);return{ok:false,reason:'嘉宾希望稍后再谈'};}const memory=a.memories.at(-1);a.speech=memory?.text||`我现在最在意${a.personality.interests[0]}。`;emit('interview',[id],`${a.name}接受采访：${a.speech}`,{sourcePart:'context',sceneId:`interview-${state.eventId+1}`});return{ok:true,reason:'采访已录制，是否入库取决于机位覆盖'};},
   introduce:(a,b)=>invite(byId(a),byId(b),'player'),
   teachTopic(id,text){const a=byId(id);if(!a||typeof text!=='string')return {ok:false,reason:'请选择岛民并输入话题'};const clean=text.trim().replace(/[\u0000-\u001f]/g,'').slice(0,32);if(!clean)return{ok:false,reason:'话题不能为空'};if(!a.topics.includes(clean)){a.topics.push(clean);if(a.topics.length>8)a.topics.shift();remember(a,'learned',`记住了话题：${clean}`);}return{ok:true,reason:'记住了，也许下次聊天会提起'};},
   gift(id,itemId){const a=byId(id);const items={snack:{interest:'甜点',need:'hunger',name:'小点心'},book:{interest:'阅读',need:'fun',name:'一本书'},music:{interest:'音乐',need:'fun',name:'音乐唱片'}};const item=items[itemId];if(!a||!item)return{ok:false,reason:'未知礼物'};if(!available(a))return{ok:false,reason:a.cooldown>state.time?'现在想自己待一会儿，稍后再送吧':'等他们忙完再送礼物吧'};const likes=a.personality.interests.includes(item.interest);a.preferences[itemId]=likes?'喜欢':'普通';a.needs[item.need]=clamp(a.needs[item.need]-(likes?28:12));remember(a,'gift',`${item.name}：${likes?'很喜欢':'谢谢你的心意'}`);a.speech=likes?'这正是我喜欢的！':'谢谢你的心意。';a.timer=4;a.gesture='wave';return{ok:true,reason:a.speech};}
  };
 }
-

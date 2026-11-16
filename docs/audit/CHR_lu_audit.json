@@ -1,0 +1,63 @@
+{
+  "deform": 24,
+  "weights": {
+    "max": 2,
+    "zero": 0,
+    "badSum": 0,
+    "cross": 0
+  },
+  "ratios": [
+    {
+      "id": "A1",
+      "value": 0.19606374643397995,
+      "passed": true
+    },
+    {
+      "id": "A2",
+      "value": 1.0768651773889526,
+      "passed": true
+    },
+    {
+      "id": "A3",
+      "value": 1.2083647283328462,
+      "passed": true
+    },
+    {
+      "id": "A4",
+      "value": 0.7743174041363945,
+      "passed": true
+    },
+    {
+      "id": "A5",
+      "value": 0.7529863032648164,
+      "passed": true
+    },
+    {
+      "id": "A6",
+      "value": 0.9078497968063964,
+      "passed": true
+    },
+    {
+      "id": "A7",
+      "value": 0.3490364355110568,
+      "passed": true
+    },
+    {
+      "id": "A8",
+      "value": 0.444999980268844,
+      "passed": true
+    },
+    {
+      "id": "A9",
+      "value": 0.4001628374794634,
+      "passed": true
+    },
+    {
+      "id": "A10",
+      "value": 0.5499187126460201,
+      "passed": true
+    }
+  ],
+  "soleZ": -1.30385160446167e-08,
+  "heads": 5.10038198386017
+}

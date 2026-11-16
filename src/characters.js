@@ -1,3 +1,7 @@
+import {releaseBase,initializeBase} from './base-motion.js';
+import {releaseAuthored} from './authored-motion.js';
+import {updateHeldProp} from './action-props.js';
+import { updateActorPerformance } from './action-playback.js';
 import * as THREE from 'three';
 import {makeCustomActor,disposeCustomActor} from './avatar-model.js';
 import {appearanceForCandidate,normalizeAppearance} from './avatar-schema.js';
@@ -319,16 +323,6 @@ function makeActor(data, index, groundY) {
   } else {
     for (const y of [0.67, 0.75]) form(body, '#f5e9ce', [0, y, 0.151], [0.013, 0.013, 0.008]);
   }
-  const book = new THREE.Group();
-  book.position.set(0, 0.65, 0.30);
-  book.rotation.x = -0.30;
-  form(book, '#668b78', [0, 0, 0], [0.32, 0.025, 0.20], propBox);
-  form(book, '#f6ead4', [0, 0.018, 0], [0.29, 0.018, 0.18], propBox);
-  curve(book, [[0, 0.03, -0.08], [0, 0.03, 0], [0, 0.03, 0.08]], '#b6a98d', 0.004);
-  book.visible = false;
-  body.add(book);
-  const snack = form(arms[1], '#d3a362', [0.04, -0.35, 0.035], [0.075, 0.045, 0.065]);
-  snack.visible = false;
   const musicNotes=new THREE.Group();musicNotes.name='Singing-only musical gesture';musicNotes.position.set(.40,1.34,.05);body.add(musicNotes);
   for(let n=0;n<2;n++){const x=n*.19,y=n*.14;form(musicNotes,'#a76c35',[x,y,0],[.066,.045,.028]);form(musicNotes,'#a76c35',[x+.048,y+.11,0],[.020,.24,.035],propBox);}
   const beam=form(musicNotes,'#a76c35',[.143,.29,0],[.235,.035,.035],propBox);beam.rotation.z=.64;musicNotes.visible=false;
@@ -336,7 +330,7 @@ function makeActor(data, index, groundY) {
   root.scale.setScalar(heightScale);
   root.rotation.y = [0.5, -0.25, 0.5, -0.4, 0.2, -0.35][index % 6];
   root.traverse(object => { if (object.isMesh) object.userData.actorId = data.id; });
-  return { ...data, mesh: root, get position() { return root.position; }, get facing() { return root.rotation.y; }, get faceDirection() { return new THREE.Vector3(Math.sin(root.rotation.y), 0, Math.cos(root.rotation.y)); }, _body: body, _head: head, _eyes: eyes, _mouth: mouth, _mouthBaseScale: mouth.scale.clone(), _expression: expression, _legs: legs, _arms: arms, _book: book, _snack: snack, _musicNotes: musicNotes, _phase: index * 1.7 };
+  return { ...data, mesh: root, get position() { return root.position; }, get facing() { return root.rotation.y; }, get faceDirection() { return new THREE.Vector3(Math.sin(root.rotation.y), 0, Math.cos(root.rotation.y)); }, _body: body, _head: head, _eyes: eyes, _mouth: mouth, _mouthBaseScale: mouth.scale.clone(), _expression: expression, _legs: legs, _arms: arms, _musicNotes: musicNotes, _phase: index * 1.7 };
 }
 
 // Standalone original actor for portrait rendering; never mutates the active cast.
@@ -396,7 +390,9 @@ export function createCharacters(scene, { groundY = 0.48 } = {}) {
       const step = Math.min(Math.max(dt, 0), 0.08);
       visualElapsed += step;
       if (!paused) elapsed += step;
+      const activeScene = simulation?.getActiveScene?.();
       for (const actor of actors) {
+        initializeBase(actor);releaseBase(actor);releaseAuthored(actor);
         const phase = actor._phase;
         const state = simulation?.getActor(actor.id);
         const activity = state?.activity || 'idle';
@@ -461,10 +457,8 @@ export function createCharacters(scene, { groundY = 0.48 } = {}) {
         actor._head.rotation.y = moving || focused ? 0 : Math.sin(visualElapsed * 0.45 + phase) * 0.15;
         actor._body.rotation.set(0, 0, 0);
         actor._legs.forEach(leg => { leg.rotation.z = 0; });
-        actor._book.visible = Boolean(state && !moving && gesture === 'read');
         actor._musicNotes.visible = activity === 'sing';
         actor._musicNotes.position.y = (actor._musicNotes.userData.baseY ?? 1.34) + Math.sin(visualElapsed * 3 + phase) * .025;
-        actor._snack.visible = Boolean(state && !moving && (gesture === 'eat' || gesture === 'share'));
         if (state && !moving) {
           const pulse = Math.sin(visualElapsed * 3 + phase);
           const left = actor._arms[0], right = actor._arms[1];
@@ -572,6 +566,11 @@ export function createCharacters(scene, { groundY = 0.48 } = {}) {
           if (quirk === 'hum' || quirk === 'curious-step') actor._body.position.y += lift * quirkiness * 0.025;
           if (quirk === 'sway') actor._head.rotation.z += Math.sin(elapsed * 2.6 + phase) * quirkiness * 0.025;
         }
+        const show=simulation?.getPerformance?.();
+        const cast=show?.phase==='playing'?show.participants:activeScene?.participants;
+          const partner=(cast?.length===2 || (show?.key==='S81_slap_mediation' && cast?.slice(0,2).includes(actor.id)))&&cast.includes(actor.id)?actors.find(other=>other.id===cast[1-cast.indexOf(actor.id)]):undefined;
+          updateActorPerformance(actor,state,activeScene,elapsed,show,partner);
+        updateHeldProp(actor,state,activeScene,show);
       }
     },
   };

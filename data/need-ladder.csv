@@ -1,0 +1,6 @@
+need,warn,mid,crit,l1_tier,l2_tier,l3_tier,zero_tier,zero_hp,zero_hours,zero_effect
+Satiety,40,30,20,M16,M46,M84,M96,3,6,collapse
+Hydration,35,22,10,M16,M46,M84,M96,6,4,dehydrate
+Rest,30,15,5,M16,M46,M84,M96,0,0,drowsy
+Warmth,45,32,20,M16,M46,M84,M96,4,4,hypothermia
+Health,60,45,30,M16,M46,M78,M99,0,0,death

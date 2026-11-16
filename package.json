@@ -5,12 +5,14 @@
   "type": "module",
   "scripts": {
     "sync:vision": "node scripts/sync-photo-runtime.mjs",
-    "prebuild": "npm run sync:vision && npm run build:hair-atlas",
+    "prebuild": "npm run sync:vision && npm run build:hair-atlas && npm run build:camp",
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
     "build:hair-atlas": "node scripts/build-photo-hair-atlas.mjs",
-    "test:avatar": "node --test --test-concurrency=2 qa/avatar-model.test.mjs qa/avatar-anime-shapes.test.mjs qa/avatar-anime-neck.test.mjs qa/avatar-anime-face-shading.test.mjs qa/avatar-integration.test.mjs qa/avatar-face-art.test.mjs qa/avatar-paint-containment.test.mjs qa/avatar-eye-curve.test.mjs qa/avatar-eye-shape-editor.test.mjs qa/avatar-anime-hair-authored.test.mjs qa/avatar-hair-controls.test.mjs"
+    "test:avatar": "node --test --test-concurrency=2 qa/avatar-model.test.mjs qa/avatar-anime-shapes.test.mjs qa/avatar-anime-neck.test.mjs qa/avatar-anime-face-shading.test.mjs qa/avatar-integration.test.mjs qa/avatar-face-art.test.mjs qa/avatar-paint-containment.test.mjs qa/avatar-eye-curve.test.mjs qa/avatar-eye-shape-editor.test.mjs qa/avatar-anime-hair-authored.test.mjs qa/avatar-hair-controls.test.mjs",
+    "build:camp": "node scripts/build-camp-data.mjs",
+    "test:camp": "node --test qa/camp*.test.mjs"
   },
   "dependencies": {
     "@mediapipe/tasks-vision": "0.10.32",

@@ -1,0 +1,63 @@
+{
+  "orb": {
+    "url": "http://127.0.0.1:5188/?perf=orb&t=2&still=1&seed=7",
+    "sha256": "e4296f7b0fe86ad0b6768ff12c9e0ec30d32b89a0bda753d05e56168304113b2",
+    "secondSha256": "e4296f7b0fe86ad0b6768ff12c9e0ec30d32b89a0bda753d05e56168304113b2",
+    "deterministic": true,
+    "errors": [],
+    "stats": {
+      "stage": "orb",
+      "quality": 0,
+      "width": 1920,
+      "height": 1080,
+      "hdr": true,
+      "drawCalls": 8,
+      "layerCalls": 1,
+      "fxCalls": 1,
+      "actorCalls": 3,
+      "bloomLevels": 5,
+      "triangles": 189574
+    },
+    "metrics": {
+      "p50": 0.07203907203907203,
+      "black": 0.09912712191358025,
+      "white": 0.0006799768518518519,
+      "largestCluster": 0.19312609970674488,
+      "majorHueFamilies": 2,
+      "dominantHueFamilyShare": 0.5378768328445748,
+      "verticalLumaDifference": 0.10915750915750916,
+      "flatPatchGrain": 0.006779476876549277,
+      "largestFlatStep": 0.017989229323575228,
+      "worstFlatStep": {
+        "x": 1728,
+        "y": 816,
+        "axis": "x",
+        "stripBoundary": 40,
+        "patchStd": 0.010415403494426845
+      },
+      "flatPatchCount": 461,
+      "actorEdgeRatio": 2.5619223659889094,
+      "silhouetteEdgeRatio": 1.681136459357557,
+      "rimRatio": 4.182352941176471,
+      "actorTop": 0.13148148148148148,
+      "actorBottom": 0.9990740740740741,
+      "highlightCount": 1125,
+      "anchoredFraction": 0.9982222222222222,
+      "foregroundFraction": 0.04633150077160494,
+      "gates": {
+        "median": true,
+        "black": true,
+        "white": true,
+        "dominantCluster": false,
+        "hueFamilies": true,
+        "edge": true,
+        "gradient": true,
+        "grain": true,
+        "highlightAnchor": true,
+        "banding": false,
+        "rim": true,
+        "composition": false
+      }
+    }
+  }
+}

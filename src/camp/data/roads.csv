@@ -1,0 +1,5 @@
+road,key,label_zh,move_cost,wood_per_tile,hours_per_tile,winter,note
+0,none,无,0,0,0,0,
+1,dirt,土路,2,0.25,0.25,0,
+2,stone,石板,2,0.5,0.5,0,
+3,board,木栈道,2,0.4,0.4,0,

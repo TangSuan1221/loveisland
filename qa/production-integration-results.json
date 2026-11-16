@@ -5,61 +5,53 @@
     "days": [
       {
         "day": 1,
-        "facts": 58,
+        "facts": 69,
         "mode": "normal",
         "revenue": 13520,
         "cash": 71830
       },
       {
         "day": 2,
-        "facts": 71,
+        "facts": 64,
         "mode": "normal",
         "revenue": 13880,
         "cash": 80100
       },
       {
         "day": 3,
-        "facts": 69,
+        "facts": 60,
         "mode": "normal",
         "revenue": 13340,
-        "cash": 87830
+        "cash": 87785
       }
     ],
     "types": {
-      "invitation": 14,
-      "routine-start": 52,
-      "routine": 49,
-      "cancelled": 2,
-      "dialogue": 48,
-      "disagreed": 2,
+      "invitation": 10,
+      "routine-start": 59,
+      "dialogue": 40,
+      "routine": 53,
+      "connected": 7,
+      "declined": 8,
       "queue-enter": 13,
-      "declined": 7,
-      "interrupted": 2,
-      "continuation-declined": 1,
-      "mediation-offered": 1,
-      "connected": 4,
-      "belief-unresolved": 1,
-      "belief-corrected": 1,
-      "reconciled": 1
+      "enjoyed": 2,
+      "created-together": 1
     },
     "phase": "season",
-    "cash": 94961,
+    "cash": 94916,
     "npcStats": {
       "completed": 10,
-      "rejected": 7,
-      "invitations": 21,
+      "rejected": 8,
+      "invitations": 18,
       "activities": {
-        "sing": 14,
-        "eat": 17,
-        "watch": 2,
-        "argue": 2,
-        "drink": 12,
-        "rest": 7,
-        "mediate": 1,
+        "sing": 13,
+        "chat": 6,
+        "eat": 20,
+        "rest": 8,
+        "watch": 5,
+        "drink": 13,
         "share": 1,
-        "clarify-belief": 2,
-        "chat": 3,
-        "apologize": 1
+        "play": 2,
+        "collaborate": 1
       }
     }
   },
@@ -69,97 +61,96 @@
     "days": [
       {
         "day": 1,
-        "facts": 124,
+        "facts": 131,
         "mode": "normal",
-        "revenue": 13520,
-        "cash": 66610
+        "revenue": 13880,
+        "cash": 66970
       },
       {
         "day": 2,
-        "facts": 123,
+        "facts": 135,
         "mode": "normal",
-        "revenue": 13340,
-        "cash": 74070
+        "revenue": 14060,
+        "cash": 73350
       },
       {
         "day": 3,
-        "facts": 126,
+        "facts": 130,
         "mode": "normal",
-        "revenue": 13340,
-        "cash": 81255
+        "revenue": 13880,
+        "cash": 79775
       },
       {
         "day": 4,
-        "facts": 119,
+        "facts": 140,
         "mode": "normal",
-        "revenue": 13160,
-        "cash": 88065
+        "revenue": 13520,
+        "cash": 87640
       },
       {
         "day": 5,
-        "facts": 137,
+        "facts": 133,
         "mode": "normal",
         "revenue": 13520,
-        "cash": 95305
+        "cash": 93210
       },
       {
         "day": 6,
-        "facts": 127,
+        "facts": 137,
         "mode": "normal",
         "revenue": 13340,
-        "cash": 102245
+        "cash": 99095
       },
       {
         "day": 7,
-        "facts": 120,
+        "facts": 130,
         "mode": "normal",
         "revenue": 13160,
-        "cash": 108995
+        "cash": 106495
       }
     ],
     "types": {
-      "invitation": 52,
-      "routine-start": 260,
-      "dialogue": 160,
-      "routine": 247,
-      "connected": 17,
-      "declined": 39,
-      "disagreed": 3,
-      "queue-enter": 64,
+      "invitation": 48,
+      "routine-start": 280,
+      "dialogue": 183,
+      "routine": 270,
+      "connected": 23,
+      "declined": 33,
+      "queue-enter": 74,
       "enjoyed": 4,
-      "cancelled": 7,
-      "interrupted": 6,
-      "continuation-declined": 1,
-      "clarified": 2,
-      "item-borrowed": 1,
-      "created-together": 3,
-      "mediation-offered": 2,
+      "interrupted": 3,
+      "disagreed": 3,
+      "belief-corrected": 3,
+      "item-borrowed": 3,
+      "created-together": 2,
+      "item-returned": 2,
+      "clarified": 1,
       "milestone-celebrated": 3,
-      "belief-corrected": 4,
-      "continuation-abandoned": 1
+      "allied": 1
     },
     "phase": "season",
-    "cash": 115076,
+    "cash": 112576,
     "npcStats": {
-      "completed": 39,
-      "rejected": 39,
-      "invitations": 91,
+      "completed": 45,
+      "rejected": 33,
+      "invitations": 81,
       "activities": {
-        "eat": 82,
-        "sing": 65,
-        "chat": 15,
-        "argue": 3,
-        "watch": 13,
-        "rest": 38,
-        "drink": 62,
+        "eat": 92,
+        "sing": 68,
+        "chat": 19,
+        "watch": 19,
+        "drink": 67,
+        "rest": 34,
         "play": 4,
-        "question": 2,
-        "borrow": 1,
-        "collaborate": 3,
-        "mediate": 2,
+        "share": 4,
+        "argue": 3,
+        "clarify-belief": 3,
+        "borrow": 3,
+        "collaborate": 2,
+        "return-item": 2,
+        "question": 1,
         "celebrate": 3,
-        "share": 2,
-        "clarify-belief": 4
+        "alliance": 1
       }
     }
   }

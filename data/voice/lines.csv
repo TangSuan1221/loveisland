@@ -1,0 +1,6 @@
+"id","text","style","attrs_json","note"
+"breeze","{{speaker:firstPerson}}想去海边吹吹风。","bubble","{}","日常"
+"fruit","{{speaker:shortPhrase situation=""good""}}，今天的{{world:food id=""fruit""}}真甜。","bubble","{}","开心"
+"quiet","让{{speaker:firstPerson}}安静坐一会儿吧。","bubble","{}","低落"
+"friend","下次给{{social:bestFriend}}留个{{world:food id=""fruit""}}。","bubble","{}","熟人"
+"gift","{{speaker:callPlayer}}，上次的礼物，{{speaker:firstPerson}}还记得。","bubble","{}","回忆"

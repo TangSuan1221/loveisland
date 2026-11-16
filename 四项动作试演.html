@@ -1,0 +1,39 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>荒岛心跳 · 四项动作试演</title><style>
+*{box-sizing:border-box}body{margin:0;background:#eeeae0;color:#23392f;font:16px/1.6 system-ui}main{max-width:850px;margin:auto;padding:22px}button,select,input{font:inherit}button,select{border:1px solid #82968b;border-radius:6px;background:#fff;padding:5px 12px;color:inherit}svg{display:block;width:100%;background:#dce8df;border-radius:8px}nav,footer{display:flex;align-items:center;gap:12px;margin:12px 0;flex-wrap:wrap}input[type=range]{flex:1}p{margin:8px 0}small{color:#586d61}
+</style><main><small>荒岛心跳 / 风格动作试演 · 2D 正视</small><nav><select id="pick"></select><button id="sound">开启声音</button></nav><svg id="stage" viewBox="0 0 600 365" aria-label="角色动作预览"></svg><footer><button id="play"></button><button id="again">重播</button><input id="seek" type="range" min="0" max="6000" step="1" aria-label="时间"><output id="time"></output></footer><p id="desc"></p><small id="criterion"></small></main><script>
+const rows=[["A02","环顾和发现","脖子机械性转动，眼球比头部转得更快。发现目标时，瞳孔瞬间收缩，身体像断电一样定格一秒，然后身体才前倾。","强调“眼球先动，身体后动”的诡异停顿感。"],["A15","哼唱","闭着眼沉醉，但肢体动作极其诡异和不协调（例如只有跨部在机械扭动，或者手臂像触手一样乱舞），形成荒诞的反差。","拒绝优雅，将音乐与身体的不协调感放大。"],["A21","疲倦与困顿","双眼布满血丝，身体站立时左右摇晃，突然断崖式磕头，然后受惊般猛睁眼，循环此过程。","“断电-惊醒-断电”的循环必须极其突兀。"],["A27","被摄不适","发出类似野猫受惊的“嘶嘶”声，双臂在身前交叉死死挡住脸，像螃蟹一样极速横向平移退出画面。","反应要像被强光照射的吸血鬼一样剧烈。"]];
+const $=id=>document.getElementById(id),pick=$('pick'),stage=$('stage');
+rows.forEach(([id,name],i)=>pick.add(new Option(id+' · '+name,i)));
+const clamp=x=>Math.max(0,Math.min(1,x)),ramp=(t,a,b)=>clamp((t-a)/(b-a)),sin=Math.sin,pi=Math.PI;
+const line=(x,y,u,v,w,c)=>`<path d="M${x} ${y}L${u} ${v}" stroke="${c}" stroke-width="${w}" stroke-linecap="round"/>`;
+const ellipse=(x,y,a,b,c)=>`<ellipse cx="${x}" cy="${y}" rx="${a}" ry="${b}" fill="${c}"/>`;
+const skin='#d49a76',shirt='#98624f',hair='#493331';
+function arm(s,el,hand,palm){
+ let shoulder=[s*21,161],ex=s*el[0],ey=el[1],hx=s*hand[0],hy=hand[1];
+ return line(...shoulder,ex,ey,16,shirt)+line(ex,ey,hx,hy,12,skin)+`<g transform="translate(${hx} ${hy}) rotate(${s*palm})">`+ellipse(0,-3,7,9,skin)+[-4,-1,2,5].map((x,i)=>line(x,-6,x*1.5,-12-(i===1?2:0),2.8,skin)).join('')+'</g>';
+}
+function render(t){
+ let n=+pick.value,x=300,lean=0,head=0,eye=0,pupil=3,lid=1,hip=0,knee=0,drop=0,cover=0,step=0,red=false,mouth=0,headX=0;
+ if(n===0){let scan=t<1.25?-1:1;eye=scan*4;headX=-6+12*ramp(t,1.55,1.83);head=-5+10*ramp(t,1.55,1.83);if(t>=2.2){eye=5;pupil=1}lean= -13*ramp(t,3.2,3.58);headX+=6*ramp(t,3.2,3.58)}
+ if(n===1){lid=0;hip=Math.round(sin(t*6)*3)*3;mouth=2}
+ if(n===2){let u=t%3;let fall=ramp(u,1.85,1.95)*(1-ramp(u,2.27,2.33));lean=u<1.85?7*sin(u*3.4):0;drop=fall*22;head=fall*19;lid=u<2.27?.42-.30*ramp(u,1,1.85):1.45-.95*ramp(u,2.62,3);red=true;mouth=fall*4}
+ if(n===3){cover=ramp(t,.83,1.0);step=sin((t-1.4)*23)*ramp(t,1.4,1.53);x+=440*ramp(t,1.4,3);knee=cover*12;lean=cover*5;mouth=cover*5}
+ let body='';
+ for(let s of [-1,1]){let foot=s*(17+knee+step*10),kx=s*(13+knee+step*8)+hip*.3;
+ body+=line(s*13+hip,220,kx,259+knee,17,'#505d63')+line(kx,259+knee,foot,302-Math.max(0,s*step)*8,15,'#505d63')+ellipse(foot,305-Math.max(0,s*step)*8,12,6,'#f7ebce')}
+ body+=`<g transform="rotate(${lean} 0 216)">`+
+ `<path fill="${shirt}" d="M-20 151Q0 144 20 151L${18+hip} 224Q${hip} 232 ${-18+hip} 224Z"/>`+line(0,155,headX,135+drop,14,skin)+`<g transform="translate(${headX},${drop}) rotate(${head} 0 134)">`+ellipse(0,114,31,35,hair)+ellipse(0,118,27,29,skin)+'<path d="M-27 113Q-31 73 0 79Q27 78 29 107Q9 107 4 94Q-9 106 -27 113" fill="'+hair+'"/>';
+ for(let s of [-1,1]){let cx=s*11;
+ if(lid===0)body+=`<path d="M${cx-7} 117q7 6 14 0" fill="none" stroke="#523b35" stroke-width="2"/>`;
+ else{body+=ellipse(cx,116,8,5*lid,'#fff7e6');if(red) body+=line(cx-7,116,cx-4,117,1,'#bb4145')+line(cx+7,115,cx+4,116,1,'#bb4145');body+=ellipse(cx+eye,116,pupil,Math.min(pupil,5*lid),'#302d28')}}
+ body+=ellipse(0,133,4,1+mouth,'#74493e')+'</g>';
+ for(let s of [-1,1])body+=arm(s,[26+9*cover,191-38*cover],[27-40*cover,219-105*cover+s*cover*3],(180-215*cover));
+ stage.innerHTML='<path d="M0 310H600" stroke="#aabeb1"/>'+ `<g transform="translate(${x} 0)">`+body+'</g></g>';
+}
+let elapsed=0,last=performance.now(),running=true,ctx,enabled=false;
+function hiss(){if(!ctx||!enabled)return;let b=ctx.createBuffer(1,ctx.sampleRate*.42,ctx.sampleRate),v=b.getChannelData(0);for(let i=0;i<v.length;i++)v[i]=(Math.random()*2-1)*.16*(1-i/v.length);let src=ctx.createBufferSource(),f=ctx.createBiquadFilter();src.buffer=b;f.type='highpass';f.frequency.value=3800;src.connect(f).connect(ctx.destination);src.start()}
+function show(){render(elapsed);$('time').value=elapsed.toFixed(2)+' s';$('seek').value=elapsed*1000;$('play').textContent=running?'暂停':'播放'}
+function reset(){elapsed=0;last=performance.now();running=true;let row=rows[pick.value];$('desc').textContent=row[2];$('criterion').textContent=row[3];show()}
+pick.onchange=reset;$('again').onclick=reset;$('play').onclick=()=>{running=!running;last=performance.now();show()};$('seek').oninput=e=>{running=false;elapsed=+e.target.value/1000;show()};$('sound').onclick=()=>{ctx??=new AudioContext();ctx.resume();enabled=!enabled;$('sound').textContent=enabled?'关闭声音':'开启声音'};
+function tick(now){if(running){let prev=elapsed;elapsed=(elapsed+(now-last)/1000)%6;if(+pick.value===3&&prev<.84&&elapsed>=.84)hiss();show()}last=now;requestAnimationFrame(tick)}reset();requestAnimationFrame(tick)
+</script></html>

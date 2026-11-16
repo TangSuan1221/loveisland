@@ -1,0 +1,9 @@
+key,label_zh,walkable,buildable,move_cost,can_skin,note
+deep,深海,0,0,0,0,
+shallow,浅水,0,0,0,0,
+sand,沙滩,1,1,5,1,
+soil,泥土地,1,1,4,1,
+grass,草地,1,1,4,1,
+forest,林地,1,0,7,0,
+rock,岩地,1,0,8,0,
+cliff,崖,0,0,0,0,

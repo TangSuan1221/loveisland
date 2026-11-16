@@ -2,8 +2,8 @@
   "result": "PASS",
   "scope": "Controlled initial social/need/idle setup and refusal RNG fixture; all conversation beats and successful linked result emitted by actual NPC simulation, production publicly records/edits/broadcasts. Not a browser or full-season playthrough.",
   "hashes": {
-    "src/production-engine.js": "0bd9d2a26d04f52f8f65bdbe2e5d95f6f235f296a3c1cbb4acafa99931f00093",
-    "src/npc-simulation.js": "8cf6824f8ef30067ca3797afef4504f605173480bf859315750b1c771beb5e4c"
+    "src/production-engine.js": "c17b683dd62e1d7fba86e1c4e9e3a7f64a9e181e3e996a6dd4d8af8df7b27773",
+    "src/npc-simulation.js": "cfcec8c7f4c636124086b4c318a899c1688beb1d1192fcedbe6f5a0d6d5e4ffc"
   },
   "seed": 1,
   "sourceSceneId": "1",

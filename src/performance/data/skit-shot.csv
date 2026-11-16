@@ -1,0 +1,18 @@
+shot,yaw_mode,pitch,dist,dist_sep,dist_to,fov,target,dist_min,dist_max,note
+WIDE,keep,1.02,30,0,0,0,centroid,0,0,开场与收尾；保持玩家当前方位不晕
+2SHOT,perp,0.72,0,2.6,0,0,mid,8,26,对话主力；距离随两人间距自适应
+OTS_F,dir_TF,0.70,4.6,0,0,42,T,0,0,过肩：从 F 身后看 T
+OTS_T,dir_FT,0.70,4.6,0,0,42,F,0,0,反向过肩；会翻 180 度轴
+CU_F,perp,0.80,3.4,0,0,38,F,0,0,特写
+CU_T,perp,0.80,3.4,0,0,38,T,0,0,特写
+CU_A,perp,0.80,3.4,0,0,38,A,0,0,第三人特写（观众的脸）
+INSERT,perp,1.15,1.9,0,0,34,mid,0,0,插入镜头：地上的饼、手里的花
+SKY,keep,0.18,14,0,0,55,mid,0,0,看天、星星、时间
+POV_F,dir_FT,0.62,1.1,0,0,50,T,0,0,主观镜头（会取消旁观感，慎用）
+REVERSE,reverse,0.72,0,2.6,0,0,mid,8,26,反打；会翻 180 度轴
+DOLLY_IN,perp,0.78,9,0,5,0,mid,0,0,推近：从 9 收到 5
+LOW,keep,0.34,6.5,0,0,0,mid,0,0,仰拍：压迫、崇高
+HIGH,keep,1.28,11,0,0,0,mid,0,0,俯拍：渺小、埋葬
+STATIC,keep,0.95,26,0,0,0,mid,0,0,不动（默认兜底）
+
+LOC,keep,0.92,9,0,0,0,loc,0,0,营地建筑地点

@@ -1,0 +1,6 @@
+.cinema-review .game-scene-tools{display:none!important}
+.cinema-review-tools{position:absolute;z-index:28;top:max(.8rem,env(safe-area-inset-top));left:max(.8rem,env(safe-area-inset-left));display:flex;flex-wrap:wrap;align-items:center;gap:.35rem;max-width:calc(100% - 1.6rem)}
+.cinema-review-tools :is(select,button,a){border:1px solid #ffffff66;padding:.42rem .7rem;border-radius:.35rem;color:#fffaf0;background:#172a28e8;font:500 .84rem/1.35 system-ui,sans-serif;text-decoration:none}
+.cinema-review-tools :disabled{opacity:.58}
+.cinema-review #game-loading{margin:0}
+.cinema-review-unlabelled .island-performance>[aria-live]{visibility:hidden}

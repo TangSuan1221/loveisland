@@ -1,0 +1,8 @@
+action,label_zh,wood_per_tile,hours_per_tile,winter,output,note
+fill,填海,0.5,1,0,,
+clear_forest,清林,0,4,0,wood:3,
+clear_rock,清岩,0,6,0,stone:2,
+pave,铺装,0,0,0,,
+unpave,拆铺装,0,0.1,1,wood:0.1,
+skin,换皮,0,0,1,,
+expand,扩岛,0,9,0,,

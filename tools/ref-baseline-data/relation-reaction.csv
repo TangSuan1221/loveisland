@@ -1,0 +1,36 @@
+id,event,delta_bond,is_no_change_rank,strain_delta,note
+R01,share_last_food,80,0,-20,分我最后一份食物：救命之恩直接跳两档
+R02,share_water_when_scarce,80,0,-20,缺水时给我水
+R03,tell_water_location,40,0,-10,饥荒时告诉我水源
+R04,survive_winter_together,40,0,-30,一起熬过冬天（季节结算）
+R05,help_bury,40,0,-20,帮我埋葬亲人
+R06,share_firewood,20,0,-10,分享柴火
+R07,heal_me,40,0,-20,治我的伤
+R08,rescue_collapse,80,0,-30,把我从饿倒中救起
+R09,complain_ration,-20,1,15,抱怨分得太少
+R10,refuse_water,-20,1,20,拒绝给我水
+R11,hide_food_caught,-40,1,30,隐瞒食物位置被我发现
+R12,steal_undetected,-20,1,25,偷我食物（未发现）
+R13,suspect_accumulate,-10,1,20,我怀疑他偷了（每次+）
+R14,steal_caught,-80,0,40,偷我食物被抓住
+R15,rob_ration,-80,0,50,抢夺我的配额
+R16,refuse_rescue,-80,0,60,见我饿倒不施救
+R17,abandon_dying,0,0,100,见死不救（我濒死）：Bond 强制归零
+R18,eat_in_front_of_hungry,-40,1,35,饿的时候看他吃饭
+R19,blame_for_famine,-40,1,30,把饥荒怪到我头上
+R20,take_my_spot,-20,1,20,占了我的位置
+R21,share_blanket,20,0,-10,分我毯子
+R22,sleep_together_warm,40,0,-25,寒夜里一起睡取暖
+R23,cooperate_work,20,0,-5,一起干活顺利
+R24,argue_over_work,-20,1,15,为分工吵架
+R25,tend_sickness,40,0,-20,我病时照顾我
+R26,infect_me,-40,1,25,把病传给我
+R27,grieve_together,40,0,-25,一起哀悼
+R28,protect_from_robber,80,0,-30,从抢夺者手里护住我
+R29,player_favor_observed,-15,1,20,看到管理者偏袒别人（Strain→管理者）
+R30,become_couple,20,0,-20,确立关系（另加 Couple 标签）
+R31,breakup,-40,0,40,分手（另加 Divorce 标签）
+R32,child_birth,40,0,-30,有了共同的孩子
+R33,teach_skill,20,0,-10,他教我手艺
+R34,apologize,40,0,-40,他主动道歉
+R35,protect_me,80,0,-30,他挡在我前面

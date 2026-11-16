@@ -1,0 +1,4 @@
+stage,exposure,contrast,saturation,shadow_tint,high_tint,vignette,vig_soft,bloom_thresh,bloom_strength,bloom_radius,grain,chroma,note
+hanami,1.06,1.02,1.03,#c07f96,#fff3ec,0.18,0.62,0.90,0.13,0.65,0.012,0.35,高调粉：暗部偏玫瑰、亮部偏奶油、辉光克制
+cabin,1.00,1.08,1.04,#3a2030,#ffd9a8,0.30,0.55,1.00,0.11,0.55,0.011,0.45,暖木：暗部偏紫、亮部偏琥珀、暗角压边
+orb,0.94,1.14,1.07,#1a0f22,#ffd6ea,0.46,0.50,1.05,0.20,0.70,0.018,0.60,低照度紫：暗部近黑紫、亮部粉白、强暗角

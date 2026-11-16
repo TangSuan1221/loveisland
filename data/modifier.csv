@@ -1,0 +1,20 @@
+id,source,key,target,expr,note
+PM01,persona,grit,beg,1.30-0.60*grit,越硬气越不肯求人
+PM02,persona,agree,steal,(0.60+0.90*(1-agree))*ScarcityNorm,越好说话越不抢
+PM03,persona,agree,share,0.60+0.80*agree,
+PM04,persona,grit,fight,0.60+0.80*grit,敢不敢对抗（决定 9.7 档选打还是逃）
+PM05,persona,consc,hoard,0.60+0.80*consc,
+PM06,persona,consc+neuro,self_harm,1.20-0.40*consc-0.30*neuro,越没计划越早走到吃草根
+ST01,state,Desperate,self_harm,1.60,
+ST02,state,Starving,forage,1.40,
+ST03,state,Pain_ge70,move_or_work,0.60,
+SK01,skill,Fire,light_fire,GATE 4,不会生火的人不生火
+SK02,skill,Medical,self_treat,GATE 4,不会包扎只能求救
+RL01,relation,bond,ask_help,GATE 120,没有可求助对象
+RL02,relation,bond,ask_help,0.70+0.30*(bond-120)/80,对象权重 0.70→1.00
+MM01,memory,refused_help,ask_that_person,0.50,冷却 30 min
+MM02,memory,got_beaten,steal,0.60,冷却 120 min
+MM03,memory,saved_by,ask_that_person,1.30,
+MM04,memory,poisoned_by_rot,eat_rot,0.40,
+CT01,context,night,sleep,1.60,
+CT02,context,witness,social,1.15,

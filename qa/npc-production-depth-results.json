@@ -33,105 +33,111 @@
   "runs": [
     {
       "seed": 1,
-      "services": 111,
-      "completed": 34,
-      "activities": {
-        "sing": 39,
-        "eat": 57,
-        "share": 6,
-        "chat": 11,
-        "drink": 55,
-        "rest": 34,
-        "argue": 2,
-        "apologize": 1,
-        "boundary": 5,
-        "mediate": 3,
-        "collaborate": 1,
-        "celebrate": 3,
-        "borrow": 1,
-        "clarify-belief": 1
-      }
-    },
-    {
-      "seed": 7,
-      "services": 116,
+      "services": 118,
       "completed": 31,
       "activities": {
-        "sing": 42,
-        "eat": 61,
-        "share": 8,
-        "chat": 7,
-        "drink": 55,
-        "rest": 33,
+        "eat": 62,
+        "sing": 44,
+        "chat": 9,
+        "drink": 58,
+        "rest": 36,
+        "queue-apology": 1,
+        "share": 4,
+        "argue": 1,
         "apologize": 1,
-        "help": 1,
-        "play": 2,
+        "clarify-belief": 2,
         "question": 1,
-        "boundary": 6,
-        "celebrate": 4,
+        "collaborate": 1,
+        "celebrate": 6,
+        "boundary": 5,
         "borrow": 1
       }
     },
     {
-      "seed": 19,
-      "services": 112,
-      "completed": 28,
+      "seed": 7,
+      "services": 124,
+      "completed": 33,
       "activities": {
-        "eat": 58,
-        "sing": 42,
-        "chat": 7,
+        "sing": 45,
+        "eat": 64,
+        "chat": 8,
+        "drink": 61,
+        "rest": 37,
+        "collaborate": 2,
         "argue": 2,
-        "rest": 31,
-        "help": 1,
-        "drink": 55,
-        "clarify-belief": 3,
-        "mediate": 2,
         "play": 1,
-        "share": 2,
+        "clarify-belief": 3,
+        "share": 4,
+        "mediate": 1,
         "boundary": 6,
-        "celebrate": 4
+        "celebrate": 6
+      }
+    },
+    {
+      "seed": 19,
+      "services": 117,
+      "completed": 33,
+      "activities": {
+        "sing": 45,
+        "eat": 62,
+        "chat": 9,
+        "question": 2,
+        "drink": 57,
+        "rest": 36,
+        "play": 2,
+        "resource-share": 1,
+        "argue": 3,
+        "apologize": 1,
+        "mediate": 1,
+        "celebrate": 4,
+        "clarify-belief": 3,
+        "share": 1,
+        "boundary": 6
       }
     },
     {
       "seed": 1937,
-      "services": 115,
-      "completed": 30,
+      "services": 120,
+      "completed": 35,
       "activities": {
-        "sing": 47,
-        "eat": 60,
-        "chat": 10,
-        "drink": 57,
-        "rest": 36,
-        "resource-share": 1,
+        "sing": 44,
+        "eat": 62,
+        "chat": 8,
+        "rest": 35,
+        "drink": 58,
+        "share": 4,
+        "apologize": 1,
         "collaborate": 1,
-        "share": 2,
-        "borrow": 1,
-        "boundary": 6,
+        "question": 1,
+        "celebrate": 6,
+        "play": 1,
         "argue": 1,
-        "celebrate": 5,
-        "clarify-belief": 1,
-        "mediate": 1,
-        "return-item": 1
+        "mediate": 2,
+        "borrow": 1,
+        "boundary": 7,
+        "return-item": 1,
+        "clarify-belief": 1
       }
     },
     {
       "seed": 99999,
-      "services": 113,
-      "completed": 32,
+      "services": 124,
+      "completed": 36,
       "activities": {
-        "eat": 59,
-        "sing": 44,
-        "chat": 8,
+        "eat": 66,
+        "sing": 48,
+        "chat": 10,
         "argue": 2,
-        "drink": 57,
-        "rest": 35,
-        "mediate": 5,
-        "play": 2,
-        "clarify-belief": 3,
-        "share": 2,
-        "comfort": 1,
+        "rest": 36,
+        "drink": 58,
+        "share": 7,
+        "queue-apology": 1,
+        "clarify-belief": 4,
+        "question": 1,
+        "borrow": 1,
         "boundary": 6,
-        "celebrate": 3
+        "celebrate": 4,
+        "apologize": 1
       }
     }
   ],
@@ -149,12 +155,12 @@
       "total": 1
     },
     "comfort": {
-      "seedsTriggered": 1,
-      "total": 1
+      "seedsTriggered": 0,
+      "total": 0
     },
     "clarify-belief": {
-      "seedsTriggered": 4,
-      "total": 8
+      "seedsTriggered": 5,
+      "total": 13
     },
     "missed-promise": {
       "seedsTriggered": 0,
@@ -162,14 +168,15 @@
     },
     "celebrate": {
       "seedsTriggered": 5,
-      "total": 19
+      "total": 26
     },
     "mediate": {
-      "seedsTriggered": 4,
-      "total": 11
+      "seedsTriggered": 3,
+      "total": 4
     }
   },
   "naturalUntriggered": [
+    "comfort",
     "missed-promise"
   ],
   "note": "Controlled prerequisite fixtures prove all 8 mechanisms complete; natural runs do not guarantee every rare event occurs."

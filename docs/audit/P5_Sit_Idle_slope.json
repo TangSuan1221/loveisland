@@ -1,0 +1,16 @@
+{
+  "action": "Sit_Idle_30fps",
+  "frames": 151,
+  "contactSlideMetres": {
+    "l_0_150": 2.653076323086747e-07,
+    "r_0_150": 1.8082054107653494e-07
+  },
+  "minimumSoleZ": -0.057187989354133606,
+  "handTorsoFrames": [],
+  "loopMetres": 1.812804499357408e-07,
+  "loopDegrees": 0.0,
+  "supportPlaneErrorMetres": {
+    "l_0_150": 1.0181218385696411e-05,
+    "r_0_150": 1.0039657354354858e-05
+  }
+}

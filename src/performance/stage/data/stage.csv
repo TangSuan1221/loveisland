@@ -1,0 +1,4 @@
+stage,tone,aspect,stops,glow_color,glow_x,glow_y,glow_power,glow_radius,haze_y,haze_color,actor_x,actor_feet,actor_h,rim_color,note
+hanami,warm,1.7778,0:#e98fae;0.42:#efb0c1;0.72:#f5cfc9;1:#f9e0d3,#fff3ee,0.47,0.40,0.60,0.52,0.72,#fbe0d2,0.52,0.90,0.44,#fff1e3,粉调高调：上深下浅、中心一团柔光、地面暖雾
+cabin,warm,1.7778,0:#6b3a22;0.35:#8f4f2c;0.62:#c9762f;1:#7a3f22,#ffcf8a,0.18,0.55,0.45,0.55,0.55,#ffc98f,0.50,0.92,0.46,#b06bff,暖木屋：左下方火光、右侧门缝冷光、紫焰作为情绪色
+orb,ominous,1.7778,0:#1b1522;0.30:#3a1c40;0.58:#6b2a5c;0.80:#8c3a5f;1:#2a1524,#ff9ad5,0.62,0.30,0.55,0.40,0.62,#4a1f3f,0.00,0.00,0.00,#ffb37a,低照度占卜：紫幕+洋红裂光、右上烛光、强暗角

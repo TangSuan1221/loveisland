@@ -1,0 +1,16 @@
+{
+  "action": "VRMA_Test_30fps",
+  "frames": 91,
+  "contactSlideMetres": {
+    "l_0_90": 3.790208277315764e-08,
+    "r_0_90": 0
+  },
+  "minimumSoleZ": 9.991228580474854e-06,
+  "handTorsoFrames": [],
+  "loopMetres": 4.344397704933063e-08,
+  "loopDegrees": 0.0,
+  "supportPlaneErrorMetres": {
+    "l_0_90": 1.0029412806034088e-05,
+    "r_0_90": 1.0029878467321396e-05
+  }
+}

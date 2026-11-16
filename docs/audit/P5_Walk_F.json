@@ -1,0 +1,13 @@
+{
+  "action": "Walk_F_30fps",
+  "frames": 31,
+  "contactSlideMetres": {
+    "l_0_7": 3.4403042039822595e-07,
+    "r_8_22": 3.558883220755587e-07,
+    "l_23_30": 2.2383539361138162e-07
+  },
+  "minimumSoleZ": 9.600073099136353e-06,
+  "handTorsoFrames": [],
+  "loopMetres": 1.0149279777575491e-07,
+  "loopDegrees": 0.0
+}

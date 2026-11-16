@@ -1,0 +1,149 @@
+{
+  "hanami": {
+    "url": "http://127.0.0.1:5188/?perf=hanami&t=2&still=1&seed=7",
+    "sha256": "1dc62922e9629892b6641654f4d6945503d6c9cd64bbcce7a261fcfda7db5055",
+    "secondSha256": "1dc62922e9629892b6641654f4d6945503d6c9cd64bbcce7a261fcfda7db5055",
+    "deterministic": true,
+    "errors": [
+      "THREE.WebGLProgram: Shader Error 0 - VALIDATE_STATUS false\n\nMaterial Name: \nMaterial Type: ShaderMaterial\n\nProgram Info Log: Fragment shader is not compiled.\n\nFRAGMENT\n\nERROR: 0:56: 'cast' : Illegal use of reserved word\nERROR: 0:56: 'cast' : syntax error\n\n  51: float luminance( const in vec3 rgb ) {\n  52: \tconst vec3 weights = vec3( 0.2126, 0.7152, 0.0722 );\n  53: \treturn dot( weights, rgb );\n  54: }\n  55: \n> 56: uniform vec3 cast; varying vec2 q; void main(){float d=dot(q,q);float a=.36*exp(-3.3*d)*(1.-smoothstep(.65,1.,d));gl_FragColor=vec4(mix(vec3(1.),cast,a),1.);}",
+      "THREE.WebGLProgram: Shader Error 0 - VALIDATE_STATUS false\n\nMaterial Name: \nMaterial Type: ShaderMaterial\n\nProgram Info Log: Fragment shader is not compiled.\n\nFRAGMENT\n\nERROR: 0:56: 'cast' : Illegal use of reserved word\nERROR: 0:56: 'cast' : syntax error\n\n  51: float luminance( const in vec3 rgb ) {\n  52: \tconst vec3 weights = vec3( 0.2126, 0.7152, 0.0722 );\n  53: \treturn dot( weights, rgb );\n  54: }\n  55: \n> 56: uniform vec3 cast; varying vec2 q; void main(){float d=dot(q,q);float a=.36*exp(-3.3*d)*(1.-smoothstep(.65,1.,d));gl_FragColor=vec4(mix(vec3(1.),cast,a),1.);}"
+    ],
+    "stats": {
+      "stage": "hanami",
+      "quality": 0,
+      "width": 1920,
+      "height": 1080,
+      "hdr": true,
+      "drawCalls": 8,
+      "layerCalls": 1,
+      "fxCalls": 2,
+      "actorCalls": 2,
+      "bloomLevels": 5,
+      "triangles": 50492
+    },
+    "metrics": {
+      "p50": 0.7308913308913308,
+      "black": 0.00013310185185185186,
+      "white": 0.005148533950617284,
+      "largestCluster": 0.21189442815249268,
+      "majorHueFamilies": 3,
+      "verticalLumaDifference": 0.10818070818070813,
+      "flatPatchGrain": 0.009864425977908663,
+      "actorEdgeRatio": 3.7089213428681593,
+      "rimRatio": 1.6646141215106733,
+      "actorTop": 0.45740740740740743,
+      "actorBottom": 0.9,
+      "gates": {
+        "median": false,
+        "black": true,
+        "white": true,
+        "dominantCluster": false,
+        "hueFamilies": true,
+        "edge": true,
+        "gradient": false,
+        "grain": true,
+        "highlightAnchor": null,
+        "banding": null,
+        "rim": true,
+        "composition": null
+      }
+    }
+  },
+  "cabin": {
+    "url": "http://127.0.0.1:5188/?perf=cabin&t=2&still=1&seed=7",
+    "sha256": "8889bd7d2300daa7201e2c1cad0fe05b87f5095e90f84736206d72ced19f7899",
+    "secondSha256": "8889bd7d2300daa7201e2c1cad0fe05b87f5095e90f84736206d72ced19f7899",
+    "deterministic": true,
+    "errors": [
+      "THREE.WebGLProgram: Shader Error 0 - VALIDATE_STATUS false\n\nMaterial Name: \nMaterial Type: ShaderMaterial\n\nProgram Info Log: Fragment shader is not compiled.\n\nFRAGMENT\n\nERROR: 0:56: 'cast' : Illegal use of reserved word\nERROR: 0:56: 'cast' : syntax error\n\n  51: float luminance( const in vec3 rgb ) {\n  52: \tconst vec3 weights = vec3( 0.2126, 0.7152, 0.0722 );\n  53: \treturn dot( weights, rgb );\n  54: }\n  55: \n> 56: uniform vec3 cast; varying vec2 q; void main(){float d=dot(q,q);float a=.36*exp(-3.3*d)*(1.-smoothstep(.65,1.,d));gl_FragColor=vec4(mix(vec3(1.),cast,a),1.);}",
+      "THREE.WebGLProgram: Shader Error 0 - VALIDATE_STATUS false\n\nMaterial Name: \nMaterial Type: ShaderMaterial\n\nProgram Info Log: Fragment shader is not compiled.\n\nFRAGMENT\n\nERROR: 0:56: 'cast' : Illegal use of reserved word\nERROR: 0:56: 'cast' : syntax error\n\n  51: float luminance( const in vec3 rgb ) {\n  52: \tconst vec3 weights = vec3( 0.2126, 0.7152, 0.0722 );\n  53: \treturn dot( weights, rgb );\n  54: }\n  55: \n> 56: uniform vec3 cast; varying vec2 q; void main(){float d=dot(q,q);float a=.36*exp(-3.3*d)*(1.-smoothstep(.65,1.,d));gl_FragColor=vec4(mix(vec3(1.),cast,a),1.);}"
+    ],
+    "stats": {
+      "stage": "cabin",
+      "quality": 0,
+      "width": 1920,
+      "height": 1080,
+      "hdr": true,
+      "drawCalls": 7,
+      "layerCalls": 1,
+      "fxCalls": 1,
+      "actorCalls": 2,
+      "bloomLevels": 5,
+      "triangles": 48200
+    },
+    "metrics": {
+      "p50": 0.1658119658119658,
+      "black": 0.016714891975308642,
+      "white": 0,
+      "largestCluster": 0.22822287390029325,
+      "majorHueFamilies": 2,
+      "verticalLumaDifference": 0.029059829059829068,
+      "flatPatchGrain": 0.008432876934570763,
+      "actorEdgeRatio": 3.7818796492968585,
+      "rimRatio": 0.9402061855670102,
+      "actorTop": 0.42777777777777776,
+      "actorBottom": 0.9203703703703704,
+      "gates": {
+        "median": true,
+        "black": true,
+        "white": true,
+        "dominantCluster": false,
+        "hueFamilies": true,
+        "edge": true,
+        "gradient": false,
+        "grain": true,
+        "highlightAnchor": null,
+        "banding": null,
+        "rim": false,
+        "composition": null
+      }
+    }
+  },
+  "orb": {
+    "url": "http://127.0.0.1:5188/?perf=orb&t=2&still=1&seed=7",
+    "sha256": "e8c3a450e179c1f10a502ccbaf4345c957afdcca00c1bfd93eda7d0a1545bd1e",
+    "secondSha256": "e8c3a450e179c1f10a502ccbaf4345c957afdcca00c1bfd93eda7d0a1545bd1e",
+    "deterministic": true,
+    "errors": [],
+    "stats": {
+      "stage": "orb",
+      "quality": 0,
+      "width": 1920,
+      "height": 1080,
+      "hdr": true,
+      "drawCalls": 7,
+      "layerCalls": 1,
+      "fxCalls": 1,
+      "actorCalls": 2,
+      "bloomLevels": 5,
+      "triangles": 94803
+    },
+    "metrics": {
+      "p50": 0.009035409035409036,
+      "black": 0.5567375578703704,
+      "white": 0.00021508487654320989,
+      "largestCluster": 0.20670967741935484,
+      "majorHueFamilies": 2,
+      "verticalLumaDifference": 0.026862026862026864,
+      "flatPatchGrain": 0.0024257553928232556,
+      "actorEdgeRatio": 3.4726079784289334,
+      "rimRatio": 0.8847184986595176,
+      "actorTop": 0.24259259259259258,
+      "actorBottom": 0.9990740740740741,
+      "gates": {
+        "median": false,
+        "black": false,
+        "white": true,
+        "dominantCluster": false,
+        "hueFamilies": true,
+        "edge": true,
+        "gradient": false,
+        "grain": false,
+        "highlightAnchor": null,
+        "banding": null,
+        "rim": false,
+        "composition": null
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+key,label_zh,max,per_hour_wake,per_hour_sleep,warn_threshold,crit_threshold,zero_damage_hp,zero_damage_period_hours,zero_effect,decay_target
+Satiety,饱食,100,-2.58,0,40,20,3,6,collapse,none
+Hydration,水分,100,-4.17,0,35,10,6,4,dehydrate,none
+Rest,睡眠,100,-4.0,7.2,30,0,0,0,drowsy,none
+Warmth,体温,100,0,0,45,20,4,4,hypothermia,none
+Health,伤病,100,0,0,60,30,0,0,death,none

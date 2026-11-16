@@ -1,3 +1,8 @@
+import {snapshot,gridDelta,validateCamp,unpack} from './camp/archive.js';
+import {campStory} from './camp/stories.js';
+import {isCampWinter,advanceCamp} from './camp/day.js';
+import {facilityPosition,facilityConflict} from './camp/footprints.js';
+import {editCamp,newCamp,newIslandCamp,makeGrid,overlapsFacility} from './camp/model.js';
 // Production rules are independent of rendering and NPC dialogue. Only observe()
 // can turn an actual, external scene event into immutable facts and film cards.
 import { normalizeAppearance } from './avatar-schema.js';
@@ -40,7 +45,7 @@ export const CANDIDATES=names.map((r,i)=>({id:r[0],name:r[1],role:r[2],goal:r[3]
 const PART_NAMES={context:'起因',action:'行动',reaction:'回应',result:'结果'};
 const GENRE={'water-shared':'relationship',comforted:'relationship','milestone-celebrated':'relationship','item-borrowed':'observation','item-returned':'observation','belief-corrected':'observation','belief-unresolved':'observation','promise-discussed':'observation','mediation-offered':'observation','sharing-unavailable':'observation','borrow-declined':'observation',allied:'relationship','mutual-feeling':'relationship','created-together':'relationship',supported:'relationship','feelings-declined':'relationship','alliance-declined':'relationship','boundary-disagreed':'conflict','queue-argue':'conflict','queue-apology':'relationship','boundary-respected':'observation',clarified:'observation','concern-raised':'observation','queue-yield':'observation','queue-avoid':'observation',connected:'relationship',reconciled:'relationship',enjoyed:'relationship',declined:'relationship',disagreed:'conflict',unresolved:'conflict',share:'relationship',play:'relationship',argue:'conflict',apologize:'relationship',invitation:'observation',interview:'observation',activity:'observation',cancelled:'observation'};
 const PHASES=['title','casting','build','recording','editing','broadcast','season','management','crisis','victory','bankrupt'];
-export function createProduction({saved=null,seed=20261112,resetProgress=false}={}){
+export function createProduction({saved=null,seed=20261112,resetProgress=false,spatial=false,starterCamp=false}={}){
  let s={version:1,seed:seed>>>0,phase:'title',mode:'tutorial',cash:100000,initialCash:100000,season:1,day:1,businessDay:1,seasonDays:3,castSize:4,candidates:clone(CANDIDATES),cast:[],facilities:[],facts:[],clips:[],timeline:[],episodes:[],cases:[],ledger:[],audiences:[{id:'relationship',name:'关系观众',size:42,trust:75,fatigue:0,satisfaction:50},{id:'conflict',name:'冲突观众',size:35,trust:70,fatigue:0,satisfaction:50},{id:'observation',name:'观察观众',size:38,trust:80,fatigue:0,satisfaction:50}],inventory:{food:24,water:32,power:20},directorPoints:3,experience:0,reputation:55,upgrades:[],roster:[],rivals:[{id:'old',name:'老东家·星潮台',valuation:70000,share:28,acquired:false},{id:'group',name:'镜界传媒集团',valuation:110000,share:40,acquired:false}],segment:0,segmentElapsed:0,segmentDuration:45,segmentReady:false,paused:false,speed:1,interventions:[],cooperation:{},publicImpressions:{},knowledge:{},health:{},status:{},warnings:[],promises:[],preview:null,lastBroadcast:null,seasonReport:null,loan:null,loanUsedSeason:0,profitableSeasons:0,seasonStartCash:100000,seasonCapital:0,sponsorPaid:0,adRate:180,seenEvents:[],serial:0,unpaid:[],resumePhase:null,objective:'接下第一季委托，成为真正的综艺制作人。',selectedMap:'island',maps:['island'],catalog:{facilities:clone(FACILITY_TYPES),styles:clone(STYLES),upgrades:clone(UPGRADES)}};
  // Reopening keeps authored characters only, never money, contracts or NPC history.
  if(saved&&resetProgress){
@@ -59,7 +64,8 @@ export function createProduction({saved=null,seed=20261112,resetProgress=false}=
    }
   }
  }
- if(saved&&!resetProgress){const c=typeof saved==='string'?JSON.parse(saved):clone(saved);if(c?.version!==1||!PHASES.includes(c.phase)||!Number.isFinite(c.cash)||!Array.isArray(c.ledger)||!Array.isArray(c.facts)||!Array.isArray(c.clips)||!Array.isArray(c.cases)||!Array.isArray(c.cast)||!c.inventory||!c.cooperation)throw new Error('制作人存档不兼容；请保留原档并开始新档。');s=c;}
+ if(saved&&!resetProgress){const c=typeof saved==='string'?JSON.parse(saved):clone(saved);if(c?.version!==1||!PHASES.includes(c.phase)||!Number.isFinite(c.cash)||!Array.isArray(c.ledger)||!Array.isArray(c.facts)||!Array.isArray(c.clips)||!Array.isArray(c.cases)||!Array.isArray(c.cast)||!c.inventory||!c.cooperation)throw new Error('制作人存档不兼容；请保留原档并开始新档。');if(c.camp)validateCamp(c.camp);s=c;}
+ if(spatial){s.camp??=(starterCamp&&(!saved||resetProgress)?newIslandCamp():newCamp());if(starterCamp)s.camp.islandArtGrid=true;if(!s.camp.bought){const previous=s.camp;s.camp=Object.assign(newCamp(),previous);for(const kind of new Set([...Object.keys(previous.inventory),...previous.placed.map(v=>v.kind)]))s.camp.bought[kind]=(previous.inventory[kind]||0)+previous.placed.filter(v=>v.kind===kind).length;}}
  for(const person of s.candidates)if(person.appearance)person.appearance=normalizeAppearance(person.appearance);
  s.market??={pool:160,report:[]};s.rivals.forEach((r,i)=>{r.baseValuation??=r.valuation;r.budget??=12000+i*6000;r.quality??=52+i*6;});
  s.catalog.maps=clone(MAPS);s.catalog.facilities=clone(FACILITY_TYPES);s.regulation??={level:0,status:'normal',untilBusinessDay:0,trainingDone:false,reason:''};
@@ -88,14 +94,21 @@ export function createProduction({saved=null,seed=20261112,resetProgress=false}=
   const before=s.cash;s.cash+=amount;s.ledger.push({id:key,day:s.businessDay,season:s.season,amount,label,before,after:s.cash});return true;
  }
  function settleUnpaid(){for(const t of [...s.unpaid])if(ledger(t.id,t.amount,t.label))s.unpaid=s.unpaid.filter(x=>x.id!==t.id);if(!s.unpaid.length&&s.phase==='crisis'){s.phase=s.resumePhase||'build';s.resumePhase=null;if(s.pendingMaintenanceSeasonEnd){s.pendingMaintenanceSeasonEnd=false;endSeason();}}}
- function placementValid(type,x,z,ignore=null){
+ function placementValid(type,x,z,ignore=null,rot=0){
   if(!facility(type)||!Number.isFinite(x)||!Number.isFinite(z)||x< -8||x>9||z< -10||z>10)return '请放在可建设的平坦生活区内。';
   if(Math.abs(x)<1.6&&z<3&&z> -2)return '中央通行与应急走廊必须保持畅通。';
+  if(spatial&&s.selectedMap==='island')return facilityConflict(makeGrid(s.camp||newCamp(),s.businessDay),{type,x,z,rot},s.facilities,ignore);
   const radius=facility(type).radius;
+  if(spatial&&s.selectedMap==='island'&&s.camp?.placed.some(b=>overlapsFacility(b,{x,z,radius})))return '这里已有营地建筑。';
   if(s.facilities.some(f=>f.id!==ignore&&Math.hypot(f.x-x,f.z-z)<facility(f.type).radius+radius+.3))return '设施间距不足，入口和应急道路需要留空。';
   return null;
  }
- function place(type,x,z){const invalid=placementValid(type,x,z);if(invalid)return result(false,invalid);const f=facility(type);if(!ledger(id('build'),-f.cost,`建造${f.name}`))return result(false,'现金不足，无法购买设施。');s.facilities.push({id:id('facility'),type,name:f.name,x,z,cost:f.cost,condition:100,movedDay:0,enabled:true});emit('placement',{facilities:s.facilities});return result(true,`${f.name}已建成。`);}
+ function previewFacility(type,x,z,rot=0,ignore=null){
+  const pos=spatial&&s.selectedMap==='island'?facilityPosition(type,x,z,rot):{x,z};
+  if(!pos)return {ok:false,message:'设施坐标或旋转无效。'};
+  const message=placementValid(type,pos.x,pos.z,ignore,rot);return {...pos,ok:!message,message:message||''};
+ }
+ function place(type,x,z,rot=0){const placement=previewFacility(type,x,z,rot);if(!placement.ok)return result(false,placement.message);const f=facility(type);if(!ledger(id('build'),-f.cost,`建造${f.name}`))return result(false,'现金不足，无法购买设施。');s.facilities.push({id:id('facility'),type,name:f.name,x:placement.x,z:placement.z,...(placement.rot===undefined?{}:{rot:placement.rot}),cost:f.cost,condition:100,movedDay:0,enabled:true});emit('placement',{facilities:s.facilities});return result(true,`${f.name}已建成。`);}
  function currentDayClips(){return s.clips.filter(c=>c.season===s.season&&c.day===s.day);}
  function captureEligibility(event){
   if(s.phase!=='recording'||s.paused||s.segmentReady)return {ok:false,reason:'当前不在运行录制时段。'};
@@ -223,13 +236,14 @@ export function createProduction({saved=null,seed=20261112,resetProgress=false}=
   const cost=4800+s.facilities.reduce((v,f)=>v+facility(f.type).maintenance,0);const ep={id:key,season:s.season,day:s.day,mode,title:mode==='skip'?'本日停更':mode==='rescue'?'岛上的一天 · 补救短片':`荒岛恋综 第${s.day}集`,rating,revenue,cost,profit:revenue-cost,quality:mode==='skip'?0:p.quality,bias:mode==='skip'?0:p.bias,timeline:mode==='skip'?[]:clone(s.timeline),comments:mode==='skip'?['今天没有新节目，我们明天还会回来吗？']:[p.quality>=60?'这一集的节奏挺顺，想继续看看他们接下来怎么相处。':'人物之间的来龙去脉还不够清楚。',completenessComment,`关系观众 ${p.audiences[0].viewers} · 冲突观众 ${p.audiences[1].viewers} · 观察观众 ${p.audiences[2].viewers}`]};
   s.episodes.push(ep);s.lastBroadcast=ep;s.phase='broadcast';dayExpenses();s.objective='核对本集收入与观众反馈，处理争议后进入下一日。';return result(true,mode==='skip'?'停更已结算，日期仍将推进。':'节目已锁片播出，历史不能改写。');
  }
- function beginDay(){s.dailyCommission=null;s.segment=0;resetSegmentClock();s.segmentReady=false;s.paused=false;s.speed=1;s.directorPoints=3;s.timeline=[];s.preview=null;s.interventions=[];s.phase='build';s.objective=`第${s.day}日晨间：检查补给、机位与嘉宾合作，准备录制。`;s.businessDay++;dueCases();emit('day-start',{day:s.day,inventory:s.inventory,cooperation:s.cooperation});}
+ function beginDay(){s.dailyCommission=null;s.segment=0;resetSegmentClock();s.segmentReady=false;s.paused=false;s.speed=1;s.directorPoints=3;s.timeline=[];s.preview=null;s.interventions=[];s.phase='build';s.objective=`第${s.day}日晨间：检查补给、机位与嘉宾合作，准备录制。`;s.businessDay++;if(spatial&&s.camp&&s.selectedMap==='island')advanceCamp(s);dueCases();emit('day-start',{day:s.day,inventory:s.inventory,cooperation:s.cooperation});}
  function finishRecording(){cancelQueuedInterventions('录制结束，未发送指令取消');s.phase='editing';s.paused=false;s.segmentReady=false;s.objective='把真实镜头剪成同一条人物主线；低偏差、争议与停更都可以选择。';s.preview=evaluate();emit('recording-stop');return result(true,`今日取得${currentDayClips().length}张素材。进入剪辑室。`);}
  function segmentEnd(){
 
   for(const f of s.facilities){f.condition=Math.max(0,f.condition-(f.type==='camera'?1.5:1));if(f.condition<20)f.enabled=false;}
   s.inventory.power=Math.max(0,s.inventory.power-s.facilities.filter(f=>f.type==='camera').length-s.facilities.filter(f=>f.type==='heater'&&f.enabled).length*2-map().mechanics.powerPerSegment);
   if(s.inventory.food<s.cast.length||s.inventory.water<s.cast.length){s.warnings.push(`段末保障检查：当时食物${s.inventory.food}、饮水${s.inventory.water}；最低保障线为每类${s.cast.length}（任一低于即触发）。应急采购金额1800，追加食物${s.cast.length*2}、饮水${s.cast.length*2}。`);ledger(id('emergency'),-1800,'应急补给保障',{necessary:true});s.inventory.food+=s.cast.length*2;s.inventory.water+=s.cast.length*2;}
+  if(spatial&&s.camp&&s.selectedMap==='island'&&s.segment===1){const event=campStory(s);if(event){addFact(event);emit('camp-story',event);}}
   emit('period',{day:s.day,segment:s.segment});s.segment++;s.objective=s.segment===1?'已到下午：嘉宾继续自由生活，上午的关系会影响接下来的选择。':s.segment===2?'已到晚间：补齐主线结果，素材足够时随时收工。':'夜深了：嘉宾仍在生活，素材足够就可以收工进入剪辑。';
  }
  function syncActors(actors,elapsed=1){
@@ -241,13 +255,14 @@ export function createProduction({saved=null,seed=20261112,resetProgress=false}=
    const environmentFloor=s.selectedMap==='snow'?(warm.has(a.id)?15:92):map().mechanics.environment,privacyFloor=privateSpace?10:map().mechanics.privacy;
    const hunger=clamp(n.hunger||0),thirst=clamp(n.thirst??(s.inventory.water<=0?95:hunger*.6)),fatigue=clamp(n.energy||0),environment=clamp(s.selectedMap==='snow'?environmentFloor:n.environment??environmentFloor),privacy=clamp(Math.max(n.privacy||0,privacyFloor));
    if(s.selectedMap!=='island')emit('environment-state',{id:a.id,environment,privacy,warm:warm.has(a.id)});
-   const pressure=hunger*.25+thirst*.2+fatigue*.25+environment*.15+privacy*.15;s.pressure[a.id]=Math.round(pressure);
+   const pressure=Math.max(a.attributes?.despair||0,hunger*.25+thirst*.2+fatigue*.25+environment*.15+privacy*.15);s.pressure[a.id]=Math.round(pressure);
    if(old==='medical'){
     s.health[a.id]=Math.max(0,(s.health[a.id]||0)-dt*.8);const since=s.medicalSince[a.id];if(s.health[a.id]<30&&since&&(s.day>since.day||(!since.untilNextDay&&s.segment>since.segment)))s.status[a.id]='available';
    }else{
     s.dangerTime[a.id]=thirst>=90||environment>=90?(s.dangerTime[a.id]||0)+dt:0;
     if(s.dangerTime[a.id]>=12)s.health[a.id]=clamp((s.health[a.id]||0)+dt*2);else s.health[a.id]=Math.max(0,(s.health[a.id]||0)-dt*.05);
     s.cooperation[a.id]=clamp((s.cooperation[a.id]??80)+(pressure>=70?-dt*.1:pressure<35?dt*.01:0));
+    if(a.attributes&&(a.attributes.health<=10||a.attributes.infection>=85||a.attributes.parts.head<=0||(a.attributes.parts.legL<=0&&a.attributes.parts.legR<=0)))s.health[a.id]=Math.max(s.health[a.id],80);
     if(s.health[a.id]>=60){s.status[a.id]='medical';s.unavailableSince[a.id]=s.day;s.medicalSince[a.id]={day:s.day,segment:s.segment,untilNextDay:s.health[a.id]>=80};ledger(id('rescue'),-1500,'场外医务保障',{necessary:true});}
     else if(s.cooperation[a.id]<15)s.status[a.id]='negotiating';else if(s.cooperation[a.id]<30)s.status[a.id]='refusing';else s.status[a.id]='available';
    }
@@ -257,6 +272,19 @@ export function createProduction({saved=null,seed=20261112,resetProgress=false}=
   return result(true,'现场压力与录制资格已同步。');
  }
  function dispatch(type,p={}){
+  if(type==='campDecision'&&spatial&&s.phase==='recording'&&s.camp){
+    const fact=s.facts.findLast(f=>f.sceneId===p.sceneId&&f.businessDay===s.businessDay);
+    if(!fact||fact.playerChoice||!['C1','C2'].includes(p.option))return result(false,'当前没有可回应的营地事件。');
+    fact.playerChoice=p.option;fact.result+=' · '+p.text;return result(true,'已记录制作人回应。');
+  }
+  if(type==='campEdit'){
+    if(!spatial||s.selectedMap!=='island'||!(buildWindow()||s.phase==='recording')||s.speed>=16)return {ok:false,code:'LOCKED',message:'当前无法编辑营地。'};
+    if(p.op==='loadBlueprint'){try{const loaded=unpack(p.code);if(loaded.placed.some(b=>s.facilities.some(f=>overlapsFacility(b,{...f,radius:facility(f.type).radius},loaded))))return result(false,'蓝图中的建筑与当前节目设施重叠。');if(loaded.day!==s.businessDay)loaded.used=0;loaded.day=s.businessDay;if(isCampWinter(s.businessDay))loaded.crew=0;loaded.version=Math.max(loaded.version,s.camp?.version||0)+1;loaded.gridRevision=Math.max(loaded.gridRevision||0,s.camp?.gridRevision||0)+1;loaded.events=[];s.camp=loaded;emit('placement',{facilities:s.facilities});return result(true,'营地蓝图已恢复。');}catch(e){return result(false,e.message);}}
+    const camp=s.camp||newCamp();
+    const r=editCamp(camp,s.businessDay,p,{facilities:s.facilities.map(f=>({...f,radius:facility(f.type).radius})),cast:s.cast.filter(id=>!['left','medical'].includes(s.status[id])),winter:isCampWinter(s.businessDay)});
+    if(r.ok){s.camp=camp;emit('placement',{facilities:s.facilities});}
+    return r;
+  }
   if(type==='deleteCandidate'){
    const c=candidate(p.id);if(!c?.custom)return result(false,'只能删除自建人物。');
    if(c.hasAppeared||s.cast.includes(c.id)||s.roster.some(r=>r.id===c.id)||s.reserves.some(r=>r.id===c.id)||s.facts.some(f=>f.participants?.includes(c.id)))return result(false,'这位人物已有参演或合约记录，需保留身份与历史；仍可编辑形象。');
@@ -312,13 +340,13 @@ export function createProduction({saved=null,seed=20261112,resetProgress=false}=
   if(type==='reportIntervention'){const last=p.instructionId?s.interventions.find(i=>i.id===p.instructionId):s.interventions.find(i=>i.day===s.day&&i.executionState==='sent'&&!i.response&&['group','mole','interview','contest'].includes(i.kind));if(s.phase!=='recording'||!last||last.executionState!=='sent'||last.day!==s.day||typeof p.message!=='string')return result(false,'没有本段可回执的导演指令。');last.response={message:p.message.slice(0,240),accepted:!!p.accepted};return result(true,'导演回执已保存。');}
   if(type==='syncActors')return syncActors(p.actors,p.elapsed);
   if(type==='consumeService'){
-   if(s.phase!=='recording'||s.paused||s.segmentReady)return result(false,'非运行录制期间不交付现场物资。');if(!s.cast.includes(p.actorId)||!['food','water'].includes(p.kind))return result(false,'服务对象或物资类型不合法。');const f=s.facilities.find(f=>f.id===p.facilityId);if(!f||!f.enabled||f.type!==(p.kind==='food'?'table':'water'))return result(false,'设施无法提供这项服务。');if(s.inventory[p.kind]<1)return result(false,'库存不足，服务未交付；请补给后再试。');s.inventory[p.kind]--;
+   if(s.phase!=='recording'||s.paused||s.segmentReady)return result(false,'非运行录制期间不交付现场物资。');if(!s.cast.includes(p.actorId)||!['food','water'].includes(p.kind))return result(false,'服务对象或物资类型不合法。');const building=s.selectedMap==='island'&&s.camp?.placed.find(v=>'camp-'+v.id===p.facilityId);const f=s.facilities.find(f=>f.id===p.facilityId)||(building&&{id:p.facilityId,enabled:!building.damaged,type:({well:'water',kitchen:'table',shop:'table'})[building.kind]});if(!f||!f.enabled||f.type!==(p.kind==='food'?'table':'water'))return result(false,'设施无法提供这项服务。');if(s.inventory[p.kind]<1)return result(false,'库存不足，服务未交付；请补给后再试。');s.inventory[p.kind]--;
    const rule=s.publicRules.water,key=`reward-${s.season}-${s.day}-${s.segment}-${p.actorId}`;
    if(p.kind==='water'&&p.ruleCompliant===true&&rule?.policy==='reward'&&rule.season===s.season&&!s.publicRewards.some(r=>r.id===key)){
     if(s.inventory.food>=rule.rewardUnits){s.inventory.food-=rule.rewardUnits;const reward={id:key,day:s.day,season:s.season,segment:s.segment,actorId:p.actorId,leaderId:rule.leaderId,facilityId:f.id,units:rule.rewardUnits,ruleVersion:rule.version};s.publicRewards.push(reward);s.publicRuleLog.push({...reward,type:'public-reward',text:`${candidate(p.actorId).name}遵守公开水站规则，领取${rule.rewardUnits}份食物。`});emit('public-reward',reward);}
     else emit('public-reward-unavailable',{actorId:p.actorId,ruleVersion:rule.version,reason:'食物库存不足，公开承诺未兑现。'});
    }
-   return result(true,'已交付一单位物资。');
+   return {...result(true,'已交付一单位物资。'),lastUnit:s.inventory[p.kind]===0};
   }
   if(type==='unlockMap'&&['season','management'].includes(s.phase)){const m=MAPS.find(m=>m.id===p.id);if(!m||s.maps.includes(m.id))return result(false,'该场地不存在或已经解锁。');if(s.experience<m.xp||s.reputation<m.reputation)return result(false,`需要经验${m.xp}、信誉${m.reputation}。`);if(!ledger(`map-${m.id}`,-m.cost,`购买${m.name}场地资格`))return result(false,'场地购买资金不足。');s.maps.push(m.id);return result(true,`${m.name}已解锁，下季选角阶段可选择场地。`);}
   if(type==='selectMap'&&s.phase==='casting'){if(!s.maps.includes(p.id))return result(false,'需要先在公司经营购买该场地资格。');s.selectedMap=p.id;emit('map-changed',{id:p.id,mechanics:map().mechanics});return result(true,`${map().name}已选定，筹备费用与环境规则随场地变化。`);}
@@ -330,7 +358,7 @@ export function createProduction({saved=null,seed=20261112,resetProgress=false}=
      if(s.inventory.food>=1){s.inventory.food--;emit('contest-reward',{instructionId:i.id,actorId:e.winnerId,units:1});i.prizeDelivered=true;}else{emit('contest-reward-unavailable',{instructionId:i.id,actorId:e.winnerId,reason:'比赛完成，但食物奖品库存不足。'});i.prizeDelivered=false;}
     }
    }return observed;}
-  if(type==='start'&&s.phase==='bankrupt'){const library=clone(s.candidates);s=createProduction({seed:s.seed}).serialize();for(const c of library){const original=s.candidates.find(x=>x.id===c.id);if(original){original.name=c.name;if(c.appearance)original.appearance=c.appearance;}else if(c.custom)s.candidates.push({...c,secretKnown:false});}s.serial=Math.max(s.serial,...library.filter(c=>c.custom).map(c=>Number(c.id.split('-').at(-1))||0));effects=[];}
+  if(type==='start'&&s.phase==='bankrupt'){const library=clone(s.candidates);s=createProduction({seed:s.seed,spatial,starterCamp}).serialize();for(const c of library){const original=s.candidates.find(x=>x.id===c.id);if(original){original.name=c.name;if(c.appearance)original.appearance=c.appearance;}else if(c.custom)s.candidates.push({...c,secretKnown:false});}s.serial=Math.max(s.serial,...library.filter(c=>c.custom).map(c=>Number(c.id.split('-').at(-1))||0));effects=[];}
   if(type==='start'&&s.phase==='title'){s.mode=p.mode==='standard'?'standard':'tutorial';s.castSize=s.mode==='standard'?6:4;s.seasonDays=s.mode==='standard'?7:3;s.segmentBaseDuration=s.mode==='standard'?120:90;resetSegmentClock();s.phase='casting';s.objective=`从${s.candidates.length}名候选中选择${s.castSize}名，预留建设与两日运行费用。`;return result(true,'第一季招募开始。');}
   if(type==='toggleCast'&&s.phase==='casting'){const c=candidate(p.id);if(!c)return result(false,'没有这位候选。');if(s.roster.some(r=>r.id===c.id&&r.job!=='show'))return result(false,'此艺人本季安排了商务或休养，不能同时录制。');if(s.experience<c.experienceRequired)return result(false,`招募需要制作经验${c.experienceRequired}。`);if(s.cast.includes(c.id))s.cast=s.cast.filter(x=>x!==c.id);else{if(s.cast.length>=s.castSize)return result(false,`本季最多${s.castSize}人。`);s.cast.push(c.id);}return result(true,'候选阵容已更新。');}
   if(type==='investigate'&&s.phase==='casting'){const c=candidate(p.id);if(!c||c.secretKnown)return result(false,'该信息已经调查或人物不存在。');if(!ledger(id('investigate'),s.upgrades.includes('research')?-350:-700,'试镜与背景访谈'))return result(false,'调查预算不足。');c.secretKnown=true;return result(true,`${c.name}的隐藏诉求：${c.secret}`);}
@@ -339,12 +367,12 @@ export function createProduction({saved=null,seed=20261112,resetProgress=false}=
    for(const who of s.cast)if(candidate(who).custom)candidate(who).hasAppeared=true;
    ledger(`contracts-${s.season}`,-fees,'开季嘉宾合约');ledger(`preparation-${s.season}`,-map().prepFee,'场地筹备与制作团队');s.cooperation=Object.fromEntries(s.cast.map(c=>[c,s.cooperation[c]??80]));s.health=Object.fromEntries(s.cast.map(c=>[c,0]));s.status=Object.fromEntries(s.cast.map(c=>[c,'available']));s.segment=0;resetSegmentClock();s.segmentReady=false;s.paused=false;s.directorPoints=3;s.interventions=[];s.phase='build';s.objective='营地是空的：布置水站、餐台、床位和机位，让节目真正能开拍。';emit('cast',{cast:s.cast,candidates:s.cast.map(candidate)});emit('map-changed',{id:s.selectedMap,mechanics:map().mechanics});return result(true,'合约已签，进入场地布置。');
   }
-  if(type==='place'&&buildWindow())return place(p.type,Number(p.x),Number(p.z));
+  if(type==='place'&&buildWindow())return place(p.type,Number(p.x),Number(p.z),p.rot??0);
   if(type==='autoBuild'&&buildWindow()){
-   const plan=[['water',-6,-1],['table',6,2],['tent',-3,-7],['camera',2,-3],['fire',0,7],['interview',6,-6]];const missing=plan.filter(([t])=>!s.facilities.some(f=>f.type===t));if(s.selectedMap==='snow'){const count=s.facilities.filter(f=>f.type==='heater').length;if(count<1)missing.push(['heater',-5,4]);if(count<2)missing.push(['heater',5,6]);}const cost=missing.reduce((v,[t])=>v+facility(t).cost,0);if(s.cash<cost)return result(false,'基础方案预算不足，可逐项建设或降低规模。');let count=0;for(const [t,x,z]of missing){const r=place(t,x,z);if(r.ok)count++;}return result(count>0,count?`已按基础方案付费建设${count}项设施。`:'所需设施已存在，或原位被占用。');
+   const plan=[['water',-6,-1],['table',6,2],['tent',...(spatial&&s.selectedMap==='island'?[-5.25,-6]:[-3,-7])],['camera',2,-3],['fire',0,7],['interview',6,-6]];const missing=plan.filter(([t])=>!s.facilities.some(f=>f.type===t));if(s.selectedMap==='snow'){const count=s.facilities.filter(f=>f.type==='heater').length;if(count<1)missing.push(['heater',-5,4]);if(count<2)missing.push(['heater',5,6]);}const cost=missing.reduce((v,[t])=>v+facility(t).cost,0);if(s.cash<cost)return result(false,'基础方案预算不足，可逐项建设或降低规模。');let count=0;for(const [t,x,z]of missing){const r=place(t,x,z);if(r.ok)count++;}return result(count>0,count?`已按基础方案付费建设${count}项设施。`:'所需设施已存在，或原位被占用。');
   }
   if(type==='remove'&&buildWindow()){const f=s.facilities.find(f=>f.id===p.id);if(!f)return result(false,'设施不存在。');ledger(`remove-${f.id}`,f.cost*.4*f.condition/100,`拆除${f.name}回收`);s.facilities=s.facilities.filter(x=>x.id!==f.id);emit('placement',{facilities:s.facilities});settleUnpaid();return result(true,'设施已拆除，回收40%残值。');}
-  if(type==='move'&&buildWindow()){const f=s.facilities.find(f=>f.id===p.id);if(!f||f.movedDay===s.businessDay)return result(false,'设施不存在或今天已经移动过。');const invalid=placementValid(f.type,Number(p.x),Number(p.z),f.id);if(invalid)return result(false,invalid);if(!ledger(id('move'),-f.cost*.1,`移位${f.name}`))return result(false,'移位费不足。');f.x=Number(p.x);f.z=Number(p.z);f.movedDay=s.businessDay;emit('placement',{facilities:s.facilities});return result(true,'支付10%施工费，动线已改变。');}
+  if(type==='move'&&buildWindow()){const f=s.facilities.find(f=>f.id===p.id);if(!f||f.movedDay===s.businessDay)return result(false,'设施不存在或今天已经移动过。');const placement=previewFacility(f.type,Number(p.x),Number(p.z),p.rot??f.rot??0,f.id);if(!placement.ok)return result(false,placement.message);if(!ledger(id('move'),-f.cost*.1,`移位${f.name}`))return result(false,'移位费不足。');f.x=placement.x;f.z=placement.z;if(placement.rot!==undefined)f.rot=placement.rot;f.movedDay=s.businessDay;emit('placement',{facilities:s.facilities});return result(true,'支付10%施工费，动线已改变。');}
   if(type==='repair'&&buildWindow()){const f=s.facilities.find(f=>f.id===p.id);if(!f||f.condition>=100)return result(false,'设施不存在或无需维修。');const cost=Math.ceil(f.cost*.25*(100-f.condition)/100);if(!ledger(id('repair'),-cost,`维修${f.name}`))return result(false,'维修费用不足。');f.condition=100;f.enabled=true;emit('placement',{facilities:s.facilities});return result(true,`${f.name}已恢复完好，花费${cost}。`);}
   if(type==='supply'&&buildWindow()){const amount=Math.floor(Number(p.amount)||12),prices=SUPPLY_PRICES;if(!prices[p.kind]||amount<=0||amount>100)return result(false,'请选择1至100单位合法补给。');if(!ledger(id('supply'),-amount*prices[p.kind],`采购${p.kind}`))return result(false,'采购预算不足。');s.inventory[p.kind]+=amount;return result(true,'补给已抵达。');}
   if(type==='support'&&['build','recording','broadcast'].includes(s.phase)){
@@ -364,7 +392,7 @@ export function createProduction({saved=null,seed=20261112,resetProgress=false}=
   if(type==='finishRecording'&&s.phase==='recording')return finishRecording();
   if(type==='remediate'&&['build','management','season'].includes(s.phase)){if(s.regulation.status!=='suspended')return result(false,'当前无需停播整改。');if(s.regulation.trainingDone)return result(false,'制作整改已经完成。');if(!ledger(id('remediation'),-2500,'制作流程整改与人员培训'))return result(false,'整改资金不足，可先处理资产。');s.regulation.trainingDone=true;refreshRegulation();return result(true,'制作流程已整改；公开案件仍须处理，监管日期仍须推进。');}
   if(type==='maintenanceDay'&&['build','management','season'].includes(s.phase)){
-   const active=s.phase==='build',previous=s.phase,before=s.businessDay;s.dailyCommission=null;ledger(`maintenance-${before}`,-(active?4800+s.facilities.reduce((v,f)=>v+facility(f.type).maintenance,0):3000),'维护日团队与保障费用',{necessary:true});s.businessDay++;
+   const active=s.phase==='build',previous=s.phase,before=s.businessDay;s.dailyCommission=null;ledger(`maintenance-${before}`,-(active?4800+s.facilities.reduce((v,f)=>v+facility(f.type).maintenance,0):3000),'维护日团队与保障费用',{necessary:true});s.businessDay++;if(spatial&&s.camp&&s.selectedMap==='island')advanceCamp(s);
    for(const who of s.cast){if(s.status[who]==='medical'){s.health[who]=Math.max(0,s.health[who]-35);if(s.health[who]<30){s.status[who]='available';emit('health-status',{id:who,status:'available',health:s.health[who],cooperation:s.cooperation[who]});}}s.cooperation[who]=clamp((s.cooperation[who]??70)+3);}
    dueCases();refreshRegulation();if(s.phase==='crisis'){if(active){if(s.day>=s.seasonDays)s.pendingMaintenanceSeasonEnd=true;else{s.day++;s.segment=0;resetSegmentClock();s.directorPoints=3;s.interventions=[];s.timeline=[];s.preview=null;emit('day-start',{day:s.day,inventory:s.inventory,cooperation:s.cooperation});}}return result(true,'维护日与经营日期已推进，结清必要费用后继续。');}
    if(active){if(s.day>=s.seasonDays)return endSeason();s.day++;s.segment=0;resetSegmentClock();s.directorPoints=3;s.interventions=[];s.timeline=[];s.preview=null;s.phase='build';}else s.phase=previous;
@@ -401,7 +429,7 @@ export function createProduction({saved=null,seed=20261112,resetProgress=false}=
    if(s.loan){const debt=Math.ceil(s.loan.principal*1.1);if(!ledger(`repay-${s.loan.season}`,-debt,'偿还过桥贷款本息'))return result(false,'需先偿还贷款才能开下一季。');s.loan=null;}
    if(s.unpaid.length){settleUnpaid();if(s.unpaid.length)return result(false,'存在到期未付责任，请先处理或清算。');}
    const minimum=s.candidates.filter(c=>!s.roster.some(r=>r.id===c.id&&r.job!=='show')).sort((a,b)=>a.cost-b.cost).slice(0,6).reduce((v,c)=>v+c.cost,0)+openingReserve();if(s.cash<minimum)return result(false,`开季最低自有资金为${minimum}；请留在经营界面处理资产或清算公司。`);
-   s.season++;s.replacementCount=0;s.dailyCommission=null;s.publicRules.water=null;s.day=1;s.businessDay++;s.adRate=clamp(180+Math.round((s.reputation-55)*1.5),140,260);s.mode='standard';s.castSize=6;s.seasonDays=7;s.segmentBaseDuration=120;resetSegmentClock();s.seasonStartCash=s.cash;s.seasonReport=null;s.cast=[];s.facilities=[];s.inventory={food:36,water:42,power:24};s.sponsorPaid=0;s.timeline=[];s.preview=null;s.phase='casting';s.objective=`第${s.season}季招募：过去的关系与争议不会重置。`;dueCases();
+   s.season++;s.replacementCount=0;s.dailyCommission=null;s.publicRules.water=null;s.day=1;s.businessDay++;if(spatial&&s.camp&&s.selectedMap==='island')advanceCamp(s);s.adRate=clamp(180+Math.round((s.reputation-55)*1.5),140,260);s.mode='standard';s.castSize=6;s.seasonDays=7;s.segmentBaseDuration=120;resetSegmentClock();s.seasonStartCash=s.cash;s.seasonReport=null;s.cast=[];s.facilities=[];s.inventory={food:36,water:42,power:24};s.sponsorPaid=0;s.timeline=[];s.preview=null;s.phase='casting';s.objective=`第${s.season}季招募：过去的关系与争议不会重置。`;dueCases();
    for(const r of s.roster){if(r.job==='commerce'){const value=1800+(s.publicImpressions[r.id]||0)*60;ledger(`commerce-${s.season}-${r.id}`,value-700,'艺人商务扣除保底后收益');}else if(r.job==='rest')s.cooperation[r.id]=clamp((s.cooperation[r.id]||60)+8);else ledger(`retainer-${s.season}-${r.id}`,-700,'签约艺人保底');r.lastPaidSeason=s.season;}
    return result(true,'新季筹备已消耗一个经营日，旧案件继续计时。');
   }
@@ -409,5 +437,5 @@ export function createProduction({saved=null,seed=20261112,resetProgress=false}=
   if(type==='liquidate'&&['crisis','season','management','build','casting'].includes(s.phase)){cancelQueuedInterventions('公司清算，未发送指令取消');for(const f of s.facilities)ledger(`salvage-${f.id}`,f.cost*.4*f.condition/100,`${f.name}清算残值`);s.facilities=[];s.phase='bankrupt';s.objective='本次经营结束。制作档案保留供复盘，新档不继承资金。';emit('placement',{facilities:[]});return result(true,'公司已清算，经营档结束。');}
   return result(false,'当前阶段不能执行此操作。');
  }
- return {canCaptureEvent:event=>captureEligibility(event).ok,getRuntime:()=>clone({phase:s.phase,paused:s.paused,speed:s.speed,day:s.day,season:s.season,segment:s.segment,segmentReady:s.segmentReady,segmentElapsed:s.segmentElapsed,recordingElapsed:s.recordingElapsed||0,segmentDuration:s.segmentDuration,segmentBaseDuration:s.segmentBaseDuration,segmentExtensionsUsed:s.segmentExtensionsUsed,segmentExtensionsRemaining:2-s.segmentExtensionsUsed,canExtendRecording:canExtendRecording(),cast:s.cast,facilities:s.facilities,status:s.status,cooperation:s.cooperation,inventory:s.inventory,selectedMap:s.selectedMap,mapMechanics:map().mechanics,regulation:s.regulation,publicRules:s.publicRules}),getState(){const out=clone(s);out.segmentExtensionsRemaining=2-s.segmentExtensionsUsed;out.canExtendRecording=canExtendRecording();out.catalog.supplyPrices=clone(SUPPLY_PRICES);out.buildWindow=buildWindow();out.availableClips=currentDayClips().length;out.authenticityDebt=s.cases.filter(c=>!c.corrected).reduce((v,c)=>v+c.severity,0);out.nextDailyCost=4800+s.facilities.reduce((v,f)=>v+facility(f.type).maintenance,0);return out;},serialize:()=>clone(s),dispatch,drainEffects(){const out=effects;effects=[];return out;},update(dt){if(s.phase!=='recording'||s.paused||s.segmentReady||!Number.isFinite(dt)||dt<=0)return;const step=Math.min(dt,2)*s.speed;s.recordingElapsed=(s.recordingElapsed||0)+step;s.segmentElapsed+=step;while(s.phase==='recording'&&s.segmentDuration>0&&s.segmentElapsed>=s.segmentDuration){s.segmentElapsed-=s.segmentDuration;segmentEnd();}}};
+ return {previewFacility,canCaptureEvent:event=>captureEligibility(event).ok,getRuntime:()=>clone({...snapshot(spatial?s.camp:null,s.businessDay),phase:s.phase,paused:s.paused,speed:s.speed,day:s.day,season:s.season,segment:s.segment,segmentReady:s.segmentReady,segmentElapsed:s.segmentElapsed,recordingElapsed:s.recordingElapsed||0,segmentDuration:s.segmentDuration,segmentBaseDuration:s.segmentBaseDuration,segmentExtensionsUsed:s.segmentExtensionsUsed,segmentExtensionsRemaining:2-s.segmentExtensionsUsed,canExtendRecording:canExtendRecording(),cast:s.cast,facilities:s.facilities,status:s.status,cooperation:s.cooperation,inventory:s.inventory,selectedMap:s.selectedMap,mapMechanics:map().mechanics,regulation:s.regulation,publicRules:s.publicRules}),getSpatialGrid:version=>gridDelta(spatial?s.camp:null,version),getSpatialSnapshot:()=>snapshot(spatial?s.camp:null,s.businessDay),getState(){const out=clone(s);out.segmentExtensionsRemaining=2-s.segmentExtensionsUsed;out.canExtendRecording=canExtendRecording();out.catalog.supplyPrices=clone(SUPPLY_PRICES);out.buildWindow=buildWindow();out.availableClips=currentDayClips().length;out.authenticityDebt=s.cases.filter(c=>!c.corrected).reduce((v,c)=>v+c.severity,0);out.nextDailyCost=4800+s.facilities.reduce((v,f)=>v+facility(f.type).maintenance,0);return out;},serialize:()=>clone(s),dispatch,drainEffects(){const out=effects;effects=[];return out;},update(dt){if(s.phase!=='recording'||s.paused||s.segmentReady||!Number.isFinite(dt)||dt<=0)return;const step=Math.min(dt,2)*s.speed;s.recordingElapsed=(s.recordingElapsed||0)+step;s.segmentElapsed+=step;while(s.phase==='recording'&&s.segmentDuration>0&&s.segmentElapsed>=s.segmentDuration){s.segmentElapsed-=s.segmentDuration;segmentEnd();}}};
 }

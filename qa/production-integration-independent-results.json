@@ -17,12 +17,13 @@
         "facts": 39,
         "clips": 26,
         "activities": {
-          "sing": 3,
+          "sing": 2,
           "argue": 1,
           "eat": 4,
           "chat": 2,
           "share": 1,
-          "watch": 1
+          "watch": 1,
+          "rest": 1
         }
       }
     }

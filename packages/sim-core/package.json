@@ -1,0 +1,23 @@
+{
+  "name": "@cruel-isle/sim-core",
+  "version": "0.2.0",
+  "description": "残酷小岛 · 确定性生存社会模拟核心（零依赖，零 three/WebGPU，Node / Worker 通用）",
+  "type": "module",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": ["src"],
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "gen": "node ../../tools/gen-data.mjs",
+    "typecheck": "tsc -p tsconfig.json",
+    "parity": "node ../../tools/parity.mjs"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.9.0"
+  }
+}

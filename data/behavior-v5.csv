@@ -1,0 +1,15 @@
+id,need,level,tier,affordance,base,skill_gate,cooldown_min,duration_s,delta,side_effect
+EatHand,Satiety,L1,M16,has_food_in_hand,1.2,-,0,6,+25,
+SeekFood,Satiety,L2,M46,food_source_nearby,1.2,-,0,40,+45,
+BegFood,Satiety,L2,M46,person_with_food,1.0,-,30,25,+20,
+StealFood,Satiety,L3,M84,person_holding_food,1.6,-,120,15,+30,Bond:-40
+EatRot,Satiety,L3,M84,rotten_food,1.3,-,0,10,+15,Poison:+20
+EatNonFood,Satiety,L3,M84,grass_or_leather,0.4,-,0,20,+5,Health:-5;Despair:+15
+DrinkClean,Hydration,L1,M16,clean_water,1.2,-,0,6,+40,
+BoilWater,Hydration,L2,M46,fire_and_raw_water,1.4,4,0,120,+45,
+DrinkDirty,Hydration,L3,M84,dirty_water,1.0,-,0,8,+25,Infection:+8
+WarmAtFire,Warmth,L2,M46,fire_lit,1.5,-,0,60,+40,
+BurnFurniture,Warmth,L3,M84,furniture,1.1,-,0,90,+35,Durability:-1
+Huddle,Warmth,L3,M84,friend_with_bond_120,0.9,-,0,120,+20,
+SelfTreat,Health,L2,M46,medkit,1.2,4,0,40,-15,FailureInfection:+8
+CallHelp,Health,L3,M78,person_within_15m,1.4,-,30,10,0,

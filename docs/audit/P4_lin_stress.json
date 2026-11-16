@@ -1,0 +1,134 @@
+{
+  "raise_arm": {
+    "handTorsoTrianglePairs": {
+      "Mittenl": 0,
+      "Mittenr": 0,
+      "Thumbl": 0,
+      "Thumbr": 0
+    },
+    "minEdgeRatio": 0.9999575472154151,
+    "maxEdgeRatio": 1.0000511309996558,
+    "mostCompressed": "Thumbl"
+  },
+  "hip_flexion": {
+    "handTorsoTrianglePairs": {
+      "Mittenl": 0,
+      "Mittenr": 0,
+      "Thumbl": 0,
+      "Thumbr": 0
+    },
+    "minEdgeRatio": 0.9999907609092772,
+    "maxEdgeRatio": 1.0000061536733282,
+    "mostCompressed": "TrouserLegl"
+  },
+  "head_turn": {
+    "handTorsoTrianglePairs": {
+      "Mittenl": 0,
+      "Mittenr": 0,
+      "Thumbl": 0,
+      "Thumbr": 0
+    },
+    "minEdgeRatio": 0.9999789679477453,
+    "maxEdgeRatio": 1.0000144040872065,
+    "mostCompressed": "ear_fold_r"
+  },
+  "elbow_90": {
+    "handTorsoTrianglePairs": {
+      "Mittenl": 0,
+      "Mittenr": 0,
+      "Thumbl": 0,
+      "Thumbr": 0
+    },
+    "minEdgeRatio": 0.642229609889176,
+    "maxEdgeRatio": 1.416228603456267,
+    "mostCompressed": "Arml"
+  },
+  "knee_90": {
+    "handTorsoTrianglePairs": {
+      "Mittenl": 0,
+      "Mittenr": 0,
+      "Thumbl": 0,
+      "Thumbr": 0
+    },
+    "minEdgeRatio": 0.7623880865804129,
+    "maxEdgeRatio": 1.4017107947460605,
+    "mostCompressed": "TrouserLegl"
+  },
+  "squat": {
+    "handTorsoTrianglePairs": {
+      "Mittenl": 0,
+      "Mittenr": 0,
+      "Thumbl": 0,
+      "Thumbr": 0
+    },
+    "minEdgeRatio": 0.760309226814099,
+    "maxEdgeRatio": 1.4670550600652537,
+    "mostCompressed": "TrouserLegl"
+  },
+  "torso_twist": {
+    "handTorsoTrianglePairs": {
+      "Mittenl": 0,
+      "Mittenr": 0,
+      "Thumbl": 0,
+      "Thumbr": 0
+    },
+    "minEdgeRatio": 0.9999312356326254,
+    "maxEdgeRatio": 1.0240498940900833,
+    "mostCompressed": "pupil_l"
+  },
+  "chair": {
+    "handTorsoTrianglePairs": {
+      "Mittenl": 0,
+      "Mittenr": 0,
+      "Thumbl": 0,
+      "Thumbr": 0
+    },
+    "minEdgeRatio": 0.7623887857230167,
+    "maxEdgeRatio": 1.4017121184262231,
+    "mostCompressed": "TrouserLegl"
+  },
+  "embrace": {
+    "handTorsoTrianglePairs": {
+      "Mittenl": 0,
+      "Mittenr": 0,
+      "Thumbl": 0,
+      "Thumbr": 0
+    },
+    "minEdgeRatio": 0.6780485786026919,
+    "maxEdgeRatio": 1.365714968010393,
+    "mostCompressed": "Armr"
+  },
+  "carry": {
+    "handTorsoTrianglePairs": {
+      "Mittenl": 0,
+      "Mittenr": 0,
+      "Thumbl": 0,
+      "Thumbr": 0
+    },
+    "minEdgeRatio": 0.7003097486576774,
+    "maxEdgeRatio": 1.3360796344440833,
+    "mostCompressed": "Arml"
+  },
+  "overhead": {
+    "handTorsoTrianglePairs": {
+      "Mittenl": 0,
+      "Mittenr": 0,
+      "Thumbl": 0,
+      "Thumbr": 0
+    },
+    "minEdgeRatio": 0.8825871088156341,
+    "maxEdgeRatio": 1.1219435215029465,
+    "mostCompressed": "Arml"
+  },
+  "stride": {
+    "handTorsoTrianglePairs": {
+      "Mittenl": 0,
+      "Mittenr": 0,
+      "Thumbl": 0,
+      "Thumbr": 0
+    },
+    "minEdgeRatio": 0.8403067510404172,
+    "maxEdgeRatio": 1.1981035991716957,
+    "mostCompressed": "TrouserLegr"
+  }
+}

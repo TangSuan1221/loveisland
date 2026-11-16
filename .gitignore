@@ -27,3 +27,13 @@ qa/**/*.zip
 
 # Local photo-derived results and exported appearances
 qa/photo-*.json
+
+# Archives, caches and editor backups
+*.zip
+__pycache__/
+*.pyc
+*.blend1
+build/*.tmp
+build/review-*/
+qa/.capture-helper-*/
+

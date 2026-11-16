@@ -1,0 +1,5 @@
+folder,requestedScene,label,fileLabel,screen,expression,body,headwear,pos,roomId,bone,light,camera,itemList,itemEffect,miiResolution
+daily,water,queue-yield,water,none,"wary,tender,tender",,,,,,,"wide,faceT,profile",,,128
+daily,water,queue-argue,water,none,"strained,wary,strained",,,,,,,"wide,faceT,profile",,,128
+daily,water,queue-apology,water,none,"wary,sad,tender",,,,,,,"wide,faceT,profile",,,128
+daily,water,queue-avoid,water,none,"wary,wary,sad",,,,,,,"wide,faceT,profile",,,128

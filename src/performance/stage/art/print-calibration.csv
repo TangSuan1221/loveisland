@@ -1,0 +1,4 @@
+stage,blackPoint,gamma,exposureEV,verticalEV,paperWhite
+hanami,0,1.10,-0.13,0.45,0.98
+cabin,0.0005,0.9425,0.3,1.125,0.96
+orb,0.002,0.565,0.30,3.225,0.82

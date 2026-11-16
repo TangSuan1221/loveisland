@@ -1,5 +1,8 @@
 import * as THREE from 'three';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
+import {updateCampfire} from './artStudy/campfire.js';
+import {createLiveBuilding} from './artStudy/liveBuildings.js';
+import {CELL_SIZE,FACILITY_FOOTPRINTS} from './camp/footprints.js';
 import { FOOTPRINT,createNavigation } from './production-navigation.js';
 
 export function createProductionScene(scene,island){
@@ -26,6 +29,10 @@ export function createProductionScene(scene,island){
   return null;
  }
  function model(type){
+  if(activeMap==='island' && FACILITY_FOOTPRINTS[type]){
+    const [w,h]=FACILITY_FOOTPRINTS[type];
+    return createLiveBuilding(THREE,type,w*CELL_SIZE,h*CELL_SIZE);
+  }
   if(activeMap==='villa'){const modernModel=modern(type);if(modernModel)return modernModel;}
   if(type==='heater'){const h=new THREE.Group();disc(h,'#68736b',0,.55,0,.45,1.1);cube(h,'#e6ad71',0,.6,.43,.54,.55,.035);for(const x of [-.2,0,.2])cube(h,'#5a665f',x,.6,.46,.025,.6,.03);disc(h,'#465a56',0,1.4,0,.13,.85);disc(h,'#747c70',0,1.05,0,.5,.12);return h;}
   const original=island.facilityTemplates[type];if(original){const o=original.clone(true);o.rotation.set(0,0,0);if(activeMap==='snow'){if(type==='tent')cube(o,'#e8efeb',0,2.04,0,.35,.13,2.25);if(type==='table')cube(o,'#dce8e3',0,1.05,0,2.4,.04,.9);if(type==='cabin')cube(o,'#e8eeea',0,3.03,0,.4,.13,2.8);}return o;}
@@ -40,7 +47,7 @@ export function createProductionScene(scene,island){
  const grid=new THREE.GridHelper(24,24,'#e7f1cd','#c0d6a6');grid.position.set(1,.56,1);grid.material.transparent=true;grid.material.opacity=.28;grid.visible=false;scene.add(grid);
  const emergency=new THREE.Group();emergency.position.set(-7,.5,10.5);cube(emergency,'#f2eedb',0,.55,0,1.4,1.1,1.2);cube(emergency,'#c37461',0,.8,.61,.6,.16,.03);cube(emergency,'#c37461',0,.8,.62,.16,.6,.03);group.add(emergency);
  let facilities=[],nav=createNavigation(),signature='';
- function sync(next){const sig=JSON.stringify(next.map(f=>[f.id,f.type,f.x,f.z,f.enabled]));if(sig===signature)return;signature=sig;facilities=next;nav=createNavigation(next);for(const child of [...coverage.children]){child.geometry.dispose();child.material.dispose();coverage.remove(child);}for(const f of next.filter(f=>f.type==='camera'&&f.enabled!==false)){const ring=new THREE.Mesh(new THREE.RingGeometry(coverageRange-.1,coverageRange,64),new THREE.MeshBasicMaterial({color:'#dfbd74',transparent:true,opacity:.7,side:THREE.DoubleSide,depthWrite:false}));ring.rotation.x=-Math.PI/2;ring.position.set(f.x,.57,f.z);coverage.add(ring);}
+ function sync(next){const sig=JSON.stringify(next.map(f=>[f.id,f.type,f.x,f.z,f.rot,f.enabled]));if(sig===signature)return;signature=sig;facilities=next;nav=createNavigation(next);for(const child of [...coverage.children]){child.geometry.dispose();child.material.dispose();coverage.remove(child);}for(const f of next.filter(f=>f.type==='camera'&&f.enabled!==false)){const ring=new THREE.Mesh(new THREE.RingGeometry(coverageRange-.1,coverageRange,64),new THREE.MeshBasicMaterial({color:'#dfbd74',transparent:true,opacity:.7,side:THREE.DoubleSide,depthWrite:false}));ring.rotation.x=-Math.PI/2;ring.position.set(f.x,.57,f.z);coverage.add(ring);}
   paths.clear();if(activeMap==='snow'&&next.length){
    const ctx=pathCanvas.getContext('2d'),px=v=>(v+14)/28*1024;ctx.clearRect(0,0,1024,1024);ctx.filter='blur(4px)';ctx.strokeStyle='rgba(158,177,178,0.17)';ctx.lineWidth=30;ctx.lineCap='round';ctx.lineJoin='round';ctx.shadowColor='rgba(150,176,180,0.18)';ctx.shadowBlur=12;ctx.beginPath();
    const hub=next.find(f=>f.type==='fire')||next.find(f=>f.type==='table')||next[0],target=nav.servicePoint(hub);
@@ -48,7 +55,8 @@ export function createProductionScene(scene,island){
    ctx.stroke();pathTexture.needsUpdate=true;const trail=new THREE.Mesh(pathGeometry,pathMaterial);trail.rotation.x=-Math.PI/2;trail.position.y=.524;paths.add(trail);
   }
   const ids=new Set(next.map(f=>f.id));for(const[id,obj]of models)if(!ids.has(id)){obj.removeFromParent();models.delete(id);}
-  for(const f of next){let obj=models.get(f.id);if(!obj){obj=model(f.type);obj.traverse(o=>o.userData.facilityId=f.id);models.set(f.id,obj);group.add(obj);}obj.position.set(f.x,.49,f.z);}
+  for(const f of next){let obj=models.get(f.id);if(!obj){obj=model(f.type);obj.traverse(o=>o.userData.facilityId=f.id);models.set(f.id,obj);group.add(obj);}obj.position.set(f.x,.49,f.z);if(activeMap==='island')obj.rotation.y=-(f.rot||0)*Math.PI/2;}
  }
- return{group,sync,setCoverageRange(range){if(!Number.isFinite(range)||range<=.1||range===coverageRange)return;coverageRange=range;signature='';sync(facilities);},setMap(id){if(id===activeMap)return;activeMap=id;for(const obj of models.values())obj.removeFromParent();models.clear();signature='';sync(facilities);},get navigation(){return nav;},get facilities(){return facilities;},setBuild(value){grid.visible=value;coverage.visible=value;},ghost(type,point,valid){ghost.visible=!!point;if(point){ghost.position.set(point.x,.59,point.z);ghost.scale.setScalar(FOOTPRINT[type]||1);ghost.material.color.set(valid?'#9dd48b':'#df806b');}},clearGhost(){ghost.visible=false;},objects:()=>[...models.values()]};
+ return{group,sync,updateFire(time){for(const obj of models.values())updateCampfire(obj,time);},setCoverageRange(range){if(!Number.isFinite(range)||range<=.1||range===coverageRange)return;coverageRange=range;signature='';sync(facilities);},setMap(id){if(id===activeMap)return;activeMap=id;for(const obj of models.values())obj.removeFromParent();models.clear();signature='';sync(facilities);},get navigation(){return nav;},get facilities(){return facilities;},setBuild(value){grid.visible=value;coverage.visible=value;},ghost(type,point,valid){ghost.visible=!!point;if(point){ghost.position.set(point.x,.59,point.z);ghost.scale.setScalar(FOOTPRINT[type]||1);ghost.material.color.set(valid?'#9dd48b':'#df806b');}},clearGhost(){ghost.visible=false;},objects:()=>[...models.values()]};
 }
+

@@ -1,0 +1,83 @@
+.cinema-fx {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  overflow: hidden;
+  contain: layout paint;
+}
+.cinema-fx-grade {
+  position: absolute;
+  inset: 0;
+}
+.cinema-fx[data-fx="warm"] .cinema-fx-grade {
+  background:
+    radial-gradient(ellipse at -6% 18%, #fff0b1ad 0%, #ffc99750 18%, transparent 51%),
+    linear-gradient(178deg, #ffc59f22 0%, transparent 56%, #eb977d2b 100%);
+}
+.cinema-fx[data-fx="cool"] .cinema-fx-grade {
+  background: radial-gradient(ellipse at var(--focus-x) var(--focus-y), transparent 12%, #56587926 66%, #35456c73 125%);
+}
+.cinema-fx[data-fx="vignette"] .cinema-fx-grade {
+  background: radial-gradient(ellipse at var(--focus-x) var(--focus-y), transparent 15%, #2720331a 50%, #1c192f81 102%);
+}
+.cinema-fx[data-fx="impact"] .cinema-fx-grade {
+  background: radial-gradient(ellipse at var(--focus-x) var(--focus-y), transparent 17%, #51364825 55%, #612e4299);
+}
+.cinema-fx-emitter {
+  position: absolute;
+  width: 0;
+  height: 0;
+  display: none;
+}
+.cinema-fx:is([data-fx="hearts"], [data-fx="spark"]) .cinema-fx-emitter {
+  display: block;
+}
+.cinema-fx-emitter i {
+  display: block;
+  position: absolute;
+  width: clamp(11px, 2.1vmin, 24px);
+  height: clamp(11px, 2.1vmin, 24px);
+}
+.cinema-fx[data-fx="hearts"] i {
+  filter: drop-shadow(0 0 3px #f9aec8a6);
+}
+.cinema-fx[data-fx="hearts"] i::before,
+.cinema-fx[data-fx="hearts"] i::after {
+  content: "";
+  position: absolute;
+  left: 48%;
+  top: 4%;
+  width: 54%;
+  height: 86%;
+  border-radius: 100% 100% 0 0;
+  background: #ff9cbb;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+.cinema-fx[data-fx="hearts"] i::after {
+  left: -6%;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+.cinema-fx[data-fx="spark"] i {
+  background: linear-gradient(125deg, #fffbdf, #ffdc94);
+  clip-path: polygon(50% 0%, 61% 38%, 100% 50%, 61% 62%, 50% 100%, 39% 62%, 0% 50%, 39% 38%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .cinema-fx-emitter i:nth-child(n+3) { display: none; }
+}
+
+[data-emotion-theme] .cinema-fx::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: var(--emotion-envelope, 0);
+  pointer-events: none;
+}
+[data-emotion-theme="tension"] .cinema-fx::before { background: radial-gradient(ellipse, transparent 24%, #79233a68 105%); }
+[data-emotion-theme="subdued"] .cinema-fx::before { background: linear-gradient(155deg, #6175902c, transparent 60%, #48527142); }
+[data-emotion-theme="warm"] .cinema-fx::before { background: radial-gradient(ellipse at 10% 0%, #ffbb7363, transparent 62%); }
+[data-emotion-theme="discovery"] .cinema-fx::before { background: radial-gradient(ellipse at 65% 30%, #edffe032, transparent 45%, #21685f42); }
+[data-emotion-theme="comic"] .cinema-fx::before { background: repeating-conic-gradient(from 12deg, transparent 0deg 12deg, #ffcf5d55 12.5deg 14deg); mask-image: radial-gradient(ellipse, transparent 40%, black 84%); }
+[data-emotion-theme] .cinema-fx[hidden] { display: block; }

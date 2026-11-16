@@ -18,3 +18,6 @@ qa/fixtures/face-portrait.jpg 是官方测试资源 https://storage.googleapis.c
 本地头发/眼镜分割使用 yakhyo/face-parsing 发布的 ResNet18 ONNX 权重（上游项目声明 MIT；模型由 CelebAMask-HQ 训练），来源 https://github.com/yakhyo/face-parsing/releases/download/weights/resnet18.onnx ，上游许可证随 public/vendor/face-parsing/LICENSE 保存。预处理按上游 onnx_inference.py 的 RGB/512×512/ImageNet归一化实现。ONNX Runtime Web 1.22.0（MIT），许可证随 public/vendor/onnxruntime/LICENSE 保存。发型候选排序、颜色采样和六脸型有界拟合为本项目实现；不包含GPT或其他云端API调用。
 
 本轮动漫捏脸研究另参考 ariankordi/FFL.js 的面部遮罩架构（仓库 AGPLv3）、Konva 的独立图形变换（MIT）及 pixiv/three-vrm 的 MToon 明暗设计（MIT）。仅研究架构与设计思路，没有复制上述项目源码、增加上述运行依赖，或下载/引入 FFL 游戏资源。具体来源、实现边界和实际效果见 qa/AVATAR_ANIME_REDESIGN_REVIEW.md。qa 中的动漫角色研究图用于本地效果审查，不代表相关作品授权或精确复刻。
+
+### RobotExpressive animation tracks
+Tomás Laulhé (Quaternius), RobotExpressive. Source: https://github.com/mrdoob/three.js/tree/r180/examples/models/gltf/RobotExpressive . License: CC0 1.0, https://creativecommons.org/publicdomain/zero/1.0/ . Walking, Dance and Wave rotations were sampled and retargeted to the island cast. Only the derived limb samples are included in src/retargeted-motion.json.

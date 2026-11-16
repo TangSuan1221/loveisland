@@ -1,0 +1,19 @@
+id,category,label_zh,base_rate,gate_mode,gate_rp_threshold,gate_scale,survival_meaning
+T00,Relation,人际烦悩,456,always,0,0,主引擎：照抄 Tomodachi
+T01,Food,食物烦悩,140,always,0,0,谁少吃了一口
+T02,Water,水烦悩,120,always,0,0,水源争夺
+T03,Warmth,柴火烦悩,90,winter,0,0,谁烧了别人的柴（仅冬季）
+T04,Cloth,衣物烦悩,60,always,0,0,照抄
+T05,IslandEdit,岛作り烦悩,50,always,0,0,照抄
+T06,Other,その他,30,always,0,0,照抄
+T07,Question,質問系,10,always,0,0,照抄
+T08,Goods,属性グッズ,10,always,0,0,照抄
+T09,RoomStyle,リフォーム,10,always,0,0,照抄
+T10,Fight,ケンカ烦悩,200,gated,2.0,3.0,饥荒才打架
+T11,Steal,盗み,200,gated,2.0,3.0,饥荒才偷窃
+T12,Abandon,見捨て,200,gated,2.4,3.0,绝境才见死不救
+T13,Mourn,哀悼,0,after_death,0,0,只能由死亡挂出
+T14,Depress,落ち込み,0,always,0,0,只能作为后果
+T15,Introduction,序盤専用,0,always,0,0,只能作为后果
+T16,Family,家族,80,has_lover,0,0,同居/生子/分手（无恋人时权重归零）
+T17,Explore,探索,200,has_unknown_site,0,0,发现资源点（无未知点位时权重归零；权重 × 1/剩余最易点位难度）

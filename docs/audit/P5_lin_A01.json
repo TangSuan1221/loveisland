@@ -1,0 +1,12 @@
+{
+  "action": "A01_30fps",
+  "frames": 181,
+  "contactSlideMetres": {
+    "l_0_180": 4.552795910858016e-07,
+    "r_0_180": 7.212949041072359e-07
+  },
+  "minimumSoleZ": -7.501803338527679e-07,
+  "handTorsoFrames": [],
+  "loopMetres": 1.8671101460071903e-07,
+  "loopDegrees": 0.0
+}

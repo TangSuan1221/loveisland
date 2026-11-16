@@ -1,0 +1,39 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>荒岛心跳 · 场景盲评</title>
+<style>
+*{box-sizing:border-box}body{max-width:1700px;margin:auto;padding:22px;background:#192025;color:#eff1e8;font:16px/1.5 system-ui}h1{font-size:22px}label{display:block;margin:12px 0}input,textarea,button{font:inherit}button{padding:.45em 1em;cursor:pointer}main{display:grid;grid-template-columns:1fr 1fr;gap:6px}figure{margin:0;background:#101417;text-align:center}img{width:100%;height:min(62vh,680px);object-fit:contain;display:block}figcaption{padding:4px}textarea{display:block;width:min(900px,100%);height:75px}output{display:block;white-space:pre-wrap;margin:14px 0}[hidden]{display:none!important}
+</style><h1>场景盲评</h1><form id="setup"><p>制板人载入两张同机位图片，开始后将屏幕交给评审。</p><label>评审素材 <select id="mode"><option value="island">正式全岛</option><option value="custom">自选两张图</option></select></label><p id="preset">正式全岛使用已归档的游戏截图。请选择对应机位的原图。</p><label>参考图或前次实拍 <input id="baseline" type="file" accept="image/*" required></label><label id="candidateRow" hidden>候选实拍 <input id="candidate" type="file" accept="image/*"></label><button>随机排列并开始</button></form>
+<section id="review" hidden><main><figure><img id="left" alt="A"><figcaption>A</figcaption></figure><figure><img id="right" alt="B"><figcaption>B</figcaption></figure></main><form id="vote"><label>哪张更接近手绘科幻岛屿的氛围？ <select id="choice"><option>A</option><option>B</option><option>平票</option></select></label><label>指出两个具体画面位置与判断依据<textarea id="reason" required></textarea></label><button>提交判断并揭盲</button></form><output id="result"></output><button id="again" hidden>下一轮</button></section>
+<script type="module">
+const get=id=>document.getElementById(id);
+let order=[],urls=[];
+get('mode').onchange=()=>{
+ const custom=get('mode').value==='custom';
+ get('candidateRow').hidden=!custom;
+ get('candidate').required=custom;
+ get('preset').hidden=custom;
+};
+get('setup').onsubmit=async event=>{
+ event.preventDefault();
+ const baseline=get('baseline').files[0],candidate=get('candidate').files[0];
+ const asEntry=file=>{
+   const src=URL.createObjectURL(file);
+   urls.push(src);
+   return {src,name:file.name};
+ };
+ urls=[];
+ order=[asEntry(baseline),get('mode').value==='custom'?asEntry(candidate):
+  {src:'../../qa/art-review/playable-island.png',name:'正式全岛 · playable-island.png'}];
+ if(crypto.getRandomValues(new Uint8Array(1))[0]&1)order.reverse();
+ get('left').src=order[0].src;get('right').src=order[1].src;
+ try{await Promise.all([get('left').decode(),get('right').decode()]);}
+ catch{urls.forEach(URL.revokeObjectURL);alert('图片读取失败，请重新选择。');return;}
+ urls.forEach(URL.revokeObjectURL);
+ get('setup').hidden=true;get('review').hidden=false;
+};
+get('vote').onsubmit=event=>{
+ event.preventDefault();
+ const report=['判断：'+get('choice').value,'依据：'+get('reason').value,'A：'+order[0].name,'B：'+order[1].name].join('\n');
+ get('result').textContent=report;get('vote').hidden=true;get('again').hidden=false;
+};
+get('again').onclick=()=>location.reload();
+</script></html>

@@ -1,0 +1,5 @@
+gate,cond,blocked_tier,note
+scene_flow,SupplyRatio>=0.95 AND avgSatiety>=50 AND no_band_S,M60,饥荒不演小剧场（满足率≤1，不能写 2.0）
+romance,bothSatiety>=50 AND bothWarmth>=40,proposal,冻/饿时不告白
+social_decay,avgSatiety<30,all_social,x0.3 而不是禁用
+fight_boost,RP>2.0,Fight,max(0；200*(RP-2)*3)

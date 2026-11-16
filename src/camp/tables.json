@@ -1,0 +1,1252 @@
+{
+  "terrain": [
+    {
+      "key": "deep",
+      "label_zh": "深海",
+      "walkable": 0,
+      "buildable": 0,
+      "move_cost": 0,
+      "can_skin": 0,
+      "note": ""
+    },
+    {
+      "key": "shallow",
+      "label_zh": "浅水",
+      "walkable": 0,
+      "buildable": 0,
+      "move_cost": 0,
+      "can_skin": 0,
+      "note": ""
+    },
+    {
+      "key": "sand",
+      "label_zh": "沙滩",
+      "walkable": 1,
+      "buildable": 1,
+      "move_cost": 5,
+      "can_skin": 1,
+      "note": ""
+    },
+    {
+      "key": "soil",
+      "label_zh": "泥土地",
+      "walkable": 1,
+      "buildable": 1,
+      "move_cost": 4,
+      "can_skin": 1,
+      "note": ""
+    },
+    {
+      "key": "grass",
+      "label_zh": "草地",
+      "walkable": 1,
+      "buildable": 1,
+      "move_cost": 4,
+      "can_skin": 1,
+      "note": ""
+    },
+    {
+      "key": "forest",
+      "label_zh": "林地",
+      "walkable": 1,
+      "buildable": 0,
+      "move_cost": 7,
+      "can_skin": 0,
+      "note": ""
+    },
+    {
+      "key": "rock",
+      "label_zh": "岩地",
+      "walkable": 1,
+      "buildable": 0,
+      "move_cost": 8,
+      "can_skin": 0,
+      "note": ""
+    },
+    {
+      "key": "cliff",
+      "label_zh": "崖",
+      "walkable": 0,
+      "buildable": 0,
+      "move_cost": 0,
+      "can_skin": 0,
+      "note": ""
+    }
+  ],
+  "skins": [
+    {
+      "skin_id": "grass_a",
+      "base": "grass",
+      "label_zh": "春草",
+      "unlock_day": 0,
+      "note": ""
+    },
+    {
+      "skin_id": "grass_b",
+      "base": "grass",
+      "label_zh": "深草",
+      "unlock_day": 0,
+      "note": ""
+    },
+    {
+      "skin_id": "grass_c",
+      "base": "grass",
+      "label_zh": "枯草",
+      "unlock_day": 0,
+      "note": ""
+    },
+    {
+      "skin_id": "sand_a",
+      "base": "sand",
+      "label_zh": "白砂",
+      "unlock_day": 0,
+      "note": ""
+    },
+    {
+      "skin_id": "sand_b",
+      "base": "sand",
+      "label_zh": "黄砂",
+      "unlock_day": 0,
+      "note": ""
+    },
+    {
+      "skin_id": "soil_a",
+      "base": "soil",
+      "label_zh": "夯土",
+      "unlock_day": 0,
+      "note": ""
+    },
+    {
+      "skin_id": "soil_b",
+      "base": "soil",
+      "label_zh": "碎石土",
+      "unlock_day": 0,
+      "note": ""
+    },
+    {
+      "skin_id": "path_a",
+      "base": "",
+      "label_zh": "土路皮",
+      "unlock_day": 0,
+      "note": ""
+    },
+    {
+      "skin_id": "forest_a",
+      "base": "forest",
+      "label_zh": "密林",
+      "unlock_day": 0,
+      "note": ""
+    },
+    {
+      "skin_id": "rock_a",
+      "base": "rock",
+      "label_zh": "青岩",
+      "unlock_day": 0,
+      "note": ""
+    },
+    {
+      "skin_id": "rock_b",
+      "base": "rock",
+      "label_zh": "红岩",
+      "unlock_day": 12,
+      "note": ""
+    },
+    {
+      "skin_id": "snow",
+      "base": "grass",
+      "label_zh": "雪",
+      "unlock_day": 0,
+      "note": ""
+    }
+  ],
+  "roads": [
+    {
+      "road": 0,
+      "key": "none",
+      "label_zh": "无",
+      "move_cost": 0,
+      "wood_per_tile": 0,
+      "hours_per_tile": 0,
+      "winter": 0,
+      "note": ""
+    },
+    {
+      "road": 1,
+      "key": "dirt",
+      "label_zh": "土路",
+      "move_cost": 2,
+      "wood_per_tile": 0.25,
+      "hours_per_tile": 0.25,
+      "winter": 0,
+      "note": ""
+    },
+    {
+      "road": 2,
+      "key": "stone",
+      "label_zh": "石板",
+      "move_cost": 2,
+      "wood_per_tile": 0.5,
+      "hours_per_tile": 0.5,
+      "winter": 0,
+      "note": ""
+    },
+    {
+      "road": 3,
+      "key": "board",
+      "label_zh": "木栈道",
+      "move_cost": 2,
+      "wood_per_tile": 0.4,
+      "hours_per_tile": 0.4,
+      "winter": 0,
+      "note": ""
+    }
+  ],
+  "structures": [
+    {
+      "id": "fire_pit",
+      "name_zh": "火塘",
+      "cat": "warmth",
+      "w": 1,
+      "h": 1,
+      "rotatable": 0,
+      "terrain": "land",
+      "wood": 4,
+      "door_x": 0,
+      "door_y": 0,
+      "access": "land",
+      "blocks": 1,
+      "walkable": 0,
+      "allow_camp": 1,
+      "warmth_radius": 3,
+      "warmth_bonus": 6,
+      "beds": 0,
+      "max_count": 3,
+      "unlock_day": 0,
+      "hp": 10,
+      "affordance": "ObjBonfire",
+      "tags": [
+        "fire",
+        "door"
+      ],
+      "upgrade_to": "",
+      "note": ""
+    },
+    {
+      "id": "bonfire",
+      "name_zh": "篝火",
+      "cat": "warmth",
+      "w": 2,
+      "h": 2,
+      "rotatable": 0,
+      "terrain": "land",
+      "wood": 20,
+      "door_x": 0,
+      "door_y": 1,
+      "access": "land",
+      "blocks": 1,
+      "walkable": 0,
+      "allow_camp": 0,
+      "warmth_radius": 5,
+      "warmth_bonus": 8,
+      "beds": 0,
+      "max_count": 2,
+      "unlock_day": 8,
+      "hp": 20,
+      "affordance": "ObjBonfire",
+      "tags": [
+        "fire",
+        "night"
+      ],
+      "upgrade_to": "",
+      "note": ""
+    },
+    {
+      "id": "tent",
+      "name_zh": "帐篷",
+      "cat": "shelter",
+      "w": 2,
+      "h": 2,
+      "rotatable": 1,
+      "terrain": "land",
+      "wood": 10,
+      "door_x": 0,
+      "door_y": 1,
+      "access": "land",
+      "blocks": 1,
+      "walkable": 0,
+      "allow_camp": 0,
+      "warmth_radius": 0,
+      "warmth_bonus": 4,
+      "beds": 1,
+      "max_count": 6,
+      "unlock_day": 0,
+      "hp": 10,
+      "affordance": "Bed",
+      "tags": [
+        "home",
+        "bed"
+      ],
+      "upgrade_to": "hut",
+      "note": ""
+    },
+    {
+      "id": "hut",
+      "name_zh": "木屋",
+      "cat": "shelter",
+      "w": 3,
+      "h": 3,
+      "rotatable": 1,
+      "terrain": "land",
+      "wood": 30,
+      "door_x": 1,
+      "door_y": 2,
+      "access": "land",
+      "blocks": 1,
+      "walkable": 0,
+      "allow_camp": 0,
+      "warmth_radius": 0,
+      "warmth_bonus": 4,
+      "beds": 2,
+      "max_count": 6,
+      "unlock_day": 5,
+      "hp": 30,
+      "affordance": "Bed",
+      "tags": [
+        "home",
+        "bed"
+      ],
+      "upgrade_to": "house",
+      "note": ""
+    },
+    {
+      "id": "house",
+      "name_zh": "石屋",
+      "cat": "shelter",
+      "w": 4,
+      "h": 4,
+      "rotatable": 1,
+      "terrain": "land",
+      "wood": 70,
+      "door_x": 1,
+      "door_y": 3,
+      "access": "land",
+      "blocks": 1,
+      "walkable": 0,
+      "allow_camp": 0,
+      "warmth_radius": 0,
+      "warmth_bonus": 4,
+      "beds": 4,
+      "max_count": 3,
+      "unlock_day": 15,
+      "hp": 60,
+      "affordance": "Bed",
+      "tags": [
+        "home",
+        "bed",
+        "rich"
+      ],
+      "upgrade_to": "longhouse",
+      "note": ""
+    },
+    {
+      "id": "longhouse",
+      "name_zh": "长屋",
+      "cat": "shelter",
+      "w": 6,
+      "h": 4,
+      "rotatable": 1,
+      "terrain": "grass",
+      "wood": 120,
+      "door_x": 2,
+      "door_y": 3,
+      "access": "land",
+      "blocks": 1,
+      "walkable": 0,
+      "allow_camp": 0,
+      "warmth_radius": 0,
+      "warmth_bonus": 4,
+      "beds": 8,
+      "max_count": 1,
+      "unlock_day": 30,
+      "hp": 120,
+      "affordance": "Bed",
+      "tags": [
+        "home",
+        "bed",
+        "commune"
+      ],
+      "upgrade_to": "",
+      "note": ""
+    },
+    {
+      "id": "kitchen",
+      "name_zh": "灶房",
+      "cat": "food",
+      "w": 3,
+      "h": 2,
+      "rotatable": 1,
+      "terrain": "land",
+      "wood": 25,
+      "door_x": 1,
+      "door_y": 1,
+      "access": "land",
+      "blocks": 1,
+      "walkable": 0,
+      "allow_camp": 0,
+      "warmth_radius": 0,
+      "warmth_bonus": 0,
+      "beds": 0,
+      "max_count": 1,
+      "unlock_day": 8,
+      "hp": 25,
+      "affordance": "Kitchen",
+      "tags": [
+        "food",
+        "cook"
+      ],
+      "upgrade_to": "",
+      "note": ""
+    },
+    {
+      "id": "drying_rack",
+      "name_zh": "晾架",
+      "cat": "food",
+      "w": 2,
+      "h": 1,
+      "rotatable": 1,
+      "terrain": "land",
+      "wood": 10,
+      "door_x": 0,
+      "door_y": 0,
+      "access": "land",
+      "blocks": 1,
+      "walkable": 0,
+      "allow_camp": 0,
+      "warmth_radius": 0,
+      "warmth_bonus": 0,
+      "beds": 0,
+      "max_count": 2,
+      "unlock_day": 4,
+      "hp": 10,
+      "affordance": "",
+      "tags": [
+        "food"
+      ],
+      "upgrade_to": "",
+      "note": ""
+    },
+    {
+      "id": "farm",
+      "name_zh": "菜畦",
+      "cat": "food",
+      "w": 3,
+      "h": 3,
+      "rotatable": 0,
+      "terrain": "grass",
+      "wood": 8,
+      "door_x": 1,
+      "door_y": 2,
+      "access": "land",
+      "blocks": 0,
+      "walkable": 0,
+      "allow_camp": 0,
+      "warmth_radius": 0,
+      "warmth_bonus": 0,
+      "beds": 0,
+      "max_count": 4,
+      "unlock_day": 3,
+      "hp": 10,
+      "affordance": "",
+      "tags": [
+        "food",
+        "farm"
+      ],
+      "upgrade_to": "",
+      "note": ""
+    },
+    {
+      "id": "well",
+      "name_zh": "水井",
+      "cat": "water",
+      "w": 2,
+      "h": 2,
+      "rotatable": 0,
+      "terrain": "land",
+      "wood": 25,
+      "door_x": 0,
+      "door_y": 1,
+      "access": "land",
+      "blocks": 1,
+      "walkable": 0,
+      "allow_camp": 0,
+      "warmth_radius": 0,
+      "warmth_bonus": 0,
+      "beds": 0,
+      "max_count": 1,
+      "unlock_day": 12,
+      "hp": 25,
+      "affordance": "ObjDrinkingFountain",
+      "tags": [
+        "water"
+      ],
+      "upgrade_to": "",
+      "note": ""
+    },
+    {
+      "id": "pier",
+      "name_zh": "码头",
+      "cat": "water",
+      "w": 1,
+      "h": 3,
+      "rotatable": 1,
+      "terrain": "water",
+      "wood": 15,
+      "door_x": 0,
+      "door_y": 2,
+      "access": "water",
+      "blocks": 0,
+      "walkable": 1,
+      "allow_camp": 0,
+      "warmth_radius": 0,
+      "warmth_bonus": 0,
+      "beds": 0,
+      "max_count": 2,
+      "unlock_day": 6,
+      "hp": 15,
+      "affordance": "",
+      "tags": [
+        "water",
+        "fish"
+      ],
+      "upgrade_to": "",
+      "note": ""
+    },
+    {
+      "id": "bridge",
+      "name_zh": "木桥",
+      "cat": "infra",
+      "w": 1,
+      "h": 3,
+      "rotatable": 1,
+      "terrain": "span",
+      "wood": 15,
+      "door_x": 0,
+      "door_y": 2,
+      "access": "span",
+      "blocks": 0,
+      "walkable": 1,
+      "allow_camp": 0,
+      "warmth_radius": 0,
+      "warmth_bonus": 0,
+      "beds": 0,
+      "max_count": 4,
+      "unlock_day": 1,
+      "hp": 15,
+      "affordance": "",
+      "tags": [
+        "cross"
+      ],
+      "upgrade_to": "",
+      "note": ""
+    },
+    {
+      "id": "fence",
+      "name_zh": "栅栏",
+      "cat": "infra",
+      "w": 1,
+      "h": 1,
+      "rotatable": 0,
+      "terrain": "land",
+      "wood": 1,
+      "door_x": 0,
+      "door_y": 0,
+      "access": "none",
+      "blocks": 1,
+      "walkable": 0,
+      "allow_camp": 1,
+      "warmth_radius": 0,
+      "warmth_bonus": 0,
+      "beds": 0,
+      "max_count": 64,
+      "unlock_day": 0,
+      "hp": 5,
+      "affordance": "",
+      "tags": [
+        "wall"
+      ],
+      "upgrade_to": "",
+      "note": ""
+    },
+    {
+      "id": "gate",
+      "name_zh": "木门",
+      "cat": "infra",
+      "w": 1,
+      "h": 1,
+      "rotatable": 1,
+      "terrain": "land",
+      "wood": 3,
+      "door_x": 0,
+      "door_y": 0,
+      "access": "none",
+      "blocks": 0,
+      "walkable": 1,
+      "allow_camp": 1,
+      "warmth_radius": 0,
+      "warmth_bonus": 0,
+      "beds": 0,
+      "max_count": 8,
+      "unlock_day": 0,
+      "hp": 10,
+      "affordance": "",
+      "tags": [
+        "wall"
+      ],
+      "upgrade_to": "",
+      "note": ""
+    },
+    {
+      "id": "lantern",
+      "name_zh": "灯柱",
+      "cat": "infra",
+      "w": 1,
+      "h": 1,
+      "rotatable": 0,
+      "terrain": "land",
+      "wood": 3,
+      "door_x": 0,
+      "door_y": 0,
+      "access": "none",
+      "blocks": 1,
+      "walkable": 0,
+      "allow_camp": 1,
+      "warmth_radius": 4,
+      "warmth_bonus": 0,
+      "beds": 0,
+      "max_count": 8,
+      "unlock_day": 4,
+      "hp": 8,
+      "affordance": "Lamp",
+      "tags": [
+        "night",
+        "light"
+      ],
+      "upgrade_to": "",
+      "note": ""
+    },
+    {
+      "id": "sign",
+      "name_zh": "告示板",
+      "cat": "infra",
+      "w": 1,
+      "h": 1,
+      "rotatable": 0,
+      "terrain": "land",
+      "wood": 2,
+      "door_x": 0,
+      "door_y": 0,
+      "access": "none",
+      "blocks": 1,
+      "walkable": 0,
+      "allow_camp": 1,
+      "warmth_radius": 0,
+      "warmth_bonus": 0,
+      "beds": 0,
+      "max_count": 6,
+      "unlock_day": 2,
+      "hp": 5,
+      "affordance": "",
+      "tags": [
+        "notice"
+      ],
+      "upgrade_to": "",
+      "note": ""
+    },
+    {
+      "id": "bench",
+      "name_zh": "长椅",
+      "cat": "social",
+      "w": 2,
+      "h": 1,
+      "rotatable": 1,
+      "terrain": "land",
+      "wood": 4,
+      "door_x": 0,
+      "door_y": 0,
+      "access": "land",
+      "blocks": 1,
+      "walkable": 0,
+      "allow_camp": 1,
+      "warmth_radius": 0,
+      "warmth_bonus": 0,
+      "beds": 0,
+      "max_count": 6,
+      "unlock_day": 1,
+      "hp": 8,
+      "affordance": "Bench",
+      "tags": [
+        "rest",
+        "social"
+      ],
+      "upgrade_to": "",
+      "note": ""
+    },
+    {
+      "id": "plaza",
+      "name_zh": "喷泉广场",
+      "cat": "social",
+      "w": 3,
+      "h": 3,
+      "rotatable": 0,
+      "terrain": "grass",
+      "wood": 40,
+      "door_x": 1,
+      "door_y": 2,
+      "access": "land",
+      "blocks": 0,
+      "walkable": 0,
+      "allow_camp": 0,
+      "warmth_radius": 0,
+      "warmth_bonus": 0,
+      "beds": 0,
+      "max_count": 1,
+      "unlock_day": 7,
+      "hp": 20,
+      "affordance": "Fountain",
+      "tags": [
+        "plaza",
+        "gather"
+      ],
+      "upgrade_to": "",
+      "note": ""
+    },
+    {
+      "id": "clinic",
+      "name_zh": "诊所",
+      "cat": "health",
+      "w": 3,
+      "h": 3,
+      "rotatable": 0,
+      "terrain": "land",
+      "wood": 60,
+      "door_x": 1,
+      "door_y": 2,
+      "access": "land",
+      "blocks": 1,
+      "walkable": 0,
+      "allow_camp": 0,
+      "warmth_radius": 0,
+      "warmth_bonus": 4,
+      "beds": 0,
+      "max_count": 1,
+      "unlock_day": 20,
+      "hp": 60,
+      "affordance": "",
+      "tags": [
+        "sick",
+        "care"
+      ],
+      "upgrade_to": "",
+      "note": ""
+    },
+    {
+      "id": "shop",
+      "name_zh": "商店",
+      "cat": "social",
+      "w": 4,
+      "h": 3,
+      "rotatable": 0,
+      "terrain": "land",
+      "wood": 80,
+      "door_x": 1,
+      "door_y": 2,
+      "access": "land",
+      "blocks": 1,
+      "walkable": 0,
+      "allow_camp": 0,
+      "warmth_radius": 0,
+      "warmth_bonus": 0,
+      "beds": 0,
+      "max_count": 1,
+      "unlock_day": 25,
+      "hp": 80,
+      "affordance": "FoodShop",
+      "tags": [
+        "shop",
+        "trade"
+      ],
+      "upgrade_to": "",
+      "note": ""
+    },
+    {
+      "id": "storage",
+      "name_zh": "仓库",
+      "cat": "infra",
+      "w": 3,
+      "h": 3,
+      "rotatable": 1,
+      "terrain": "land",
+      "wood": 35,
+      "door_x": 1,
+      "door_y": 2,
+      "access": "land",
+      "blocks": 1,
+      "walkable": 0,
+      "allow_camp": 0,
+      "warmth_radius": 0,
+      "warmth_bonus": 0,
+      "beds": 0,
+      "max_count": 2,
+      "unlock_day": 10,
+      "hp": 20,
+      "affordance": "",
+      "tags": [
+        "store"
+      ],
+      "upgrade_to": "",
+      "note": ""
+    },
+    {
+      "id": "watchtower",
+      "name_zh": "瞭望塔",
+      "cat": "landmark",
+      "w": 3,
+      "h": 3,
+      "rotatable": 0,
+      "terrain": "grass",
+      "wood": 80,
+      "door_x": 1,
+      "door_y": 2,
+      "access": "land",
+      "blocks": 1,
+      "walkable": 0,
+      "allow_camp": 0,
+      "warmth_radius": 0,
+      "warmth_bonus": 0,
+      "beds": 0,
+      "max_count": 1,
+      "unlock_day": 18,
+      "hp": 80,
+      "affordance": "",
+      "tags": [
+        "lookout",
+        "warning"
+      ],
+      "upgrade_to": "",
+      "note": ""
+    },
+    {
+      "id": "lighthouse",
+      "name_zh": "灯塔",
+      "cat": "landmark",
+      "w": 2,
+      "h": 2,
+      "rotatable": 0,
+      "terrain": "shore",
+      "wood": 50,
+      "door_x": 0,
+      "door_y": 1,
+      "access": "land",
+      "blocks": 1,
+      "walkable": 0,
+      "allow_camp": 0,
+      "warmth_radius": 6,
+      "warmth_bonus": 0,
+      "beds": 0,
+      "max_count": 1,
+      "unlock_day": 22,
+      "hp": 50,
+      "affordance": "Lamp",
+      "tags": [
+        "coast",
+        "night"
+      ],
+      "upgrade_to": "",
+      "note": ""
+    },
+    {
+      "id": "woodpile",
+      "name_zh": "柴垛",
+      "cat": "infra",
+      "w": 1,
+      "h": 1,
+      "rotatable": 0,
+      "terrain": "land",
+      "wood": 3,
+      "door_x": 0,
+      "door_y": 0,
+      "access": "none",
+      "blocks": 1,
+      "walkable": 0,
+      "allow_camp": 0,
+      "warmth_radius": 0,
+      "warmth_bonus": 0,
+      "beds": 0,
+      "max_count": 8,
+      "unlock_day": 2,
+      "hp": 10,
+      "affordance": "",
+      "tags": [
+        "store",
+        "fire"
+      ],
+      "upgrade_to": "",
+      "note": ""
+    }
+  ],
+  "interiors": [
+    {
+      "id": "bare",
+      "name_zh": "家徒四壁",
+      "wood": 0,
+      "beauty": 0,
+      "tags": [
+        "home"
+      ],
+      "unlock_day": 0,
+      "note": ""
+    },
+    {
+      "id": "warm",
+      "name_zh": "暖屋",
+      "wood": 8,
+      "beauty": 1,
+      "tags": [
+        "home",
+        "cozy"
+      ],
+      "unlock_day": 2,
+      "note": ""
+    },
+    {
+      "id": "fisher",
+      "name_zh": "渔家",
+      "wood": 12,
+      "beauty": 2,
+      "tags": [
+        "home",
+        "fish"
+      ],
+      "unlock_day": 5,
+      "note": ""
+    },
+    {
+      "id": "farmhouse",
+      "name_zh": "田园",
+      "wood": 12,
+      "beauty": 2,
+      "tags": [
+        "home",
+        "farm"
+      ],
+      "unlock_day": 6,
+      "note": ""
+    },
+    {
+      "id": "stone",
+      "name_zh": "石屋风",
+      "wood": 18,
+      "beauty": 3,
+      "tags": [
+        "home",
+        "stone"
+      ],
+      "unlock_day": 12,
+      "note": ""
+    },
+    {
+      "id": "clinic_white",
+      "name_zh": "诊所白",
+      "wood": 20,
+      "beauty": 3,
+      "tags": [
+        "care",
+        "clean"
+      ],
+      "unlock_day": 20,
+      "note": ""
+    },
+    {
+      "id": "shopfront",
+      "name_zh": "铺面",
+      "wood": 24,
+      "beauty": 3,
+      "tags": [
+        "shop"
+      ],
+      "unlock_day": 25,
+      "note": ""
+    },
+    {
+      "id": "commune",
+      "name_zh": "大通铺",
+      "wood": 30,
+      "beauty": 2,
+      "tags": [
+        "home",
+        "commune"
+      ],
+      "unlock_day": 28,
+      "note": ""
+    }
+  ],
+  "engineering": [
+    {
+      "action": "fill",
+      "label_zh": "填海",
+      "wood_per_tile": 0.5,
+      "hours_per_tile": 1,
+      "winter": 0,
+      "output": "",
+      "note": ""
+    },
+    {
+      "action": "clear_forest",
+      "label_zh": "清林",
+      "wood_per_tile": 0,
+      "hours_per_tile": 4,
+      "winter": 0,
+      "output": "wood:3",
+      "note": ""
+    },
+    {
+      "action": "clear_rock",
+      "label_zh": "清岩",
+      "wood_per_tile": 0,
+      "hours_per_tile": 6,
+      "winter": 0,
+      "output": "stone:2",
+      "note": ""
+    },
+    {
+      "action": "pave",
+      "label_zh": "铺装",
+      "wood_per_tile": 0,
+      "hours_per_tile": 0,
+      "winter": 0,
+      "output": "",
+      "note": ""
+    },
+    {
+      "action": "unpave",
+      "label_zh": "拆铺装",
+      "wood_per_tile": 0,
+      "hours_per_tile": 0.1,
+      "winter": 1,
+      "output": "wood:0.1",
+      "note": ""
+    },
+    {
+      "action": "skin",
+      "label_zh": "换皮",
+      "wood_per_tile": 0,
+      "hours_per_tile": 0,
+      "winter": 1,
+      "output": "",
+      "note": ""
+    },
+    {
+      "action": "expand",
+      "label_zh": "扩岛",
+      "wood_per_tile": 0,
+      "hours_per_tile": 9,
+      "winter": 0,
+      "output": "",
+      "note": ""
+    }
+  ],
+  "expansion": [
+    {
+      "stage": 0,
+      "radius": 24,
+      "need_day": 0,
+      "need_built": 0,
+      "wood": 0,
+      "hours": 0,
+      "note": ""
+    },
+    {
+      "stage": 1,
+      "radius": 26,
+      "need_day": 20,
+      "need_built": 6,
+      "wood": 60,
+      "hours": 9,
+      "note": ""
+    },
+    {
+      "stage": 2,
+      "radius": 28,
+      "need_day": 40,
+      "need_built": 12,
+      "wood": 120,
+      "hours": 9,
+      "note": ""
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": "S_new_home",
+      "category": "Camp",
+      "party": "2",
+      "scene_cond": "struct_cat:shelter>=1",
+      "branch_id": "B1",
+      "rate": "40",
+      "effect": ""
+    },
+    {
+      "scene_id": "S_new_home",
+      "category": "Camp",
+      "party": "2",
+      "scene_cond": "struct_cat:shelter>=1",
+      "branch_id": "B2",
+      "rate": "35",
+      "effect": ""
+    },
+    {
+      "scene_id": "S_new_home",
+      "category": "Camp",
+      "party": "2",
+      "scene_cond": "struct_cat:shelter>=1",
+      "branch_id": "B3",
+      "rate": "25",
+      "effect": ""
+    },
+    {
+      "scene_id": "S_homeless",
+      "category": "Camp",
+      "party": "2",
+      "scene_cond": "homeless",
+      "branch_id": "B1",
+      "rate": "40",
+      "effect": ""
+    },
+    {
+      "scene_id": "S_homeless",
+      "category": "Camp",
+      "party": "2",
+      "scene_cond": "homeless",
+      "branch_id": "B2",
+      "rate": "35",
+      "effect": ""
+    },
+    {
+      "scene_id": "S_homeless",
+      "category": "Camp",
+      "party": "2",
+      "scene_cond": "homeless",
+      "branch_id": "B3",
+      "rate": "25",
+      "effect": ""
+    },
+    {
+      "scene_id": "S_upgrade",
+      "category": "Camp",
+      "party": "2",
+      "scene_cond": "struct_cat:shelter>=1",
+      "branch_id": "B1",
+      "rate": "40",
+      "effect": ""
+    },
+    {
+      "scene_id": "S_upgrade",
+      "category": "Camp",
+      "party": "2",
+      "scene_cond": "struct_cat:shelter>=1",
+      "branch_id": "B2",
+      "rate": "35",
+      "effect": ""
+    },
+    {
+      "scene_id": "S_upgrade",
+      "category": "Camp",
+      "party": "2",
+      "scene_cond": "struct_cat:shelter>=1",
+      "branch_id": "B3",
+      "rate": "25",
+      "effect": ""
+    },
+    {
+      "scene_id": "S_first_cross",
+      "category": "Camp",
+      "party": "2",
+      "scene_cond": "struct:bridge",
+      "branch_id": "B1",
+      "rate": "40",
+      "effect": ""
+    },
+    {
+      "scene_id": "S_first_cross",
+      "category": "Camp",
+      "party": "2",
+      "scene_cond": "struct:bridge",
+      "branch_id": "B2",
+      "rate": "35",
+      "effect": ""
+    },
+    {
+      "scene_id": "S_first_cross",
+      "category": "Camp",
+      "party": "2",
+      "scene_cond": "struct:bridge",
+      "branch_id": "B3",
+      "rate": "25",
+      "effect": ""
+    },
+    {
+      "scene_id": "S_wall_dispute",
+      "category": "Camp",
+      "party": "2",
+      "scene_cond": "at:wall",
+      "branch_id": "B1",
+      "rate": "40",
+      "effect": ""
+    },
+    {
+      "scene_id": "S_wall_dispute",
+      "category": "Camp",
+      "party": "2",
+      "scene_cond": "at:wall",
+      "branch_id": "B2",
+      "rate": "35",
+      "effect": ""
+    },
+    {
+      "scene_id": "S_wall_dispute",
+      "category": "Camp",
+      "party": "2",
+      "scene_cond": "at:wall",
+      "branch_id": "B3",
+      "rate": "25",
+      "effect": ""
+    },
+    {
+      "scene_id": "S_island_grew",
+      "category": "Camp",
+      "party": "2",
+      "scene_cond": "any",
+      "branch_id": "B1",
+      "rate": "40",
+      "effect": ""
+    },
+    {
+      "scene_id": "S_island_grew",
+      "category": "Camp",
+      "party": "2",
+      "scene_cond": "any",
+      "branch_id": "B2",
+      "rate": "35",
+      "effect": ""
+    },
+    {
+      "scene_id": "S_island_grew",
+      "category": "Camp",
+      "party": "2",
+      "scene_cond": "any",
+      "branch_id": "B3",
+      "rate": "25",
+      "effect": ""
+    }
+  ],
+  "hash": "555496ed1f810490340a20e71ff7a01cffc1bd6a51c1d2c591f8d6d61aad33d0"
+}

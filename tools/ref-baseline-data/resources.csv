@@ -1,0 +1,4 @@
+key,label_zh,unit,initial,per_person_day,per_worker_day,spring,summer,autumn,winter,carry_ref,carry_k,carry_max,note
+food,食物,份,12,1.0,1.5,1.0,1.3,1.0,0.85,16,2,1.5,采集；承载力：存活 16 人时人均产出=1.0，人少有余裕（上限 1.5x），人多递减
+water,水,份,12,1.0,6.0,1.0,1.0,1.0,0.7,16,2,1.5,泉眼取水；夏季需求另乘1.5；承载力同上
+firewood,柴火,捆,6,0.0,1.1,1.0,1.0,1.0,1.0,16,2,1.5,冬季每人每天0.5捆（合6捆/12人）；承载力同上

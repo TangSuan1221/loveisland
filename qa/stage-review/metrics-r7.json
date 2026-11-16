@@ -1,0 +1,63 @@
+{
+  "cabin": {
+    "url": "http://127.0.0.1:5188/?perf=cabin&t=2&still=1&seed=7",
+    "sha256": "cb42ddf245ea09e79140ace4bd40439d8bd6274a701c2402d96e6d8cf623df91",
+    "secondSha256": "cb42ddf245ea09e79140ace4bd40439d8bd6274a701c2402d96e6d8cf623df91",
+    "deterministic": true,
+    "errors": [],
+    "stats": {
+      "stage": "cabin",
+      "quality": 0,
+      "width": 1920,
+      "height": 1080,
+      "hdr": true,
+      "drawCalls": 6,
+      "layerCalls": 1,
+      "fxCalls": 1,
+      "actorCalls": 1,
+      "bloomLevels": 5,
+      "triangles": 81174
+    },
+    "metrics": {
+      "p50": 0.17557997557997557,
+      "black": 0.007723283179012346,
+      "white": 0,
+      "largestCluster": 0.16103225806451613,
+      "majorHueFamilies": 1,
+      "dominantHueFamilyShare": 0.9601876832844576,
+      "verticalLumaDifference": 0.13211233211233214,
+      "flatPatchGrain": 0.009911643317806758,
+      "largestFlatStep": 0.01832360849948602,
+      "flatPatchCount": 78,
+      "actorEdgeRatio": 2.6601256227879753,
+      "rimRatio": 2.0414012738853504,
+      "actorTop": 0.058333333333333334,
+      "actorBottom": 0.9990740740740741,
+      "highlightCount": 3078,
+      "anchoredFraction": 0.9057829759584145,
+      "foregroundFraction": 0.09948736496913581,
+      "gates": {
+        "median": true,
+        "black": true,
+        "white": true,
+        "dominantCluster": false,
+        "hueFamilies": true,
+        "edge": true,
+        "gradient": true,
+        "grain": true,
+        "highlightAnchor": true,
+        "banding": false,
+        "rim": true,
+        "composition": false
+      }
+    },
+    "timing": {
+      "device": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5070 (0x00002F04) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "samples": 48,
+      "meanFps": 149.06832298136646,
+      "medianRafMs": 6.699999999999818,
+      "p95RafMs": 7.300000000000182,
+      "medianSubmissionMs": 0.8999999994412065
+    }
+  }
+}

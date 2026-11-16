@@ -1,0 +1,12 @@
+{
+  "action": "Stand_Up_30fps",
+  "frames": 28,
+  "contactSlideMetres": {
+    "l_0_27": 3.140535858584835e-07,
+    "r_0_27": 4.3175214565942313e-07
+  },
+  "minimumSoleZ": 9.712297469377518e-06,
+  "handTorsoFrames": [],
+  "loopMetres": 0.3872716977164882,
+  "loopDegrees": 55.8935632177844
+}

@@ -1,0 +1,20 @@
+{
+  "1": {
+    "scene": "hanami",
+    "candidate": "A",
+    "opponent": "B",
+    "opponentSource": "original"
+  },
+  "2": {
+    "scene": "cabin",
+    "candidate": "B",
+    "opponent": "A",
+    "opponentSource": "original"
+  },
+  "3": {
+    "scene": "orb",
+    "candidate": "B",
+    "opponent": "A",
+    "opponentSource": "original"
+  }
+}

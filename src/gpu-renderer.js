@@ -1,10 +1,9 @@
 import { WebGPURenderer } from 'three/webgpu';
 
-// All active views share the WebGPU renderer path. Never silently claim that
-// a WebGL fallback is WebGPU: a missing adapter is an actionable startup error.
+// Keep the node-material renderer on both backends so actors and events share
+// one shading pipeline when the browser offers WebGL2 without a WebGPU adapter.
 export async function createGPURenderer(options = {}) {
-  if (!navigator.gpu) throw new Error('当前浏览器未开放 WebGPU。请在开启硬件加速的新版 Chrome 或 Edge 中打开游戏。');
-  const renderer = new WebGPURenderer({ antialias: true, ...options });
+  const renderer = new WebGPURenderer({ antialias: true, forceWebGL: !navigator.gpu, ...options });
   const dispose = renderer.dispose.bind(renderer);
   let disposed = false;
   renderer.dispose = () => {
@@ -18,11 +17,11 @@ export async function createGPURenderer(options = {}) {
   };
   try {
     await renderer.init();
-    if (!renderer.backend.isWebGPUBackend) throw new Error('WebGPU 设备初始化失败，请检查浏览器硬件加速与显卡驱动。');
-    renderer.domElement.dataset.backend = 'webgpu';
+    renderer.domElement.dataset.backend = renderer.backend.isWebGPUBackend ? 'webgpu' : 'webgl2';
     return renderer;
   } catch (error) {
     renderer.dispose();
     throw error;
   }
 }
+

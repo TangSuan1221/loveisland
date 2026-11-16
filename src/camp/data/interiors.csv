@@ -1,0 +1,9 @@
+id,name_zh,wood,beauty,tags,unlock_day,note
+bare,家徒四壁,0,0,home,0,
+warm,暖屋,8,1,home|cozy,2,
+fisher,渔家,12,2,home|fish,5,
+farmhouse,田园,12,2,home|farm,6,
+stone,石屋风,18,3,home|stone,12,
+clinic_white,诊所白,20,3,care|clean,20,
+shopfront,铺面,24,3,shop,25,
+commune,大通铺,30,2,home|commune,28,

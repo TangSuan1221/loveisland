@@ -1,0 +1,7 @@
+site_id,resource,x,y,capacity,regen_per_day,discover_difficulty,winter_penalty,initial_state,discover_season,note
+E01_spring_north,water,120,45,40,18.0,1,1.0,known,any,北泉：开局已知
+E02_spring_east,water,310,180,25,9.0,2,1.4,unknown,any,东泉：远，冬天路滑
+E03_grove_west,firewood,60,220,60,9.0,1,1.0,known,any,西林：开局已知
+E04_grove_south,firewood,280,90,45,7.0,3,1.8,unknown,winter,南林：深林，只有冬天落叶后才看得见路；冬季探索最伤人
+E05_berry_patch,food,180,150,45,20.0,2,0.85,known,any,浆果丛：开局已知，就在营地边
+E06_fish_cove,food,340,40,35,8.0,4,0.5,unknown,any,渔湾：最难发现；冬季鱼少

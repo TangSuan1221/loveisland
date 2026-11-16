@@ -1,0 +1,4 @@
+stage,radius,need_day,need_built,wood,hours,note
+0,24,0,0,0,0,
+1,26,20,6,60,9,
+2,28,40,12,120,9,

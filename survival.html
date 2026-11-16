@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>残酷小岛</title>
+  <link rel="stylesheet" href="/src/survival-island/ui/style.css" />
+</head>
+<body>
+  <canvas id="view"></canvas>
+
+  <!-- 顶栏：时间 / 库存（只给定性档位）/ 民心 / 速度 -->
+  <header id="hud">
+    <div class="clock"><span id="h-day">第 1 天</span><span id="h-time">06:00</span></div>
+    <div class="stocks">
+      <span class="stock"><i class="dot food"></i>食物 <b id="h-food">—</b></span>
+      <span class="stock"><i class="dot water"></i>水 <b id="h-water">—</b></span>
+      <span class="stock"><i class="dot wood"></i>柴火 <b id="h-wood">—</b></span>
+      <span class="stock" id="h-fire" hidden>🔥 营火</span>
+    </div>
+    <div class="mood">民心 <b id="h-mood">—</b></div>
+    <div class="pop"><span id="h-pop">—</span></div>
+    <div class="speed">
+      <button data-speed="0" title="暂停 (空格)">⏸</button>
+      <button data-speed="1" class="on">1×</button>
+      <button data-speed="2">2×</button>
+      <button data-speed="4">4×</button>
+      <button data-speed="8">8×</button>
+    </div>
+    <div class="menu">
+      <label title="高张力场景（打架、偷窃、死亡…）抽中时自动暂停"><input type="checkbox" id="autopause" checked /> 大事暂停</label>
+      <label title="选中岛民时显示他的关系连线"><input type="checkbox" id="showlines" checked /> 关系线</label>
+      <button id="btn-save">存档</button>
+      <button id="btn-load">读档</button>
+      <button id="btn-new">新岛</button>
+      <button id="btn-help">?</button>
+    </div>
+  </header>
+
+  <!-- 左：岛民名册 -->
+  <aside id="roster"><h3>岛民</h3><ul id="roster-list"></ul></aside>
+
+  <!-- 右：选中岛民详情 / 点位详情 / 指令 -->
+  <aside id="detail" hidden>
+    <button class="close" id="detail-close">×</button>
+    <div id="detail-body"></div>
+  </aside>
+
+  <!-- 名牌（HTML 覆盖层） -->
+  <div id="labels"></div>
+
+  <!-- 事件卡（右下）。≥85 张力强推 -->
+  <section id="cards"></section>
+
+  <!-- 编年史（底部时间轴） -->
+  <footer id="chronicle">
+    <div id="timeline"></div>
+    <div id="chron-detail"></div>
+  </footer>
+
+  <!-- 政策面板（底部左） -->
+  <section id="policy">
+    <div class="row">配给 <input type="range" id="ration" min="0" max="2" step="0.1" value="1" /> <b id="ration-v">正常</b></div>
+    <div class="row"><label><input type="checkbox" id="winterprep" checked /> 秋季为冬天储柴</label></div>
+  </section>
+
+  <div id="toast"></div>
+  <div id="help" hidden>
+    <div class="box">
+      <h2>残酷小岛 · 玩法</h2>
+      <p>你是岛的意志。你不能控制任何人，只能 <b>定配给、偏袒、调解、放逐、指派岗位</b>。</p>
+      <ul>
+        <li>点岛民 → 右侧看他的状态与 <b>他对每个人的关系</b>（只显示档位名，不显示数字）。地图上会展开关系线：<br/>
+          颜色 = 关系档位，<b>线越粗 = 心里越有疙瘩</b>（你看不到具体数值），虚线 = 单方面的感情，箭头 = 方向。</li>
+        <li>头顶左边是情绪，右边是最急的需求（黄→橙→红）。白发偏淡的是老人（≥60 岁），最怕冷。</li>
+        <li>灰色旋转的雾 = 还没人去过的地方，岛民会自己去探路。柱子 = 已知资源点，高度 = 还剩多少。</li>
+        <li>打架、偷窃、死亡等大事会弹出事件卡并暂停，写着「为什么」。底部时间轴可以点回去看。</li>
+        <li>拖拽旋转视角，右键 / Shift+拖拽平移，滚轮缩放，空格暂停。</li>
+      </ul>
+      <button id="help-close">开始</button>
+    </div>
+  </div>
+  <script type="module" src="/src/survival-island/main.ts"></script>
+</body>
+</html>

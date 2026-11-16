@@ -1,0 +1,8 @@
+choice_id,option_id,text,command,note
+CH_ABANDON,C1,伸手去拉,mediate,发 mediate(F,T)：救不救已由分支决定。玩家能做的只有插手未来
+CH_ABANDON,C2,转身走开,,不发指令：纯旁观
+
+CH_CAMP_new_home,C1,问问落单的嘉宾,mediate,协调床位
+CH_CAMP_new_home,C2,让他们自己商量,,旁观
+CH_CAMP_wall_dispute,C1,听听双方意见,mediate,协调动线
+CH_CAMP_wall_dispute,C2,先看他们怎么走,,旁观

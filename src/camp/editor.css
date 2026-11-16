@@ -1,0 +1,11 @@
+.camp-editor{width:min(900px,94vw);max-height:90vh;border:0;border-radius:16px;background:#faf5e9;color:#253b34;padding:20px;font:15px/1.55 system-ui}
+.camp-editor::backdrop{background:#102c30b8}
+.camp-editor header,.camp-editor main{display:flex;gap:18px;align-items:flex-start}
+.camp-editor header{align-items:center;justify-content:space-between;margin-bottom:12px}
+.camp-editor h2,.camp-editor h3{margin:0 0 7px}
+.camp-view{width:min(62%,65vh);aspect-ratio:1;overflow:auto;flex:none}.camp-editor canvas{display:block;width:100%;aspect-ratio:1;cursor:crosshair;touch-action:none}.camp-editor section{max-height:67vh;overflow:auto}.camp-editor section button{margin:3px}.camp-editor strong[data-summary]{display:block;margin-bottom:8px}
+.camp-editor section{flex:1}
+.camp-editor button,.camp-editor select{font:inherit;padding:5px 10px;border:1px solid #a7b2a4;border-radius:6px;color:#1f3933;background:white}
+.camp-editor button:disabled{opacity:.52}
+.camp-editor output{display:block;margin-top:10px;font-weight:bold}
+@media(max-width:620px){.camp-editor main{flex-direction:column}.camp-view{width:min(100%,48vh)}}

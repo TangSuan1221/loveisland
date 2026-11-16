@@ -49,3 +49,4 @@
 .av-reference-calibration .av-reference-content small{font-size:10px;line-height:1.5;color:#617568}
 @media(max-width:740px){.av-reference-calibration{max-width:210px}.av-reference-calibration .av-reference-content{width:210px;max-height:43vh}.av-reference-calibration .av-reference-thumb{height:70px}}
 @media(max-width:740px){.av-reference-calibration{width:calc(100% - 16px);max-width:210px}.av-reference-calibration .av-reference-content{width:100%}}
+.av-seed-controls{display:grid;gap:5px;padding:6px 12px}.av-seed-controls input{width:100%;min-width:0;box-sizing:border-box}

@@ -3,8 +3,8 @@
   "adapter": "Full candidate definitions, production calendar and browser overnight recovery; old simplified social-distribution evidence superseded",
   "scope": "Growth: external observed-event fixtures with legal public economy APIs, no cash/xp injection. Each map season: actual NPC events, facilities, services, environment feedback and health. Not browser or real player completion.",
   "hashes": {
-    "src/production-engine.js": "0bd9d2a26d04f52f8f65bdbe2e5d95f6f235f296a3c1cbb4acafa99931f00093",
-    "src/npc-simulation.js": "8cf6824f8ef30067ca3797afef4504f605173480bf859315750b1c771beb5e4c"
+    "src/production-engine.js": "a954f4c450787226ca47dbda1028960c24fff335f5afa5b6fd76d4510260c381",
+    "src/npc-simulation.js": "bcef1dc69d21a429ca4bc1c4fa0ed8130fa8fbb341b221bcaef0210501512eee"
   },
   "growthSeasons": [
     {
@@ -66,7 +66,7 @@
     {
       "map": "snow",
       "phase": "season",
-      "cash": 93927,
+      "cash": 87089,
       "days": [
         {
           "day": 1,
@@ -76,22 +76,22 @@
         {
           "day": 2,
           "exit": "normal",
-          "revenue": 15806
-        },
-        {
-          "day": 3,
-          "exit": "normal",
           "revenue": 14636
         },
         {
-          "day": 4,
+          "day": 3,
           "exit": "maintenance",
           "reason": "可录制嘉宾少于3人，请补救或提前收季。"
         },
         {
+          "day": 4,
+          "exit": "normal",
+          "revenue": 14636
+        },
+        {
           "day": 5,
           "exit": "normal",
-          "revenue": 15806
+          "revenue": 14636
         },
         {
           "day": 6,
@@ -101,13 +101,13 @@
         {
           "day": 7,
           "exit": "normal",
-          "revenue": 14636
+          "revenue": 15338
         }
       ],
-      "warmFrames": 5965,
-      "coldFrames": 3377,
-      "medicalEntries": 35,
-      "powerConsumed": 77,
+      "warmFrames": 6452,
+      "coldFrames": 4228,
+      "medicalEntries": 38,
+      "powerConsumed": 91,
       "privateFrames": 0,
       "privateMinimum": 100,
       "privateEvents": 0,
@@ -118,7 +118,7 @@
     {
       "map": "villa",
       "phase": "season",
-      "cash": 154327,
+      "cash": 152225,
       "days": [
         {
           "day": 1,
@@ -128,7 +128,7 @@
         {
           "day": 2,
           "exit": "normal",
-          "revenue": 15338
+          "revenue": 14636
         },
         {
           "day": 3,
@@ -138,7 +138,7 @@
         {
           "day": 4,
           "exit": "normal",
-          "revenue": 15338
+          "revenue": 14636
         },
         {
           "day": 5,
@@ -148,19 +148,19 @@
         {
           "day": 6,
           "exit": "normal",
-          "revenue": 15806
+          "revenue": 14636
         },
         {
           "day": 7,
           "exit": "normal",
-          "revenue": 14636
+          "revenue": 15338
         }
       ],
       "warmFrames": 0,
       "coldFrames": 0,
       "medicalEntries": 0,
       "powerConsumed": 42,
-      "privateFrames": 6464,
+      "privateFrames": 6448,
       "privateMinimum": 10,
       "privateEvents": 23,
       "privateLeaks": 0,

@@ -1,0 +1,13 @@
+skin_id,base,label_zh,unlock_day,note
+grass_a,grass,春草,0,
+grass_b,grass,深草,0,
+grass_c,grass,枯草,0,
+sand_a,sand,白砂,0,
+sand_b,sand,黄砂,0,
+soil_a,soil,夯土,0,
+soil_b,soil,碎石土,0,
+path_a,,土路皮,0,
+forest_a,forest,密林,0,
+rock_a,rock,青岩,0,
+rock_b,rock,红岩,12,
+snow,grass,雪,0,
