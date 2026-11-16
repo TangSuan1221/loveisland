@@ -1,0 +1,13 @@
+* text=auto eol=lf
+*.cmd text eol=crlf
+*.blend binary
+*.vrma binary
+*.onnx binary
+*.wasm binary
+*.task binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.webm binary
+*.xlsx binary

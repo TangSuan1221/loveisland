@@ -51,7 +51,7 @@ export function csvHash() {
   const h = crypto.createHash('sha256');
   for (const f of Object.keys(TABLES).sort()) {
     h.update(f + '\0');
-    h.update(fs.readFileSync(path.join(DATA, f)));
+    h.update(fs.readFileSync(path.join(DATA, f), 'utf8').replace(/\r\n/g, '\n'));
     h.update('\0');
   }
   return h.digest('hex').slice(0, 16);
