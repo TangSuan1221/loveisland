@@ -2,7 +2,7 @@
 // 改过 CSV 后运行 `node tools/gen-data.mjs`；validate-data.mjs 会比对下面的哈希。
 import type { GameData } from './types.ts';
 
-export const DATA_HASH = '818c62e271a4ec3e';
+export const DATA_HASH = 'f58d571cc88e8761';
 
 export const DATA: GameData = {
   stocks: [{"key":"Satiety","label_zh":"饱食","max":"100","per_hour_wake":"-2.58","per_hour_sleep":"0","warn_threshold":"40","crit_threshold":"20","zero_damage_hp":"3","zero_damage_period_hours":"6","zero_effect":"collapse","decay_target":"none"},{"key":"Hydration","label_zh":"水分","max":"100","per_hour_wake":"-4.17","per_hour_sleep":"0","warn_threshold":"35","crit_threshold":"10","zero_damage_hp":"6","zero_damage_period_hours":"4","zero_effect":"dehydrate","decay_target":"none"},{"key":"Rest","label_zh":"睡眠","max":"100","per_hour_wake":"-4.0","per_hour_sleep":"7.2","warn_threshold":"30","crit_threshold":"0","zero_damage_hp":"0","zero_damage_period_hours":"0","zero_effect":"drowsy","decay_target":"none"},{"key":"Warmth","label_zh":"体温","max":"100","per_hour_wake":"0","per_hour_sleep":"0","warn_threshold":"45","crit_threshold":"20","zero_damage_hp":"4","zero_damage_period_hours":"4","zero_effect":"hypothermia","decay_target":"none"},{"key":"Health","label_zh":"伤病","max":"100","per_hour_wake":"0","per_hour_sleep":"0","warn_threshold":"60","crit_threshold":"30","zero_damage_hp":"0","zero_damage_period_hours":"0","zero_effect":"death","decay_target":"none"}],
